@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Loan Calculator - Monthly Payment & Interest Calculator | Easy Online Tool</title>
+
+    <meta name="description" content="Use our free loan calculator to calculate monthly loan payments, total interest, total repayment and loan costs. Easy and fast online loan calculator.">
+
+    <meta name="keywords" content="loan calculator, monthly payment calculator, loan payment calculator, interest calculator, EMI calculator">
+
+    <link rel="canonical" href="https://easyonlinetools.github.io/my-tools/loan-calculator.html">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #2563eb;
+            color: white;
+            padding: 18px 20px;
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 18px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .tool-box {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            text-align: center;
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+
+        .intro {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 13px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .calculate-btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        .calculate-btn:hover {
+            opacity: 0.9;
+        }
+
+        .results {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .result-card {
+            background: #f1f5f9;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .result-card strong {
+            display: block;
+            font-size: 25px;
+            color: #2563eb;
+            margin-bottom: 5px;
+        }
+
+        .result-card span {
+            color: #555;
+            font-size: 14px;
+        }
+
+        .error {
+            color: #dc2626;
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .info {
+            margin-top: 35px;
+        }
+
+        .info h2 {
+            color: #1e3a8a;
+            margin-top: 22px;
+            margin-bottom: 10px;
+        }
+
+        .info p {
+            color: #555;
+            margin-bottom: 12px;
+        }
+
+        .formula {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            overflow-x: auto;
+        }
+
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+            margin-top: 50px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        @media (max-width: 700px) {
+
+            .header-container {
+                flex-direction: column;
+            }
+
+            nav a {
+                margin: 0 7px;
+            }
+
+            .tool-box {
+                padding: 22px;
+            }
+
+            .results {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+
+        <div class="logo">
+            Easy Online Tool
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html#tools">Tools</a>
+            <a href="index.html#categories">Categories</a>
+            <a href="index.html#faq">FAQ</a>
+        </nav>
+
+    </div>
+</header>
+
+<main class="container">
+
+    <div class="tool-box">
+
+        <h1>Free Loan Calculator</h1>
+
+        <p class="intro">
+            Calculate your monthly payment, total interest and total loan repayment.
+        </p>
+
+        <div class="form-group">
+
+            <label for="loanAmount">
+                Loan Amount
+            </label>
+
+            <input
+                type="number"
+                id="loanAmount"
+                placeholder="Example: 25000"
+                min="0"
+                step="0.01"
+            >
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="interestRate">
+                Annual Interest Rate (%)
+            </label>
+
+            <input
+                type="number"
+                id="interestRate"
+                placeholder="Example: 7.5"
+                min="0"
+                step="0.01"
+            >
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="loanTerm">
+                Loan Term (Years)
+            </label>
+
+            <input
+                type="number"
+                id="loanTerm"
+                placeholder="Example: 5"
+                min="1"
+                step="1"
+            >
+
+        </div>
+
+        <button class="calculate-btn" onclick="calculateLoan()">
+            Calculate Loan
+        </button>
+
+        <div id="error" class="error"></div>
+
+        <div class="results">
+
+            <div class="result-card">
+                <strong id="monthlyPayment">$0.00</strong>
+                <span>Monthly Payment</span>
+            </div>
+
+            <div class="result-card">
+                <strong id="totalPayment">$0.00</strong>
+                <span>Total Payment</span>
+            </div>
+
+            <div class="result-card">
+                <strong id="totalInterest">$0.00</strong>
+                <span>Total Interest</span>
+            </div>
+
+            <div class="result-card">
+                <strong id="totalMonths">0</strong>
+                <span>Total Months</span>
+            </div>
+
+        </div>
+
+        <div class="info">
+
+            <h2>What Is a Loan Calculator?</h2>
+
+            <p>
+                A loan calculator helps you estimate how much you may need
+                to pay each month for a loan. It can also show the estimated
+                total interest and total amount paid over the loan term.
+            </p>
+
+            <h2>How to Use the Loan Calculator</h2>
+
+            <p>
+                Enter the loan amount, annual interest rate and loan term.
+                Then click the Calculate Loan button to see your estimated
+                monthly payment and other results.
+            </p>
+
+            <h2>Loan Payment Formula</h2>
+
+            <p>
+                For a standard fixed-rate loan, the monthly payment is
+                calculated using the following formula:
+            </p>
+
+            <div class="formula">
+                M = P × [r(1 + r)<sup>n</sup>] ÷ [(1 + r)<sup>n</sup> − 1]
+            </div>
+
+            <p>
+                Where M is the monthly payment, P is the loan principal,
+                r is the monthly interest rate and n is the total number
+                of monthly payments.
+            </p>
+
+            <h2>Important Note</h2>
+
+            <p>
+                This calculator provides an estimate for informational
+                purposes. Actual loan payments may differ because of
+                fees, taxes, insurance, lender requirements and other
+                charges.
+            </p>
+
+        </div>
+
+    </div>
+
+</main>
+
+<footer>
+
+    <p>
+        © 2026 Easy Online Tool. All Rights Reserved.
+    </p>
+
+    <p>
+        <a href="index.html">Home</a> |
+        <a href="about.html">About</a> |
+        <a href="privacy-policy.html">Privacy Policy</a> |
+        <a href="contact.html">Contact</a>
+    </p>
+
+</footer>
+
+<script>
+
+function formatMoney(amount) {
+
+    return "$" + amount.toLocaleString("en-US", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    });
+
+}
+
+function calculateLoan() {
+
+    const loanAmount =
+        parseFloat(document.getElementById("loanAmount").value);
+
+    const annualRate =
+        parseFloat(document.getElementById("interestRate").value);
+
+    const years =
+        parseFloat(document.getElementById("loanTerm").value);
+
+    const error =
+        document.getElementById("error");
+
+    error.textContent = "";
+
+    if (
+        isNaN(loanAmount) ||
+        isNaN(annualRate) ||
+        isNaN(years) ||
+        loanAmount <= 0 ||
+        annualRate < 0 ||
+        years <= 0
+    ) {
+
+        error.textContent =
+            "Please enter valid loan details.";
+
+        return;
+    }
+
+    const months =
+        Math.round(years * 12);
+
+    const monthlyRate =
+        annualRate / 100 / 12;
+
+    let monthlyPayment;
+
+    if (monthlyRate === 0) {
+
+        monthlyPayment =
+            loanAmount / months;
+
+    } else {
+
+        monthlyPayment =
+            loanAmount *
+            (
+                monthlyRate *
+                Math.pow(1 + monthlyRate, months)
+            ) /
+            (
+                Math.pow(1 + monthlyRate, months) - 1
+            );
+
+    }
+
+    const totalPayment =
+        monthlyPayment * months;
+
+    const totalInterest =
+        totalPayment - loanAmount;
+
+    document.getElementById("monthlyPayment").textContent =
+        formatMoney(monthlyPayment);
+
+    document.getElementById("totalPayment").textContent =
+        formatMoney(totalPayment);
+
+    document.getElementById("totalInterest").textContent =
+        formatMoney(totalInterest);
+
+    document.getElementById("totalMonths").textContent =
+        months;
+
+}
+
+</script>
+
+</body>
+</html>
