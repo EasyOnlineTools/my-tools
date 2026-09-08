@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Math Calculators - Free Online Math Tools | Easy Online Tool</title>
+
+    <meta name="description" content="Free online math calculators including percentage, average, fraction, ratio, GCD, LCM and more. Easy-to-use math tools for students and everyday calculations.">
+
+    <meta name="keywords" content="math calculators, online math calculator, percentage calculator, fraction calculator, ratio calculator, average calculator">
+
+    <link rel="canonical" href="https://easyonlinetools.github.io/my-tools/math-calculators.html">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #2563eb;
+            color: white;
+            padding: 18px 20px;
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 18px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .hero h1 {
+            color: #1e3a8a;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            color: #666;
+            font-size: 17px;
+            max-width: 750px;
+            margin: auto;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .tool-card {
+            background: white;
+            padding: 25px;
+            border-radius: 14px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.07);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+        }
+
+        .tool-icon {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .tool-card h2 {
+            color: #1e3a8a;
+            font-size: 21px;
+            margin-bottom: 8px;
+        }
+
+        .tool-card p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .tool-link {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 7px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .tool-link:hover {
+            opacity: 0.9;
+        }
+
+        .coming-soon {
+            background: #64748b;
+        }
+
+        .info {
+            background: white;
+            margin-top: 40px;
+            padding: 30px;
+            border-radius: 14px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+        }
+
+        .info h2 {
+            color: #1e3a8a;
+            margin-bottom: 12px;
+        }
+
+        .info p {
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .back {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .back a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+            margin-top: 50px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        @media (max-width: 800px) {
+
+            .tools-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .header-container {
+                flex-direction: column;
+            }
+
+            nav a {
+                margin: 0 7px;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="header-container">
+
+        <div class="logo">
+            Easy Online Tool
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html#tools">Tools</a>
+            <a href="index.html#categories">Categories</a>
+            <a href="index.html#faq">FAQ</a>
+        </nav>
+
+    </div>
+
+</header>
+
+<main class="container">
+
+    <section class="hero">
+
+        <h1>Math Calculators</h1>
+
+        <p>
+            Explore our free online math calculators for percentages,
+            averages, fractions, ratios and other everyday mathematical
+            calculations.
+        </p>
+
+    </section>
+
+    <section class="tools-grid">
+
+        <!-- Percentage Calculator -->
+
+        <div class="tool-card">
+
+            <div class="tool-icon">📊</div>
+
+            <h2>Percentage Calculator</h2>
+
+            <p>
+                Calculate percentages, percentage increases,
+                decreases and more.
+            </p>
+
+            <a class="tool-link" href="percentage-calculator.html">
+                Use Calculator
+            </a>
+
+        </div>
+
+
+        <!-- Average Calculator -->
+
+        <div class="tool-card">
+
+            <div class="tool-icon">➗</div>
+
+            <h2>Average Calculator</h2>
+
+            <p>
+                Calculate the average or mean of a list of numbers.
+            </p>
+
+            <a class="tool-link coming-soon" href="#">
+                Coming Soon
+            </a>
+
+        </div>
+
+
+        <!-- Fraction Calculator -->
+
+        <div class="tool-card">
+
+            <div class="tool-icon">½</div>
+
+            <h2>Fraction Calculator</h2>
+
+            <p>
+                Add, subtract, multiply and divide fractions easily.
+            </p>
+
+            <a class="tool-link coming-soon" href="#">
+                Coming Soon
+            </a>
+
+        </div>
+
+
+        <!-- Ratio Calculator -->
+
+        <div class="tool-card">
+
+            <div class="tool-icon">⚖️</div>
+
+            <h2>Ratio Calculator</h2>
+
+            <p>
+                Calculate and simplify ratios quickly and easily.
+            </p>
+
+            <a class="tool-link coming-soon" href="#">
+                Coming Soon
+            </a>
+
+        </div>
+
+
+        <!-- GCD & LCM -->
+
+        <div class="tool-card">
+
+            <div class="tool-icon">🔢</div>
+
+            <h2>GCD & LCM Calculator</h2>
+
+            <p>
+                Find the greatest common divisor and least common multiple.
+            </p>
+
+            <a class="tool-link coming-soon" href="#">
+                Coming Soon
+            </a>
+
+        </div>
+
+
+        <!-- Prime Number Checker -->
+
+        <div class="tool-card">
+
+            <div class="tool-icon">🔍</div>
+
+            <h2>Prime Number Checker</h2>
+
+            <p>
+                Check whether a number is prime or not.
+            </p>
+
+            <a class="tool-link coming-soon" href="#">
+                Coming Soon
+            </a>
+
+        </div>
+
+
+        <!-- Random Number Generator -->
+
+        <div class="tool-card">
+
+            <div class="tool-icon">🎲</div>
+
+            <h2>Random Number Generator</h2>
+
+            <p>
+                Generate random numbers within any range.
+            </p>
+
+            <a class="tool-link coming-soon" href="#">
+                Coming Soon
+            </a>
+
+        </div>
+
+
+        <!-- Percentage Change -->
+
+        <div class="tool-card">
+
+            <div class="tool-icon">📈</div>
+
+            <h2>Percentage Increase & Decrease</h2>
+
+            <p>
+                Calculate percentage increases and decreases between numbers.
+            </p>
+
+            <a class="tool-link coming-soon" href="#">
+                Coming Soon
+            </a>
+
+        </div>
+
+
+        <!-- Number to Words -->
+
+        <div class="tool-card">
+
+            <div class="tool-icon">🔤</div>
+
+            <h2>Number to Words</h2>
+
+            <p>
+                Convert numbers into words quickly and easily.
+            </p>
+
+            <a class="tool-link coming-soon" href="#">
+                Coming Soon
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <section class="info">
+
+        <h2>Free Online Math Tools</h2>
+
+        <p>
+            Easy Online Tool provides simple and free mathematics
+            calculators for students, teachers, professionals and anyone
+            who needs quick calculations.
+        </p>
+
+        <p>
+            Our math tools are designed to work directly in your browser
+            without requiring downloads or registration.
+        </p>
+
+        <h2>More Math Calculators Coming Soon</h2>
+
+        <p>
+            We are continuously adding new calculators to make Easy Online
+            Tool a useful collection of free online tools for everyday
+            calculations.
+        </p>
+
+    </section>
+
+
+    <div class="back">
+
+        <a href="index.html">
+            ← Back to Easy Online Tool
+        </a>
+
+    </div>
+
+</main>
+
+<footer>
+
+    <p>
+        © 2026 Easy Online Tool. All Rights Reserved.
+    </p>
+
+    <p>
+        <a href="index.html">Home</a> |
+        <a href="about.html">About</a> |
+        <a href="privacy-policy.html">Privacy Policy</a> |
+        <a href="contact.html">Contact</a>
+    </p>
+
+</footer>
+
+</body>
+</html>
