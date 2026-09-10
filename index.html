@@ -18,6 +18,204 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
+        /* =================================
+   POPULAR TOOLS
+================================= */
+
+.popular-tools-section {
+    padding: 60px 20px;
+    background: #f8fafc;
+}
+
+.popular-tools-section .container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+
+/* Section Heading */
+
+.popular-tools-section .section-title {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.popular-tools-section .section-title h2 {
+    font-size: 32px;
+    color: #111827;
+    margin-bottom: 10px;
+}
+
+.popular-tools-section .section-title p {
+    color: #6b7280;
+    font-size: 16px;
+}
+
+
+/* Tool Grid */
+
+.popular-tools-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+
+/* Tool Card */
+
+.popular-tool-card {
+    display: block;
+    text-decoration: none;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 28px 22px;
+    text-align: center;
+    color: #1f2937;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+
+    transition: all 0.25s ease;
+}
+
+
+/* Hover */
+
+.popular-tool-card:hover {
+    transform: translateY(-6px);
+
+    border-color: #2563eb;
+
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.10);
+}
+
+
+/* Icon */
+
+.popular-tool-icon {
+    width: 60px;
+    height: 60px;
+
+    margin: 0 auto 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #eff6ff;
+
+    font-size: 30px;
+
+    color: #2563eb;
+}
+
+
+/* Title */
+
+.popular-tool-card h3 {
+    margin: 8px 0 10px;
+
+    font-size: 20px;
+
+    color: #1671d9;
+}
+
+
+/* Description */
+
+.popular-tool-card p {
+    margin: 0;
+
+    color: #6b7280;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    min-height: 45px;
+}
+
+
+/* Link */
+
+.popular-tool-card span {
+    display: inline-block;
+
+    margin-top: 18px;
+
+    color: #2563eb;
+
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+
+/* View All */
+
+.view-all-tools {
+    text-align: center;
+
+    margin-top: 35px;
+}
+
+.view-all-tools a {
+    display: inline-block;
+
+    padding: 12px 24px;
+
+    border-radius: 8px;
+
+    background: #2563eb;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+.view-all-tools a:hover {
+    background: #1d4ed8;
+}
+
+
+/* Tablet */
+
+@media (max-width: 850px) {
+
+    .popular-tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 550px) {
+
+    .popular-tools-section {
+        padding: 45px 15px;
+    }
+
+    .popular-tools-section .section-title h2 {
+        font-size: 28px;
+    }
+
+    .popular-tools-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .popular-tool-card {
+        padding: 25px 20px;
+    }
+
+}
 
         /* =========================
            GENERAL
