@@ -1,14 +1,16 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Easy Online Tool - Free Online Tools & Calculators</title>
+    <title>Smart Tools Hub - Free Online Tools & Calculators</title>
 
-    <meta name="description" content="Easy Online Tool provides free, fast, and easy-to-use online calculators and useful tools for everyday needs. Calculate age, percentage, BMI, discounts, and more.">
+    <meta name="description" content="Smart Tools Hub provides free online calculators and useful tools for everyday needs. Calculate age, percentage, BMI, discounts, and more quickly on any device.">
 
-    <meta name="keywords" content="easy online tool, free online tools, online calculators, age calculator, percentage calculator, BMI calculator, discount calculator, free calculator">
+    <meta name="keywords" content="free online tools, online calculators, age calculator, percentage calculator, BMI calculator, discount calculator, word counter, password generator">
 
     <meta name="robots" content="index, follow">
 
@@ -17,6 +19,10 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
+
+        /* =========================
+           GENERAL
+        ========================= */
 
         html {
             scroll-behavior: smooth;
@@ -40,7 +46,10 @@
             margin: auto;
         }
 
-        /* HEADER */
+
+        /* =========================
+           HEADER
+        ========================= */
 
         header {
             background: #ffffff;
@@ -83,7 +92,10 @@
             color: #1976d2;
         }
 
-        /* HERO */
+
+        /* =========================
+           HERO
+        ========================= */
 
         .hero {
             background: linear-gradient(135deg, #eaf4ff, #ffffff);
@@ -145,7 +157,10 @@
             background: #eef6ff;
         }
 
-        /* SEARCH */
+
+        /* =========================
+           SEARCH
+        ========================= */
 
         .search-area {
             margin-top: -30px;
@@ -182,7 +197,10 @@
             cursor: pointer;
         }
 
-        /* SECTIONS */
+
+        /* =========================
+           SECTIONS
+        ========================= */
 
         section {
             padding: 70px 0;
@@ -205,7 +223,10 @@
             margin: auto;
         }
 
-        /* TOOLS */
+
+        /* =========================
+           TOOL CARDS
+        ========================= */
 
         .tools-grid {
             display: grid;
@@ -253,7 +274,10 @@
             font-weight: 700;
         }
 
-        /* CATEGORIES */
+
+        /* =========================
+           CATEGORIES
+        ========================= */
 
         .categories-section {
             background: white;
@@ -288,7 +312,10 @@
             font-size: 14px;
         }
 
-        /* WHY US */
+
+        /* =========================
+           WHY US
+        ========================= */
 
         .why-grid {
             display: grid;
@@ -314,7 +341,10 @@
             color: #666;
         }
 
-        /* HOW IT WORKS */
+
+        /* =========================
+           HOW IT WORKS
+        ========================= */
 
         .steps {
             display: grid;
@@ -344,7 +374,10 @@
             font-size: 18px;
         }
 
-        /* FAQ */
+
+        /* =========================
+           FAQ
+        ========================= */
 
         .faq-container {
             max-width: 850px;
@@ -369,7 +402,10 @@
             margin-bottom: 0;
         }
 
-        /* CTA */
+
+        /* =========================
+           CTA
+        ========================= */
 
         .cta {
             background: #1976d2;
@@ -397,7 +433,10 @@
             font-weight: 700;
         }
 
-        /* FOOTER */
+
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
             background: #111827;
@@ -434,7 +473,10 @@
             font-size: 14px;
         }
 
-        /* MOBILE */
+
+        /* =========================
+           MOBILE
+        ========================= */
 
         @media (max-width: 900px) {
 
@@ -459,6 +501,7 @@
                 font-size: 38px;
             }
         }
+
 
         @media (max-width: 600px) {
 
@@ -515,7 +558,9 @@
     </style>
 </head>
 
+
 <body>
+
 
 <!-- HEADER -->
 
@@ -524,7 +569,7 @@
     <div class="container header-inner">
 
         <a href="index.html" class="logo">
-            Easy <span>Online Tool</span>
+            Smart <span>Tools Hub</span>
         </a>
 
         <nav>
@@ -540,6 +585,7 @@
 </header>
 
 
+
 <!-- HERO -->
 
 <section class="hero">
@@ -551,7 +597,7 @@
         </h1>
 
         <p>
-            Easy, fast, and useful online tools for everyday calculations,
+            Fast, simple, and useful online tools for everyday calculations,
             conversions, text tasks, health calculations, and more.
         </p>
 
@@ -570,6 +616,7 @@
     </div>
 
 </section>
+
 
 
 <!-- SEARCH -->
@@ -592,6 +639,7 @@
 </div>
 
 
+
 <!-- POPULAR TOOLS -->
 
 <section id="tools">
@@ -600,16 +648,20 @@
 
         <div class="section-title">
 
-            <h2>Popular Online Tools</h2>
+            <h2>Popular Tools</h2>
 
             <p>
-                Use our free calculators and tools to get quick and accurate results.
+                Try our most useful free online calculators and tools.
+                No complicated setup required.
             </p>
 
         </div>
 
-        <div class="tools-grid">
 
+        <div class="tools-grid" id="toolsGrid">
+
+
+            <!-- AGE -->
 
             <div class="tool-card">
 
@@ -628,6 +680,8 @@
             </div>
 
 
+            <!-- PERCENTAGE -->
+
             <div class="tool-card">
 
                 <div class="tool-icon">%</div>
@@ -635,8 +689,8 @@
                 <h3>Percentage Calculator</h3>
 
                 <p>
-                    Calculate percentages, increases, decreases,
-                    and percentage differences.
+                    Calculate percentages, percentage increases,
+                    decreases, and differences.
                 </p>
 
                 <a class="tool-link" href="percentage-calculator.html">
@@ -646,6 +700,8 @@
             </div>
 
 
+            <!-- BMI -->
+
             <div class="tool-card">
 
                 <div class="tool-icon">⚖️</div>
@@ -653,7 +709,7 @@
                 <h3>BMI Calculator</h3>
 
                 <p>
-                    Calculate your Body Mass Index using height and weight.
+                    Calculate your Body Mass Index using your height and weight.
                 </p>
 
                 <a class="tool-link" href="bmi-calculator.html">
@@ -663,6 +719,8 @@
             </div>
 
 
+            <!-- DISCOUNT -->
+
             <div class="tool-card">
 
                 <div class="tool-icon">🏷️</div>
@@ -670,7 +728,8 @@
                 <h3>Discount Calculator</h3>
 
                 <p>
-                    Calculate discount amounts, savings, and final sale prices.
+                    Calculate discounts, savings, and the final sale price
+                    of an item.
                 </p>
 
                 <a class="tool-link" href="discount-calculator.html">
@@ -679,6 +738,8 @@
 
             </div>
 
+
+            <!-- WORD COUNTER -->
 
             <div class="tool-card">
 
@@ -696,6 +757,8 @@
 
             </div>
 
+
+            <!-- PASSWORD -->
 
             <div class="tool-card">
 
@@ -721,6 +784,7 @@
 </section>
 
 
+
 <!-- CATEGORIES -->
 
 <section id="categories" class="categories-section">
@@ -732,20 +796,26 @@
             <h2>Explore Tool Categories</h2>
 
             <p>
-                Find the right free online tool for your needs.
+                Find the right tool quickly by exploring our growing collection.
             </p>
 
-<a href="math-calculators.html" class="category-card">
+        </div>
 
-    <h3>Math Calculators</h3>
 
-    <p>
-        Percentage, fraction, ratio and other useful math calculators.
-    </p>
+        <div class="category-grid">
 
-    <span>Explore Math Calculators →</span>
 
-</a>
+            <div class="category-card">
+
+                <h3>🧮 Math Calculators</h3>
+
+                <p>
+                    Percentage, average, fractions, ratios and other
+                    everyday math calculators.
+                </p>
+
+            </div>
+
 
             <div class="category-card">
 
@@ -753,7 +823,7 @@
 
                 <p>
                     Useful calculators for discounts, loans, interest,
-                    payments, and personal finance.
+                    payments and personal finance.
                 </p>
 
             </div>
@@ -764,8 +834,8 @@
                 <h3>❤️ Health & Fitness</h3>
 
                 <p>
-                    BMI, age, calories, and other useful health
-                    and fitness calculations.
+                    Calculate BMI, calories, age and other useful
+                    health and fitness measurements.
                 </p>
 
             </div>
@@ -776,8 +846,8 @@
                 <h3>📝 Text Tools</h3>
 
                 <p>
-                    Word counters, character counters, text utilities,
-                    and other writing tools.
+                    Count words and characters and perform useful
+                    text-related tasks.
                 </p>
 
             </div>
@@ -788,7 +858,7 @@
                 <h3>🔢 Number Tools</h3>
 
                 <p>
-                    Number calculators and useful mathematical utilities.
+                    Explore number calculators and helpful mathematical utilities.
                 </p>
 
             </div>
@@ -799,8 +869,8 @@
                 <h3>📅 Date & Time</h3>
 
                 <p>
-                    Calculate dates, durations, days between dates,
-                    and other time-related information.
+                    Calculate dates, durations, days between dates and
+                    other time-related information.
                 </p>
 
             </div>
@@ -811,8 +881,8 @@
                 <h3>🔄 Unit Converters</h3>
 
                 <p>
-                    Convert length, weight, temperature, volume,
-                    and other common units.
+                    Convert length, weight, temperature, volume and
+                    other common units.
                 </p>
 
             </div>
@@ -823,8 +893,8 @@
                 <h3>💻 Developer Tools</h3>
 
                 <p>
-                    Useful online utilities for developers,
-                    programmers, and website creators.
+                    Useful tools for developers, programmers and
+                    website creators.
                 </p>
 
             </div>
@@ -837,7 +907,8 @@
 </section>
 
 
-<!-- ABOUT -->
+
+<!-- WHY SMART TOOLS HUB -->
 
 <section id="about">
 
@@ -845,11 +916,10 @@
 
         <div class="section-title">
 
-            <h2>About Easy Online Tool</h2>
+            <h2>Why Use Smart Tools Hub?</h2>
 
             <p>
-                Easy Online Tool is designed to make everyday calculations
-                and online tasks simple, quick, and accessible.
+                We focus on making online tools simple, fast and accessible.
             </p>
 
         </div>
@@ -865,7 +935,7 @@
                 <h3>Fast & Easy</h3>
 
                 <p>
-                    Get results quickly without complicated forms
+                    Get results instantly without complicated forms
                     or unnecessary steps.
                 </p>
 
@@ -879,8 +949,8 @@
                 <h3>Mobile Friendly</h3>
 
                 <p>
-                    Use our tools on smartphones, tablets,
-                    laptops, and desktop computers.
+                    Our tools are designed to work smoothly on
+                    phones, tablets and computers.
                 </p>
 
             </div>
@@ -890,11 +960,11 @@
 
                 <div class="why-icon">🆓</div>
 
-                <h3>Free Online Tools</h3>
+                <h3>Free to Use</h3>
 
                 <p>
-                    Access useful calculators and online utilities
-                    directly from your web browser.
+                    Use our online calculators and utilities without
+                    complicated software installation.
                 </p>
 
             </div>
@@ -907,6 +977,7 @@
 </section>
 
 
+
 <!-- HOW IT WORKS -->
 
 <section>
@@ -915,10 +986,10 @@
 
         <div class="section-title">
 
-            <h2>How to Use Our Tools</h2>
+            <h2>How Smart Tools Hub Works</h2>
 
             <p>
-                Getting your result takes only a few simple steps.
+                Using our tools takes just a few simple steps.
             </p>
 
         </div>
@@ -934,7 +1005,7 @@
                 <h3>Choose a Tool</h3>
 
                 <p>
-                    Select the calculator or online tool you need.
+                    Select the calculator or online utility you need.
                 </p>
 
             </div>
@@ -944,10 +1015,10 @@
 
                 <div class="step-number">2</div>
 
-                <h3>Enter Your Information</h3>
+                <h3>Enter Your Data</h3>
 
                 <p>
-                    Enter the required numbers or information.
+                    Enter the required information into the calculator.
                 </p>
 
             </div>
@@ -960,7 +1031,7 @@
                 <h3>Get Your Result</h3>
 
                 <p>
-                    Click the calculate button and get your result instantly.
+                    Click calculate and receive your result instantly.
                 </p>
 
             </div>
@@ -971,6 +1042,7 @@
     </div>
 
 </section>
+
 
 
 <!-- FAQ -->
@@ -984,7 +1056,7 @@
             <h2>Frequently Asked Questions</h2>
 
             <p>
-                Common questions about Easy Online Tool.
+                Learn more about Smart Tools Hub and our online tools.
             </p>
 
         </div>
@@ -995,11 +1067,12 @@
 
             <div class="faq-item">
 
-                <h3>What is Easy Online Tool?</h3>
+                <h3>What is Smart Tools Hub?</h3>
 
                 <p>
-                    Easy Online Tool is a collection of free online calculators
-                    and useful web tools designed to make everyday tasks easier.
+                    Smart Tools Hub is a collection of free online calculators
+                    and useful web tools designed to make everyday tasks faster
+                    and easier.
                 </p>
 
             </div>
@@ -1007,11 +1080,11 @@
 
             <div class="faq-item">
 
-                <h3>Are the tools free to use?</h3>
+                <h3>Are the tools free?</h3>
 
                 <p>
-                    Yes. Our online calculators and tools are designed
-                    to be free and easy to use.
+                    Yes. Our online calculators and tools are designed to be
+                    free and easy to use.
                 </p>
 
             </div>
@@ -1019,11 +1092,11 @@
 
             <div class="faq-item">
 
-                <h3>Can I use the tools on my mobile phone?</h3>
+                <h3>Can I use Smart Tools Hub on my phone?</h3>
 
                 <p>
-                    Yes. Easy Online Tool is designed to work on smartphones,
-                    tablets, laptops, and desktop computers.
+                    Yes. The website is designed to work on smartphones,
+                    tablets, laptops and desktop computers.
                 </p>
 
             </div>
@@ -1034,8 +1107,8 @@
                 <h3>Do I need to install an app?</h3>
 
                 <p>
-                    No. Our tools work directly in your web browser.
-                    No software installation is required.
+                    No. Smart Tools Hub tools work directly in your web browser.
+                    There is no software installation required.
                 </p>
 
             </div>
@@ -1048,7 +1121,8 @@
 </section>
 
 
-<!-- CTA -->
+
+<!-- CALL TO ACTION -->
 
 <section class="cta">
 
@@ -1057,8 +1131,8 @@
         <h2>Find the Tool You Need</h2>
 
         <p>
-            Explore our growing collection of free calculators
-            and useful online tools.
+            Explore our growing collection of free calculators and
+            useful online tools.
         </p>
 
         <a href="#tools">
@@ -1068,6 +1142,7 @@
     </div>
 
 </section>
+
 
 
 <!-- FOOTER -->
@@ -1081,11 +1156,11 @@
 
             <div>
 
-                <h3>Easy Online Tool</h3>
+                <h3>Smart Tools Hub</h3>
 
                 <p>
                     Free Online Tools & Calculators for everyday needs.
-                    Simple, fast, and easy to use.
+                    Simple, fast and easy to use.
                 </p>
 
             </div>
@@ -1118,19 +1193,33 @@
 
                 <h3>Useful Links</h3>
 
-                <a href="index.html">Home</a>
+                <a href="index.html">
+                    Home
+                </a>
 
-                <a href="#tools">Tools</a>
+                <a href="#tools">
+                    Tools
+                </a>
 
-                <a href="#categories">Categories</a>
+                <a href="#categories">
+                    Categories
+                </a>
 
-                <a href="#about">About</a>
+                <a href="#about">
+                    About
+                </a>
 
-                <a href="privacy.html">Privacy Policy</a>
+                <a href="privacy.html">
+                    Privacy Policy
+                </a>
 
-                <a href="terms.html">Terms</a>
+                <a href="terms.html">
+                    Terms
+                </a>
 
-                <a href="contact.html">Contact</a>
+                <a href="contact.html">
+                    Contact
+                </a>
 
             </div>
 
@@ -1140,13 +1229,14 @@
 
         <div class="copyright">
 
-            © 2026 Easy Online Tool. All rights reserved.
+            © 2026 Smart Tools Hub. All rights reserved.
 
         </div>
 
     </div>
 
 </footer>
+
 
 
 <!-- SEARCH SCRIPT -->
@@ -1203,6 +1293,7 @@ document
     });
 
 </script>
+
 
 </body>
 </html>
