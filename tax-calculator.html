@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sales Tax Calculator - Easy Online Tool</title>
+
+    <meta name="description" content="Use our free Sales Tax Calculator to calculate sales tax and total price quickly and easily.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .tool-header {
+            text-align: center;
+            padding: 35px 15px 20px;
+        }
+
+        .tool-header h1 {
+            font-size: 36px;
+            color: #222;
+            margin-bottom: 10px;
+        }
+
+        .tool-header p {
+            color: #666;
+            font-size: 17px;
+        }
+
+        .calculator-card {
+            max-width: 600px;
+            margin: 20px auto 40px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #d5d9e0;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .input-group input:focus {
+            border-color: #4f46e5;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        button {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .calculate-btn {
+            background: #4f46e5;
+            color: white;
+        }
+
+        .calculate-btn:hover {
+            background: #3730a3;
+        }
+
+        .reset-btn {
+            background: #e5e7eb;
+            color: #333;
+        }
+
+        .reset-btn:hover {
+            background: #d1d5db;
+        }
+
+        .result {
+            display: none;
+            margin-top: 25px;
+            padding: 22px;
+            background: #f3f4ff;
+            border-radius: 10px;
+            border-left: 5px solid #4f46e5;
+        }
+
+        .result h2 {
+            font-size: 21px;
+            margin-bottom: 15px;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .result-row:last-child {
+            border-bottom: none;
+        }
+
+        .result-row strong {
+            color: #333;
+        }
+
+        .total {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .error {
+            display: none;
+            color: #dc2626;
+            margin-top: 15px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .info-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .info-section h2 {
+            margin-bottom: 12px;
+            font-size: 25px;
+        }
+
+        .info-section p {
+            color: #555;
+            margin-bottom: 12px;
+        }
+
+        @media (max-width: 600px) {
+
+            .container {
+                padding: 15px;
+            }
+
+            .tool-header h1 {
+                font-size: 28px;
+            }
+
+            .tool-header p {
+                font-size: 15px;
+            }
+
+            .calculator-card {
+                padding: 20px;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .info-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header class="tool-header">
+        <h1>Sales Tax Calculator</h1>
+        <p>Calculate sales tax and total price quickly and easily.</p>
+    </header>
+
+
+    <div class="calculator-card">
+
+        <div class="input-group">
+            <label for="price">Original Price</label>
+            <input
+                type="number"
+                id="price"
+                placeholder="Enter original price"
+                min="0"
+                step="0.01">
+        </div>
+
+        <div class="input-group">
+            <label for="tax">Sales Tax Rate (%)</label>
+            <input
+                type="number"
+                id="tax"
+                placeholder="Enter tax rate"
+                min="0"
+                step="0.01">
+        </div>
+
+        <div class="button-group">
+
+            <button
+                class="calculate-btn"
+                onclick="calculateTax()">
+                Calculate Tax
+            </button>
+
+            <button
+                class="reset-btn"
+                onclick="resetCalculator()">
+                Reset
+            </button>
+
+        </div>
+
+        <div class="error" id="error">
+            Please enter valid numbers.
+        </div>
+
+
+        <div class="result" id="result">
+
+            <h2>Calculation Result</h2>
+
+            <div class="result-row">
+                <span>Original Price:</span>
+                <strong id="originalPrice">$0.00</strong>
+            </div>
+
+            <div class="result-row">
+                <span>Sales Tax:</span>
+                <strong id="taxAmount">$0.00</strong>
+            </div>
+
+            <div class="result-row total">
+                <span>Total Price:</span>
+                <strong id="totalPrice">$0.00</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <section class="info-section">
+
+        <h2>What is a Sales Tax Calculator?</h2>
+
+        <p>
+            A Sales Tax Calculator helps you quickly determine how much
+            sales tax will be added to the original price of a product or service.
+        </p>
+
+        <p>
+            Simply enter the original price and sales tax percentage.
+            The calculator will show the tax amount and the final price
+            including tax.
+        </p>
+
+        <h2>How to Calculate Sales Tax</h2>
+
+        <p>
+            Sales Tax = Original Price × (Tax Rate ÷ 100)
+        </p>
+
+        <p>
+            Total Price = Original Price + Sales Tax
+        </p>
+
+    </section>
+
+</div>
+
+
+<script>
+
+function calculateTax() {
+
+    const price = parseFloat(document.getElementById("price").value);
+    const taxRate = parseFloat(document.getElementById("tax").value);
+
+    const result = document.getElementById("result");
+    const error = document.getElementById("error");
+
+    if (
+        isNaN(price) ||
+        isNaN(taxRate) ||
+        price < 0 ||
+        taxRate < 0
+    ) {
+
+        error.style.display = "block";
+        result.style.display = "none";
+
+        return;
+    }
+
+    error.style.display = "none";
+
+    const taxAmount = price * (taxRate / 100);
+
+    const totalPrice = price + taxAmount;
+
+    document.getElementById("originalPrice").textContent =
+        "$" + price.toFixed(2);
+
+    document.getElementById("taxAmount").textContent =
+        "$" + taxAmount.toFixed(2);
+
+    document.getElementById("totalPrice").textContent =
+        "$" + totalPrice.toFixed(2);
+
+    result.style.display = "block";
+}
+
+
+function resetCalculator() {
+
+    document.getElementById("price").value = "";
+    document.getElementById("tax").value = "";
+
+    document.getElementById("result").style.display = "none";
+    document.getElementById("error").style.display = "none";
+}
+
+</script>
+
+</body>
+</html>
