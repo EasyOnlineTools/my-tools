@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mortgage Calculator - Easy Online Tool</title>
+    <meta name="description" content="Use our free mortgage calculator to calculate monthly mortgage payments, total interest, and total payment.">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+        }
+
+        header {
+            background: #ffffff;
+            padding: 18px 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 18px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 45px auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 34px;
+        }
+
+        .description {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .calculator-card {
+            background: white;
+            padding: 30px;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f0f7ff;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .result h2 {
+            margin-top: 0;
+            color: #2563eb;
+            font-size: 22px;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #dbeafe;
+        }
+
+        .result-row:last-child {
+            border-bottom: none;
+        }
+
+        .result-value {
+            font-weight: bold;
+        }
+
+        .info-section {
+            background: white;
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .info-section h2 {
+            margin-top: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #777;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+            .header-container {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 0 7px;
+                font-size: 14px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .calculator-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <a href="index.html" class="logo">Easy Online Tool</a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="tools.html">Tools</a>
+            <a href="categories.html">Categories</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+
+    <h1>Mortgage Calculator</h1>
+
+    <p class="description">
+        Calculate your estimated monthly mortgage payment, total interest, and total payment.
+    </p>
+
+    <div class="calculator-card">
+
+        <div class="input-group">
+            <label for="loanAmount">Loan Amount</label>
+            <input type="number" id="loanAmount" placeholder="e.g. 300000" min="0" step="0.01">
+        </div>
+
+        <div class="input-group">
+            <label for="interestRate">Annual Interest Rate (%)</label>
+            <input type="number" id="interestRate" placeholder="e.g. 6.5" min="0" step="0.01">
+        </div>
+
+        <div class="input-group">
+            <label for="loanTerm">Loan Term (Years)</label>
+            <input type="number" id="loanTerm" placeholder="e.g. 30" min="1" step="1">
+        </div>
+
+        <button onclick="calculateMortgage()">Calculate Mortgage</button>
+
+        <div class="result" id="result">
+
+            <h2>Mortgage Results</h2>
+
+            <div class="result-row">
+                <span>Monthly Payment</span>
+                <span class="result-value" id="monthlyPayment"></span>
+            </div>
+
+            <div class="result-row">
+                <span>Total Payments</span>
+                <span class="result-value" id="totalPayment"></span>
+            </div>
+
+            <div class="result-row">
+                <span>Total Interest</span>
+                <span class="result-value" id="totalInterest"></span>
+            </div>
+
+            <div class="result-row">
+                <span>Number of Payments</span>
+                <span class="result-value" id="numberPayments"></span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="info-section">
+
+        <h2>How Does a Mortgage Calculator Work?</h2>
+
+        <p>
+            A mortgage calculator estimates the monthly payment required to repay a home loan
+            based on the loan amount, interest rate, and loan term.
+        </p>
+
+        <p>
+            The calculation uses the standard mortgage payment formula and assumes regular
+            monthly payments throughout the loan term.
+        </p>
+
+        <h3>Mortgage Payment Formula</h3>
+
+        <p>
+            Monthly Payment = P × [r(1+r)<sup>n</sup>] ÷ [(1+r)<sup>n</sup> − 1]
+        </p>
+
+        <p>
+            <strong>P</strong> = Loan amount<br>
+            <strong>r</strong> = Monthly interest rate<br>
+            <strong>n</strong> = Total number of monthly payments
+        </p>
+
+        <p>
+            This calculator provides an estimate. Actual mortgage costs may also include
+            taxes, insurance, fees, and other charges.
+        </p>
+
+    </div>
+
+</div>
+
+<footer>
+    © 2026 Easy Online Tool. All rights reserved.
+</footer>
+
+<script>
+function calculateMortgage() {
+
+    const loanAmount = parseFloat(document.getElementById("loanAmount").value);
+    const annualRate = parseFloat(document.getElementById("interestRate").value);
+    const years = parseFloat(document.getElementById("loanTerm").value);
+
+    if (
+        isNaN(loanAmount) ||
+        isNaN(annualRate) ||
+        isNaN(years) ||
+        loanAmount <= 0 ||
+        annualRate < 0 ||
+        years <= 0
+    ) {
+        alert("Please enter valid values.");
+        return;
+    }
+
+    const monthlyRate = annualRate / 100 / 12;
+    const numberOfPayments = years * 12;
+
+    let monthlyPayment;
+
+    if (monthlyRate === 0) {
+        monthlyPayment = loanAmount / numberOfPayments;
+    } else {
+        monthlyPayment =
+            loanAmount *
+            (
+                monthlyRate *
+                Math.pow(1 + monthlyRate, numberOfPayments)
+            ) /
+            (
+                Math.pow(1 + monthlyRate, numberOfPayments) - 1
+            );
+    }
+
+    const totalPayment = monthlyPayment * numberOfPayments;
+    const totalInterest = totalPayment - loanAmount;
+
+    document.getElementById("monthlyPayment").textContent =
+        formatNumber(monthlyPayment);
+
+    document.getElementById("totalPayment").textContent =
+        formatNumber(totalPayment);
+
+    document.getElementById("totalInterest").textContent =
+        formatNumber(totalInterest);
+
+    document.getElementById("numberPayments").textContent =
+        numberOfPayments.toLocaleString();
+
+    document.getElementById("result").style.display = "block";
+}
+
+function formatNumber(number) {
+    return number.toLocaleString(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    });
+}
+</script>
+
+</body>
+</html>
