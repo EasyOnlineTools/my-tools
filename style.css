@@ -1,7 +1,24 @@
 /* ================================
    TOOL CATEGORIES
 ================================ */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
+.logo-icon {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #2563eb;
+    color: white;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+}
 .categories-section {
     padding: 60px 20px;
     background: #ffffff;
