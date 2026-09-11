@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Prime Number Checker - Check Prime Numbers Online | Easy Online Tool</title>
+
+    <meta name="description" content="Free online prime number checker. Quickly determine whether a number is prime or not and see its factors.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 15px 20px;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 45px auto;
+            padding: 0 20px;
+        }
+
+        .tool-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .tool-header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .tool-header p {
+            color: #6b7280;
+            font-size: 17px;
+        }
+
+        .calculator {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #374151;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #d1d5db;
+            border-radius: 7px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .hint {
+            margin-top: 8px;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .calculate-btn {
+            width: 100%;
+            margin-top: 22px;
+            padding: 14px;
+            border: none;
+            border-radius: 7px;
+            background: #2563eb;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .calculate-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .clear-btn {
+            width: 100%;
+            margin-top: 10px;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 7px;
+            background: #ffffff;
+            color: #374151;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .clear-btn:hover {
+            background: #f3f4f6;
+        }
+
+        .result {
+            display: none;
+            margin-top: 25px;
+            padding: 25px;
+            background: #f0f7ff;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .result h2 {
+            margin-bottom: 12px;
+            color: #111827;
+        }
+
+        .result-status {
+            font-size: 30px;
+            font-weight: bold;
+            color: #2563eb;
+            margin-bottom: 12px;
+        }
+
+        .result p {
+            color: #4b5563;
+            margin-top: 8px;
+        }
+
+        .factors {
+            margin-top: 15px;
+            padding: 12px;
+            background: #ffffff;
+            border-radius: 7px;
+            word-break: break-word;
+        }
+
+        .info {
+            background: white;
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .info h2 {
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .info p {
+            margin-bottom: 14px;
+            color: #4b5563;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 25px 20px;
+            text-align: center;
+            background: #ffffff;
+            border-top: 1px solid #e5e7eb;
+            color: #6b7280;
+        }
+
+        footer a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        @media (max-width: 650px) {
+
+            .nav-container {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .tool-header h1 {
+                font-size: 28px;
+            }
+
+            .calculator {
+                padding: 20px;
+            }
+
+            .result-status {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="nav-container">
+
+        <a href="index.html" class="logo">
+            Easy Online Tool
+        </a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="tools.html">Tools</a>
+            <a href="categories.html">Categories</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+    <div class="tool-header">
+
+        <h1>Prime Number Checker</h1>
+
+        <p>
+            Check instantly whether a number is prime or not.
+        </p>
+
+    </div>
+
+
+    <div class="calculator">
+
+        <label for="number">
+            Enter a whole number
+        </label>
+
+        <input
+            type="number"
+            id="number"
+            placeholder="Example: 29"
+            min="0"
+            step="1"
+        >
+
+        <div class="hint">
+            Enter a positive whole number to check whether it is prime.
+        </div>
+
+
+        <button
+            class="calculate-btn"
+            onclick="checkPrime()"
+        >
+            Check Number
+        </button>
+
+
+        <button
+            class="clear-btn"
+            onclick="clearCalculator()"
+        >
+            Clear
+        </button>
+
+
+        <div class="result" id="result">
+
+            <h2>Result</h2>
+
+            <div class="result-status" id="resultStatus"></div>
+
+            <p id="resultExplanation"></p>
+
+            <div class="factors" id="factors"></div>
+
+        </div>
+
+    </div>
+
+
+    <div class="info">
+
+        <h2>What is a Prime Number?</h2>
+
+        <p>
+            A prime number is a whole number greater than 1 that has
+            exactly two positive factors: 1 and itself.
+        </p>
+
+        <p>
+            Examples of prime numbers include 2, 3, 5, 7, 11, 13,
+            17, 19 and 23.
+        </p>
+
+
+        <h2>What is a Composite Number?</h2>
+
+        <p>
+            A composite number is a whole number greater than 1 that
+            has more than two factors. For example, 12 has factors
+            1, 2, 3, 4, 6 and 12.
+        </p>
+
+
+        <h2>How to Use the Prime Number Checker</h2>
+
+        <p>
+            Enter a whole number and click "Check Number". The
+            calculator will tell you whether the number is prime
+            or not.
+        </p>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 Easy Online Tool. All rights reserved.
+    </p>
+
+    <p>
+        <a href="index.html">Home</a> |
+        <a href="privacy-policy.html">Privacy Policy</a> |
+        <a href="terms.html">Terms</a> |
+        <a href="contact.html">Contact</a>
+    </p>
+
+</footer>
+
+
+<script>
+
+function checkPrime() {
+
+    const input = document.getElementById("number").value;
+
+    if (input === "") {
+
+        alert("Please enter a number.");
+
+        return;
+    }
+
+
+    const number = Number(input);
+
+
+    if (!Number.isInteger(number)) {
+
+        alert("Please enter a whole number.");
+
+        return;
+    }
+
+
+    if (number < 0) {
+
+        alert("Please enter a positive whole number.");
+
+        return;
+    }
+
+
+    const result = document.getElementById("result");
+
+    const status = document.getElementById("resultStatus");
+
+    const explanation =
+        document.getElementById("resultExplanation");
+
+    const factors =
+        document.getElementById("factors");
+
+
+    result.style.display = "block";
+
+
+    if (number === 0 || number === 1) {
+
+        status.textContent =
+            number + " is NOT a prime number.";
+
+        explanation.textContent =
+            "Prime numbers must be greater than 1.";
+
+        factors.textContent =
+            "0 and 1 are neither prime nor composite.";
+
+        return;
+    }
+
+
+    let isPrime = true;
+
+    let factorList = [];
+
+
+    for (let i = 1; i <= Math.sqrt(number); i++) {
+
+        if (number % i === 0) {
+
+            factorList.push(i);
+
+            if (i !== number / i) {
+
+                factorList.push(number / i);
+
+            }
+
+        }
+
+    }
+
+
+    factorList.sort(function(a, b) {
+        return a - b;
+    });
+
+
+    for (let i = 2; i <= Math.sqrt(number); i++) {
+
+        if (number % i === 0) {
+
+            isPrime = false;
+
+            break;
+
+        }
+
+    }
+
+
+    if (isPrime) {
+
+        status.textContent =
+            number + " is a PRIME number.";
+
+        explanation.textContent =
+            number + " has exactly two factors: 1 and " + number + ".";
+
+        factors.textContent =
+            "Factors: 1 and " + number;
+
+    } else {
+
+        status.textContent =
+            number + " is NOT a prime number.";
+
+        explanation.textContent =
+            number + " has more than two factors.";
+
+        factors.textContent =
+            "Factors: " + factorList.join(", ");
+
+    }
+
+}
+
+
+function clearCalculator() {
+
+    document.getElementById("number").value = "";
+
+    document.getElementById("result").style.display = "none";
+
+}
+
+</script>
+
+</body>
+</html>
