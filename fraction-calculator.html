@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fraction Calculator - Add, Subtract, Multiply & Divide Fractions | Easy Online Tool</title>
+
+    <meta name="description" content="Free fraction calculator to add, subtract, multiply and divide fractions. Get simplified fraction results instantly.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 15px 20px;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 45px auto;
+            padding: 0 20px;
+        }
+
+        .tool-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .tool-header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .tool-header p {
+            color: #6b7280;
+            font-size: 17px;
+        }
+
+        .calculator {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .fraction-row {
+            display: grid;
+            grid-template-columns: 1fr 100px 1fr;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .fraction {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 7px;
+            font-size: 17px;
+            text-align: center;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .operator {
+            text-align: center;
+        }
+
+        select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 7px;
+            font-size: 18px;
+            background: white;
+            cursor: pointer;
+        }
+
+        .calculate-btn {
+            width: 100%;
+            margin-top: 25px;
+            padding: 14px;
+            border: none;
+            border-radius: 7px;
+            background: #2563eb;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .calculate-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f0f7ff;
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+        }
+
+        .result h2 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .result-value {
+            font-size: 30px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .fraction-display {
+            display: inline-flex;
+            flex-direction: column;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 28px;
+            line-height: 1.1;
+        }
+
+        .fraction-display .top {
+            border-bottom: 2px solid #222;
+            padding: 0 8px 3px;
+        }
+
+        .fraction-display .bottom {
+            padding: 3px 8px 0;
+        }
+
+        .decimal-result {
+            margin-top: 10px;
+            color: #555;
+        }
+
+        .info {
+            background: white;
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .info h2 {
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .info p {
+            margin-bottom: 12px;
+            color: #4b5563;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 25px 20px;
+            text-align: center;
+            background: #ffffff;
+            border-top: 1px solid #e5e7eb;
+            color: #6b7280;
+        }
+
+        footer a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        @media (max-width: 650px) {
+
+            .nav-container {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .tool-header h1 {
+                font-size: 28px;
+            }
+
+            .calculator {
+                padding: 20px;
+            }
+
+            .fraction-row {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .operator {
+                width: 120px;
+                margin: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="nav-container">
+
+        <a href="index.html" class="logo">
+            Easy Online Tool
+        </a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="tools.html">Tools</a>
+            <a href="categories.html">Categories</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
+
+    </div>
+</header>
+
+
+<main class="container">
+
+    <div class="tool-header">
+        <h1>Fraction Calculator</h1>
+        <p>Add, subtract, multiply and divide fractions instantly.</p>
+    </div>
+
+
+    <div class="calculator">
+
+        <div class="fraction-row">
+
+            <div class="fraction">
+                <input type="number" id="num1" placeholder="Numerator">
+                <input type="number" id="den1" placeholder="Denominator">
+            </div>
+
+            <div class="operator">
+                <select id="operation">
+                    <option value="+">+</option>
+                    <option value="-">−</option>
+                    <option value="*">×</option>
+                    <option value="/">÷</option>
+                </select>
+            </div>
+
+            <div class="fraction">
+                <input type="number" id="num2" placeholder="Numerator">
+                <input type="number" id="den2" placeholder="Denominator">
+            </div>
+
+        </div>
+
+
+        <button class="calculate-btn" onclick="calculateFraction()">
+            Calculate
+        </button>
+
+
+        <div class="result" id="result">
+
+            <h2>Result</h2>
+
+            <div class="result-value" id="fractionResult"></div>
+
+            <div class="decimal-result" id="decimalResult"></div>
+
+        </div>
+
+    </div>
+
+
+    <div class="info">
+
+        <h2>What is a Fraction Calculator?</h2>
+
+        <p>
+            A fraction calculator is an online tool that performs mathematical
+            operations with fractions quickly and accurately.
+        </p>
+
+        <p>
+            You can use this calculator to add, subtract, multiply and divide
+            two fractions. The final answer is automatically simplified.
+        </p>
+
+        <h2>How to Use the Fraction Calculator</h2>
+
+        <p>
+            Enter the numerator and denominator of the first fraction.
+            Enter the numerator and denominator of the second fraction.
+            Select the mathematical operation and click Calculate.
+        </p>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 Easy Online Tool. All rights reserved.
+    </p>
+
+    <p>
+        <a href="index.html">Home</a> |
+        <a href="privacy-policy.html">Privacy Policy</a> |
+        <a href="terms.html">Terms</a> |
+        <a href="contact.html">Contact</a>
+    </p>
+
+</footer>
+
+
+<script>
+
+function gcd(a, b) {
+
+    a = Math.abs(a);
+    b = Math.abs(b);
+
+    while (b !== 0) {
+        let temp = b;
+        b = a % b;
+        a = temp;
+    }
+
+    return a;
+}
+
+
+function simplifyFraction(num, den) {
+
+    if (den < 0) {
+        num = -num;
+        den = -den;
+    }
+
+    let divisor = gcd(num, den);
+
+    return {
+        numerator: num / divisor,
+        denominator: den / divisor
+    };
+}
+
+
+function calculateFraction() {
+
+    const num1 = parseInt(document.getElementById("num1").value);
+    const den1 = parseInt(document.getElementById("den1").value);
+
+    const num2 = parseInt(document.getElementById("num2").value);
+    const den2 = parseInt(document.getElementById("den2").value);
+
+    const operation = document.getElementById("operation").value;
+
+    if (
+        isNaN(num1) ||
+        isNaN(den1) ||
+        isNaN(num2) ||
+        isNaN(den2)
+    ) {
+        alert("Please enter all numerator and denominator values.");
+        return;
+    }
+
+    if (den1 === 0 || den2 === 0) {
+        alert("Denominator cannot be zero.");
+        return;
+    }
+
+    let numerator;
+    let denominator;
+
+    if (operation === "+") {
+
+        numerator = (num1 * den2) + (num2 * den1);
+        denominator = den1 * den2;
+
+    } else if (operation === "-") {
+
+        numerator = (num1 * den2) - (num2 * den1);
+        denominator = den1 * den2;
+
+    } else if (operation === "*") {
+
+        numerator = num1 * num2;
+        denominator = den1 * den2;
+
+    } else if (operation === "/") {
+
+        if (num2 === 0) {
+            alert("You cannot divide by zero.");
+            return;
+        }
+
+        numerator = num1 * den2;
+        denominator = den1 * num2;
+    }
+
+
+    const simplified = simplifyFraction(
+        numerator,
+        denominator
+    );
+
+    document.getElementById("fractionResult").innerHTML =
+        '<span class="fraction-display">' +
+        '<span class="top">' + simplified.numerator + '</span>' +
+        '<span class="bottom">' + simplified.denominator + '</span>' +
+        '</span>';
+
+
+    const decimal = simplified.numerator / simplified.denominator;
+
+    document.getElementById("decimalResult").textContent =
+        "Decimal: " + decimal.toFixed(4).replace(/\.?0+$/, "");
+
+
+    document.getElementById("result").style.display = "block";
+}
+
+</script>
+
+</body>
+</html>
