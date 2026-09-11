@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Percentage Increase & Decrease Calculator - Easy Online Tool</title>
+
+    <meta name="description" content="Calculate percentage increase or decrease between two numbers quickly and easily with our free online calculator.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #1f2937;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 15px 20px;
+        }
+
+        .nav {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #374151;
+            font-size: 15px;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .page-title h1 {
+            margin-bottom: 10px;
+            font-size: 32px;
+            color: #111827;
+        }
+
+        .page-title p {
+            color: #6b7280;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .calculator-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        button {
+            flex: 1;
+            padding: 13px;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        button.reset {
+            background: #6b7280;
+        }
+
+        button.reset:hover {
+            background: #4b5563;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f3f4f6;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .result h2 {
+            margin-top: 0;
+            font-size: 21px;
+            color: #111827;
+        }
+
+        .result-item {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .highlight {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .increase {
+            color: #16a34a;
+            font-weight: bold;
+        }
+
+        .decrease {
+            color: #dc2626;
+            font-weight: bold;
+        }
+
+        .error {
+            margin-top: 15px;
+            color: #dc2626;
+            font-weight: 600;
+            display: none;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 14px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .info-section h2 {
+            margin-top: 0;
+            color: #111827;
+        }
+
+        .info-section p {
+            line-height: 1.7;
+            color: #4b5563;
+        }
+
+        .formula {
+            background: #f3f4f6;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 25px 20px;
+            background: #ffffff;
+            border-top: 1px solid #e5e7eb;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 5px 0;
+            color: #6b7280;
+        }
+
+        footer a {
+            color: #2563eb;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        @media (max-width: 600px) {
+
+            .nav {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                justify-content: center;
+            }
+
+            .container {
+                margin: 25px auto;
+            }
+
+            .page-title h1 {
+                font-size: 27px;
+            }
+
+            .calculator-card {
+                padding: 20px;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="nav">
+
+        <a href="index.html" class="logo">
+            Easy Online Tool
+        </a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="tools.html">Tools</a>
+            <a href="categories.html">Categories</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+        </div>
+
+    </div>
+</header>
+
+
+<main class="container">
+
+    <div class="page-title">
+
+        <h1>Percentage Increase & Decrease Calculator</h1>
+
+        <p>
+            Calculate the percentage increase or decrease between two numbers quickly and accurately.
+        </p>
+
+    </div>
+
+
+    <div class="calculator-card">
+
+        <div class="input-group">
+            <label for="original">Original Value</label>
+            <input type="number" id="original" placeholder="Enter original value">
+        </div>
+
+        <div class="input-group">
+            <label for="newValue">New Value</label>
+            <input type="number" id="newValue" placeholder="Enter new value">
+        </div>
+
+        <div class="button-group">
+
+            <button onclick="calculatePercentage()">
+                Calculate
+            </button>
+
+            <button class="reset" onclick="resetCalculator()">
+                Reset
+            </button>
+
+        </div>
+
+        <div class="error" id="error">
+            Please enter valid numbers. The original value cannot be zero.
+        </div>
+
+
+        <div class="result" id="result">
+
+            <h2>Result</h2>
+
+            <div class="result-item">
+                Original Value:
+                <strong id="originalResult"></strong>
+            </div>
+
+            <div class="result-item">
+                New Value:
+                <strong id="newResult"></strong>
+            </div>
+
+            <div class="result-item">
+                Difference:
+                <strong id="difference"></strong>
+            </div>
+
+            <div class="result-item">
+                Percentage Change:
+                <span class="highlight" id="percentage"></span>
+            </div>
+
+            <div class="result-item" id="changeType"></div>
+
+        </div>
+
+    </div>
+
+
+    <div class="info-section">
+
+        <h2>How to Calculate Percentage Increase or Decrease</h2>
+
+        <p>
+            The percentage change shows how much a value has increased or decreased compared with its original value.
+        </p>
+
+        <div class="formula">
+            Percentage Change = ((New Value − Original Value) ÷ Original Value) × 100
+        </div>
+
+        <p>
+            If the new value is greater than the original value, the result is a
+            <strong>percentage increase</strong>.
+        </p>
+
+        <p>
+            If the new value is smaller than the original value, the result is a
+            <strong>percentage decrease</strong>.
+        </p>
+
+        <h2>Example</h2>
+
+        <p>
+            Suppose the original value is 100 and the new value is 120.
+            The difference is 20.
+        </p>
+
+        <div class="formula">
+            ((120 − 100) ÷ 100) × 100 = 20%
+        </div>
+
+        <p>
+            Therefore, the value increased by <strong>20%</strong>.
+        </p>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 Easy Online Tool. All rights reserved.
+    </p>
+
+    <p>
+        <a href="index.html">Home</a>
+        <a href="categories.html">Categories</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+    </p>
+
+</footer>
+
+
+<script>
+
+function calculatePercentage() {
+
+    const original = parseFloat(document.getElementById("original").value);
+    const newValue = parseFloat(document.getElementById("newValue").value);
+
+    const error = document.getElementById("error");
+    const result = document.getElementById("result");
+
+    if (isNaN(original) || isNaN(newValue) || original === 0) {
+
+        error.style.display = "block";
+        result.style.display = "none";
+
+        return;
+    }
+
+    error.style.display = "none";
+
+    const difference = newValue - original;
+
+    const percentageChange = (difference / Math.abs(original)) * 100;
+
+    document.getElementById("originalResult").textContent =
+        formatNumber(original);
+
+    document.getElementById("newResult").textContent =
+        formatNumber(newValue);
+
+    document.getElementById("difference").textContent =
+        formatNumber(difference);
+
+    document.getElementById("percentage").textContent =
+        formatNumber(Math.abs(percentageChange)) + "%";
+
+
+    const changeType = document.getElementById("changeType");
+
+    if (difference > 0) {
+
+        changeType.innerHTML =
+            '<span class="increase">Percentage Increase: ' +
+            formatNumber(Math.abs(percentageChange)) +
+            '%</span>';
+
+    } else if (difference < 0) {
+
+        changeType.innerHTML =
+            '<span class="decrease">Percentage Decrease: ' +
+            formatNumber(Math.abs(percentageChange)) +
+            '%</span>';
+
+    } else {
+
+        changeType.innerHTML =
+            '<strong>No percentage change.</strong>';
+
+    }
+
+    result.style.display = "block";
+}
+
+
+function formatNumber(number) {
+
+    return Number(number).toLocaleString(undefined, {
+        maximumFractionDigits: 6
+    });
+
+}
+
+
+function resetCalculator() {
+
+    document.getElementById("original").value = "";
+    document.getElementById("newValue").value = "";
+
+    document.getElementById("result").style.display = "none";
+    document.getElementById("error").style.display = "none";
+
+}
+
+</script>
+
+</body>
+</html>
