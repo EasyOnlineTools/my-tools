@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Number to Words Converter - Easy Online Tool</title>
+
+    <meta name="description" content="Convert numbers into words online for free. Easily convert numbers up to 999 billion into English words.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #1f2937;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 15px 20px;
+        }
+
+        .nav {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #374151;
+            font-size: 15px;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .page-title h1 {
+            margin-bottom: 10px;
+            font-size: 32px;
+            color: #111827;
+        }
+
+        .page-title p {
+            color: #6b7280;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .calculator-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 17px;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+        }
+
+        button {
+            flex: 1;
+            padding: 13px;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        button.reset {
+            background: #6b7280;
+        }
+
+        button.reset:hover {
+            background: #4b5563;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f3f4f6;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .result h2 {
+            margin-top: 0;
+            font-size: 21px;
+            color: #111827;
+        }
+
+        .words {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 18px;
+            line-height: 1.7;
+            font-size: 18px;
+            color: #111827;
+            word-wrap: break-word;
+        }
+
+        .error {
+            margin-top: 15px;
+            color: #dc2626;
+            font-weight: 600;
+            display: none;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 14px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .info-section h2 {
+            margin-top: 0;
+            color: #111827;
+        }
+
+        .info-section p {
+            line-height: 1.7;
+            color: #4b5563;
+        }
+
+        .example {
+            background: #f3f4f6;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            line-height: 1.7;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 25px 20px;
+            background: #ffffff;
+            border-top: 1px solid #e5e7eb;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 5px 0;
+            color: #6b7280;
+        }
+
+        footer a {
+            color: #2563eb;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        @media (max-width: 600px) {
+
+            .nav {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                justify-content: center;
+            }
+
+            .container {
+                margin: 25px auto;
+            }
+
+            .page-title h1 {
+                font-size: 27px;
+            }
+
+            .calculator-card {
+                padding: 20px;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .words {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="nav">
+
+        <a href="index.html" class="logo">
+            Easy Online Tool
+        </a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="tools.html">Tools</a>
+            <a href="categories.html">Categories</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+        </div>
+
+    </div>
+</header>
+
+
+<main class="container">
+
+    <div class="page-title">
+
+        <h1>Number to Words Converter</h1>
+
+        <p>
+            Convert numbers into English words quickly and easily with this free online tool.
+        </p>
+
+    </div>
+
+
+    <div class="calculator-card">
+
+        <div class="input-group">
+
+            <label for="numberInput">
+                Enter Number
+            </label>
+
+            <input
+                type="text"
+                id="numberInput"
+                placeholder="Example: 1250"
+                inputmode="numeric"
+            >
+
+        </div>
+
+
+        <div class="button-group">
+
+            <button onclick="convertNumber()">
+                Convert to Words
+            </button>
+
+            <button class="reset" onclick="resetCalculator()">
+                Reset
+            </button>
+
+        </div>
+
+
+        <div class="error" id="error">
+            Please enter a valid number between 0 and 999,999,999,999.
+        </div>
+
+
+        <div class="result" id="result">
+
+            <h2>Number in Words</h2>
+
+            <div class="words" id="wordsResult"></div>
+
+        </div>
+
+    </div>
+
+
+    <div class="info-section">
+
+        <h2>What Is a Number to Words Converter?</h2>
+
+        <p>
+            A Number to Words Converter changes a numerical value into its written
+            English form. This can be useful when writing checks, invoices,
+            financial documents, applications, educational assignments and other
+            documents.
+        </p>
+
+
+        <h2>Examples</h2>
+
+        <div class="example">
+            <strong>25</strong> → Twenty-Five
+            <br><br>
+
+            <strong>125</strong> → One Hundred Twenty-Five
+            <br><br>
+
+            <strong>1,250</strong> → One Thousand Two Hundred Fifty
+            <br><br>
+
+            <strong>25,000</strong> → Twenty-Five Thousand
+            <br><br>
+
+            <strong>1,000,000</strong> → One Million
+        </div>
+
+
+        <h2>How to Use This Tool</h2>
+
+        <p>
+            Enter a number in the input box and click
+            <strong>Convert to Words</strong>.
+            The tool will instantly display the number in English words.
+        </p>
+
+        <p>
+            The converter supports numbers from zero up to
+            999,999,999,999.
+        </p>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 Easy Online Tool. All rights reserved.
+    </p>
+
+    <p>
+        <a href="index.html">Home</a>
+        <a href="categories.html">Categories</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+    </p>
+
+</footer>
+
+
+<script>
+
+const ones = [
+    "",
+    "One",
+    "Two",
+    "Three",
+    "Four",
+    "Five",
+    "Six",
+    "Seven",
+    "Eight",
+    "Nine"
+];
+
+const teens = [
+    "Ten",
+    "Eleven",
+    "Twelve",
+    "Thirteen",
+    "Fourteen",
+    "Fifteen",
+    "Sixteen",
+    "Seventeen",
+    "Eighteen",
+    "Nineteen"
+];
+
+const tens = [
+    "",
+    "",
+    "Twenty",
+    "Thirty",
+    "Forty",
+    "Fifty",
+    "Sixty",
+    "Seventy",
+    "Eighty",
+    "Ninety"
+];
+
+
+function convertHundreds(num) {
+
+    let words = "";
+
+    if (num >= 100) {
+
+        words += ones[Math.floor(num / 100)] + " Hundred";
+
+        num = num % 100;
+
+        if (num > 0) {
+            words += " ";
+        }
+    }
+
+    if (num >= 20) {
+
+        words += tens[Math.floor(num / 10)];
+
+        num = num % 10;
+
+        if (num > 0) {
+            words += "-" + ones[num];
+        }
+
+    } else if (num >= 10) {
+
+        words += teens[num - 10];
+
+    } else if (num > 0) {
+
+        words += ones[num];
+
+    }
+
+    return words;
+}
+
+
+function numberToWords(num) {
+
+    if (num === 0) {
+        return "Zero";
+    }
+
+    let words = "";
+
+
+    const billions = Math.floor(num / 1000000000);
+
+    if (billions > 0) {
+
+        words += convertHundreds(billions) + " Billion";
+
+        num = num % 1000000000;
+
+        if (num > 0) {
+            words += " ";
+        }
+    }
+
+
+    const millions = Math.floor(num / 1000000);
+
+    if (millions > 0) {
+
+        words += convertHundreds(millions) + " Million";
+
+        num = num % 1000000;
+
+        if (num > 0) {
+            words += " ";
+        }
+    }
+
+
+    const thousands = Math.floor(num / 1000);
+
+    if (thousands > 0) {
+
+        words += convertHundreds(thousands) + " Thousand";
+
+        num = num % 1000;
+
+        if (num > 0) {
+            words += " ";
+        }
+    }
+
+
+    if (num > 0) {
+        words += convertHundreds(num);
+    }
+
+    return words;
+}
+
+
+function convertNumber() {
+
+    const input = document
+        .getElementById("numberInput")
+        .value
+        .replace(/,/g, "")
+        .trim();
+
+    const error = document.getElementById("error");
+    const result = document.getElementById("result");
+    const wordsResult = document.getElementById("wordsResult");
+
+
+    if (
+        input === "" ||
+        !/^\d+$/.test(input)
+    ) {
+
+        error.style.display = "block";
+        result.style.display = "none";
+
+        return;
+    }
+
+
+    const number = Number(input);
+
+
+    if (
+        !Number.isSafeInteger(number) ||
+        number > 999999999999
+    ) {
+
+        error.style.display = "block";
+        result.style.display = "none";
+
+        return;
+    }
+
+
+    error.style.display = "none";
+
+
+    wordsResult.textContent = numberToWords(number);
+
+    result.style.display = "block";
+}
+
+
+function resetCalculator() {
+
+    document.getElementById("numberInput").value = "";
+
+    document.getElementById("result").style.display = "none";
+
+    document.getElementById("error").style.display = "none";
+}
+
+
+document.getElementById("numberInput").addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Enter") {
+            convertNumber();
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
