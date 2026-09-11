@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Average Calculator - Calculate Average Online | Easy Online Tool</title>
+
+    <meta name="description" content="Free online average calculator. Enter numbers and instantly calculate the mean, sum, count, minimum and maximum values.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 15px 20px;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 45px auto;
+            padding: 0 20px;
+        }
+
+        .tool-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .tool-header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .tool-header p {
+            color: #6b7280;
+            font-size: 17px;
+        }
+
+        .calculator {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #374151;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 150px;
+            padding: 15px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 17px;
+            resize: vertical;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .hint {
+            margin-top: 8px;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .calculate-btn {
+            width: 100%;
+            margin-top: 20px;
+            padding: 14px;
+            border: none;
+            border-radius: 7px;
+            background: #2563eb;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .calculate-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .clear-btn {
+            width: 100%;
+            margin-top: 10px;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 7px;
+            background: #ffffff;
+            color: #374151;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .clear-btn:hover {
+            background: #f3f4f6;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f0f7ff;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .result h2 {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #111827;
+        }
+
+        .average-value {
+            text-align: center;
+            font-size: 34px;
+            font-weight: bold;
+            color: #2563eb;
+            margin-bottom: 20px;
+        }
+
+        .result-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .result-box {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .result-box span {
+            display: block;
+            font-size: 13px;
+            color: #6b7280;
+            margin-bottom: 5px;
+        }
+
+        .result-box strong {
+            font-size: 18px;
+            color: #111827;
+        }
+
+        .info {
+            background: white;
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .info h2 {
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .info p {
+            margin-bottom: 12px;
+            color: #4b5563;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 25px 20px;
+            text-align: center;
+            background: #ffffff;
+            border-top: 1px solid #e5e7eb;
+            color: #6b7280;
+        }
+
+        footer a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        @media (max-width: 700px) {
+
+            .nav-container {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .tool-header h1 {
+                font-size: 28px;
+            }
+
+            .calculator {
+                padding: 20px;
+            }
+
+            .result-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 400px) {
+
+            .result-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="nav-container">
+
+        <a href="index.html" class="logo">
+            Easy Online Tool
+        </a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="tools.html">Tools</a>
+            <a href="categories.html">Categories</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+    <div class="tool-header">
+
+        <h1>Average Calculator</h1>
+
+        <p>
+            Calculate the average of numbers quickly and easily.
+        </p>
+
+    </div>
+
+
+    <div class="calculator">
+
+        <label for="numbers">
+            Enter your numbers
+        </label>
+
+        <textarea
+            id="numbers"
+            placeholder="Example: 10, 20, 30, 40, 50">
+        </textarea>
+
+        <div class="hint">
+            Separate numbers with commas, spaces, or new lines.
+        </div>
+
+
+        <button class="calculate-btn" onclick="calculateAverage()">
+            Calculate Average
+        </button>
+
+        <button class="clear-btn" onclick="clearCalculator()">
+            Clear
+        </button>
+
+
+        <div class="result" id="result">
+
+            <h2>Average Result</h2>
+
+            <div class="average-value" id="average">
+                0
+            </div>
+
+
+            <div class="result-grid">
+
+                <div class="result-box">
+                    <span>Sum</span>
+                    <strong id="sum">0</strong>
+                </div>
+
+                <div class="result-box">
+                    <span>Count</span>
+                    <strong id="count">0</strong>
+                </div>
+
+                <div class="result-box">
+                    <span>Minimum</span>
+                    <strong id="minimum">0</strong>
+                </div>
+
+                <div class="result-box">
+                    <span>Maximum</span>
+                    <strong id="maximum">0</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="info">
+
+        <h2>What is an Average?</h2>
+
+        <p>
+            The average, also called the arithmetic mean, is calculated by
+            adding all numbers together and dividing the total by the number
+            of values.
+        </p>
+
+        <p>
+            For example, the average of 10, 20 and 30 is 20.
+        </p>
+
+        <h2>How to Use the Average Calculator</h2>
+
+        <p>
+            Enter your numbers in the box. You can separate numbers with
+            commas, spaces, or new lines. Click the Calculate Average button
+            to instantly see the result.
+        </p>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 Easy Online Tool. All rights reserved.
+    </p>
+
+    <p>
+        <a href="index.html">Home</a> |
+        <a href="privacy-policy.html">Privacy Policy</a> |
+        <a href="terms.html">Terms</a> |
+        <a href="contact.html">Contact</a>
+    </p>
+
+</footer>
+
+
+<script>
+
+function calculateAverage() {
+
+    const input = document.getElementById("numbers").value.trim();
+
+    if (input === "") {
+        alert("Please enter some numbers.");
+        return;
+    }
+
+
+    const values = input
+        .split(/[\s,]+/)
+        .map(Number)
+        .filter(value => !isNaN(value));
+
+
+    if (values.length === 0) {
+        alert("Please enter valid numbers.");
+        return;
+    }
+
+
+    const sum = values.reduce(
+        (total, value) => total + value,
+        0
+    );
+
+
+    const average = sum / values.length;
+
+    const minimum = Math.min(...values);
+
+    const maximum = Math.max(...values);
+
+
+    document.getElementById("average").textContent =
+        formatNumber(average);
+
+    document.getElementById("sum").textContent =
+        formatNumber(sum);
+
+    document.getElementById("count").textContent =
+        values.length;
+
+    document.getElementById("minimum").textContent =
+        formatNumber(minimum);
+
+    document.getElementById("maximum").textContent =
+        formatNumber(maximum);
+
+
+    document.getElementById("result").style.display = "block";
+}
+
+
+function formatNumber(number) {
+
+    return Number(
+        number.toFixed(6)
+    ).toLocaleString();
+}
+
+
+function clearCalculator() {
+
+    document.getElementById("numbers").value = "";
+
+    document.getElementById("result").style.display = "none";
+
+}
+
+</script>
+
+</body>
+</html>
