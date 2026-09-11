@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ratio Calculator - Simplify and Calculate Ratios | Easy Online Tool</title>
+
+    <meta name="description" content="Free online ratio calculator. Simplify ratios and calculate equivalent ratios quickly and easily.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 15px 20px;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 45px auto;
+            padding: 0 20px;
+        }
+
+        .tool-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .tool-header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .tool-header p {
+            color: #6b7280;
+            font-size: 17px;
+        }
+
+        .calculator {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .ratio-inputs {
+            display: grid;
+            grid-template-columns: 1fr 70px 1fr;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .ratio-inputs input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #d1d5db;
+            border-radius: 7px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .ratio-inputs input:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .colon {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .calculate-btn {
+            width: 100%;
+            margin-top: 25px;
+            padding: 14px;
+            border: none;
+            border-radius: 7px;
+            background: #2563eb;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .calculate-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .clear-btn {
+            width: 100%;
+            margin-top: 10px;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 7px;
+            background: white;
+            color: #374151;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .clear-btn:hover {
+            background: #f3f4f6;
+        }
+
+        .result {
+            display: none;
+            margin-top: 25px;
+            padding: 25px;
+            background: #f0f7ff;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .result h2 {
+            margin-bottom: 15px;
+            color: #111827;
+        }
+
+        .result-ratio {
+            font-size: 34px;
+            font-weight: bold;
+            color: #2563eb;
+            margin-bottom: 15px;
+        }
+
+        .result p {
+            color: #4b5563;
+            margin: 6px 0;
+        }
+
+        .info {
+            background: white;
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .info h2 {
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .info p {
+            margin-bottom: 12px;
+            color: #4b5563;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 25px 20px;
+            text-align: center;
+            background: #ffffff;
+            border-top: 1px solid #e5e7eb;
+            color: #6b7280;
+        }
+
+        footer a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        @media (max-width: 650px) {
+
+            .nav-container {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .tool-header h1 {
+                font-size: 28px;
+            }
+
+            .calculator {
+                padding: 20px;
+            }
+
+            .ratio-inputs {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .colon {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="nav-container">
+
+        <a href="index.html" class="logo">
+            Easy Online Tool
+        </a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="tools.html">Tools</a>
+            <a href="categories.html">Categories</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+    <div class="tool-header">
+
+        <h1>Ratio Calculator</h1>
+
+        <p>
+            Simplify ratios and calculate ratio values instantly.
+        </p>
+
+    </div>
+
+
+    <div class="calculator">
+
+        <div class="ratio-inputs">
+
+            <input
+                type="number"
+                id="number1"
+                placeholder="First number"
+            >
+
+            <div class="colon">:</div>
+
+            <input
+                type="number"
+                id="number2"
+                placeholder="Second number"
+            >
+
+        </div>
+
+
+        <button
+            class="calculate-btn"
+            onclick="calculateRatio()"
+        >
+            Calculate Ratio
+        </button>
+
+
+        <button
+            class="clear-btn"
+            onclick="clearCalculator()"
+        >
+            Clear
+        </button>
+
+
+        <div class="result" id="result">
+
+            <h2>Result</h2>
+
+            <div class="result-ratio" id="simplifiedRatio">
+                0 : 0
+            </div>
+
+            <p id="ratioDecimal"></p>
+
+            <p id="ratioPercentage"></p>
+
+        </div>
+
+    </div>
+
+
+    <div class="info">
+
+        <h2>What is a Ratio?</h2>
+
+        <p>
+            A ratio compares two quantities and shows the relationship
+            between them. Ratios are commonly written using a colon,
+            such as 2:3.
+        </p>
+
+        <p>
+            For example, if there are 10 apples and 5 oranges, the ratio
+            of apples to oranges is 10:5, which simplifies to 2:1.
+        </p>
+
+
+        <h2>How to Use the Ratio Calculator</h2>
+
+        <p>
+            Enter the first number and second number in the calculator.
+            Click "Calculate Ratio" to simplify the ratio and see the
+            decimal relationship and percentage.
+        </p>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 Easy Online Tool. All rights reserved.
+    </p>
+
+    <p>
+        <a href="index.html">Home</a> |
+        <a href="privacy-policy.html">Privacy Policy</a> |
+        <a href="terms.html">Terms</a> |
+        <a href="contact.html">Contact</a>
+    </p>
+
+</footer>
+
+
+<script>
+
+function gcd(a, b) {
+
+    a = Math.abs(a);
+    b = Math.abs(b);
+
+    while (b !== 0) {
+
+        let remainder = a % b;
+
+        a = b;
+        b = remainder;
+
+    }
+
+    return a;
+}
+
+
+function calculateRatio() {
+
+    const number1 = Number(
+        document.getElementById("number1").value
+    );
+
+    const number2 = Number(
+        document.getElementById("number2").value
+    );
+
+
+    if (
+        document.getElementById("number1").value === "" ||
+        document.getElementById("number2").value === ""
+    ) {
+
+        alert("Please enter both numbers.");
+
+        return;
+    }
+
+
+    if (number1 < 0 || number2 < 0) {
+
+        alert("Please enter positive numbers.");
+
+        return;
+    }
+
+
+    if (number1 === 0 && number2 === 0) {
+
+        alert("Both numbers cannot be zero.");
+
+        return;
+    }
+
+
+    let divisor = gcd(number1, number2);
+
+
+    let simplified1 = number1 / divisor;
+    let simplified2 = number2 / divisor;
+
+
+    document.getElementById("simplifiedRatio").textContent =
+        simplified1 + " : " + simplified2;
+
+
+    if (number2 !== 0) {
+
+        const decimal = number1 / number2;
+
+        document.getElementById("ratioDecimal").textContent =
+            "Ratio as decimal: " + decimal.toFixed(4);
+
+    } else {
+
+        document.getElementById("ratioDecimal").textContent =
+            "The second number is zero.";
+
+    }
+
+
+    if (number2 !== 0) {
+
+        const percentage = (number1 / number2) * 100;
+
+        document.getElementById("ratioPercentage").textContent =
+            "First number is " + percentage.toFixed(2) +
+            "% of the second number.";
+
+    }
+
+
+    document.getElementById("result").style.display = "block";
+}
+
+
+function clearCalculator() {
+
+    document.getElementById("number1").value = "";
+
+    document.getElementById("number2").value = "";
+
+    document.getElementById("result").style.display = "none";
+
+}
+
+</script>
+
+</body>
+</html>
