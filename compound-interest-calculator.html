@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Compound Interest Calculator - Easy Online Tool</title>
+
+    <meta name="description" content="Calculate compound interest, total amount, and interest earned with our free online Compound Interest Calculator.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #1f2937;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 15px 20px;
+        }
+
+        .nav {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #374151;
+            font-size: 15px;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .page-title h1 {
+            margin-bottom: 10px;
+            font-size: 32px;
+            color: #111827;
+        }
+
+        .page-title p {
+            color: #6b7280;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .calculator-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 16px;
+            background: #ffffff;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        button {
+            flex: 1;
+            padding: 13px;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        button.reset {
+            background: #6b7280;
+        }
+
+        button.reset:hover {
+            background: #4b5563;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 22px;
+            background: #f3f4f6;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .result h2 {
+            margin-top: 0;
+            font-size: 21px;
+            color: #111827;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 11px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .result-row:last-child {
+            border-bottom: none;
+        }
+
+        .result-label {
+            color: #4b5563;
+        }
+
+        .result-value {
+            font-weight: bold;
+            color: #111827;
+        }
+
+        .highlight {
+            font-size: 22px;
+            color: #2563eb;
+        }
+
+        .error {
+            margin-top: 15px;
+            color: #dc2626;
+            font-weight: 600;
+            display: none;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 14px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .info-section h2 {
+            margin-top: 0;
+            color: #111827;
+        }
+
+        .info-section p {
+            line-height: 1.7;
+            color: #4b5563;
+        }
+
+        .formula {
+            background: #f3f4f6;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-weight: 600;
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 25px 20px;
+            background: #ffffff;
+            border-top: 1px solid #e5e7eb;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 5px 0;
+            color: #6b7280;
+        }
+
+        footer a {
+            color: #2563eb;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        @media (max-width: 600px) {
+
+            .nav {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                justify-content: center;
+            }
+
+            .container {
+                margin: 25px auto;
+            }
+
+            .page-title h1 {
+                font-size: 27px;
+            }
+
+            .calculator-card {
+                padding: 20px;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .result-row {
+                flex-direction: column;
+                gap: 4px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="nav">
+
+        <a href="index.html" class="logo">
+            Easy Online Tool
+        </a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="tools.html">Tools</a>
+            <a href="categories.html">Categories</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+    <div class="page-title">
+
+        <h1>Compound Interest Calculator</h1>
+
+        <p>
+            Calculate compound interest, total amount, and interest earned
+            quickly and easily.
+        </p>
+
+    </div>
+
+
+    <div class="calculator-card">
+
+        <div class="input-group">
+
+            <label for="principal">
+                Principal Amount
+            </label>
+
+            <input
+                type="number"
+                id="principal"
+                placeholder="Enter principal amount"
+                min="0"
+                step="0.01"
+            >
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label for="rate">
+                Annual Interest Rate (%)
+            </label>
+
+            <input
+                type="number"
+                id="rate"
+                placeholder="Enter annual interest rate"
+                min="0"
+                step="0.01"
+            >
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label for="time">
+                Time Period (Years)
+            </label>
+
+            <input
+                type="number"
+                id="time"
+                placeholder="Enter number of years"
+                min="0"
+                step="0.01"
+            >
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label for="frequency">
+                Compounding Frequency
+            </label>
+
+            <select id="frequency">
+
+                <option value="1">
+                    Annually
+                </option>
+
+                <option value="2">
+                    Semi-Annually
+                </option>
+
+                <option value="4">
+                    Quarterly
+                </option>
+
+                <option value="12" selected>
+                    Monthly
+                </option>
+
+                <option value="365">
+                    Daily
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="button-group">
+
+            <button onclick="calculateCompoundInterest()">
+                Calculate
+            </button>
+
+            <button class="reset" onclick="resetCalculator()">
+                Reset
+            </button>
+
+        </div>
+
+
+        <div class="error" id="error">
+            Please enter valid values greater than or equal to zero.
+        </div>
+
+
+        <div class="result" id="result">
+
+            <h2>Calculation Result</h2>
+
+            <div class="result-row">
+                <span class="result-label">
+                    Principal Amount
+                </span>
+
+                <span class="result-value" id="principalResult"></span>
+            </div>
+
+            <div class="result-row">
+                <span class="result-label">
+                    Interest Rate
+                </span>
+
+                <span class="result-value" id="rateResult"></span>
+            </div>
+
+            <div class="result-row">
+                <span class="result-label">
+                    Time Period
+                </span>
+
+                <span class="result-value" id="timeResult"></span>
+            </div>
+
+            <div class="result-row">
+                <span class="result-label">
+                    Compounding
+                </span>
+
+                <span class="result-value" id="frequencyResult"></span>
+            </div>
+
+            <div class="result-row">
+                <span class="result-label">
+                    Compound Interest
+                </span>
+
+                <span class="result-value highlight" id="interestResult"></span>
+            </div>
+
+            <div class="result-row">
+                <span class="result-label">
+                    Total Amount
+                </span>
+
+                <span class="result-value highlight" id="totalResult"></span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="info-section">
+
+        <h2>What Is Compound Interest?</h2>
+
+        <p>
+            Compound interest is interest calculated on both the original
+            principal and the interest that has accumulated over previous
+            periods. This means your money can grow faster as interest is
+            added back to the balance.
+        </p>
+
+
+        <h2>Compound Interest Formula</h2>
+
+        <div class="formula">
+            A = P × (1 + r/n)ⁿᵗ
+            <br><br>
+            Compound Interest = A − P
+        </div>
+
+        <p>
+            Where:
+        </p>
+
+        <p>
+            <strong>A</strong> = Final amount<br>
+            <strong>P</strong> = Principal amount<br>
+            <strong>r</strong> = Annual interest rate as a decimal<br>
+            <strong>n</strong> = Number of times interest is compounded per year<br>
+            <strong>t</strong> = Time in years
+        </p>
+
+
+        <h2>Example</h2>
+
+        <p>
+            Suppose you invest $10,000 at an annual interest rate of 5%
+            for 3 years, compounded annually.
+        </p>
+
+        <div class="formula">
+            A = 10,000 × (1 + 0.05/1)³
+            <br><br>
+            Final Amount ≈ $11,576.25
+            <br>
+            Compound Interest ≈ $1,576.25
+        </div>
+
+
+        <h2>Why Compounding Frequency Matters</h2>
+
+        <p>
+            Interest can be compounded annually, semi-annually, quarterly,
+            monthly, or daily. Generally, more frequent compounding produces
+            a slightly higher final amount when the other assumptions remain
+            the same.
+        </p>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 Easy Online Tool. All rights reserved.
+    </p>
+
+    <p>
+        <a href="index.html">Home</a>
+        <a href="categories.html">Categories</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+    </p>
+
+</footer>
+
+
+<script>
+
+function calculateCompoundInterest() {
+
+    const principal = parseFloat(
+        document.getElementById("principal").value
+    );
+
+    const rate = parseFloat(
+        document.getElementById("rate").value
+    );
+
+    const time = parseFloat(
+        document.getElementById("time").value
+    );
+
+    const frequency = parseInt(
+        document.getElementById("frequency").value
+    );
+
+    const error =
+        document.getElementById("error");
+
+    const result =
+        document.getElementById("result");
+
+
+    if (
+        isNaN(principal) ||
+        isNaN(rate) ||
+        isNaN(time) ||
+        principal < 0 ||
+        rate < 0 ||
+        time < 0
+    ) {
+
+        error.style.display = "block";
+        result.style.display = "none";
+
+        return;
+    }
+
+
+    error.style.display = "none";
+
+
+    // Convert percentage to decimal
+    const decimalRate = rate / 100;
+
+
+    // Compound interest formula:
+    // A = P(1 + r/n)^(nt)
+
+    const totalAmount =
+        principal *
+        Math.pow(
+            1 + decimalRate / frequency,
+            frequency * time
+        );
+
+
+    const compoundInterest =
+        totalAmount - principal;
+
+
+    document.getElementById("principalResult").textContent =
+        formatNumber(principal);
+
+    document.getElementById("rateResult").textContent =
+        formatNumber(rate) + "% per year";
+
+    document.getElementById("timeResult").textContent =
+        formatNumber(time) + " years";
+
+
+    const frequencyNames = {
+        1: "Annually",
+        2: "Semi-Annually",
+        4: "Quarterly",
+        12: "Monthly",
+        365: "Daily"
+    };
+
+
+    document.getElementById("frequencyResult").textContent =
+        frequencyNames[frequency];
+
+
+    document.getElementById("interestResult").textContent =
+        formatNumber(compoundInterest);
+
+    document.getElementById("totalResult").textContent =
+        formatNumber(totalAmount);
+
+
+    result.style.display = "block";
+}
+
+
+function formatNumber(number) {
+
+    return number.toLocaleString(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    });
+
+}
+
+
+function resetCalculator() {
+
+    document.getElementById("principal").value = "";
+
+    document.getElementById("rate").value = "";
+
+    document.getElementById("time").value = "";
+
+    document.getElementById("frequency").value = "12";
+
+    document.getElementById("result").style.display = "none";
+
+    document.getElementById("error").style.display = "none";
+}
+
+
+document.getElementById("principal").addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Enter") {
+            calculateCompoundInterest();
+        }
+
+    }
+);
+
+
+document.getElementById("rate").addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Enter") {
+            calculateCompoundInterest();
+        }
+
+    }
+);
+
+
+document.getElementById("time").addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Enter") {
+            calculateCompoundInterest();
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
