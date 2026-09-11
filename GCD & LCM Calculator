@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GCD & LCM Calculator - Find GCD and LCM Online | Easy Online Tool</title>
+
+    <meta name="description" content="Free GCD and LCM calculator. Find the greatest common divisor and least common multiple of two or more numbers quickly and easily.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 15px 20px;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 45px auto;
+            padding: 0 20px;
+        }
+
+        .tool-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .tool-header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .tool-header p {
+            color: #6b7280;
+            font-size: 17px;
+        }
+
+        .calculator {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .input-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #374151;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #d1d5db;
+            border-radius: 7px;
+            font-size: 17px;
+            text-align: center;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .hint {
+            margin-top: 6px;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .calculate-btn {
+            width: 100%;
+            margin-top: 10px;
+            padding: 14px;
+            border: none;
+            border-radius: 7px;
+            background: #2563eb;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .calculate-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .clear-btn {
+            width: 100%;
+            margin-top: 10px;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 7px;
+            background: #ffffff;
+            color: #374151;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .clear-btn:hover {
+            background: #f3f4f6;
+        }
+
+        .result {
+            display: none;
+            margin-top: 25px;
+            padding: 25px;
+            background: #f0f7ff;
+            border-radius: 8px;
+        }
+
+        .result h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #111827;
+        }
+
+        .result-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .result-box {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .result-box span {
+            display: block;
+            color: #6b7280;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        .result-box strong {
+            font-size: 30px;
+            color: #2563eb;
+        }
+
+        .info {
+            background: white;
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .info h2 {
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .info p {
+            margin-bottom: 14px;
+            color: #4b5563;
+        }
+
+        .info ul {
+            margin: 0 0 15px 20px;
+            color: #4b5563;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 25px 20px;
+            text-align: center;
+            background: #ffffff;
+            border-top: 1px solid #e5e7eb;
+            color: #6b7280;
+        }
+
+        footer a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        @media (max-width: 650px) {
+
+            .nav-container {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .tool-header h1 {
+                font-size: 28px;
+            }
+
+            .calculator {
+                padding: 20px;
+            }
+
+            .result-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="nav-container">
+
+        <a href="index.html" class="logo">
+            Easy Online Tool
+        </a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="tools.html">Tools</a>
+            <a href="categories.html">Categories</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
+    </div>
+
+</header>
+
+
+<main class="container">
+
+    <div class="tool-header">
+
+        <h1>GCD & LCM Calculator</h1>
+
+        <p>
+            Find the Greatest Common Divisor and Least Common Multiple of two numbers.
+        </p>
+
+    </div>
+
+
+    <div class="calculator">
+
+        <div class="input-group">
+
+            <label for="number1">
+                First Number
+            </label>
+
+            <input
+                type="number"
+                id="number1"
+                placeholder="Enter first number"
+            >
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label for="number2">
+                Second Number
+            </label>
+
+            <input
+                type="number"
+                id="number2"
+                placeholder="Enter second number"
+            >
+
+        </div>
+
+
+        <div class="hint">
+            Enter two positive whole numbers.
+        </div>
+
+
+        <button
+            class="calculate-btn"
+            onclick="calculateGcdLcm()"
+        >
+            Calculate GCD & LCM
+        </button>
+
+
+        <button
+            class="clear-btn"
+            onclick="clearCalculator()"
+        >
+            Clear
+        </button>
+
+
+        <div class="result" id="result">
+
+            <h2>Calculation Result</h2>
+
+            <div class="result-grid">
+
+                <div class="result-box">
+
+                    <span>
+                        Greatest Common Divisor (GCD)
+                    </span>
+
+                    <strong id="gcdResult">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="result-box">
+
+                    <span>
+                        Least Common Multiple (LCM)
+                    </span>
+
+                    <strong id="lcmResult">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="info">
+
+        <h2>What is GCD?</h2>
+
+        <p>
+            GCD stands for Greatest Common Divisor. It is the largest
+            positive number that divides two numbers without leaving
+            a remainder.
+        </p>
+
+        <p>
+            For example, the GCD of 12 and 18 is 6.
+        </p>
+
+
+        <h2>What is LCM?</h2>
+
+        <p>
+            LCM stands for Least Common Multiple. It is the smallest
+            positive number that is a multiple of both numbers.
+        </p>
+
+        <p>
+            For example, the LCM of 12 and 18 is 36.
+        </p>
+
+
+        <h2>How to Use This Calculator</h2>
+
+        <p>
+            Enter two positive whole numbers and click the
+            "Calculate GCD & LCM" button. The calculator will
+            instantly display both results.
+        </p>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 Easy Online Tool. All rights reserved.
+    </p>
+
+    <p>
+        <a href="index.html">Home</a> |
+        <a href="privacy-policy.html">Privacy Policy</a> |
+        <a href="terms.html">Terms</a> |
+        <a href="contact.html">Contact</a>
+    </p>
+
+</footer>
+
+
+<script>
+
+function findGCD(a, b) {
+
+    a = Math.abs(a);
+    b = Math.abs(b);
+
+    while (b !== 0) {
+
+        let remainder = a % b;
+
+        a = b;
+        b = remainder;
+
+    }
+
+    return a;
+}
+
+
+function findLCM(a, b) {
+
+    if (a === 0 || b === 0) {
+        return 0;
+    }
+
+    return Math.abs(a * b) / findGCD(a, b);
+}
+
+
+function calculateGcdLcm() {
+
+    const input1 = document.getElementById("number1").value;
+    const input2 = document.getElementById("number2").value;
+
+    if (input1 === "" || input2 === "") {
+
+        alert("Please enter both numbers.");
+
+        return;
+    }
+
+
+    const number1 = Number(input1);
+    const number2 = Number(input2);
+
+
+    if (
+        !Number.isInteger(number1) ||
+        !Number.isInteger(number2)
+    ) {
+
+        alert("Please enter whole numbers only.");
+
+        return;
+    }
+
+
+    if (number1 <= 0 || number2 <= 0) {
+
+        alert("Please enter positive numbers greater than zero.");
+
+        return;
+    }
+
+
+    const gcd = findGCD(number1, number2);
+
+    const lcm = findLCM(number1, number2);
+
+
+    document.getElementById("gcdResult").textContent = gcd;
+
+    document.getElementById("lcmResult").textContent = lcm;
+
+
+    document.getElementById("result").style.display = "block";
+}
+
+
+function clearCalculator() {
+
+    document.getElementById("number1").value = "";
+
+    document.getElementById("number2").value = "";
+
+    document.getElementById("result").style.display = "none";
+
+}
+
+</script>
+
+</body>
+</html>
