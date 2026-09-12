@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ideal Weight Calculator - Easy Online Tool</title>
+    <meta name="description" content="Use this free Ideal Weight Calculator to estimate your ideal weight range based on your height and gender.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+        }
+
+        header {
+            background: #ffffff;
+            padding: 18px 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 18px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 45px auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 34px;
+        }
+
+        .description {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .calculator-card {
+            background: white;
+            padding: 30px;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 16px;
+            background: white;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f0f7ff;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .result h2 {
+            margin-top: 0;
+            color: #2563eb;
+            font-size: 22px;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid #dbeafe;
+        }
+
+        .result-row:last-child {
+            border-bottom: none;
+        }
+
+        .result-value {
+            font-weight: bold;
+            text-align: right;
+        }
+
+        .main-result {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: #2563eb;
+            margin: 15px 0 20px;
+        }
+
+        .info-section {
+            background: white;
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .info-section h2 {
+            margin-top: 0;
+        }
+
+        .info-section h3 {
+            margin-top: 25px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #777;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+
+            .header-container {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 0 7px;
+                font-size: 14px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .calculator-card {
+                padding: 20px;
+            }
+
+            .result-row {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .result-value {
+                text-align: left;
+            }
+
+            .main-result {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+
+        <a href="index.html" class="logo">
+            Easy Online Tool
+        </a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="tools.html">Tools</a>
+            <a href="categories.html">Categories</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
+
+    </div>
+</header>
+
+<div class="container">
+
+    <h1>Ideal Weight Calculator</h1>
+
+    <p class="description">
+        Estimate your ideal body weight based on your height and gender.
+    </p>
+
+    <div class="calculator-card">
+
+        <div class="input-group">
+            <label for="gender">Gender</label>
+
+            <select id="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="height">Height (cm)</label>
+
+            <input
+                type="number"
+                id="height"
+                placeholder="e.g. 175"
+                min="100"
+                max="250"
+                step="0.1"
+            >
+        </div>
+
+        <button onclick="calculateIdealWeight()">
+            Calculate Ideal Weight
+        </button>
+
+        <div class="result" id="result">
+
+            <h2>Your Estimated Ideal Weight</h2>
+
+            <div class="main-result" id="idealWeight">
+                0 kg
+            </div>
+
+            <div class="result-row">
+                <span>Lower Estimate</span>
+                <span class="result-value" id="lowerWeight"></span>
+            </div>
+
+            <div class="result-row">
+                <span>Upper Estimate</span>
+                <span class="result-value" id="upperWeight"></span>
+            </div>
+
+            <div class="result-row">
+                <span>Height</span>
+                <span class="result-value" id="heightResult"></span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="info-section">
+
+        <h2>What Is an Ideal Weight?</h2>
+
+        <p>
+            Ideal weight is an estimated healthy body-weight range based on
+            factors such as height and gender. There is no single perfect
+            weight for everyone.
+        </p>
+
+        <h3>How Is Ideal Weight Calculated?</h3>
+
+        <p>
+            This calculator uses the Devine formula to provide an estimated
+            ideal body weight based on height and gender.
+        </p>
+
+        <h3>Devine Formula</h3>
+
+        <p>
+            For men: 50 kg + 2.3 kg for each inch over 5 feet.
+        </p>
+
+        <p>
+            For women: 45.5 kg + 2.3 kg for each inch over 5 feet.
+        </p>
+
+        <h3>Important Note</h3>
+
+        <p>
+            This calculator provides an estimate for general informational
+            purposes. Healthy weight can vary based on body composition,
+            muscle mass, age, and other factors. It should not be considered
+            medical advice.
+        </p>
+
+    </div>
+
+</div>
+
+<footer>
+    © 2026 Easy Online Tool. All rights reserved.
+</footer>
+
+<script>
+
+function calculateIdealWeight() {
+
+    const gender = document.getElementById("gender").value;
+
+    const heightCm = parseFloat(
+        document.getElementById("height").value
+    );
+
+    if (
+        isNaN(heightCm) ||
+        heightCm < 100 ||
+        heightCm > 250
+    ) {
+        alert("Please enter a valid height between 100 and 250 cm.");
+        return;
+    }
+
+    // Convert height from centimeters to inches
+    const heightInches = heightCm / 2.54;
+
+    // Convert 5 feet to inches
+    const fiveFeetInches = 60;
+
+    let idealWeight;
+
+    if (heightInches <= fiveFeetInches) {
+
+        // For heights up to 5 feet
+        idealWeight = gender === "male" ? 50 : 45.5;
+
+    } else {
+
+        const inchesOverFiveFeet =
+            heightInches - fiveFeetInches;
+
+        if (gender === "male") {
+            idealWeight =
+                50 + (2.3 * inchesOverFiveFeet);
+        } else {
+            idealWeight =
+                45.5 + (2.3 * inchesOverFiveFeet);
+        }
+    }
+
+    // Provide an approximate range around the calculated value
+    const lowerWeight = idealWeight * 0.9;
+    const upperWeight = idealWeight * 1.1;
+
+    document.getElementById("idealWeight").textContent =
+        idealWeight.toFixed(1) + " kg";
+
+    document.getElementById("lowerWeight").textContent =
+        lowerWeight.toFixed(1) + " kg";
+
+    document.getElementById("upperWeight").textContent =
+        upperWeight.toFixed(1) + " kg";
+
+    document.getElementById("heightResult").textContent =
+        heightCm.toFixed(1) + " cm";
+
+    document.getElementById("result").style.display = "block";
+}
+
+</script>
+
+</body>
+</html>
