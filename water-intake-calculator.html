@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Water Intake Calculator - Easy Online Tool</title>
+    <meta name="description" content="Use this free water intake calculator to estimate your daily water needs based on your weight, activity level, and climate.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+        }
+
+        header {
+            background: #ffffff;
+            padding: 18px 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 18px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 45px auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 34px;
+        }
+
+        .description {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .calculator-card {
+            background: white;
+            padding: 30px;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 16px;
+            background: white;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f0f7ff;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .result h2 {
+            margin-top: 0;
+            color: #2563eb;
+            font-size: 22px;
+        }
+
+        .main-result {
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: #2563eb;
+            margin: 20px 0;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid #dbeafe;
+        }
+
+        .result-row:last-child {
+            border-bottom: none;
+        }
+
+        .result-value {
+            font-weight: bold;
+            text-align: right;
+        }
+
+        .info-section {
+            background: white;
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .info-section h2 {
+            margin-top: 0;
+        }
+
+        .info-section h3 {
+            margin-top: 25px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #777;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+
+            .header-container {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 0 7px;
+                font-size: 14px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .calculator-card {
+                padding: 20px;
+            }
+
+            .main-result {
+                font-size: 27px;
+            }
+
+            .result-row {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .result-value {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+
+        <a href="index.html" class="logo">
+            Easy Online Tool
+        </a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="tools.html">Tools</a>
+            <a href="categories.html">Categories</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
+
+    </div>
+</header>
+
+<div class="container">
+
+    <h1>Water Intake Calculator</h1>
+
+    <p class="description">
+        Estimate your daily water intake based on your body weight and activity level.
+    </p>
+
+    <div class="calculator-card">
+
+        <div class="input-group">
+            <label for="weight">Weight (kg)</label>
+
+            <input
+                type="number"
+                id="weight"
+                placeholder="e.g. 70"
+                min="1"
+                step="0.1"
+            >
+        </div>
+
+        <div class="input-group">
+            <label for="activity">Daily Activity Level</label>
+
+            <select id="activity">
+                <option value="0">Low - Little exercise</option>
+                <option value="350">Moderate - Regular exercise</option>
+                <option value="700">High - Intense exercise</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="climate">Climate</label>
+
+            <select id="climate">
+                <option value="0">Normal / Cool</option>
+                <option value="300">Warm</option>
+                <option value="500">Hot</option>
+            </select>
+        </div>
+
+        <button onclick="calculateWater()">
+            Calculate Water Intake
+        </button>
+
+        <div class="result" id="result">
+
+            <h2>Your Estimated Daily Water Intake</h2>
+
+            <div class="main-result" id="waterResult">
+                0 liters/day
+            </div>
+
+            <div class="result-row">
+                <span>Estimated Water</span>
+                <span class="result-value" id="mlResult"></span>
+            </div>
+
+            <div class="result-row">
+                <span>Approximate Glasses</span>
+                <span class="result-value" id="glassResult"></span>
+            </div>
+
+            <div class="result-row">
+                <span>Weight Used</span>
+                <span class="result-value" id="weightResult"></span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="info-section">
+
+        <h2>How Much Water Should You Drink?</h2>
+
+        <p>
+            Water requirements vary from person to person. Body size, physical
+            activity, climate, diet, and other factors can affect how much fluid
+            a person needs.
+        </p>
+
+        <h3>How This Calculator Works</h3>
+
+        <p>
+            This calculator uses an approximate starting point of 35 milliliters
+            of water per kilogram of body weight. Additional water is added for
+            higher activity levels and warmer climates.
+        </p>
+
+        <h3>Example</h3>
+
+        <p>
+            A person weighing 70 kg would have a basic estimated water intake of
+            approximately 2.45 liters per day before activity and climate
+            adjustments.
+        </p>
+
+        <h3>Important Note</h3>
+
+        <p>
+            This calculator provides a general estimate for informational
+            purposes. Individual hydration needs can vary. People with certain
+            medical conditions or fluid restrictions should follow advice from
+            a qualified healthcare professional.
+        </p>
+
+    </div>
+
+</div>
+
+<footer>
+    © 2026 Easy Online Tool. All rights reserved.
+</footer>
+
+<script>
+
+function calculateWater() {
+
+    const weight = parseFloat(
+        document.getElementById("weight").value
+    );
+
+    const activityExtra = parseFloat(
+        document.getElementById("activity").value
+    );
+
+    const climateExtra = parseFloat(
+        document.getElementById("climate").value
+    );
+
+    if (
+        isNaN(weight) ||
+        weight <= 0
+    ) {
+        alert("Please enter a valid weight.");
+        return;
+    }
+
+    /*
+        Basic estimate:
+        35 ml of water per kg of body weight
+    */
+
+    const basicWater = weight * 35;
+
+    const totalWater =
+        basicWater +
+        activityExtra +
+        climateExtra;
+
+    const liters = totalWater / 1000;
+
+    /*
+        One glass is estimated as 250 ml
+    */
+
+    const glasses = totalWater / 250;
+
+    document.getElementById("waterResult").textContent =
+        liters.toFixed(2) + " liters/day";
+
+    document.getElementById("mlResult").textContent =
+        Math.round(totalWater).toLocaleString() + " ml/day";
+
+    document.getElementById("glassResult").textContent =
+        Math.round(glasses) + " glasses";
+
+    document.getElementById("weightResult").textContent =
+        weight.toFixed(1) + " kg";
+
+    document.getElementById("result").style.display = "block";
+}
+
+</script>
+
+</body>
+</html>
