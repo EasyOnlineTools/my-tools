@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Number Converter - Binary, Decimal, Hex & Octal | Easy Online Tool</title>
+
+    <meta name="description" content="Free number converter to convert numbers between decimal, binary, octal and hexadecimal formats. Fast and easy online number conversion tool.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 18px 20px;
+        }
+
+        .header-inner {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #374151;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 45px auto;
+            padding: 0 20px;
+        }
+
+        .title-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .title-section h1 {
+            font-size: 36px;
+            color: #111827;
+            margin-bottom: 10px;
+        }
+
+        .title-section p {
+            color: #6b7280;
+            font-size: 17px;
+        }
+
+        .converter-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #374151;
+        }
+
+        select,
+        input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 16px;
+            background: #fff;
+        }
+
+        select:focus,
+        input:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .result {
+            margin-top: 25px;
+            display: none;
+        }
+
+        .result-box {
+            background: #eff6ff;
+            border-radius: 10px;
+            padding: 18px;
+            margin-bottom: 12px;
+        }
+
+        .result-box strong {
+            display: block;
+            color: #374151;
+            margin-bottom: 5px;
+        }
+
+        .result-value {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2563eb;
+            word-break: break-all;
+        }
+
+        .info-section {
+            margin-top: 35px;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+        }
+
+        .info-section h2 {
+            margin-bottom: 12px;
+            color: #111827;
+        }
+
+        .info-section p {
+            color: #4b5563;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #6b7280;
+            font-size: 14px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 700px) {
+
+            .header-inner {
+                flex-direction: column;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .title-section h1 {
+                font-size: 30px;
+            }
+
+            .converter-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-inner">
+
+        <a href="index.html" class="logo">
+            Easy Online Tool
+        </a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html#tools">Tools</a>
+            <a href="index.html#categories">Categories</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
+
+    </div>
+</header>
+
+<main class="container">
+
+    <section class="title-section">
+
+        <h1>Number Converter</h1>
+
+        <p>
+            Convert numbers between Decimal, Binary, Octal and Hexadecimal.
+        </p>
+
+    </section>
+
+    <div class="converter-card">
+
+        <div class="form-group">
+
+            <label for="numberType">
+                Number Type
+            </label>
+
+            <select id="numberType">
+
+                <option value="10">
+                    Decimal
+                </option>
+
+                <option value="2">
+                    Binary
+                </option>
+
+                <option value="8">
+                    Octal
+                </option>
+
+                <option value="16">
+                    Hexadecimal
+                </option>
+
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="numberInput">
+                Enter Number
+            </label>
+
+            <input
+                type="text"
+                id="numberInput"
+                placeholder="Enter your number"
+            >
+
+        </div>
+
+        <button onclick="convertNumber()">
+            Convert Number
+        </button>
+
+        <div class="result" id="result">
+
+            <div class="result-box">
+
+                <strong>Decimal</strong>
+
+                <div
+                    class="result-value"
+                    id="decimalResult">
+                </div>
+
+            </div>
+
+            <div class="result-box">
+
+                <strong>Binary</strong>
+
+                <div
+                    class="result-value"
+                    id="binaryResult">
+                </div>
+
+            </div>
+
+            <div class="result-box">
+
+                <strong>Octal</strong>
+
+                <div
+                    class="result-value"
+                    id="octalResult">
+                </div>
+
+            </div>
+
+            <div class="result-box">
+
+                <strong>Hexadecimal</strong>
+
+                <div
+                    class="result-value"
+                    id="hexResult">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <section class="info-section">
+
+        <h2>About Number Converter</h2>
+
+        <p>
+            This free Number Converter converts numbers between four common
+            number systems: Decimal, Binary, Octal and Hexadecimal.
+        </p>
+
+        <p>
+            Decimal is the standard base-10 number system used in everyday life.
+            Binary uses only 0 and 1 and is widely used by computers.
+        </p>
+
+        <p>
+            Octal uses base 8, while hexadecimal uses base 16 and includes
+            numbers 0–9 and letters A–F.
+        </p>
+
+    </section>
+
+</main>
+
+<footer>
+    © 2026 Easy Online Tool. All rights reserved.
+</footer>
+
+<script>
+
+function convertNumber() {
+
+    const input = document
+        .getElementById("numberInput")
+        .value
+        .trim();
+
+    const base = parseInt(
+        document.getElementById("numberType").value
+    );
+
+    if (input === "") {
+
+        alert("Please enter a number.");
+
+        return;
+    }
+
+    let decimalNumber;
+
+    // Validate and convert input
+    try {
+
+        decimalNumber = parseInt(input, base);
+
+    } catch (error) {
+
+        alert("Please enter a valid number.");
+
+        return;
+    }
+
+    if (isNaN(decimalNumber)) {
+
+        alert(
+            "Invalid number for the selected number system."
+        );
+
+        return;
+    }
+
+    // Extra validation
+    const validPatterns = {
+
+        2: /^[01]+$/,
+
+        8: /^[0-7]+$/,
+
+        10: /^[0-9]+$/,
+
+        16: /^[0-9a-fA-F]+$/
+
+    };
+
+    if (!validPatterns[base].test(input)) {
+
+        alert(
+            "Invalid number for the selected number system."
+        );
+
+        return;
+    }
+
+    document.getElementById("decimalResult").textContent =
+        decimalNumber.toString(10);
+
+    document.getElementById("binaryResult").textContent =
+        decimalNumber.toString(2);
+
+    document.getElementById("octalResult").textContent =
+        decimalNumber.toString(8);
+
+    document.getElementById("hexResult").textContent =
+        decimalNumber.toString(16).toUpperCase();
+
+    document.getElementById("result").style.display = "block";
+}
+
+</script>
+
+</body>
+</html>
