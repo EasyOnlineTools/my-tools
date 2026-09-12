@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BMR Calculator - Easy Online Tool</title>
+    <meta name="description" content="Use this free BMR calculator to estimate your Basal Metabolic Rate based on age, gender, height, and weight.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+        }
+
+        header {
+            background: #ffffff;
+            padding: 18px 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 18px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 45px auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 34px;
+        }
+
+        .description {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .calculator-card {
+            background: white;
+            padding: 30px;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 16px;
+            background: white;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f0f7ff;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .result h2 {
+            margin-top: 0;
+            color: #2563eb;
+            font-size: 22px;
+        }
+
+        .bmr-number {
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: #2563eb;
+            margin: 20px 0;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid #dbeafe;
+        }
+
+        .result-row:last-child {
+            border-bottom: none;
+        }
+
+        .result-value {
+            font-weight: bold;
+            text-align: right;
+        }
+
+        .info-section {
+            background: white;
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .info-section h2 {
+            margin-top: 0;
+        }
+
+        .info-section h3 {
+            margin-top: 25px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #777;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+
+            .header-container {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 0 7px;
+                font-size: 14px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .calculator-card {
+                padding: 20px;
+            }
+
+            .result-row {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .result-value {
+                text-align: left;
+            }
+
+            .bmr-number {
+                font-size: 27px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+
+        <a href="index.html" class="logo">
+            Easy Online Tool
+        </a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="tools.html">Tools</a>
+            <a href="categories.html">Categories</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
+
+    </div>
+</header>
+
+<div class="container">
+
+    <h1>BMR Calculator</h1>
+
+    <p class="description">
+        Calculate your Basal Metabolic Rate and estimate the calories your body needs at rest.
+    </p>
+
+    <div class="calculator-card">
+
+        <div class="input-group">
+            <label for="gender">Gender</label>
+
+            <select id="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="age">Age (Years)</label>
+
+            <input
+                type="number"
+                id="age"
+                placeholder="e.g. 30"
+                min="1"
+                max="120"
+            >
+        </div>
+
+        <div class="input-group">
+            <label for="weight">Weight (kg)</label>
+
+            <input
+                type="number"
+                id="weight"
+                placeholder="e.g. 70"
+                min="1"
+                step="0.1"
+            >
+        </div>
+
+        <div class="input-group">
+            <label for="height">Height (cm)</label>
+
+            <input
+                type="number"
+                id="height"
+                placeholder="e.g. 175"
+                min="50"
+                max="250"
+                step="0.1"
+            >
+        </div>
+
+        <button onclick="calculateBMR()">
+            Calculate BMR
+        </button>
+
+        <div class="result" id="result">
+
+            <h2>Your BMR</h2>
+
+            <div class="bmr-number" id="bmrResult">
+                0 calories/day
+            </div>
+
+            <div class="result-row">
+                <span>Calories at Rest</span>
+                <span class="result-value" id="restCalories"></span>
+            </div>
+
+            <div class="result-row">
+                <span>Estimated Daily Calories</span>
+                <span class="result-value" id="maintenanceCalories"></span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="info-section">
+
+        <h2>What Is BMR?</h2>
+
+        <p>
+            BMR stands for Basal Metabolic Rate. It is an estimate of the number
+            of calories your body needs to perform basic functions while at rest.
+        </p>
+
+        <h3>What Does BMR Include?</h3>
+
+        <p>
+            Your BMR represents energy used for essential functions such as
+            breathing, blood circulation, maintaining body temperature, and
+            supporting normal organ function.
+        </p>
+
+        <h3>How Is BMR Calculated?</h3>
+
+        <p>
+            This calculator uses the Mifflin-St Jeor equation, which estimates
+            BMR using your age, gender, weight, and height.
+        </p>
+
+        <h3>Important Note</h3>
+
+        <p>
+            BMR is an estimate and does not account for all factors that can
+            affect individual calorie requirements. It should not be considered
+            medical advice.
+        </p>
+
+    </div>
+
+</div>
+
+<footer>
+    © 2026 Easy Online Tool. All rights reserved.
+</footer>
+
+<script>
+
+function calculateBMR() {
+
+    const gender = document.getElementById("gender").value;
+
+    const age = parseFloat(
+        document.getElementById("age").value
+    );
+
+    const weight = parseFloat(
+        document.getElementById("weight").value
+    );
+
+    const height = parseFloat(
+        document.getElementById("height").value
+    );
+
+    if (
+        isNaN(age) ||
+        isNaN(weight) ||
+        isNaN(height) ||
+        age <= 0 ||
+        weight <= 0 ||
+        height <= 0
+    ) {
+
+        alert("Please enter valid age, weight, and height.");
+
+        return;
+    }
+
+    let bmr;
+
+    // Mifflin-St Jeor Equation
+
+    if (gender === "male") {
+
+        bmr =
+            (10 * weight) +
+            (6.25 * height) -
+            (5 * age) +
+            5;
+
+    } else {
+
+        bmr =
+            (10 * weight) +
+            (6.25 * height) -
+            (5 * age) -
+            161;
+    }
+
+    // Approximate maintenance calories using a sedentary activity factor
+
+    const maintenanceCalories = bmr * 1.2;
+
+    document.getElementById("bmrResult").textContent =
+        Math.round(bmr).toLocaleString() + " calories/day";
+
+    document.getElementById("restCalories").textContent =
+        Math.round(bmr).toLocaleString() + " calories/day";
+
+    document.getElementById("maintenanceCalories").textContent =
+        Math.round(maintenanceCalories).toLocaleString() + " calories/day";
+
+    document.getElementById("result").style.display = "block";
+}
+
+</script>
+
+</body>
+</html>
