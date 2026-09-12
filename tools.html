@@ -2,15 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>All Tools - Easy Online Tool</title>
+    <title>All Online Tools - Easy Online Tool</title>
 
-    <meta name="description" content="Explore all free online calculators and useful tools from Easy Online Tool. Find math, finance, health, productivity, and everyday tools.">
+    <meta name="description" content="Browse all free online calculators and tools from Easy Online Tool including math, finance, health, fitness and other useful tools.">
 
     <style>
-
         * {
             box-sizing: border-box;
             margin: 0;
@@ -18,51 +16,43 @@
         }
 
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f7f9fc;
-            color: #222;
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #1f2937;
             line-height: 1.6;
         }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* HEADER */
 
         header {
             background: #ffffff;
             border-bottom: 1px solid #e5e7eb;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            padding: 18px 20px;
         }
 
-        .header-container {
-            max-width: 1150px;
+        .header-inner {
+            max-width: 1100px;
             margin: auto;
-            padding: 18px 20px;
-
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
+            gap: 20px;
         }
 
         .logo {
             font-size: 24px;
-            font-weight: 700;
+            font-weight: bold;
             color: #2563eb;
+            text-decoration: none;
         }
 
         nav {
             display: flex;
-            gap: 24px;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
         nav a {
             color: #374151;
-            font-size: 15px;
+            text-decoration: none;
             font-weight: 500;
         }
 
@@ -70,230 +60,86 @@
             color: #2563eb;
         }
 
-        /* HERO */
-
-        .hero {
-            background: linear-gradient(135deg, #2563eb, #4f46e5);
-            color: white;
-            text-align: center;
-            padding: 65px 20px;
-        }
-
-        .hero h1 {
-            font-size: 42px;
-            margin-bottom: 12px;
-        }
-
-        .hero p {
-            max-width: 700px;
-            margin: auto;
-            font-size: 17px;
-            opacity: 0.95;
-        }
-
-        /* MAIN */
-
         .container {
-            max-width: 1150px;
-            margin: auto;
-            padding: 50px 20px;
+            max-width: 1100px;
+            margin: 45px auto;
+            padding: 0 20px;
         }
 
-        .section-title {
+        .page-title {
             text-align: center;
-            margin-bottom: 35px;
+            margin-bottom: 40px;
         }
 
-        .section-title h2 {
-            font-size: 30px;
-            margin-bottom: 8px;
+        .page-title h1 {
+            font-size: 38px;
+            color: #111827;
+            margin-bottom: 10px;
         }
 
-        .section-title p {
+        .page-title p {
             color: #6b7280;
+            font-size: 17px;
         }
 
-        /* CATEGORY */
-
-        .tool-category {
-            margin-bottom: 55px;
+        .category {
+            margin-bottom: 40px;
         }
 
-        .category-heading {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-
+        .category-title {
+            font-size: 26px;
+            color: #111827;
+            margin-bottom: 18px;
+            padding-bottom: 10px;
             border-bottom: 2px solid #e5e7eb;
         }
-
-        .category-heading h2 {
-            font-size: 25px;
-            color: #1f2937;
-        }
-
-        .category-heading a {
-            color: #2563eb;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        /* TOOL GRID */
 
         .tools-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: 18px;
         }
 
         .tool-card {
             background: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-radius: 14px;
-            padding: 25px;
-
-            transition: 0.25s ease;
-
-            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+            border-radius: 12px;
+            padding: 22px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            border: 1px solid #eef0f4;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .tool-card:hover {
-            transform: translateY(-5px);
-            border-color: #2563eb;
-            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.12);
-        }
-
-        .tool-icon {
-            width: 50px;
-            height: 50px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            background: #eff6ff;
-            border-radius: 12px;
-
-            font-size: 25px;
-
-            margin-bottom: 16px;
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(0,0,0,0.10);
         }
 
         .tool-card h3 {
-            font-size: 19px;
             margin-bottom: 8px;
-            color: #111827;
+            font-size: 19px;
+        }
+
+        .tool-card h3 a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .tool-card h3 a:hover {
+            text-decoration: underline;
         }
 
         .tool-card p {
-            font-size: 14px;
             color: #6b7280;
-            margin-bottom: 18px;
-        }
-
-        .use-tool {
-            display: inline-block;
-
-            padding: 9px 16px;
-
-            background: #2563eb;
-            color: white;
-
-            border-radius: 8px;
-
             font-size: 14px;
-            font-weight: 600;
         }
-
-        .use-tool:hover {
-            background: #1d4ed8;
-        }
-
-        /* COMING SOON */
-
-        .coming-soon {
-            opacity: 0.75;
-        }
-
-        .coming-soon .use-tool {
-            background: #e5e7eb;
-            color: #6b7280;
-            cursor: default;
-        }
-
-        /* BACK HOME */
-
-        .back-home {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .back-home a {
-            display: inline-block;
-            padding: 12px 22px;
-
-            background: #111827;
-            color: white;
-
-            border-radius: 8px;
-            font-weight: 600;
-        }
-
-        .back-home a:hover {
-            background: #2563eb;
-        }
-
-        /* FOOTER */
 
         footer {
-            background: #111827;
-            color: white;
-            margin-top: 50px;
-        }
-
-        .footer-container {
-            max-width: 1150px;
-            margin: auto;
-            padding: 45px 20px;
-
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 40px;
-        }
-
-        footer h3 {
-            margin-bottom: 12px;
-        }
-
-        footer p {
-            color: #cbd5e1;
-            font-size: 14px;
-        }
-
-        footer a {
-            display: block;
-            color: #cbd5e1;
-            margin-bottom: 8px;
-            font-size: 14px;
-        }
-
-        footer a:hover {
-            color: white;
-        }
-
-        .copyright {
             text-align: center;
-            padding: 18px;
-            border-top: 1px solid #374151;
-
-            color: #9ca3af;
-            font-size: 13px;
+            padding: 30px 20px;
+            color: #6b7280;
+            font-size: 14px;
+            margin-top: 40px;
         }
-
-        /* MOBILE */
 
         @media (max-width: 800px) {
 
@@ -301,72 +147,37 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .footer-container {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .hero h1 {
-                font-size: 34px;
+            .page-title h1 {
+                font-size: 32px;
             }
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 550px) {
 
-            .header-container {
+            .header-inner {
                 flex-direction: column;
-                gap: 12px;
             }
 
             nav {
-                gap: 15px;
-                flex-wrap: wrap;
                 justify-content: center;
-            }
-
-            .hero {
-                padding: 50px 18px;
-            }
-
-            .hero h1 {
-                font-size: 30px;
-            }
-
-            .hero p {
-                font-size: 15px;
-            }
-
-            .container {
-                padding: 40px 15px;
             }
 
             .tools-grid {
                 grid-template-columns: 1fr;
             }
 
-            .category-heading {
-                align-items: flex-start;
-                gap: 10px;
-            }
-
-            .category-heading h2 {
-                font-size: 21px;
-            }
-
-            .footer-container {
-                grid-template-columns: 1fr;
+            .page-title h1 {
+                font-size: 28px;
             }
         }
-
     </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-
 <header>
 
-    <div class="header-container">
+    <div class="header-inner">
 
         <a href="index.html" class="logo">
             Easy Online Tool
@@ -374,9 +185,10 @@
 
         <nav>
             <a href="index.html">Home</a>
-            <a href="tools.html">All Tools</a>
-            <a href="math-calculators.html">Categories</a>
-            <a href="index.html#faq">FAQ</a>
+            <a href="tools.html">Tools</a>
+            <a href="index.html#categories">Categories</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
         </nav>
 
     </div>
@@ -384,101 +196,119 @@
 </header>
 
 
-<!-- HERO -->
-
-<section class="hero">
-
-    <h1>All Free Online Tools</h1>
-
-    <p>
-        Explore our collection of simple, fast, and free online
-        calculators and useful tools for everyday tasks.
-    </p>
-
-</section>
-
-
-<!-- MAIN -->
-
 <main class="container">
 
-    <div class="section-title">
+    <section class="page-title">
 
-        <h2>Explore All Tools</h2>
+        <h1>All Online Tools</h1>
 
         <p>
-            Choose a tool below to get started.
+            Explore our collection of free online calculators and useful tools.
         </p>
 
-    </div>
+    </section>
 
 
-    <!-- MATH -->
+    <!-- ========================= -->
+    <!-- MATH CALCULATORS -->
+    <!-- ========================= -->
 
-    <section class="tool-category">
+    <section class="category">
 
-        <div class="category-heading">
-
-            <h2>➗ Math Calculators</h2>
-
-            <a href="math-calculators.html">
-                View Category →
-            </a>
-
-        </div>
-
+        <h2 class="category-title">
+            Math Calculators
+        </h2>
 
         <div class="tools-grid">
 
-            <a href="percentage-calculator.html" class="tool-card">
-
-                <div class="tool-icon">%</div>
-
-                <h3>Percentage Calculator</h3>
-
-                <p>
-                    Calculate percentages, increases, decreases,
-                    and percentage differences quickly.
-                </p>
-
-                <span class="use-tool">
-                    Use Tool →
-                </span>
-
-            </a>
-
-
-            <div class="tool-card coming-soon">
-
-                <div class="tool-icon">➗</div>
-
-                <h3>Average Calculator</h3>
-
-                <p>
-                    Calculate the average of a set of numbers.
-                </p>
-
-                <span class="use-tool">
-                    Coming Soon
-                </span>
-
+            <div class="tool-card">
+                <h3>
+                    <a href="percentage-calculator.html">
+                        Percentage Calculator
+                    </a>
+                </h3>
+                <p>Calculate percentages quickly and easily.</p>
             </div>
 
+            <div class="tool-card">
+                <h3>
+                    <a href="fraction-calculator.html">
+                        Fraction Calculator
+                    </a>
+                </h3>
+                <p>Add, subtract, multiply and divide fractions.</p>
+            </div>
 
-            <div class="tool-card coming-soon">
+            <div class="tool-card">
+                <h3>
+                    <a href="average-calculator.html">
+                        Average Calculator
+                    </a>
+                </h3>
+                <p>Calculate average, sum, minimum and maximum.</p>
+            </div>
 
-                <div class="tool-icon">½</div>
+            <div class="tool-card">
+                <h3>
+                    <a href="ratio-calculator.html">
+                        Ratio Calculator
+                    </a>
+                </h3>
+                <p>Simplify and calculate ratios.</p>
+            </div>
 
-                <h3>Fraction Calculator</h3>
+            <div class="tool-card">
+                <h3>
+                    <a href="gcd-lcm-calculator.html">
+                        GCD & LCM Calculator
+                    </a>
+                </h3>
+                <p>Find the greatest common divisor and least common multiple.</p>
+            </div>
 
-                <p>
-                    Add, subtract, multiply, and divide fractions.
-                </p>
+            <div class="tool-card">
+                <h3>
+                    <a href="prime-number-checker.html">
+                        Prime Number Checker
+                    </a>
+                </h3>
+                <p>Check whether a number is prime.</p>
+            </div>
 
-                <span class="use-tool">
-                    Coming Soon
-                </span>
+            <div class="tool-card">
+                <h3>
+                    <a href="percentage-increase-decrease.html">
+                        Percentage Increase & Decrease
+                    </a>
+                </h3>
+                <p>Calculate percentage increases and decreases.</p>
+            </div>
 
+            <div class="tool-card">
+                <h3>
+                    <a href="number-to-words.html">
+                        Number to Words
+                    </a>
+                </h3>
+                <p>Convert numbers into English words.</p>
+            </div>
+
+            <div class="tool-card">
+                <h3>
+                    <a href="time-calculator.html">
+                        Time Calculator
+                    </a>
+                </h3>
+                <p>Add, subtract and calculate time values.</p>
+            </div>
+
+            <div class="tool-card">
+                <h3>
+                    <a href="number-converter.html">
+                        Number Converter
+                    </a>
+                </h3>
+                <p>Convert Decimal, Binary, Octal and Hexadecimal numbers.</p>
             </div>
 
         </div>
@@ -486,72 +316,52 @@
     </section>
 
 
-    <!-- FINANCE -->
+    <!-- ========================= -->
+    <!-- FINANCE CALCULATORS -->
+    <!-- ========================= -->
 
-    <section class="tool-category">
+    <section class="category">
 
-        <div class="category-heading">
-
-            <h2>💰 Finance Calculators</h2>
-
-            <a href="finance-calculators.html">
-                View Category →
-            </a>
-
-        </div>
-
+        <h2 class="category-title">
+            Finance Calculators
+        </h2>
 
         <div class="tools-grid">
 
-            <a href="discount-calculator.html" class="tool-card">
-
-                <div class="tool-icon">🏷️</div>
-
-                <h3>Discount Calculator</h3>
-
-                <p>
-                    Calculate discounts, savings, and final prices
-                    quickly and easily.
-                </p>
-
-                <span class="use-tool">
-                    Use Tool →
-                </span>
-
-            </a>
-
-
-            <div class="tool-card coming-soon">
-
-                <div class="tool-icon">💵</div>
-
-                <h3>Tip Calculator</h3>
-
-                <p>
-                    Calculate tips and split restaurant bills easily.
-                </p>
-
-                <span class="use-tool">
-                    Coming Soon
-                </span>
-
+            <div class="tool-card">
+                <h3>
+                    <a href="simple-interest-calculator.html">
+                        Simple Interest Calculator
+                    </a>
+                </h3>
+                <p>Calculate simple interest and total amount.</p>
             </div>
 
+            <div class="tool-card">
+                <h3>
+                    <a href="compound-interest-calculator.html">
+                        Compound Interest Calculator
+                    </a>
+                </h3>
+                <p>Calculate compound interest and investment growth.</p>
+            </div>
 
-            <div class="tool-card coming-soon">
+            <div class="tool-card">
+                <h3>
+                    <a href="mortgage-calculator.html">
+                        Mortgage Calculator
+                    </a>
+                </h3>
+                <p>Estimate monthly mortgage payments and interest.</p>
+            </div>
 
-                <div class="tool-icon">🏦</div>
-
-                <h3>Loan Calculator</h3>
-
-                <p>
-                    Estimate monthly loan payments and total interest.
-                </p>
-
-                <span class="use-tool">
-                    Coming Soon
-                </span>
-
+            <div class="tool-card">
+                <h3>
+                    <a href="tip-calculator.html">
+                        Tip Calculator
+                    </a>
+                </h3>
+                <p>Calculate tips and split bills between people.</p>
             </div>
 
         </div>
@@ -559,74 +369,61 @@
     </section>
 
 
-    <!-- HEALTH -->
+    <!-- ========================= -->
+    <!-- HEALTH & FITNESS -->
+    <!-- ========================= -->
 
-    <section class="tool-category">
+    <section class="category">
 
-        <div class="category-heading">
-
-            <h2>❤️ Health & Fitness</h2>
-
-            <a href="health-fitness.html">
-                View Category →
-            </a>
-
-        </div>
-
+        <h2 class="category-title">
+            Health & Fitness
+        </h2>
 
         <div class="tools-grid">
 
-            <a href="bmi-calculator.html" class="tool-card">
+            <div class="tool-card">
+                <h3>
+                    <a href="bmi-calculator.html">
+                        BMI Calculator
+                    </a>
+                </h3>
+                <p>Calculate Body Mass Index using height and weight.</p>
+            </div>
 
-                <div class="tool-icon">⚖️</div>
+            <div class="tool-card">
+                <h3>
+                    <a href="bmr-calculator.html">
+                        BMR Calculator
+                    </a>
+                </h3>
+                <p>Estimate your Basal Metabolic Rate.</p>
+            </div>
 
-                <h3>BMI Calculator</h3>
+            <div class="tool-card">
+                <h3>
+                    <a href="calorie-calculator.html">
+                        Calorie Calculator
+                    </a>
+                </h3>
+                <p>Estimate daily calorie requirements.</p>
+            </div>
 
-                <p>
-                    Calculate your Body Mass Index using height
-                    and weight.
-                </p>
+            <div class="tool-card">
+                <h3>
+                    <a href="ideal-weight-calculator.html">
+                        Ideal Weight Calculator
+                    </a>
+                </h3>
+                <p>Estimate ideal body weight based on height.</p>
+            </div>
 
-                <span class="use-tool">
-                    Use Tool →
-                </span>
-
-            </a>
-
-
-            <a href="age-calculator.html" class="tool-card">
-
-                <div class="tool-icon">🎂</div>
-
-                <h3>Age Calculator</h3>
-
-                <p>
-                    Calculate your exact age in years, months,
-                    and days.
-                </p>
-
-                <span class="use-tool">
-                    Use Tool →
-                </span>
-
-            </a>
-
-
-            <div class="tool-card coming-soon">
-
-                <div class="tool-icon">🔥</div>
-
-                <h3>Calorie Calculator</h3>
-
-                <p>
-                    Estimate daily calorie needs based on your
-                    activity level.
-                </p>
-
-                <span class="use-tool">
-                    Coming Soon
-                </span>
-
+            <div class="tool-card">
+                <h3>
+                    <a href="water-intake-calculator.html">
+                        Water Intake Calculator
+                    </a>
+                </h3>
+                <p>Estimate your daily water intake.</p>
             </div>
 
         </div>
@@ -634,166 +431,93 @@
     </section>
 
 
-    <!-- OTHER -->
+    <!-- ========================= -->
+    <!-- OTHER TOOLS -->
+    <!-- ========================= -->
 
-    <section class="tool-category">
+    <section class="category">
 
-        <div class="category-heading">
-
-            <h2>🛠️ Other Useful Tools</h2>
-
-            <a href="other-tools.html">
-                View Category →
-            </a>
-
-        </div>
-
+        <h2 class="category-title">
+            Other Tools
+        </h2>
 
         <div class="tools-grid">
 
-            <a href="password-generator.html" class="tool-card">
+            <div class="tool-card">
+                <h3>
+                    <a href="age-calculator.html">
+                        Age Calculator
+                    </a>
+                </h3>
+                <p>Calculate your exact age from your date of birth.</p>
+            </div>
 
-                <div class="tool-icon">🔐</div>
+            <div class="tool-card">
+                <h3>
+                    <a href="discount-calculator.html">
+                        Discount Calculator
+                    </a>
+                </h3>
+                <p>Calculate discounts, savings and final prices.</p>
+            </div>
 
-                <h3>Password Generator</h3>
+            <div class="tool-card">
+                <h3>
+                    <a href="random-number-generator.html">
+                        Random Number Generator
+                    </a>
+                </h3>
+                <p>Generate random numbers within any range.</p>
+            </div>
 
-                <p>
-                    Generate strong and secure random passwords
-                    instantly.
-                </p>
+            <div class="tool-card">
+                <h3>
+                    <a href="word-counter.html">
+                        Word Counter
+                    </a>
+                </h3>
+                <p>Count words, characters and text length.</p>
+            </div>
 
-                <span class="use-tool">
-                    Use Tool →
-                </span>
+            <div class="tool-card">
+                <h3>
+                    <a href="password-generator.html">
+                        Password Generator
+                    </a>
+                </h3>
+                <p>Create strong and secure random passwords.</p>
+            </div>
 
-            </a>
+            <div class="tool-card">
+                <h3>
+                    <a href="unit-converter.html">
+                        Unit Converter
+                    </a>
+                </h3>
+                <p>Convert length, weight, temperature, area, volume and speed.</p>
+            </div>
 
-
-            <a href="word-counter.html" class="tool-card">
-
-                <div class="tool-icon">📝</div>
-
-                <h3>Word Counter</h3>
-
-                <p>
-                    Count words, characters, sentences, and
-                    paragraphs in your text.
-                </p>
-
-                <span class="use-tool">
-                    Use Tool →
-                </span>
-
-            </a>
-
-
-            <div class="tool-card coming-soon">
-
-                <div class="tool-icon">🔄</div>
-
-                <h3>Unit Converter</h3>
-
-                <p>
-                    Convert length, weight, temperature,
-                    and other units.
-                </p>
-
-                <span class="use-tool">
-                    Coming Soon
-                </span>
-
+            <div class="tool-card">
+                <h3>
+                    <a href="date-calculator.html">
+                        Date Calculator
+                    </a>
+                </h3>
+                <p>Calculate date differences and add or subtract days.</p>
             </div>
 
         </div>
 
     </section>
-
-
-    <!-- BACK HOME -->
-
-    <div class="back-home">
-
-        <a href="index.html">
-            ← Back to Home
-        </a>
-
-    </div>
 
 </main>
 
 
-<!-- FOOTER -->
-
 <footer>
 
-    <div class="footer-container">
-
-        <div>
-
-            <h3>Easy Online Tool</h3>
-
-            <p>
-                Free online calculators and useful tools
-                for everyday needs. Simple, fast, and easy to use.
-            </p>
-
-        </div>
-
-
-        <div>
-
-            <h3>Tools</h3>
-
-            <a href="tools.html">All Tools</a>
-
-            <a href="percentage-calculator.html">
-                Percentage Calculator
-            </a>
-
-            <a href="bmi-calculator.html">
-                BMI Calculator
-            </a>
-
-            <a href="age-calculator.html">
-                Age Calculator
-            </a>
-
-        </div>
-
-
-        <div>
-
-            <h3>Categories</h3>
-
-            <a href="math-calculators.html">
-                Math Calculators
-            </a>
-
-            <a href="finance-calculators.html">
-                Finance Calculators
-            </a>
-
-            <a href="health-fitness.html">
-                Health & Fitness
-            </a>
-
-            <a href="other-tools.html">
-                Other Tools
-            </a>
-
-        </div>
-
-    </div>
-
-
-    <div class="copyright">
-
-        © 2026 Easy Online Tool. All rights reserved.
-
-    </div>
+    © 2026 Easy Online Tool. All rights reserved.
 
 </footer>
-
 
 </body>
 </html>
