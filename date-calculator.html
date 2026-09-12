@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Date Calculator - Calculate Date Difference | Easy Online Tool</title>
+
+    <meta name="description" content="Free online date calculator to calculate the difference between two dates and add or subtract days from a date.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 18px 20px;
+        }
+
+        .header-inner {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #374151;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 45px auto;
+            padding: 0 20px;
+        }
+
+        .title-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .title-section h1 {
+            font-size: 36px;
+            color: #111827;
+            margin-bottom: 10px;
+        }
+
+        .title-section p {
+            color: #6b7280;
+            font-size: 17px;
+        }
+
+        .calculator-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .section-title {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #111827;
+        }
+
+        .date-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #374151;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 16px;
+            background: #ffffff;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .result {
+            display: none;
+            margin-top: 25px;
+            background: #eff6ff;
+            padding: 22px;
+            border-radius: 10px;
+        }
+
+        .result h2 {
+            color: #111827;
+            margin-bottom: 15px;
+            font-size: 21px;
+        }
+
+        .result-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .result-item {
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .result-item span {
+            display: block;
+            color: #6b7280;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .result-item strong {
+            color: #2563eb;
+            font-size: 20px;
+        }
+
+        .info-section {
+            margin-top: 35px;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+        }
+
+        .info-section h2 {
+            margin-bottom: 12px;
+            color: #111827;
+        }
+
+        .info-section p {
+            color: #4b5563;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #6b7280;
+            font-size: 14px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 700px) {
+
+            .header-inner {
+                flex-direction: column;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .title-section h1 {
+                font-size: 30px;
+            }
+
+            .calculator-card {
+                padding: 20px;
+            }
+
+            .date-row,
+            .result-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="header-inner">
+
+        <a href="index.html" class="logo">
+            Easy Online Tool
+        </a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html#tools">Tools</a>
+            <a href="index.html#categories">Categories</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
+
+    </div>
+
+</header>
+
+<main class="container">
+
+    <section class="title-section">
+
+        <h1>Date Calculator</h1>
+
+        <p>
+            Calculate the difference between two dates or add and subtract days.
+        </p>
+
+    </section>
+
+    <div class="calculator-card">
+
+        <h2 class="section-title">
+            Calculate Date Difference
+        </h2>
+
+        <div class="date-row">
+
+            <div class="form-group">
+
+                <label for="startDate">
+                    Start Date
+                </label>
+
+                <input type="date" id="startDate">
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="endDate">
+                    End Date
+                </label>
+
+                <input type="date" id="endDate">
+
+            </div>
+
+        </div>
+
+        <button onclick="calculateDifference()">
+            Calculate Difference
+        </button>
+
+        <div class="result" id="differenceResult">
+
+            <h2>Date Difference</h2>
+
+            <div class="result-grid">
+
+                <div class="result-item">
+                    <span>Total Days</span>
+                    <strong id="totalDays">0</strong>
+                </div>
+
+                <div class="result-item">
+                    <span>Total Weeks</span>
+                    <strong id="totalWeeks">0</strong>
+                </div>
+
+                <div class="result-item">
+                    <span>Total Months (Approx.)</span>
+                    <strong id="totalMonths">0</strong>
+                </div>
+
+                <div class="result-item">
+                    <span>Total Years (Approx.)</span>
+                    <strong id="totalYears">0</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+        <hr style="margin: 35px 0; border: none; border-top: 1px solid #e5e7eb;">
+
+        <h2 class="section-title">
+            Add or Subtract Days
+        </h2>
+
+        <div class="form-group">
+
+            <label for="baseDate">
+                Starting Date
+            </label>
+
+            <input type="date" id="baseDate">
+
+        </div>
+
+        <div class="date-row">
+
+            <div class="form-group">
+
+                <label for="days">
+                    Number of Days
+                </label>
+
+                <input
+                    type="number"
+                    id="days"
+                    placeholder="Enter days"
+                    min="0"
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="operation">
+                    Operation
+                </label>
+
+                <select id="operation">
+
+                    <option value="add">
+                        Add Days
+                    </option>
+
+                    <option value="subtract">
+                        Subtract Days
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <button onclick="calculateNewDate()">
+            Calculate New Date
+        </button>
+
+        <div class="result" id="newDateResult">
+
+            <h2>Result</h2>
+
+            <div class="result-item">
+
+                <span>New Date</span>
+
+                <strong id="newDate"></strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <section class="info-section">
+
+        <h2>About Date Calculator</h2>
+
+        <p>
+            The Date Calculator is a free online tool for calculating the
+            difference between two dates.
+        </p>
+
+        <p>
+            You can find the total number of days and weeks between two dates,
+            as well as approximate months and years.
+        </p>
+
+        <p>
+            You can also add or subtract a specific number of days from any date
+            to find a future or previous date.
+        </p>
+
+    </section>
+
+</main>
+
+<footer>
+    © 2026 Easy Online Tool. All rights reserved.
+</footer>
+
+<script>
+
+function getDateOnly(dateString) {
+
+    const parts = dateString.split("-");
+
+    return new Date(
+        Number(parts[0]),
+        Number(parts[1]) - 1,
+        Number(parts[2])
+    );
+}
+
+function calculateDifference() {
+
+    const startInput =
+        document.getElementById("startDate").value;
+
+    const endInput =
+        document.getElementById("endDate").value;
+
+    if (!startInput || !endInput) {
+
+        alert("Please select both dates.");
+
+        return;
+    }
+
+    const startDate = getDateOnly(startInput);
+    const endDate = getDateOnly(endInput);
+
+    const difference =
+        Math.abs(endDate - startDate);
+
+    const totalDays =
+        Math.round(difference / (1000 * 60 * 60 * 24));
+
+    const totalWeeks =
+        (totalDays / 7).toFixed(2);
+
+    const totalMonths =
+        (totalDays / 30.436875).toFixed(2);
+
+    const totalYears =
+        (totalDays / 365.2425).toFixed(2);
+
+    document.getElementById("totalDays").textContent =
+        totalDays.toLocaleString();
+
+    document.getElementById("totalWeeks").textContent =
+        totalWeeks;
+
+    document.getElementById("totalMonths").textContent =
+        totalMonths;
+
+    document.getElementById("totalYears").textContent =
+        totalYears;
+
+    document.getElementById("differenceResult").style.display =
+        "block";
+}
+
+function calculateNewDate() {
+
+    const baseInput =
+        document.getElementById("baseDate").value;
+
+    const daysInput =
+        document.getElementById("days").value;
+
+    const operation =
+        document.getElementById("operation").value;
+
+    if (!baseInput || daysInput === "") {
+
+        alert("Please enter a date and number of days.");
+
+        return;
+    }
+
+    const days = Number(daysInput);
+
+    if (days < 0 || !Number.isFinite(days)) {
+
+        alert("Please enter a valid positive number of days.");
+
+        return;
+    }
+
+    const date = getDateOnly(baseInput);
+
+    if (operation === "add") {
+
+        date.setDate(date.getDate() + days);
+
+    } else {
+
+        date.setDate(date.getDate() - days);
+
+    }
+
+    const year = date.getFullYear();
+
+    const month =
+        String(date.getMonth() + 1).padStart(2, "0");
+
+    const day =
+        String(date.getDate()).padStart(2, "0");
+
+    const formattedDate =
+        `${year}-${month}-${day}`;
+
+    document.getElementById("newDate").textContent =
+        formattedDate;
+
+    document.getElementById("newDateResult").style.display =
+        "block";
+}
+
+</script>
+
+</body>
+</html>
