@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://easyonlinetools.github.io/my-tools/sitemap.xml
