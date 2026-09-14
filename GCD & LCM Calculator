@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>GCD & LCM Calculator - Find GCD and LCM Online | Easy Online Tool</title>
-
-    <meta name="description" content="Free GCD and LCM calculator. Find the greatest common divisor and least common multiple of two or more numbers quickly and easily.">
-
+   <title>GCD & LCM Calculator – Find GCD and LCM | Easy Online Tool</title>
+<meta name="description" content="Find the Greatest Common Divisor (GCD) and Least Common Multiple (LCM) of two numbers with this free online calculator.">
     <style>
         * {
             box-sizing: border-box;
