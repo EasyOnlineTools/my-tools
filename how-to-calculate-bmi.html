@@ -1,0 +1,780 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <title>How to Calculate BMI: Formula, Categories & Examples | Easy Online Tool</title>
+
+  <meta name="description" content="Learn how to calculate BMI using the BMI formula, understand BMI categories and see simple examples. Use our free BMI Calculator for quick results.">
+
+  <meta name="robots" content="index, follow">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="canonical" href="https://easyonlinetools.github.io/my-tools/how-to-calculate-bmi.html">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fb;
+      color: #333;
+      line-height: 1.7;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 18px 20px;
+    }
+
+    .header-container {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #2563eb;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      margin-left: 18px;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #2563eb;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .article-card {
+      background: #ffffff;
+      padding: 35px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    }
+
+    h1 {
+      color: #1f2937;
+      font-size: 34px;
+      line-height: 1.3;
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      color: #1f2937;
+      margin-top: 35px;
+      margin-bottom: 12px;
+      font-size: 25px;
+    }
+
+    h3 {
+      color: #1f2937;
+      margin-top: 25px;
+      font-size: 20px;
+    }
+
+    p {
+      margin: 12px 0;
+    }
+
+    ul,
+    ol {
+      padding-left: 25px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .intro {
+      font-size: 18px;
+      color: #555;
+    }
+
+    .formula {
+      background: #f1f5f9;
+      border-left: 4px solid #2563eb;
+      padding: 18px;
+      margin: 20px 0;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .example {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+
+    .cta {
+      background: #eff6ff;
+      border-radius: 10px;
+      padding: 25px;
+      margin: 30px 0;
+      text-align: center;
+    }
+
+    .button {
+      display: inline-block;
+      background: #2563eb;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 12px 22px;
+      border-radius: 6px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .button:hover {
+      background: #1d4ed8;
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #ffffff;
+    }
+
+    th,
+    td {
+      border: 1px solid #d1d5db;
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background: #f3f4f6;
+      font-weight: bold;
+    }
+
+    .faq {
+      margin-top: 20px;
+    }
+
+    footer {
+      background: #ffffff;
+      border-top: 1px solid #e5e7eb;
+      margin-top: 40px;
+      padding: 25px 20px;
+      text-align: center;
+      color: #666;
+    }
+
+    footer a {
+      color: #2563eb;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    @media (max-width: 700px) {
+      .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        width: 100%;
+      }
+
+      nav a {
+        margin-left: 0;
+        margin-right: 14px;
+        display: inline-block;
+        margin-bottom: 5px;
+      }
+
+      .article-card {
+        padding: 22px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Calculate BMI: Formula, Categories & Examples",
+    "description": "Learn how to calculate BMI using the BMI formula, understand BMI categories and see simple examples.",
+    "url": "https://easyonlinetools.github.io/my-tools/how-to-calculate-bmi.html",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://easyonlinetools.github.io/my-tools/how-to-calculate-bmi.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Easy Online Tool",
+      "url": "https://easyonlinetools.github.io/my-tools/"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Easy Online Tool"
+    }
+  }
+  </script>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is BMI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "BMI, or Body Mass Index, is a screening measure that compares a person's weight with their height."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the BMI formula?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The BMI formula is weight in kilograms divided by height in meters squared: BMI = weight (kg) / height (m)²."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a healthy BMI range for adults?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For adults, a BMI from 18.5 to 24.9 is commonly classified as the healthy or normal range."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is BMI a complete measure of health?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. BMI is a screening measure and does not directly measure body fat or account for factors such as muscle mass, age, sex, or body composition."
+        }
+      }
+    ]
+  }
+  </script>
+
+</head>
+
+<body>
+
+  <header>
+    <div class="header-container">
+
+      <a href="index.html" class="logo">
+        Easy Online Tool
+      </a>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="tools.html">Tools</a>
+        <a href="faq.html">FAQ</a>
+        <a href="about.html">About</a>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <main class="container">
+
+    <article class="article-card">
+
+      <h1>How to Calculate BMI: BMI Formula, Categories & Examples</h1>
+
+      <p class="intro">
+        BMI, or Body Mass Index, is a commonly used screening measure that
+        compares a person's weight with their height. Learning how to
+        calculate BMI can help you understand your BMI number and the
+        standard BMI categories used for adults.
+      </p>
+
+      <div class="cta">
+
+        <h2>Calculate Your BMI Quickly</h2>
+
+        <p>
+          Instead of calculating the formula manually, use our free online
+          BMI Calculator to get your BMI result quickly.
+        </p>
+
+        <a href="bmi-calculator.html" class="button">
+          Use the BMI Calculator
+        </a>
+
+      </div>
+
+
+      <h2>What Is BMI?</h2>
+
+      <p>
+        BMI stands for Body Mass Index. It is a numerical value calculated
+        from a person's weight and height. BMI is commonly used as a
+        screening tool to place adults into general weight categories.
+      </p>
+
+      <p>
+        BMI does not directly measure body fat. It is a simple calculation
+        that can provide a general starting point when looking at body
+        weight in relation to height.
+      </p>
+
+
+      <h2>How to Calculate BMI</h2>
+
+      <p>
+        To calculate BMI using metric measurements, divide your weight in
+        kilograms by your height in meters squared.
+      </p>
+
+      <div class="formula">
+        BMI = Weight (kg) ÷ Height (m)²
+      </div>
+
+      <p>
+        For example, suppose a person weighs 70 kilograms and is 1.75 meters
+        tall.
+      </p>
+
+      <div class="example">
+
+        <h3>Example BMI Calculation</h3>
+
+        <p>
+          Weight = 70 kg
+        </p>
+
+        <p>
+          Height = 1.75 m
+        </p>
+
+        <p>
+          BMI = 70 ÷ (1.75 × 1.75)
+        </p>
+
+        <p>
+          BMI = 70 ÷ 3.0625
+        </p>
+
+        <p>
+          <strong>BMI ≈ 22.86</strong>
+        </p>
+
+        <p>
+          This value falls within the commonly used healthy BMI category
+          for adults.
+        </p>
+
+      </div>
+
+
+      <h2>How to Calculate BMI Using Pounds and Inches</h2>
+
+      <p>
+        BMI can also be calculated using weight in pounds and height in
+        inches.
+      </p>
+
+      <div class="formula">
+        BMI = (Weight in pounds ÷ Height in inches²) × 703
+      </div>
+
+      <p>
+        The number 703 is used to convert the imperial measurement system
+        into the equivalent BMI value used with the metric formula.
+      </p>
+
+      <p>
+        If you already know your weight in kilograms and height in meters,
+        the metric formula is simpler.
+      </p>
+
+
+      <h2>BMI Categories for Adults</h2>
+
+      <p>
+        For adults, BMI values are commonly grouped into the following
+        categories:
+      </p>
+
+      <div class="table-wrapper">
+
+        <table>
+
+          <thead>
+            <tr>
+              <th>BMI Range</th>
+              <th>Category</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>Below 18.5</td>
+              <td>Underweight</td>
+            </tr>
+
+            <tr>
+              <td>18.5 – 24.9</td>
+              <td>Healthy weight</td>
+            </tr>
+
+            <tr>
+              <td>25.0 – 29.9</td>
+              <td>Overweight</td>
+            </tr>
+
+            <tr>
+              <td>30.0 or higher</td>
+              <td>Obesity</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+      <p>
+        These categories are general screening ranges for adults. A BMI
+        result should not be considered a diagnosis or a complete assessment
+        of an individual's health.
+      </p>
+
+
+      <h2>Why Calculate BMI?</h2>
+
+      <p>
+        A BMI calculation can provide a quick way to compare weight with
+        height. It is commonly used in health research, population studies
+        and general health screening.
+      </p>
+
+      <p>
+        People may calculate BMI to:
+      </p>
+
+      <ul>
+
+        <li>Understand their approximate BMI category</li>
+
+        <li>Track changes in body weight over time</li>
+
+        <li>Discuss weight-related information with a healthcare professional</li>
+
+        <li>Use BMI as one part of a broader health assessment</li>
+
+      </ul>
+
+
+      <h2>What Is Considered a Healthy BMI?</h2>
+
+      <p>
+        For adults, a BMI between 18.5 and 24.9 is commonly classified as
+        the healthy or normal range.
+      </p>
+
+      <p>
+        However, BMI should be interpreted carefully. Two people with the
+        same BMI may have different amounts of muscle, fat and other body
+        composition characteristics.
+      </p>
+
+
+      <h2>BMI Example: A Different Calculation</h2>
+
+      <p>
+        Consider a person who weighs 90 kilograms and has a height of
+        1.80 meters.
+      </p>
+
+      <div class="example">
+
+        <h3>Step-by-Step Example</h3>
+
+        <p>
+          Weight = 90 kg
+        </p>
+
+        <p>
+          Height = 1.80 m
+        </p>
+
+        <p>
+          BMI = 90 ÷ (1.80 × 1.80)
+        </p>
+
+        <p>
+          BMI = 90 ÷ 3.24
+        </p>
+
+        <p>
+          <strong>BMI ≈ 27.78</strong>
+        </p>
+
+        <p>
+          Based on the standard adult categories, this BMI falls within the
+          overweight range.
+        </p>
+
+      </div>
+
+
+      <h2>BMI vs. Body Fat</h2>
+
+      <p>
+        BMI is not the same as body fat percentage. BMI uses only weight and
+        height, while body fat percentage attempts to estimate how much of
+        the body is made up of fat.
+      </p>
+
+      <p>
+        A person with a high amount of muscle may have a higher BMI because
+        muscle contributes to body weight. Therefore, BMI should be viewed
+        as a screening measurement rather than a complete measurement of
+        body composition.
+      </p>
+
+
+      <h2>Who Should Be Careful When Using BMI?</h2>
+
+      <p>
+        Standard adult BMI categories may not be appropriate for everyone.
+        For example, athletes with significant muscle mass may have a higher
+        BMI without having excessive body fat.
+      </p>
+
+      <p>
+        BMI is also interpreted differently for children and teenagers,
+        where age and sex are important factors. Pregnancy also requires
+        different considerations.
+      </p>
+
+      <p>
+        If you have concerns about your weight, health or nutritional needs,
+        consider discussing your results with a qualified healthcare
+        professional.
+      </p>
+
+
+      <h2>How to Use Our BMI Calculator</h2>
+
+      <p>
+        Our free BMI Calculator makes the calculation simple. You only need
+        to enter your height and weight.
+      </p>
+
+      <ol>
+
+        <li>Open the BMI Calculator.</li>
+
+        <li>Enter your height.</li>
+
+        <li>Enter your weight.</li>
+
+        <li>Click the calculate button.</li>
+
+        <li>Review your BMI result and category.</li>
+
+      </ol>
+
+      <div class="cta">
+
+        <h2>Try the Free BMI Calculator</h2>
+
+        <p>
+          Calculate your BMI in seconds without doing the formula manually.
+        </p>
+
+        <a href="bmi-calculator.html" class="button">
+          Calculate BMI
+        </a>
+
+      </div>
+
+
+      <h2>BMI and Other Health Calculators</h2>
+
+      <p>
+        BMI is only one type of health-related calculation. You may also
+        find our other free health and fitness calculators useful.
+      </p>
+
+      <p>
+        Try our
+        <a href="bmr-calculator.html">BMR Calculator</a>
+        to estimate your Basal Metabolic Rate, or use our
+        <a href="calorie-calculator.html">Calorie Calculator</a>
+        to estimate daily calorie needs.
+      </p>
+
+      <p>
+        You can also explore our
+        <a href="ideal-weight-calculator.html">Ideal Weight Calculator</a>
+        and
+        <a href="water-intake-calculator.html">Water Intake Calculator</a>.
+      </p>
+
+
+      <h2>Related Health & Fitness Tools</h2>
+
+      <p>
+        Explore all of our free
+        <a href="health-fitness.html">Health & Fitness Calculators</a>
+        for additional tools and estimates.
+      </p>
+
+
+      <h2>BMI Calculator FAQs</h2>
+
+      <div class="faq">
+
+        <h3>What is BMI?</h3>
+
+        <p>
+          BMI stands for Body Mass Index. It is a screening measure that
+          compares a person's weight with their height.
+        </p>
+
+
+        <h3>What is the BMI formula?</h3>
+
+        <p>
+          The metric BMI formula is:
+          <strong>BMI = weight in kilograms ÷ height in meters squared.</strong>
+        </p>
+
+
+        <h3>What is a healthy BMI range for adults?</h3>
+
+        <p>
+          A BMI from 18.5 to 24.9 is commonly classified as the healthy or
+          normal range for adults.
+        </p>
+
+
+        <h3>Is BMI a complete measure of health?</h3>
+
+        <p>
+          No. BMI is a screening measure and does not directly measure body
+          fat or account for factors such as muscle mass, age, sex or overall
+          body composition.
+        </p>
+
+
+        <h3>Can I calculate BMI without a calculator?</h3>
+
+        <p>
+          Yes. You can use the BMI formula manually by dividing your weight
+          in kilograms by your height in meters squared. However, an online
+          BMI Calculator makes the process faster and reduces calculation
+          errors.
+        </p>
+
+
+        <h3>Can children use the adult BMI categories?</h3>
+
+        <p>
+          Adult BMI categories should not be applied directly to children
+          and teenagers. BMI for children and teenagers is generally
+          interpreted using age- and sex-specific growth charts.
+        </p>
+
+      </div>
+
+
+      <h2>Important BMI Disclaimer</h2>
+
+      <p>
+        The information on this page is provided for general educational and
+        informational purposes. BMI is a screening measurement and should not
+        be used as a diagnosis or as a substitute for professional medical
+        advice.
+      </p>
+
+      <p>
+        If you have concerns about your weight, diet, exercise or overall
+        health, consult a qualified healthcare professional.
+      </p>
+
+
+      <div class="cta">
+
+        <h2>Explore More Free Calculators</h2>
+
+        <p>
+          Easy Online Tool provides free calculators for math, finance,
+          health, fitness, dates, conversions and everyday calculations.
+        </p>
+
+        <a href="tools.html" class="button">
+          View All Tools
+        </a>
+
+      </div>
+
+    </article>
+
+  </main>
+
+
+  <footer>
+
+    <p>
+      © 2026 Easy Online Tool. All rights reserved.
+    </p>
+
+    <p>
+      <a href="index.html">Home</a>
+      <a href="tools.html">Tools</a>
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
+      <a href="contact.html">Contact</a>
+    </p>
+
+  </footer>
+
+</body>
+</html>
+```
