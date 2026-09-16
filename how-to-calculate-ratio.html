@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>How to Calculate Ratio: Formula, Examples & Easy Guide</title>
+
+  <meta name="description" content="Learn how to calculate ratios with simple formulas and examples. Find out how to simplify ratios, find equivalent ratios, compare quantities and use a ratio calculator.">
+
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://easyonlinetools.github.io/my-tools/how-to-calculate-ratio.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="How to Calculate Ratio: Formula, Examples & Easy Guide">
+  <meta property="og:site_name" content="Easy Online Tool">
+  <meta property="og:description" content="Learn how to calculate, simplify and compare ratios with easy formulas, examples and step-by-step methods.">
+  <meta property="og:url" content="https://easyonlinetools.github.io/my-tools/how-to-calculate-ratio.html">
+  <meta property="og:type" content="article">
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Calculate Ratio: Formula, Examples & Easy Guide",
+    "description": "A simple guide explaining how to calculate, simplify and compare ratios with formulas and practical examples.",
+    "author": {
+      "@type": "Organization",
+      "name": "Easy Online Tool"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Easy Online Tool"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://easyonlinetools.github.io/my-tools/how-to-calculate-ratio.html"
+    }
+  }
+  </script>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a ratio?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A ratio compares two or more quantities by showing how much of one quantity exists compared with another."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you calculate a ratio?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "To calculate a ratio, write the quantities in the correct order and simplify them by dividing both quantities by their greatest common factor when possible."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you simplify a ratio?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Divide every part of the ratio by the same common factor. For example, 12:18 simplifies to 2:3 by dividing both numbers by 6."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is an equivalent ratio?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Equivalent ratios have the same relationship between their quantities. For example, 2:3, 4:6 and 6:9 are equivalent ratios."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fb;
+      color: #222;
+      line-height: 1.7;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 18px 20px;
+    }
+
+    .header-container {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    nav a {
+      color: #333;
+      text-decoration: none;
+      margin-left: 18px;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: #2563eb;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 35px auto;
+      padding: 0 20px;
+    }
+
+    .article-card {
+      background: #ffffff;
+      padding: 35px;
+      border-radius: 14px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    }
+
+    h1 {
+      color: #111827;
+      font-size: 34px;
+      line-height: 1.25;
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      color: #1f2937;
+      font-size: 25px;
+      margin-top: 35px;
+    }
+
+    h3 {
+      color: #374151;
+      font-size: 20px;
+      margin-top: 25px;
+    }
+
+    p {
+      margin: 15px 0;
+    }
+
+    a {
+      color: #2563eb;
+    }
+
+    .intro {
+      font-size: 18px;
+      color: #4b5563;
+    }
+
+    .formula-box {
+      background: #eff6ff;
+      border-left: 5px solid #2563eb;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      font-size: 18px;
+    }
+
+    .example-box {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 10px;
+    }
+
+    .tip-box {
+      background: #ecfdf5;
+      border-left: 5px solid #10b981;
+      padding: 18px;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background: #ffffff;
+    }
+
+    th,
+    td {
+      border: 1px solid #d1d5db;
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background: #f3f4f6;
+      font-weight: bold;
+    }
+
+    ul,
+    ol {
+      padding-left: 25px;
+    }
+
+    .calculator-button {
+      display: inline-block;
+      background: #2563eb;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .calculator-button:hover {
+      background: #1d4ed8;
+    }
+
+    .faq-item {
+      margin-bottom: 25px;
+    }
+
+    .faq-item h3 {
+      margin-bottom: 8px;
+    }
+
+    .disclaimer {
+      font-size: 14px;
+      color: #6b7280;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    footer {
+      text-align: center;
+      background: #ffffff;
+      border-top: 1px solid #e5e7eb;
+      padding: 25px 20px;
+      margin-top: 40px;
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    footer a {
+      margin: 0 8px;
+      text-decoration: none;
+    }
+
+    @media (max-width: 700px) {
+
+      .header-container {
+        flex-direction: column;
+      }
+
+      nav {
+        text-align: center;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 5px 8px;
+      }
+
+      .article-card {
+        padding: 22px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      table {
+        font-size: 14px;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="header-container">
+
+    <a href="index.html" class="logo">
+      Easy Online Tool
+    </a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="tools.html">Tools</a>
+      <a href="faq.html">FAQ</a>
+      <a href="about.html">About</a>
+    </nav>
+
+  </div>
+
+</header>
+
+<main class="container">
+
+  <article class="article-card">
+
+    <h1>How to Calculate Ratio: Formula, Examples & Easy Guide</h1>
+
+    <p class="intro">
+      Ratios are used to compare quantities in mathematics, cooking,
+      business, finance, science, construction and everyday life. Learning
+      how to calculate a ratio makes it easier to compare two or more
+      quantities and understand their relationship.
+    </p>
+
+    <p>
+      In this guide, you will learn how to calculate a ratio, simplify
+      ratios, find equivalent ratios, compare quantities and solve common
+      ratio problems with easy examples.
+    </p>
+
+    <p>
+      For a quick calculation, you can also use our free
+      <a href="ratio-calculator.html">
+        Ratio Calculator
+      </a>.
+    </p>
+
+    <a href="ratio-calculator.html" class="calculator-button">
+      Use the Ratio Calculator
+    </a>
+
+
+    <h2>What Is a Ratio?</h2>
+
+    <p>
+      A ratio is a mathematical way of comparing two or more quantities.
+      It shows how much of one quantity there is compared with another.
+    </p>
+
+    <p>
+      A ratio can be written using a colon, as a fraction, or using words.
+    </p>
+
+    <div class="formula-box">
+
+      <strong>Example:</strong>
+
+      <br><br>
+
+      2:3
+
+      <br>
+
+      2 to 3
+
+      <br>
+
+      2/3
+
+    </div>
+
+    <p>
+      These forms represent the same comparison when used in the appropriate
+      context.
+    </p>
+
+
+    <h2>How to Calculate a Ratio</h2>
+
+    <p>
+      To calculate a ratio between two quantities, follow these simple steps:
+    </p>
+
+    <ol>
+
+      <li>Identify the two quantities you want to compare.</li>
+
+      <li>Write them in the correct order.</li>
+
+      <li>Separate the quantities with a colon.</li>
+
+      <li>Simplify the ratio if possible.</li>
+
+    </ol>
+
+    <div class="formula-box">
+
+      <strong>
+        Ratio = First Quantity : Second Quantity
+      </strong>
+
+    </div>
+
+
+    <h2>Example: Calculate a Ratio</h2>
+
+    <p>
+      Suppose a classroom has 12 boys and 18 girls.
+      The ratio of boys to girls is:
+    </p>
+
+    <div class="example-box">
+
+      <p>
+        Boys : Girls
+      </p>
+
+      <p>
+        12 : 18
+      </p>
+
+      <p>
+        Divide both numbers by 6:
+      </p>
+
+      <p>
+        12 ÷ 6 : 18 ÷ 6
+      </p>
+
+      <p>
+        <strong>2 : 3</strong>
+      </p>
+
+    </div>
+
+    <p>
+      Therefore, the simplified ratio of boys to girls is
+      <strong>2:3</strong>.
+    </p>
+
+
+    <h2>How to Simplify a Ratio</h2>
+
+    <p>
+      A ratio can be simplified by dividing all of its parts by the same
+      common factor.
+    </p>
+
+    <p>
+      The greatest common factor, or GCF, is often used to simplify a ratio
+      completely.
+    </p>
+
+    <h3>Example: Simplify 20:30</h3>
+
+    <div class="example-box">
+
+      <p>
+        Ratio = 20:30
+      </p>
+
+      <p>
+        The greatest common factor of 20 and 30 is 10.
+      </p>
+
+      <p>
+        20 ÷ 10 : 30 ÷ 10
+      </p>
+
+      <p>
+        <strong>2:3</strong>
+      </p>
+
+    </div>
+
+
+    <h2>Ratio Formula</h2>
+
+    <p>
+      A basic ratio compares two quantities:
+    </p>
+
+    <div class="formula-box">
+
+      <strong>
+        Ratio = A : B
+      </strong>
+
+    </div>
+
+    <p>
+      Here, A represents the first quantity and B represents the second
+      quantity.
+    </p>
+
+    <p>
+      The order matters. For example, 2:3 is not the same ratio as 3:2.
+    </p>
+
+
+    <h2>How to Find a Ratio From Two Numbers</h2>
+
+    <p>
+      Suppose you want to find the ratio between 15 and 25.
+    </p>
+
+    <div class="example-box">
+
+      <p>
+        Step 1: Write the numbers in order.
+      </p>
+
+      <p>
+        15:25
+      </p>
+
+      <p>
+        Step 2: Find the greatest common factor.
+      </p>
+
+      <p>
+        GCF = 5
+      </p>
+
+      <p>
+        Step 3: Divide both numbers by 5.
+      </p>
+
+      <p>
+        15 ÷ 5 : 25 ÷ 5
+      </p>
+
+      <p>
+        <strong>3:5</strong>
+      </p>
+
+    </div>
+
+
+    <h2>How to Calculate a Ratio With Three Numbers</h2>
+
+    <p>
+      Ratios can compare more than two quantities.
+    </p>
+
+    <p>
+      For example, suppose a basket contains:
+    </p>
+
+    <div class="example-box">
+
+      <p>
+        4 apples, 6 oranges and 8 bananas.
+      </p>
+
+      <p>
+        The ratio is:
+      </p>
+
+      <p>
+        <strong>4:6:8</strong>
+      </p>
+
+      <p>
+        The greatest common factor is 2.
+      </p>
+
+      <p>
+        4 ÷ 2 : 6 ÷ 2 : 8 ÷ 2
+      </p>
+
+      <p>
+        <strong>2:3:4</strong>
+      </p>
+
+    </div>
+
+
+    <h2>Equivalent Ratios</h2>
+
+    <p>
+      Equivalent ratios have the same relationship between their quantities.
+    </p>
+
+    <p>
+      You can create an equivalent ratio by multiplying or dividing every
+      part of the ratio by the same non-zero number.
+    </p>
+
+    <div class="example-box">
+
+      <p>
+        Starting ratio:
+        <strong>2:3</strong>
+      </p>
+
+      <p>
+        Multiply both parts by 2:
+      </p>
+
+      <p>
+        4:6
+      </p>
+
+      <p>
+        Multiply both parts by 3:
+      </p>
+
+      <p>
+        6:9
+      </p>
+
+      <p>
+        Therefore:
+      </p>
+
+      <p>
+        <strong>2:3 = 4:6 = 6:9</strong>
+      </p>
+
+    </div>
+
+
+    <h2>How to Find a Missing Number in a Ratio</h2>
+
+    <p>
+      Ratios can also be used to find an unknown quantity.
+    </p>
+
+    <p>
+      Suppose:
+    </p>
+
+    <div class="example-box">
+
+      <p>
+        2:3 = 8:x
+      </p>
+
+      <p>
+        Since 2 becomes 8 by multiplying by 4, multiply 3 by 4:
+      </p>
+
+      <p>
+        3 × 4 = 12
+      </p>
+
+      <p>
+        Therefore:
+      </p>
+
+      <p>
+        <strong>x = 12</strong>
+      </p>
+
+    </div>
+
+
+    <h2>Ratios and Fractions</h2>
+
+    <p>
+      A ratio can often be written as a fraction.
+    </p>
+
+    <p>
+      For example:
+    </p>
+
+    <div class="formula-box">
+
+      <strong>
+        3:5 = 3/5
+      </strong>
+
+    </div>
+
+    <p>
+      However, the meaning depends on the context. A ratio compares
+      quantities, while a fraction can represent a part of a whole.
+    </p>
+
+
+    <h2>Ratios and Percentages</h2>
+
+    <p>
+      Ratios can also be converted into percentages when the quantities
+      represent parts of a whole.
+    </p>
+
+    <p>
+      For example, suppose the ratio of red balls to blue balls is 2:3.
+      The total number of parts is:
+    </p>
+
+    <div class="example-box">
+
+      <p>
+        2 + 3 = 5
+      </p>
+
+      <p>
+        Red share:
+      </p>
+
+      <p>
+        2 ÷ 5 × 100 = <strong>40%</strong>
+      </p>
+
+      <p>
+        Blue share:
+      </p>
+
+      <p>
+        3 ÷ 5 × 100 = <strong>60%</strong>
+      </p>
+
+    </div>
+
+
+    <h2>Ratio Example in Cooking</h2>
+
+    <p>
+      Ratios are commonly used in recipes.
+    </p>
+
+    <p>
+      Suppose a recipe requires flour and sugar in a ratio of 3:1.
+    </p>
+
+    <p>
+      This means that for every 3 parts of flour, you need 1 part of sugar.
+    </p>
+
+    <div class="example-box">
+
+      <p>
+        Flour : Sugar = 3:1
+      </p>
+
+      <p>
+        If you use 6 cups of flour, multiply both parts by 2:
+      </p>
+
+      <p>
+        6:2
+      </p>
+
+      <p>
+        Therefore, you need <strong>2 cups of sugar</strong>.
+      </p>
+
+    </div>
+
+
+    <h2>Ratio Example With Money</h2>
+
+    <p>
+      Suppose two people divide $500 in the ratio 2:3.
+    </p>
+
+    <p>
+      First, add the ratio parts:
+    </p>
+
+    <div class="example-box">
+
+      <p>
+        2 + 3 = 5
+      </p>
+
+      <p>
+        Value of one part:
+      </p>
+
+      <p>
+        $500 ÷ 5 = $100
+      </p>
+
+      <p>
+        First share:
+      </p>
+
+      <p>
+        2 × $100 = <strong>$200</strong>
+      </p>
+
+      <p>
+        Second share:
+      </p>
+
+      <p>
+        3 × $100 = <strong>$300</strong>
+      </p>
+
+    </div>
+
+
+    <h2>Ratio Example in a Classroom</h2>
+
+    <p>
+      Suppose a classroom has 20 students, including 8 boys and 12 girls.
+    </p>
+
+    <p>
+      The ratio of boys to girls is:
+    </p>
+
+    <div class="example-box">
+
+      <p>
+        8:12
+      </p>
+
+      <p>
+        Divide both numbers by 4:
+      </p>
+
+      <p>
+        <strong>2:3</strong>
+      </p>
+
+    </div>
+
+    <p>
+      The ratio of boys to girls is therefore 2:3.
+    </p>
+
+
+    <h2>Part-to-Part vs Part-to-Whole Ratios</h2>
+
+    <p>
+      It is important to understand what two quantities are being compared.
+    </p>
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Example</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>Part-to-Part</td>
+          <td>2:3</td>
+          <td>Compares one part with another part</td>
+        </tr>
+
+        <tr>
+          <td>Part-to-Whole</td>
+          <td>2:5</td>
+          <td>Compares one part with the total</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+
+    <h2>How to Compare Two Ratios</h2>
+
+    <p>
+      One way to compare ratios is to convert them into fractions or use
+      cross multiplication.
+    </p>
+
+    <p>
+      Consider:
+    </p>
+
+    <div class="example-box">
+
+      <p>
+        2:3 and 3:5
+      </p>
+
+      <p>
+        Compare:
+      </p>
+
+      <p>
+        2/3 and 3/5
+      </p>
+
+      <p>
+        Cross multiply:
+      </p>
+
+      <p>
+        2 × 5 = 10
+      </p>
+
+      <p>
+        3 × 3 = 9
+      </p>
+
+      <p>
+        Since 10 is greater than 9:
+      </p>
+
+      <p>
+        <strong>2:3 is greater than 3:5</strong>
+      </p>
+
+    </div>
+
+
+    <h2>Common Mistakes When Calculating Ratios</h2>
+
+    <ul>
+
+      <li>
+        Reversing the order of the quantities.
+      </li>
+
+      <li>
+        Dividing only one part of the ratio.
+      </li>
+
+      <li>
+        Using different factors for different parts.
+      </li>
+
+      <li>
+        Forgetting to simplify the ratio.
+      </li>
+
+      <li>
+        Confusing a part-to-part ratio with a part-to-whole ratio.
+      </li>
+
+      <li>
+        Ignoring the units when quantities are measured differently.
+      </li>
+
+    </ul>
+
+
+    <h2>Ratios With Different Units</h2>
+
+    <p>
+      Before comparing two quantities using a ratio, make sure their units
+      are compatible.
+    </p>
+
+    <p>
+      For example, if you want to compare 1 meter with 50 centimeters,
+      convert them to the same unit first.
+    </p>
+
+    <div class="example-box">
+
+      <p>
+        1 meter = 100 centimeters
+      </p>
+
+      <p>
+        Ratio:
+      </p>
+
+      <p>
+        100:50
+      </p>
+
+      <p>
+        Simplify:
+      </p>
+
+      <p>
+        <strong>2:1</strong>
+      </p>
+
+    </div>
+
+
+    <h2>Ratio Formula Quick Reference</h2>
+
+    <table>
+
+      <thead>
+
+        <tr>
+          <th>Task</th>
+          <th>Method</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>Write a Ratio</td>
+          <td>First Quantity : Second Quantity</td>
+        </tr>
+
+        <tr>
+          <td>Simplify a Ratio</td>
+          <td>Divide every part by the same common factor</td>
+        </tr>
+
+        <tr>
+          <td>Find Equivalent Ratio</td>
+          <td>Multiply or divide every part by the same number</td>
+        </tr>
+
+        <tr>
+          <td>Find Total Parts</td>
+          <td>Add all parts of the ratio</td>
+        </tr>
+
+        <tr>
+          <td>Convert Ratio to Percentage</td>
+          <td>Part ÷ Total Parts × 100</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+
+    <h2>How to Use a Ratio Calculator</h2>
+
+    <p>
+      If you need to calculate or simplify ratios quickly, an online ratio
+      calculator can save time and reduce manual errors.
+    </p>
+
+    <ol>
+
+      <li>Open the Ratio Calculator.</li>
+
+      <li>Enter the quantities you want to compare.</li>
+
+      <li>Start the calculation.</li>
+
+      <li>Review the calculated or simplified ratio.</li>
+
+    </ol>
+
+    <p>
+      You can use our free
+      <a href="ratio-calculator.html">
+        Ratio Calculator
+      </a>
+      for quick ratio calculations.
+    </p>
+
+    <a href="ratio-calculator.html" class="calculator-button">
+      Calculate a Ratio
+    </a>
+
+
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+
+      <h3>What is a ratio?</h3>
+
+      <p>
+        A ratio compares two or more quantities and shows the relationship
+        between them.
+      </p>
+
+    </div>
+
+    <div class="faq-item">
+
+      <h3>How do you calculate a ratio?</h3>
+
+      <p>
+        Write the quantities in the correct order and simplify them by
+        dividing all parts by the same common factor when possible.
+      </p>
+
+    </div>
+
+    <div class="faq-item">
+
+      <h3>How do you simplify a ratio?</h3>
+
+      <p>
+        Divide every part of the ratio by the same common factor. For example,
+        12:18 becomes 2:3 when both numbers are divided by 6.
+      </p>
+
+    </div>
+
+    <div class="faq-item">
+
+      <h3>What is an equivalent ratio?</h3>
+
+      <p>
+        Equivalent ratios have the same relationship between their quantities.
+        For example, 2:3, 4:6 and 6:9 are equivalent ratios.
+      </p>
+
+    </div>
+
+
+    <h2>Related Math Calculators</h2>
+
+    <p>
+      You may also find these free calculators useful:
+    </p>
+
+    <ul>
+
+      <li>
+        <a href="ratio-calculator.html">
+          Ratio Calculator
+        </a>
+      </li>
+
+      <li>
+        <a href="percentage-calculator.html">
+          Percentage Calculator
+        </a>
+      </li>
+
+      <li>
+        <a href="fraction-calculator.html">
+          Fraction Calculator
+        </a>
+      </li>
+
+      <li>
+        <a href="average-calculator.html">
+          Average Calculator
+        </a>
+      </li>
+
+      <li>
+        <a href="gcd-lcm-calculator.html">
+          GCD & LCM Calculator
+        </a>
+      </li>
+
+      <li>
+        <a href="math-calculators.html">
+          Math Calculators
+        </a>
+      </li>
+
+    </ul>
+
+
+    <h2>Final Thoughts</h2>
+
+    <p>
+      Ratios provide a simple way to compare quantities. To calculate a
+      ratio, identify the quantities, write them in the correct order and
+      simplify them when possible.
+    </p>
+
+    <p>
+      Ratios are useful in many situations, including mathematics, recipes,
+      classroom comparisons, money, measurements and everyday problem
+      solving.
+    </p>
+
+    <p>
+      When you need a quick calculation, use our free
+      <a href="ratio-calculator.html">
+        Ratio Calculator
+      </a>
+      on Easy Online Tool.
+    </p>
+
+
+    <div class="disclaimer">
+
+      <strong>Disclaimer:</strong>
+      This article is provided for general educational and informational
+      purposes. Always check the units and context of quantities before
+      calculating or interpreting a ratio.
+
+    </div>
+
+  </article>
+
+</main>
+
+<footer>
+
+  <p>
+    © 2026 Easy Online Tool. All rights reserved.
+  </p>
+
+  <p>
+    <a href="index.html">Home</a>
+    <a href="tools.html">Tools</a>
+    <a href="about.html">About</a>
+    <a href="faq.html">FAQ</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms.html">Terms</a>
+    <a href="contact.html">Contact</a>
+  </p>
+
+</footer>
+
+</body>
+</html>
