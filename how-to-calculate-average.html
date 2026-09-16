@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>How to Calculate Average: Formula, Examples & Easy Guide</title>
+
+  <meta name="description" content="Learn how to calculate an average using the simple average formula. See examples, step-by-step methods, weighted averages and common mistakes.">
+
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://easyonlinetools.github.io/my-tools/how-to-calculate-average.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="How to Calculate Average: Formula, Examples & Easy Guide">
+  <meta property="og:site_name" content="Easy Online Tool">
+  <meta property="og:description" content="Learn how to calculate an average using simple formulas, examples and step-by-step methods.">
+  <meta property="og:url" content="https://easyonlinetools.github.io/my-tools/how-to-calculate-average.html">
+  <meta property="og:type" content="article">
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Calculate Average: Formula, Examples & Easy Guide",
+    "description": "A simple guide explaining how to calculate averages using formulas and practical examples.",
+    "author": {
+      "@type": "Organization",
+      "name": "Easy Online Tool"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Easy Online Tool"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://easyonlinetools.github.io/my-tools/how-to-calculate-average.html"
+    }
+  }
+  </script>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do you calculate an average?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Add all the numbers together and divide the total by the number of values. The formula is Average = Sum of Values ÷ Number of Values."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the average formula?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The basic average formula is Average = Sum of All Values ÷ Number of Values."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between average and mean?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In everyday mathematics, average often refers to the arithmetic mean, which is calculated by adding the values and dividing by the number of values."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I calculate an average quickly?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can use the free Average Calculator on Easy Online Tool to calculate the average of a set of numbers quickly."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fb;
+      color: #222;
+      line-height: 1.7;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 18px 20px;
+    }
+
+    .header-container {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    nav a {
+      color: #333;
+      text-decoration: none;
+      margin-left: 18px;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: #2563eb;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 35px auto;
+      padding: 0 20px;
+    }
+
+    .article-card {
+      background: #ffffff;
+      padding: 35px;
+      border-radius: 14px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    }
+
+    h1 {
+      color: #111827;
+      font-size: 34px;
+      line-height: 1.25;
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      color: #1f2937;
+      font-size: 25px;
+      margin-top: 35px;
+    }
+
+    h3 {
+      color: #374151;
+      font-size: 20px;
+      margin-top: 25px;
+    }
+
+    p {
+      margin: 15px 0;
+    }
+
+    a {
+      color: #2563eb;
+    }
+
+    .intro {
+      font-size: 18px;
+      color: #4b5563;
+    }
+
+    .formula-box {
+      background: #eff6ff;
+      border-left: 5px solid #2563eb;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      font-size: 18px;
+    }
+
+    .example-box {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 10px;
+    }
+
+    .tip-box {
+      background: #ecfdf5;
+      border-left: 5px solid #10b981;
+      padding: 18px;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background: #ffffff;
+    }
+
+    th,
+    td {
+      border: 1px solid #d1d5db;
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background: #f3f4f6;
+      font-weight: bold;
+    }
+
+    ul,
+    ol {
+      padding-left: 25px;
+    }
+
+    .calculator-button {
+      display: inline-block;
+      background: #2563eb;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .calculator-button:hover {
+      background: #1d4ed8;
+    }
+
+    .faq-item {
+      margin-bottom: 25px;
+    }
+
+    .faq-item h3 {
+      margin-bottom: 8px;
+    }
+
+    .disclaimer {
+      font-size: 14px;
+      color: #6b7280;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    footer {
+      text-align: center;
+      background: #ffffff;
+      border-top: 1px solid #e5e7eb;
+      padding: 25px 20px;
+      margin-top: 40px;
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    footer a {
+      margin: 0 8px;
+      text-decoration: none;
+    }
+
+    @media (max-width: 700px) {
+      .header-container {
+        flex-direction: column;
+      }
+
+      nav {
+        text-align: center;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 5px 8px;
+      }
+
+      .article-card {
+        padding: 22px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      table {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-container">
+
+    <a href="index.html" class="logo">
+      Easy Online Tool
+    </a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="tools.html">Tools</a>
+      <a href="faq.html">FAQ</a>
+      <a href="about.html">About</a>
+    </nav>
+
+  </div>
+</header>
+
+<main class="container">
+
+  <article class="article-card">
+
+    <h1>How to Calculate Average: Formula, Examples & Easy Guide</h1>
+
+    <p class="intro">
+      Calculating an average is one of the most common mathematical tasks.
+      Averages are used in school grades, test scores, salaries, sports
+      statistics, measurements, financial data and everyday calculations.
+    </p>
+
+    <p>
+      The basic method is simple: add all the values together and divide the
+      total by the number of values. This guide explains the average formula
+      with easy examples and shows how to calculate averages step by step.
+    </p>
+
+    <p>
+      If you want to calculate an average quickly, you can use our free
+      <a href="average-calculator.html">
+        Average Calculator
+      </a>.
+    </p>
+
+    <a href="average-calculator.html" class="calculator-button">
+      Use the Average Calculator
+    </a>
+
+
+    <h2>What Is an Average?</h2>
+
+    <p>
+      An average is a single value that represents the central or typical
+      value of a group of numbers.
+    </p>
+
+    <p>
+      In basic mathematics, the word "average" usually refers to the
+      arithmetic mean.
+    </p>
+
+    <p>
+      For example, if the numbers are 10, 20 and 30, their average is 20.
+    </p>
+
+    <div class="formula-box">
+      <strong>
+        Average = Sum of All Values ÷ Number of Values
+      </strong>
+    </div>
+
+
+    <h2>How to Calculate an Average</h2>
+
+    <p>
+      To calculate the average of a group of numbers, follow these steps:
+    </p>
+
+    <ol>
+
+      <li>Add all the numbers together.</li>
+
+      <li>Count how many numbers there are.</li>
+
+      <li>Divide the total by the number of values.</li>
+
+    </ol>
+
+
+    <h2>Average Formula</h2>
+
+    <p>
+      The standard arithmetic mean formula can be written as:
+    </p>
+
+    <div class="formula-box">
+      <strong>
+        Average = (x₁ + x₂ + x₃ + ... + xₙ) ÷ n
+      </strong>
+    </div>
+
+    <p>
+      Where:
+    </p>
+
+    <ul>
+
+      <li><strong>x₁, x₂, x₃...</strong> are the individual values.</li>
+
+      <li><strong>n</strong> is the total number of values.</li>
+
+    </ul>
+
+
+    <h2>Example: Calculate the Average of 5 Numbers</h2>
+
+    <p>
+      Suppose the numbers are:
+    </p>
+
+    <div class="example-box">
+
+      <p>
+        10, 15, 20, 25, 30
+      </p>
+
+      <p>
+        First, add the numbers:
+      </p>
+
+      <p>
+        10 + 15 + 20 + 25 + 30 = <strong>100</strong>
+      </p>
+
+      <p>
+        There are 5 numbers.
+      </p>
+
+      <p>
+        Average = 100 ÷ 5
+      </p>
+
+      <p>
+        <strong>Average = 20</strong>
+      </p>
+
+    </div>
+
+
+    <h2>Another Average Example</h2>
+
+    <p>
+      Consider these test scores:
+    </p>
+
+    <div class="example-box">
+
+      <p>
+        72, 80, 85, 90 and 93
+      </p>
+
+      <p>
+        Sum:
+      </p>
+
+      <p>
+        72 + 80 + 85 + 90 + 93 = <strong>420</strong>
+      </p>
+
+      <p>
+        Number of scores = 5
+      </p>
+
+      <p>
+        Average = 420 ÷ 5
+      </p>
+
+      <p>
+        <strong>Average = 84</strong>
+      </p>
+
+    </div>
+
+
+    <h2>How to Calculate Average With Decimals</h2>
+
+    <p>
+      The same formula works when the numbers contain decimal values.
+    </p>
+
+    <p>
+      For example:
+    </p>
+
+    <div class="example-box">
+
+      <p>
+        2.5, 3.5, 4.0 and 6.0
+      </p>
+
+      <p>
+        Sum = 2.5 + 3.5 + 4.0 + 6.0
+      </p>
+
+      <p>
+        Sum = <strong>16</strong>
+      </p>
+
+      <p>
+        Number of values = 4
+      </p>
+
+      <p>
+        Average = 16 ÷ 4
+      </p>
+
+      <p>
+        <strong>Average = 4</strong>
+      </p>
+
+    </div>
+
+
+    <h2>How to Calculate Average of Percentages</h2>
+
+    <p>
+      Percentages can sometimes be averaged using the same arithmetic mean
+      method, but you should make sure that each percentage represents a
+      comparable quantity.
+    </p>
+
+    <p>
+      For example, if three equally weighted test scores are 70%, 80% and
+      90%, their arithmetic average is:
+    </p>
+
+    <div class="example-box">
+
+      <p>
+        (70 + 80 + 90) ÷ 3
+      </p>
+
+      <p>
+        240 ÷ 3 = <strong>80%</strong>
+      </p>
+
+    </div>
+
+    <p>
+      If the percentages are based on groups of different sizes, a weighted
+      average may be more appropriate.
+    </p>
+
+
+    <h2>What Is a Weighted Average?</h2>
+
+    <p>
+      A weighted average gives some values more importance than others.
+      Instead of treating every value equally, each value is multiplied by
+      its assigned weight.
+    </p>
+
+    <div class="formula-box">
+      <strong>
+        Weighted Average =
+        Sum of (Value × Weight) ÷ Sum of Weights
+      </strong>
+    </div>
+
+    <h3>Weighted Average Example</h3>
+
+    <p>
+      Suppose a student's final grade consists of:
+    </p>
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>Assessment</th>
+          <th>Score</th>
+          <th>Weight</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>Assignment</td>
+          <td>80</td>
+          <td>20%</td>
+        </tr>
+
+        <tr>
+          <td>Midterm</td>
+          <td>70</td>
+          <td>30%</td>
+        </tr>
+
+        <tr>
+          <td>Final Exam</td>
+          <td>90</td>
+          <td>50%</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+    <div class="example-box">
+
+      <p>
+        Weighted Average =
+        (80 × 0.20) + (70 × 0.30) + (90 × 0.50)
+      </p>
+
+      <p>
+        = 16 + 21 + 45
+      </p>
+
+      <p>
+        <strong>= 82</strong>
+      </p>
+
+    </div>
+
+
+    <h2>Average vs Median vs Mode</h2>
+
+    <p>
+      Average, median and mode are different ways to describe the center of
+      a data set.
+    </p>
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>Measure</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>Average / Mean</td>
+          <td>Sum of values divided by number of values</td>
+        </tr>
+
+        <tr>
+          <td>Median</td>
+          <td>Middle value after arranging the data</td>
+        </tr>
+
+        <tr>
+          <td>Mode</td>
+          <td>Most frequently occurring value</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+    <h3>Example</h3>
+
+    <p>
+      Consider the numbers:
+    </p>
+
+    <div class="example-box">
+
+      <p>
+        2, 3, 3, 5, 7
+      </p>
+
+      <p>
+        Average = 20 ÷ 5 = <strong>4</strong>
+      </p>
+
+      <p>
+        Median = <strong>3</strong>
+      </p>
+
+      <p>
+        Mode = <strong>3</strong>
+      </p>
+
+    </div>
+
+
+    <h2>Why the Average Can Be Misleading</h2>
+
+    <p>
+      The average can be affected by unusually large or unusually small
+      values, sometimes called outliers.
+    </p>
+
+    <p>
+      For example, consider these incomes:
+    </p>
+
+    <div class="example-box">
+
+      <p>
+        $30,000, $32,000, $35,000, $36,000 and $500,000
+      </p>
+
+    </div>
+
+    <p>
+      The $500,000 value is much larger than the other values and can
+      significantly increase the arithmetic average.
+    </p>
+
+    <p>
+      In situations with extreme values, the median may sometimes provide
+      additional useful information.
+    </p>
+
+
+    <h2>Average of a Large Number of Values</h2>
+
+    <p>
+      The same formula works whether you have 3 numbers or thousands of
+      numbers.
+    </p>
+
+    <p>
+      However, manually adding many values increases the chance of making a
+      calculation error.
+    </p>
+
+    <div class="tip-box">
+      <strong>Tip:</strong>
+      For a large list of numbers, use an online calculator or spreadsheet to
+      reduce manual calculation errors.
+    </div>
+
+
+    <h2>How to Calculate an Average Step by Step</h2>
+
+    <p>
+      Here is a quick method you can remember:
+    </p>
+
+    <ol>
+
+      <li>
+        Write down all the values.
+      </li>
+
+      <li>
+        Add the values together.
+      </li>
+
+      <li>
+        Count the total number of values.
+      </li>
+
+      <li>
+        Divide the sum by the number of values.
+      </li>
+
+      <li>
+        Round the answer only if the required level of precision allows it.
+      </li>
+
+    </ol>
+
+
+    <h2>Average Formula Quick Reference</h2>
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>Calculation</th>
+          <th>Formula</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>Basic Average</td>
+          <td>Sum of Values ÷ Number of Values</td>
+        </tr>
+
+        <tr>
+          <td>Arithmetic Mean</td>
+          <td>(x₁ + x₂ + ... + xₙ) ÷ n</td>
+        </tr>
+
+        <tr>
+          <td>Weighted Average</td>
+          <td>Sum of (Value × Weight) ÷ Sum of Weights</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+
+    <h2>Common Mistakes When Calculating an Average</h2>
+
+    <ul>
+
+      <li>
+        Forgetting to include one of the numbers in the total.
+      </li>
+
+      <li>
+        Dividing by the wrong number of values.
+      </li>
+
+      <li>
+        Confusing average with median or mode.
+      </li>
+
+      <li>
+        Ignoring weights when the values have different importance.
+      </li>
+
+      <li>
+        Rounding numbers too early in a calculation.
+      </li>
+
+      <li>
+        Assuming an average always represents the typical value of a data set.
+      </li>
+
+    </ul>
+
+
+    <h2>How to Use an Average Calculator</h2>
+
+    <p>
+      If you have several numbers and want to calculate their average quickly,
+      an online calculator can save time.
+    </p>
+
+    <ol>
+
+      <li>Open the Average Calculator.</li>
+
+      <li>Enter the numbers you want to calculate.</li>
+
+      <li>Start the calculation.</li>
+
+      <li>Review the resulting average.</li>
+
+    </ol>
+
+    <p>
+      Our free
+      <a href="average-calculator.html">
+        Average Calculator
+      </a>
+      makes it easy to calculate the arithmetic average of a set of values.
+    </p>
+
+    <a href="average-calculator.html" class="calculator-button">
+      Calculate an Average
+    </a>
+
+
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+
+      <h3>How do you calculate an average?</h3>
+
+      <p>
+        Add all the numbers together and divide the total by the number of
+        values.
+      </p>
+
+    </div>
+
+    <div class="faq-item">
+
+      <h3>What is the average formula?</h3>
+
+      <p>
+        The basic formula is:
+        <strong>
+          Average = Sum of All Values ÷ Number of Values
+        </strong>.
+      </p>
+
+    </div>
+
+    <div class="faq-item">
+
+      <h3>What is the difference between average and mean?</h3>
+
+      <p>
+        In basic mathematics, average commonly refers to the arithmetic mean.
+        The arithmetic mean is calculated by adding the values and dividing
+        the sum by the number of values.
+      </p>
+
+    </div>
+
+    <div class="faq-item">
+
+      <h3>How can I calculate an average quickly?</h3>
+
+      <p>
+        You can use the free
+        <a href="average-calculator.html">
+          Average Calculator
+        </a>
+        on Easy Online Tool.
+      </p>
+
+    </div>
+
+
+    <h2>Related Math Calculators</h2>
+
+    <p>
+      You may also find these free calculators useful:
+    </p>
+
+    <ul>
+
+      <li>
+        <a href="average-calculator.html">
+          Average Calculator
+        </a>
+      </li>
+
+      <li>
+        <a href="percentage-calculator.html">
+          Percentage Calculator
+        </a>
+      </li>
+
+      <li>
+        <a href="fraction-calculator.html">
+          Fraction Calculator
+        </a>
+      </li>
+
+      <li>
+        <a href="ratio-calculator.html">
+          Ratio Calculator
+        </a>
+      </li>
+
+      <li>
+        <a href="gcd-lcm-calculator.html">
+          GCD & LCM Calculator
+        </a>
+      </li>
+
+      <li>
+        <a href="math-calculators.html">
+          Math Calculators
+        </a>
+      </li>
+
+    </ul>
+
+
+    <h2>Final Thoughts</h2>
+
+    <p>
+      Calculating an average is simple once you know the basic formula. Add all
+      the values together and divide the total by the number of values.
+    </p>
+
+    <p>
+      The arithmetic mean is useful for many everyday calculations, including
+      test scores, measurements, prices and numerical data. However, when
+      values have different importance or extreme values are present, other
+      measures such as weighted averages or the median may also be useful.
+    </p>
+
+    <p>
+      For quick calculations, try our free
+      <a href="average-calculator.html">
+        Average Calculator
+      </a>
+      on Easy Online Tool.
+    </p>
+
+
+    <div class="disclaimer">
+      <strong>Disclaimer:</strong>
+      This article is provided for general educational and informational
+      purposes. The appropriate statistical measure depends on the type and
+      characteristics of the data being analyzed.
+    </div>
+
+  </article>
+
+</main>
+
+<footer>
+
+  <p>
+    © 2026 Easy Online Tool. All rights reserved.
+  </p>
+
+  <p>
+    <a href="index.html">Home</a>
+    <a href="tools.html">Tools</a>
+    <a href="about.html">About</a>
+    <a href="faq.html">FAQ</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms.html">Terms</a>
+    <a href="contact.html">Contact</a>
+  </p>
+
+</footer>
+
+</body>
+</html>
