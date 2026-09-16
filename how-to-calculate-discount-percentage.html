@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>How to Calculate Discount Percentage: Formula, Examples & Guide</title>
+
+  <meta name="description" content="Learn how to calculate discount percentage with simple formulas and examples. Find the discount amount, sale price, percentage off and original price using easy methods.">
+
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://easyonlinetools.github.io/my-tools/how-to-calculate-discount-percentage.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="How to Calculate Discount Percentage: Formula, Examples & Guide">
+  <meta property="og:site_name" content="Easy Online Tool">
+  <meta property="og:description" content="Learn how to calculate discount percentage, discount amount, sale price and original price with simple formulas and examples.">
+  <meta property="og:url" content="https://easyonlinetools.github.io/my-tools/how-to-calculate-discount-percentage.html">
+  <meta property="og:type" content="article">
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Calculate Discount Percentage: Formula, Examples & Guide",
+    "description": "A simple guide explaining discount percentage, discount amount, sale price and reverse discount calculations.",
+    "author": {
+      "@type": "Organization",
+      "name": "Easy Online Tool"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Easy Online Tool"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://easyonlinetools.github.io/my-tools/how-to-calculate-discount-percentage.html"
+    }
+  }
+  </script>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do you calculate discount percentage?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Subtract the sale price from the original price, divide the discount amount by the original price, and multiply by 100. The formula is ((Original Price - Sale Price) / Original Price) × 100."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you calculate the price after a discount?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "First calculate the discount amount by multiplying the original price by the discount percentage divided by 100. Then subtract the discount amount from the original price."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the formula for discount amount?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Discount Amount = Original Price × Discount Percentage ÷ 100."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I calculate a discount quickly?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can use the free Discount Calculator on Easy Online Tool to calculate the discount amount and final price quickly."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fb;
+      color: #222;
+      line-height: 1.7;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 18px 20px;
+    }
+
+    .header-container {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    nav a {
+      color: #333;
+      text-decoration: none;
+      margin-left: 18px;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: #2563eb;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 35px auto;
+      padding: 0 20px;
+    }
+
+    .article-card {
+      background: #ffffff;
+      padding: 35px;
+      border-radius: 14px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    }
+
+    h1 {
+      color: #111827;
+      font-size: 34px;
+      line-height: 1.25;
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      color: #1f2937;
+      font-size: 25px;
+      margin-top: 35px;
+    }
+
+    h3 {
+      color: #374151;
+      font-size: 20px;
+      margin-top: 25px;
+    }
+
+    p {
+      margin: 15px 0;
+    }
+
+    a {
+      color: #2563eb;
+    }
+
+    .intro {
+      font-size: 18px;
+      color: #4b5563;
+    }
+
+    .formula-box {
+      background: #eff6ff;
+      border-left: 5px solid #2563eb;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      font-size: 18px;
+    }
+
+    .example-box {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 10px;
+    }
+
+    .tip-box {
+      background: #ecfdf5;
+      border-left: 5px solid #10b981;
+      padding: 18px;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background: #ffffff;
+    }
+
+    th,
+    td {
+      border: 1px solid #d1d5db;
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background: #f3f4f6;
+      font-weight: bold;
+    }
+
+    ul,
+    ol {
+      padding-left: 25px;
+    }
+
+    .calculator-button {
+      display: inline-block;
+      background: #2563eb;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .calculator-button:hover {
+      background: #1d4ed8;
+    }
+
+    .faq-item {
+      margin-bottom: 25px;
+    }
+
+    .faq-item h3 {
+      margin-bottom: 8px;
+    }
+
+    .disclaimer {
+      font-size: 14px;
+      color: #6b7280;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    footer {
+      text-align: center;
+      background: #ffffff;
+      border-top: 1px solid #e5e7eb;
+      padding: 25px 20px;
+      margin-top: 40px;
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    footer a {
+      margin: 0 8px;
+      text-decoration: none;
+    }
+
+    @media (max-width: 700px) {
+      .header-container {
+        flex-direction: column;
+      }
+
+      nav {
+        text-align: center;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 5px 8px;
+      }
+
+      .article-card {
+        padding: 22px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      table {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-container">
+
+    <a href="index.html" class="logo">
+      Easy Online Tool
+    </a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="tools.html">Tools</a>
+      <a href="faq.html">FAQ</a>
+      <a href="about.html">About</a>
+    </nav>
+
+  </div>
+</header>
+
+<main class="container">
+
+  <article class="article-card">
+
+    <h1>How to Calculate Discount Percentage: Formula, Examples & Easy Guide</h1>
+
+    <p class="intro">
+      Discounts are common when shopping online and in stores. Knowing how to
+      calculate discount percentage can help you understand how much money you
+      are saving and what the final price of an item will be.
+    </p>
+
+    <p>
+      In this guide, you will learn how to calculate the discount percentage,
+      discount amount, final sale price and original price using simple
+      formulas and step-by-step examples.
+    </p>
+
+    <p>
+      If you want to calculate a discount quickly, you can use our free
+      <a href="discount-calculator.html">
+        Discount Calculator
+      </a>.
+    </p>
+
+    <a href="discount-calculator.html" class="calculator-button">
+      Use the Discount Calculator
+    </a>
+
+
+    <h2>What Is a Discount Percentage?</h2>
+
+    <p>
+      A discount percentage shows how much the original price has been reduced,
+      expressed as a percentage of the original price.
+    </p>
+
+    <p>
+      For example, if a $100 product is offered at 20% off, the discount is
+      $20 and the customer pays $80.
+    </p>
+
+    <div class="tip-box">
+      <strong>Key idea:</strong>
+      A 20% discount means you save 20% of the original price and pay the
+      remaining 80%.
+    </div>
+
+
+    <h2>Discount Percentage Formula</h2>
+
+    <p>
+      When you know the original price and sale price, you can calculate the
+      discount percentage using this formula:
+    </p>
+
+    <div class="formula-box">
+      <strong>
+        Discount Percentage =
+        ((Original Price − Sale Price) ÷ Original Price) × 100
+      </strong>
+    </div>
+
+    <p>
+      The calculation has three basic steps:
+    </p>
+
+    <ol>
+      <li>Subtract the sale price from the original price.</li>
+      <li>Divide the discount amount by the original price.</li>
+      <li>Multiply the result by 100.</li>
+    </ol>
+
+    <p>
+      The original price is the reference amount when calculating the
+      percentage discount. :contentReference[oaicite:1]{index=1}
+    </p>
+
+
+    <h2>Example: How to Calculate Discount Percentage</h2>
+
+    <p>
+      Suppose a product originally costs <strong>$200</strong> and is now
+      selling for <strong>$150</strong>.
+    </p>
+
+    <div class="example-box">
+
+      <p><strong>Original Price:</strong> $200</p>
+
+      <p><strong>Sale Price:</strong> $150</p>
+
+      <p>
+        Discount = $200 − $150
+      </p>
+
+      <p>
+        Discount = <strong>$50</strong>
+      </p>
+
+      <p>
+        Discount Percentage =
+        ($50 ÷ $200) × 100
+      </p>
+
+      <p>
+        Discount Percentage =
+        <strong>25%</strong>
+      </p>
+
+    </div>
+
+    <p>
+      Therefore, the product has a <strong>25% discount</strong>.
+    </p>
+
+
+    <h2>How to Calculate the Discount Amount</h2>
+
+    <p>
+      Sometimes the discount percentage is already given and you need to find
+      the actual amount of money saved.
+    </p>
+
+    <div class="formula-box">
+      <strong>
+        Discount Amount =
+        Original Price × (Discount Percentage ÷ 100)
+      </strong>
+    </div>
+
+    <p>
+      For example, suppose a product costs $120 and has a 25% discount.
+    </p>
+
+    <div class="example-box">
+
+      <p>
+        Discount = $120 × (25 ÷ 100)
+      </p>
+
+      <p>
+        Discount = $120 × 0.25
+      </p>
+
+      <p>
+        Discount = <strong>$30</strong>
+      </p>
+
+    </div>
+
+    <p>
+      You save $30 on the purchase.
+    </p>
+
+
+    <h2>How to Calculate the Final Sale Price</h2>
+
+    <p>
+      Once you know the discount amount, subtract it from the original price.
+    </p>
+
+    <div class="formula-box">
+      <strong>
+        Sale Price = Original Price − Discount Amount
+      </strong>
+    </div>
+
+    <p>
+      You can also calculate the final price directly:
+    </p>
+
+    <div class="formula-box">
+      <strong>
+        Sale Price =
+        Original Price × (1 − Discount Percentage ÷ 100)
+      </strong>
+    </div>
+
+    <p>
+      This direct formula is a standard way to calculate the price after a
+      percentage discount. :contentReference[oaicite:2]{index=2}
+    </p>
+
+
+    <h2>Example: Calculate a Sale Price</h2>
+
+    <p>
+      A jacket costs <strong>$250</strong> and is advertised at
+      <strong>30% off</strong>.
+    </p>
+
+    <div class="example-box">
+
+      <p>
+        Discount = $250 × 30 ÷ 100
+      </p>
+
+      <p>
+        Discount = <strong>$75</strong>
+      </p>
+
+      <p>
+        Sale Price = $250 − $75
+      </p>
+
+      <p>
+        Sale Price = <strong>$175</strong>
+      </p>
+
+    </div>
+
+    <p>
+      So the customer saves $75 and pays $175.
+    </p>
+
+
+    <h2>How to Calculate the Original Price</h2>
+
+    <p>
+      You can also work backward when you know the sale price and the discount
+      percentage.
+    </p>
+
+    <div class="formula-box">
+      <strong>
+        Original Price =
+        Sale Price ÷ (1 − Discount Percentage ÷ 100)
+      </strong>
+    </div>
+
+    <h3>Example</h3>
+
+    <p>
+      Suppose an item costs <strong>$70 after a 30% discount</strong>.
+      What was its original price?
+    </p>
+
+    <div class="example-box">
+
+      <p>
+        Original Price = $70 ÷ (1 − 30 ÷ 100)
+      </p>
+
+      <p>
+        Original Price = $70 ÷ 0.70
+      </p>
+
+      <p>
+        Original Price = <strong>$100</strong>
+      </p>
+
+    </div>
+
+    <p>
+      Therefore, the original price was $100.
+    </p>
+
+
+    <h2>Discount Percentage Examples</h2>
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>Original Price</th>
+          <th>Discount</th>
+          <th>Discount Amount</th>
+          <th>Sale Price</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>$100</td>
+          <td>10%</td>
+          <td>$10</td>
+          <td>$90</td>
+        </tr>
+
+        <tr>
+          <td>$100</td>
+          <td>20%</td>
+          <td>$20</td>
+          <td>$80</td>
+        </tr>
+
+        <tr>
+          <td>$100</td>
+          <td>25%</td>
+          <td>$25</td>
+          <td>$75</td>
+        </tr>
+
+        <tr>
+          <td>$200</td>
+          <td>30%</td>
+          <td>$60</td>
+          <td>$140</td>
+        </tr>
+
+        <tr>
+          <td>$500</td>
+          <td>40%</td>
+          <td>$200</td>
+          <td>$300</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+
+    <h2>What Is 10% Off?</h2>
+
+    <p>
+      A 10% discount means that you save 10% of the original price and pay
+      90% of the original price.
+    </p>
+
+    <div class="formula-box">
+      <strong>
+        Sale Price = Original Price × 0.90
+      </strong>
+    </div>
+
+    <p>
+      For example, 10% off $80 means:
+    </p>
+
+    <div class="example-box">
+
+      <p>
+        $80 × 0.10 = $8 discount
+      </p>
+
+      <p>
+        $80 − $8 = <strong>$72 sale price</strong>
+      </p>
+
+    </div>
+
+
+    <h2>What Is 20% Off?</h2>
+
+    <p>
+      A 20% discount means you pay 80% of the original price.
+    </p>
+
+    <div class="formula-box">
+      <strong>
+        Sale Price = Original Price × 0.80
+      </strong>
+    </div>
+
+    <p>
+      For example:
+    </p>
+
+    <div class="example-box">
+
+      <p>
+        $150 × 0.20 = $30 discount
+      </p>
+
+      <p>
+        $150 − $30 = <strong>$120 sale price</strong>
+      </p>
+
+    </div>
+
+
+    <h2>What Is 50% Off?</h2>
+
+    <p>
+      A 50% discount means the price is reduced by half.
+    </p>
+
+    <div class="formula-box">
+      <strong>
+        Sale Price = Original Price × 0.50
+      </strong>
+    </div>
+
+    <p>
+      For example, 50% off $90 means the customer saves $45 and pays $45.
+    </p>
+
+
+    <h2>Successive Discounts</h2>
+
+    <p>
+      Sometimes a product receives more than one discount in sequence. For
+      example, a store may offer 20% off followed by another 10% off.
+    </p>
+
+    <p>
+      These discounts should not simply be added together as 30%, because the
+      second discount is applied to the already-reduced price.
+    </p>
+
+    <div class="example-box">
+
+      <p>
+        Original price = $100
+      </p>
+
+      <p>
+        First discount: 20%
+      </p>
+
+      <p>
+        $100 − $20 = $80
+      </p>
+
+      <p>
+        Second discount: 10% of $80 = $8
+      </p>
+
+      <p>
+        Final price = $80 − $8 = <strong>$72</strong>
+      </p>
+
+    </div>
+
+    <p>
+      The combined reduction is therefore $28, or 28% of the original $100,
+      rather than 30%.
+    </p>
+
+
+    <h2>Discount Percentage vs Discount Amount</h2>
+
+    <p>
+      Discount percentage and discount amount are related but they are not the
+      same thing.
+    </p>
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>Term</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>Original Price</td>
+          <td>Price before the discount</td>
+        </tr>
+
+        <tr>
+          <td>Discount Percentage</td>
+          <td>Percentage reduction from the original price</td>
+        </tr>
+
+        <tr>
+          <td>Discount Amount</td>
+          <td>Actual amount of money saved</td>
+        </tr>
+
+        <tr>
+          <td>Sale Price</td>
+          <td>Price paid after the discount</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+
+    <h2>Common Discount Calculation Mistakes</h2>
+
+    <p>
+      These mistakes can lead to an incorrect discount percentage or sale
+      price:
+    </p>
+
+    <ul>
+
+      <li>
+        Dividing the discount amount by the sale price instead of the original
+        price.
+      </li>
+
+      <li>
+        Forgetting to multiply by 100 when calculating a percentage.
+      </li>
+
+      <li>
+        Treating a percentage such as 25% as 25 instead of 0.25 when
+        multiplying a price.
+      </li>
+
+      <li>
+        Adding successive discounts together.
+      </li>
+
+      <li>
+        Confusing the discount amount with the discount percentage.
+      </li>
+
+      <li>
+        Forgetting to subtract the discount from the original price.
+      </li>
+
+    </ul>
+
+
+    <h2>How to Calculate Discount Percentage Quickly</h2>
+
+    <p>
+      When you know the original and sale prices, use this three-step method:
+    </p>
+
+    <ol>
+
+      <li>
+        Subtract the sale price from the original price.
+      </li>
+
+      <li>
+        Divide the result by the original price.
+      </li>
+
+      <li>
+        Multiply by 100.
+      </li>
+
+    </ol>
+
+    <div class="formula-box">
+      <strong>
+        Discount % =
+        ((Original Price − Sale Price) ÷ Original Price) × 100
+      </strong>
+    </div>
+
+
+    <h2>How to Use a Discount Calculator</h2>
+
+    <p>
+      If you do not want to calculate discounts manually, an online calculator
+      can provide the result quickly.
+    </p>
+
+    <ol>
+
+      <li>Open the Discount Calculator.</li>
+
+      <li>Enter the original price.</li>
+
+      <li>Enter the discount percentage or sale price as required.</li>
+
+      <li>Calculate the result.</li>
+
+      <li>Check the discount amount and final price.</li>
+
+    </ol>
+
+    <p>
+      Our free
+      <a href="discount-calculator.html">
+        Discount Calculator
+      </a>
+      is designed to make everyday discount calculations easier.
+    </p>
+
+    <a href="discount-calculator.html" class="calculator-button">
+      Calculate a Discount
+    </a>
+
+
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+
+      <h3>How do you calculate discount percentage?</h3>
+
+      <p>
+        Subtract the sale price from the original price, divide the discount
+        amount by the original price, and multiply by 100.
+      </p>
+
+    </div>
+
+    <div class="faq-item">
+
+      <h3>How do you calculate the price after a discount?</h3>
+
+      <p>
+        Multiply the original price by the discount percentage divided by 100
+        to find the discount amount. Then subtract the discount amount from
+        the original price.
+      </p>
+
+    </div>
+
+    <div class="faq-item">
+
+      <h3>What is the formula for discount amount?</h3>
+
+      <p>
+        The formula is:
+        <strong>
+          Discount Amount = Original Price × Discount Percentage ÷ 100
+        </strong>.
+      </p>
+
+    </div>
+
+    <div class="faq-item">
+
+      <h3>How can I calculate a discount quickly?</h3>
+
+      <p>
+        You can use the free
+        <a href="discount-calculator.html">
+          Discount Calculator
+        </a>
+        on Easy Online Tool to calculate the discount and final price quickly.
+      </p>
+
+    </div>
+
+
+    <h2>Related Math & Finance Calculators</h2>
+
+    <p>
+      You may also find these free calculators useful:
+    </p>
+
+    <ul>
+
+      <li>
+        <a href="discount-calculator.html">
+          Discount Calculator
+        </a>
+      </li>
+
+      <li>
+        <a href="percentage-calculator.html">
+          Percentage Calculator
+        </a>
+      </li>
+
+      <li>
+        <a href="percentage-increase-decrease.html">
+          Percentage Increase & Decrease Calculator
+        </a>
+      </li>
+
+      <li>
+        <a href="tip-calculator.html">
+          Tip Calculator
+        </a>
+      </li>
+
+      <li>
+        <a href="simple-interest-calculator.html">
+          Simple Interest Calculator
+        </a>
+      </li>
+
+      <li>
+        <a href="finance-calculators.html">
+          Finance Calculators
+        </a>
+      </li>
+
+    </ul>
+
+
+    <h2>Final Thoughts</h2>
+
+    <p>
+      Calculating a discount percentage is a useful everyday math skill.
+      Whether you are shopping online, comparing prices or checking a sale,
+      the basic formulas can help you understand exactly how much you are
+      saving.
+    </p>
+
+    <p>
+      To find the discount percentage from two prices, subtract the sale price
+      from the original price, divide by the original price and multiply by
+      100.
+    </p>
+
+    <p>
+      When the discount percentage is already known, multiply the original
+      price by the discount rate to find the discount amount, then subtract it
+      from the original price to find the sale price. :contentReference[oaicite:3]{index=3}
+    </p>
+
+    <p>
+      For quick calculations, try the
+      <a href="discount-calculator.html">
+        Discount Calculator
+      </a>
+      on Easy Online Tool.
+    </p>
+
+
+    <div class="disclaimer">
+      <strong>Disclaimer:</strong>
+      This article is provided for general educational and informational
+      purposes. Actual prices, discounts, taxes, shipping charges, coupons
+      and retailer terms may vary. Always check the final price before making
+      a purchase.
+    </div>
+
+  </article>
+
+</main>
+
+<footer>
+
+  <p>
+    © 2026 Easy Online Tool. All rights reserved.
+  </p>
+
+  <p>
+    <a href="index.html">Home</a>
+    <a href="tools.html">Tools</a>
+    <a href="about.html">About</a>
+    <a href="faq.html">FAQ</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms.html">Terms</a>
+    <a href="contact.html">Contact</a>
+  </p>
+
+</footer>
+
+</body>
+</html>
