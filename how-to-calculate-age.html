@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>How to Calculate Age: Formula, Examples & Easy Guide</title>
+
+  <meta name="description" content="Learn how to calculate age from date of birth with simple methods, formulas and examples. Calculate age in years, months and days and use our free Age Calculator.">
+
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://easyonlinetools.github.io/my-tools/how-to-calculate-age.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="How to Calculate Age: Formula, Examples & Easy Guide">
+  <meta property="og:site_name" content="Easy Online Tool">
+  <meta property="og:description" content="Learn how to calculate age from date of birth with simple formulas, examples and an easy age calculator.">
+  <meta property="og:url" content="https://easyonlinetools.github.io/my-tools/how-to-calculate-age.html">
+  <meta property="og:type" content="article">
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Calculate Age: Formula, Examples & Easy Guide",
+    "description": "A simple guide explaining how to calculate age from a date of birth using formulas, examples and different methods.",
+    "author": {
+      "@type": "Organization",
+      "name": "Easy Online Tool"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Easy Online Tool"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://easyonlinetools.github.io/my-tools/how-to-calculate-age.html"
+    }
+  }
+  </script>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do you calculate age from date of birth?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Age is calculated by comparing the date of birth with the date on which the age is being calculated. If the birthday has not occurred yet in the current year, one year is subtracted from the simple year difference."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the basic age calculation formula?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A basic age calculation starts with the current year minus the birth year. If the person's birthday has not occurred yet in the current year, subtract one additional year."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can age be calculated in years, months and days?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. A date-based age calculator can calculate the difference between two dates in years, months and days."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I calculate my exact age easily?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Enter your date of birth and the target date into the free Age Calculator on Easy Online Tool to calculate your age quickly."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fb;
+      color: #222;
+      line-height: 1.7;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 18px 20px;
+    }
+
+    .header-container {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    nav a {
+      color: #333;
+      text-decoration: none;
+      margin-left: 18px;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: #2563eb;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 35px auto;
+      padding: 0 20px;
+    }
+
+    .article-card {
+      background: #ffffff;
+      padding: 35px;
+      border-radius: 14px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    }
+
+    h1 {
+      color: #111827;
+      font-size: 34px;
+      line-height: 1.25;
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      color: #1f2937;
+      font-size: 25px;
+      margin-top: 35px;
+    }
+
+    h3 {
+      color: #374151;
+      font-size: 20px;
+      margin-top: 25px;
+    }
+
+    p {
+      margin: 15px 0;
+    }
+
+    a {
+      color: #2563eb;
+    }
+
+    .intro {
+      font-size: 18px;
+      color: #4b5563;
+    }
+
+    .formula-box {
+      background: #eff6ff;
+      border-left: 5px solid #2563eb;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      font-size: 18px;
+    }
+
+    .example-box {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 10px;
+    }
+
+    .tip-box {
+      background: #ecfdf5;
+      border-left: 5px solid #10b981;
+      padding: 18px;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background: #ffffff;
+    }
+
+    th,
+    td {
+      border: 1px solid #d1d5db;
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background: #f3f4f6;
+      font-weight: bold;
+    }
+
+    ul,
+    ol {
+      padding-left: 25px;
+    }
+
+    .calculator-button {
+      display: inline-block;
+      background: #2563eb;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .calculator-button:hover {
+      background: #1d4ed8;
+    }
+
+    .faq-item {
+      margin-bottom: 25px;
+    }
+
+    .faq-item h3 {
+      margin-bottom: 8px;
+    }
+
+    .disclaimer {
+      font-size: 14px;
+      color: #6b7280;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    footer {
+      text-align: center;
+      background: #ffffff;
+      border-top: 1px solid #e5e7eb;
+      padding: 25px 20px;
+      margin-top: 40px;
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    footer a {
+      margin: 0 8px;
+      text-decoration: none;
+    }
+
+    @media (max-width: 700px) {
+      .header-container {
+        flex-direction: column;
+      }
+
+      nav {
+        text-align: center;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 5px 8px;
+      }
+
+      .article-card {
+        padding: 22px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      table {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-container">
+
+    <a href="index.html" class="logo">
+      Easy Online Tool
+    </a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="tools.html">Tools</a>
+      <a href="faq.html">FAQ</a>
+      <a href="about.html">About</a>
+    </nav>
+
+  </div>
+</header>
+
+<main class="container">
+
+  <article class="article-card">
+
+    <h1>How to Calculate Age: Formula, Examples & Easy Guide</h1>
+
+    <p class="intro">
+      Calculating age may seem simple, but finding an exact age in years,
+      months and days requires comparing two dates carefully. This guide
+      explains how to calculate age from a date of birth using simple methods
+      and practical examples.
+    </p>
+
+    <p>
+      Whether you want to calculate your current age, determine someone's age
+      on a particular date, or find the exact difference between two dates,
+      understanding how age calculation works can be useful for everyday,
+      school, work and official purposes.
+    </p>
+
+    <p>
+      For a quick result, you can use our free
+      <a href="age-calculator.html">
+        Age Calculator
+      </a>.
+    </p>
+
+    <a href="age-calculator.html" class="calculator-button">
+      Use the Age Calculator
+    </a>
+
+
+    <h2>How Is Age Calculated?</h2>
+
+    <p>
+      Age is generally calculated by comparing a person's date of birth with
+      the date on which their age is being calculated.
+    </p>
+
+    <p>
+      The basic calculation starts with the difference between the current
+      year and the birth year. However, the result must be adjusted if the
+      person's birthday has not yet occurred during the current year.
+    </p>
+
+    <div class="formula-box">
+      <strong>Basic Age = Current Year − Birth Year</strong>
+    </div>
+
+    <p>
+      If the birthday has not occurred yet in the current year, subtract
+      one year from the result.
+    </p>
+
+
+    <h2>Simple Example of Age Calculation</h2>
+
+    <p>
+      Suppose a person was born on <strong>June 15, 1990</strong>, and we want
+      to calculate their age on <strong>September 15, 2026</strong>.
+    </p>
+
+    <div class="example-box">
+
+      <p><strong>Current year:</strong> 2026</p>
+
+      <p><strong>Birth year:</strong> 1990</p>
+
+      <p>2026 − 1990 = 36</p>
+
+      <p>
+        Because June 15 has already passed by September 15, the person is:
+      </p>
+
+      <p><strong>36 years old</strong></p>
+
+    </div>
+
+
+    <h2>What If the Birthday Has Not Happened Yet?</h2>
+
+    <p>
+      Consider another example. Suppose a person was born on
+      <strong>December 20, 1990</strong>, and we calculate their age on
+      <strong>September 15, 2026</strong>.
+    </p>
+
+    <div class="example-box">
+
+      <p>2026 − 1990 = 36</p>
+
+      <p>
+        However, December 20 has not yet occurred in 2026.
+      </p>
+
+      <p>
+        Therefore, subtract one year:
+      </p>
+
+      <p>
+        <strong>36 − 1 = 35 years old</strong>
+      </p>
+
+    </div>
+
+    <p>
+      This birthday adjustment is important when calculating someone's
+      completed age in years.
+    </p>
+
+
+    <h2>How to Calculate Exact Age in Years, Months and Days</h2>
+
+    <p>
+      Calculating exact age is more detailed than simply subtracting two
+      years. You need to compare the day, month and year of the two dates.
+    </p>
+
+    <p>
+      For example, if someone was born on January 10, 2000 and the calculation
+      date is March 25, 2026, their age can be expressed as:
+    </p>
+
+    <div class="example-box">
+
+      <p><strong>26 years, 2 months and 15 days</strong></p>
+
+    </div>
+
+    <p>
+      A date-based calculator can perform this calculation automatically and
+      handle different month lengths and leap years.
+    </p>
+
+
+    <h2>How to Calculate Age From Date of Birth</h2>
+
+    <p>
+      Follow these steps to calculate someone's age:
+    </p>
+
+    <ol>
+      <li>Write down the person's date of birth.</li>
+      <li>Identify the date on which the age should be calculated.</li>
+      <li>Subtract the birth year from the target year.</li>
+      <li>Check whether the birthday has already occurred in the target year.</li>
+      <li>Subtract one year if the birthday has not yet occurred.</li>
+      <li>For an exact result, compare the months and days as well.</li>
+    </ol>
+
+
+    <h2>How to Calculate Age on a Specific Date</h2>
+
+    <p>
+      You do not always need to calculate someone's age as of today. Sometimes
+      you may need to know how old a person was on a particular historical or
+      future date.
+    </p>
+
+    <p>
+      The same method can be used:
+    </p>
+
+    <ol>
+      <li>Enter the date of birth.</li>
+      <li>Choose the specific target date.</li>
+      <li>Compare the two dates.</li>
+      <li>Calculate the difference in years, months and days.</li>
+    </ol>
+
+    <p>
+      This can be useful for calculating age on an application date,
+      examination date, event date or another specific date.
+    </p>
+
+
+    <h2>Age Calculation and Leap Years</h2>
+
+    <p>
+      Leap years can make manual date calculations more complicated because
+      February can contain 29 days instead of 28.
+    </p>
+
+    <p>
+      A leap year generally occurs every four years, with special rules for
+      century years. Because of this, an exact age calculation should account
+      for the actual calendar dates rather than simply assuming every year
+      contains the same number of days.
+    </p>
+
+    <div class="tip-box">
+      <strong>Tip:</strong>
+      When you need an exact age in years, months and days, use a date-based
+      calculator instead of manually counting the days.
+    </div>
+
+
+    <h2>Age in Years vs Age in Days</h2>
+
+    <p>
+      Age can be expressed in different ways depending on what you need.
+    </p>
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>Age Format</th>
+          <th>What It Means</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>Years</td>
+          <td>Completed calendar years since birth</td>
+        </tr>
+
+        <tr>
+          <td>Years, months and days</td>
+          <td>More precise calendar-based age</td>
+        </tr>
+
+        <tr>
+          <td>Total days</td>
+          <td>Total elapsed days between two dates</td>
+        </tr>
+
+        <tr>
+          <td>Total weeks</td>
+          <td>Total elapsed time expressed in weeks</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+
+    <h2>Why Manual Age Calculations Can Be Difficult</h2>
+
+    <p>
+      Basic age calculations are easy, but exact date differences can become
+      complicated because months have different numbers of days.
+    </p>
+
+    <p>
+      January has 31 days, February usually has 28 days, and other months have
+      either 30 or 31 days. Leap years also change the number of days in
+      February.
+    </p>
+
+    <p>
+      This is why an automated calculator can be useful when you need an exact
+      result.
+    </p>
+
+
+    <h2>How to Use an Age Calculator</h2>
+
+    <p>
+      Using an online age calculator is usually much faster than calculating
+      dates manually.
+    </p>
+
+    <ol>
+      <li>Open the Age Calculator.</li>
+      <li>Enter the date of birth.</li>
+      <li>Enter or select the target date.</li>
+      <li>Click the calculate button.</li>
+      <li>Review the calculated age.</li>
+    </ol>
+
+    <p>
+      Our free
+      <a href="age-calculator.html">
+        Age Calculator
+      </a>
+      is designed to make this process simple and convenient.
+    </p>
+
+    <a href="age-calculator.html" class="calculator-button">
+      Calculate Your Age
+    </a>
+
+
+    <h2>Common Age Calculation Mistakes</h2>
+
+    <p>
+      When calculating age manually, these are some common mistakes to avoid:
+    </p>
+
+    <ul>
+
+      <li>
+        Forgetting to check whether the birthday has already occurred.
+      </li>
+
+      <li>
+        Ignoring the month and day when calculating exact age.
+      </li>
+
+      <li>
+        Assuming every year has exactly the same number of days.
+      </li>
+
+      <li>
+        Forgetting about leap years.
+      </li>
+
+      <li>
+        Confusing birth year with completed age.
+      </li>
+
+    </ul>
+
+
+    <h2>Age Calculation Example Table</h2>
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>Date of Birth</th>
+          <th>Calculation Date</th>
+          <th>Completed Age</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>January 10, 2000</td>
+          <td>March 25, 2026</td>
+          <td>26 years</td>
+        </tr>
+
+        <tr>
+          <td>June 15, 1990</td>
+          <td>September 15, 2026</td>
+          <td>36 years</td>
+        </tr>
+
+        <tr>
+          <td>December 20, 1990</td>
+          <td>September 15, 2026</td>
+          <td>35 years</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+
+      <h3>How do you calculate age from date of birth?</h3>
+
+      <p>
+        Compare the date of birth with the target date. Start with the
+        difference between the years and subtract one year if the birthday has
+        not yet occurred in the target year.
+      </p>
+
+    </div>
+
+    <div class="faq-item">
+
+      <h3>What is the basic age calculation formula?</h3>
+
+      <p>
+        The basic formula is:
+        <strong>Current Year − Birth Year</strong>.
+        If the birthday has not occurred yet, subtract one from the result.
+      </p>
+
+    </div>
+
+    <div class="faq-item">
+
+      <h3>Can age be calculated in years, months and days?</h3>
+
+      <p>
+        Yes. Exact age can be calculated by comparing the complete date of
+        birth with the target date, including the year, month and day.
+      </p>
+
+    </div>
+
+    <div class="faq-item">
+
+      <h3>How can I calculate my exact age easily?</h3>
+
+      <p>
+        Enter your date of birth into our
+        <a href="age-calculator.html">
+          Age Calculator
+        </a>
+        to calculate your age quickly.
+      </p>
+
+    </div>
+
+
+    <h2>Related Date & Other Tools</h2>
+
+    <p>
+      You may also find these free tools useful:
+    </p>
+
+    <ul>
+
+      <li>
+        <a href="age-calculator.html">
+          Age Calculator
+        </a>
+      </li>
+
+      <li>
+        <a href="date-calculator.html">
+          Date Calculator
+        </a>
+      </li>
+
+      <li>
+        <a href="time-calculator.html">
+          Time Calculator
+        </a>
+      </li>
+
+      <li>
+        <a href="other-tools.html">
+          Other Useful Tools
+        </a>
+      </li>
+
+    </ul>
+
+
+    <h2>Final Thoughts</h2>
+
+    <p>
+      Calculating age is straightforward when you only need the completed
+      number of years, but calculating exact age in years, months and days
+      requires careful comparison of the dates.
+    </p>
+
+    <p>
+      The basic method is to subtract the birth year from the target year and
+      then check whether the birthday has already occurred. For more precise
+      calculations, an online age calculator can handle different month
+      lengths and leap years automatically.
+    </p>
+
+    <p>
+      Try our free
+      <a href="age-calculator.html">
+        Age Calculator
+      </a>
+      for a quick and convenient result.
+    </p>
+
+
+    <div class="disclaimer">
+      <strong>Disclaimer:</strong>
+      This article is provided for general informational and educational
+      purposes. Age calculations are based on calendar dates and may be
+      presented differently depending on the calculation method or application.
+    </div>
+
+  </article>
+
+</main>
+
+<footer>
+
+  <p>
+    © 2026 Easy Online Tool. All rights reserved.
+  </p>
+
+  <p>
+    <a href="index.html">Home</a>
+    <a href="tools.html">Tools</a>
+    <a href="about.html">About</a>
+    <a href="faq.html">FAQ</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms.html">Terms</a>
+    <a href="contact.html">Contact</a>
+  </p>
+
+</footer>
+
+</body>
+</html>
