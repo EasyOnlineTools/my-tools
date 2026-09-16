@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>How to Calculate Compound Interest: Formula, Examples & Guide</title>
+
+  <meta name="description" content="Learn how to calculate compound interest with simple formulas, examples and step-by-step explanations. Understand annual, monthly and daily compounding and use our free compound interest calculator.">
+
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://easyonlinetools.github.io/my-tools/how-to-calculate-compound-interest.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="How to Calculate Compound Interest: Formula, Examples & Guide">
+  <meta property="og:site_name" content="Easy Online Tool">
+  <meta property="og:description" content="Learn how to calculate compound interest with simple formulas, examples and step-by-step explanations.">
+  <meta property="og:url" content="https://easyonlinetools.github.io/my-tools/how-to-calculate-compound-interest.html">
+  <meta property="og:type" content="article">
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Calculate Compound Interest: Formula, Examples & Guide",
+    "description": "A simple guide explaining how to calculate compound interest using formulas, examples and different compounding periods.",
+    "author": {
+      "@type": "Organization",
+      "name": "Easy Online Tool"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Easy Online Tool"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://easyonlinetools.github.io/my-tools/how-to-calculate-compound-interest.html"
+    }
+  }
+  </script>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is compound interest?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Compound interest is interest calculated on the original principal and on the interest accumulated during previous periods."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the compound interest formula?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The standard compound interest formula is A = P(1 + r/n)^(nt), where A is the final amount, P is the principal, r is the annual interest rate as a decimal, n is the number of compounding periods per year, and t is the number of years."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between compound interest and simple interest?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Simple interest is calculated only on the original principal, while compound interest is calculated on the principal plus previously accumulated interest."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I calculate compound interest easily?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can calculate compound interest using the standard formula or use the free Compound Interest Calculator on Easy Online Tool."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fb;
+      color: #222;
+      line-height: 1.7;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 18px 20px;
+    }
+
+    .header-container {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    nav a {
+      color: #333;
+      text-decoration: none;
+      margin-left: 18px;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: #2563eb;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 35px auto;
+      padding: 0 20px;
+    }
+
+    .article-card {
+      background: #ffffff;
+      padding: 35px;
+      border-radius: 14px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    }
+
+    h1 {
+      color: #111827;
+      font-size: 34px;
+      line-height: 1.25;
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      color: #1f2937;
+      font-size: 25px;
+      margin-top: 35px;
+    }
+
+    h3 {
+      color: #374151;
+      font-size: 20px;
+      margin-top: 25px;
+    }
+
+    p {
+      margin: 15px 0;
+    }
+
+    a {
+      color: #2563eb;
+    }
+
+    .intro {
+      font-size: 18px;
+      color: #4b5563;
+    }
+
+    .formula-box {
+      background: #eff6ff;
+      border-left: 5px solid #2563eb;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      font-size: 18px;
+    }
+
+    .example-box {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 10px;
+    }
+
+    .tip-box {
+      background: #ecfdf5;
+      border-left: 5px solid #10b981;
+      padding: 18px;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background: #ffffff;
+    }
+
+    th,
+    td {
+      border: 1px solid #d1d5db;
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background: #f3f4f6;
+      font-weight: bold;
+    }
+
+    ul,
+    ol {
+      padding-left: 25px;
+    }
+
+    .calculator-button {
+      display: inline-block;
+      background: #2563eb;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .calculator-button:hover {
+      background: #1d4ed8;
+    }
+
+    .info-section {
+      margin-top: 35px;
+      padding: 25px;
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+    }
+
+    .faq-item {
+      margin-bottom: 25px;
+    }
+
+    .faq-item h3 {
+      margin-bottom: 8px;
+    }
+
+    .disclaimer {
+      font-size: 14px;
+      color: #6b7280;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    footer {
+      text-align: center;
+      background: #ffffff;
+      border-top: 1px solid #e5e7eb;
+      padding: 25px 20px;
+      margin-top: 40px;
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    footer a {
+      margin: 0 8px;
+      text-decoration: none;
+    }
+
+    @media (max-width: 700px) {
+      .header-container {
+        flex-direction: column;
+      }
+
+      nav {
+        text-align: center;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 5px 8px;
+      }
+
+      .article-card {
+        padding: 22px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      table {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-container">
+
+    <a href="index.html" class="logo">
+      Easy Online Tool
+    </a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="tools.html">Tools</a>
+      <a href="faq.html">FAQ</a>
+      <a href="about.html">About</a>
+    </nav>
+
+  </div>
+</header>
+
+<main class="container">
+
+  <article class="article-card">
+
+    <h1>How to Calculate Compound Interest: Formula, Examples & Easy Guide</h1>
+
+    <p class="intro">
+      Compound interest is one of the most important concepts in personal
+      finance, savings and investing. Unlike simple interest, compound interest
+      allows previously earned interest to become part of the balance and earn
+      additional interest over time.
+    </p>
+
+    <p>
+      In this guide, you will learn how to calculate compound interest using
+      a simple formula, understand what each part of the formula means, see
+      practical examples, and learn how annual, monthly, quarterly and daily
+      compounding can affect the final amount.
+    </p>
+
+    <p>
+      If you want to calculate compound interest without doing the mathematics
+      manually, you can also use our
+      <a href="compound-interest-calculator.html">
+        Compound Interest Calculator
+      </a>.
+    </p>
+
+    <a href="compound-interest-calculator.html" class="calculator-button">
+      Use the Compound Interest Calculator
+    </a>
+
+
+    <h2>What Is Compound Interest?</h2>
+
+    <p>
+      Compound interest is interest earned on both the original amount of money
+      and the interest that has already accumulated.
+    </p>
+
+    <p>
+      This means that your balance can grow faster because each new interest
+      calculation may include previously earned interest.
+    </p>
+
+    <p>
+      Compound interest is commonly used for savings accounts, investments,
+      loans, deposits and other financial products.
+    </p>
+
+    <div class="tip-box">
+      <strong>Key idea:</strong>
+      With compound interest, your interest can earn additional interest over
+      time. The longer the money remains invested or saved, the greater the
+      effect of compounding can become.
+    </div>
+
+
+    <h2>Compound Interest Formula</h2>
+
+    <p>
+      The standard compound interest formula is:
+    </p>
+
+    <div class="formula-box">
+      <strong>A = P(1 + r/n)<sup>nt</sup></strong>
+    </div>
+
+    <p>Where:</p>
+
+    <ul>
+      <li><strong>A</strong> = final amount</li>
+      <li><strong>P</strong> = principal or initial amount</li>
+      <li><strong>r</strong> = annual interest rate expressed as a decimal</li>
+      <li><strong>n</strong> = number of times interest is compounded per year</li>
+      <li><strong>t</strong> = number of years</li>
+    </ul>
+
+    <p>
+      If you want to calculate only the interest earned, subtract the original
+      principal from the final amount:
+    </p>
+
+    <div class="formula-box">
+      <strong>Compound Interest = A − P</strong>
+    </div>
+
+
+    <h2>How to Calculate Compound Interest Step by Step</h2>
+
+    <p>
+      You can calculate compound interest manually by following these steps.
+    </p>
+
+    <ol>
+      <li>Identify the original principal amount.</li>
+      <li>Convert the annual interest rate into a decimal.</li>
+      <li>Determine how many times the interest compounds each year.</li>
+      <li>Determine the number of years.</li>
+      <li>Substitute the values into the compound interest formula.</li>
+      <li>Calculate the final amount.</li>
+      <li>Subtract the original principal to find the interest earned.</li>
+    </ol>
+
+
+    <h2>Compound Interest Example</h2>
+
+    <p>
+      Suppose you deposit <strong>$1,000</strong> into an account that earns
+      <strong>5% annual interest</strong>, compounded once per year, for
+      <strong>3 years</strong>.
+    </p>
+
+    <div class="example-box">
+
+      <p><strong>Principal (P):</strong> $1,000</p>
+
+      <p><strong>Annual interest rate:</strong> 5% = 0.05</p>
+
+      <p><strong>Compounding frequency (n):</strong> 1</p>
+
+      <p><strong>Time (t):</strong> 3 years</p>
+
+      <p>
+        Formula:
+        <strong>A = P(1 + r/n)<sup>nt</sup></strong>
+      </p>
+
+      <p>
+        A = 1000(1 + 0.05/1)<sup>1 × 3</sup>
+      </p>
+
+      <p>
+        A = 1000(1.05)<sup>3</sup>
+      </p>
+
+      <p>
+        A ≈ <strong>$1,157.63</strong>
+      </p>
+
+      <p>
+        Therefore:
+      </p>
+
+      <p>
+        Compound Interest = $1,157.63 − $1,000
+      </p>
+
+      <p>
+        <strong>Compound Interest ≈ $157.63</strong>
+      </p>
+
+    </div>
+
+
+    <h2>Compound Interest With Different Compounding Periods</h2>
+
+    <p>
+      Interest does not always compound once per year. Financial products may
+      compound interest monthly, quarterly, semi-annually or daily.
+    </p>
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>Compounding Frequency</th>
+          <th>Times Per Year</th>
+          <th>Value of n</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>Annually</td>
+          <td>1</td>
+          <td>1</td>
+        </tr>
+
+        <tr>
+          <td>Semi-annually</td>
+          <td>2</td>
+          <td>2</td>
+        </tr>
+
+        <tr>
+          <td>Quarterly</td>
+          <td>4</td>
+          <td>4</td>
+        </tr>
+
+        <tr>
+          <td>Monthly</td>
+          <td>12</td>
+          <td>12</td>
+        </tr>
+
+        <tr>
+          <td>Daily</td>
+          <td>365</td>
+          <td>365</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+    <p>
+      In the standard formula, the value of <strong>n</strong> changes
+      depending on how frequently interest is compounded.
+    </p>
+
+
+    <h2>How to Calculate Monthly Compound Interest</h2>
+
+    <p>
+      For monthly compounding, interest is calculated 12 times per year.
+      Therefore, use <strong>n = 12</strong>.
+    </p>
+
+    <div class="formula-box">
+      <strong>A = P(1 + r/12)<sup>12t</sup></strong>
+    </div>
+
+    <p>
+      For example, if you invest $5,000 at an annual interest rate of 6% for
+      5 years with monthly compounding, you would use:
+    </p>
+
+    <div class="example-box">
+
+      <p>P = $5,000</p>
+
+      <p>r = 0.06</p>
+
+      <p>n = 12</p>
+
+      <p>t = 5</p>
+
+      <p>
+        A = 5000(1 + 0.06/12)<sup>12 × 5</sup>
+      </p>
+
+      <p>
+        A ≈ <strong>$6,744.25</strong>
+      </p>
+
+      <p>
+        The approximate interest earned would therefore be:
+      </p>
+
+      <p>
+        <strong>$6,744.25 − $5,000 = $1,744.25</strong>
+      </p>
+
+    </div>
+
+
+    <h2>Compound Interest vs Simple Interest</h2>
+
+    <p>
+      Simple interest and compound interest both use an interest rate, but
+      they calculate interest differently.
+    </p>
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Simple Interest</th>
+          <th>Compound Interest</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>Interest calculated on</td>
+          <td>Original principal</td>
+          <td>Principal plus accumulated interest</td>
+        </tr>
+
+        <tr>
+          <td>Growth over time</td>
+          <td>Generally linear</td>
+          <td>Can grow faster over time</td>
+        </tr>
+
+        <tr>
+          <td>Previous interest earns interest</td>
+          <td>No</td>
+          <td>Yes</td>
+        </tr>
+
+        <tr>
+          <td>Common use</td>
+          <td>Some loans and basic calculations</td>
+          <td>Savings, investments and many financial products</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+    <p>
+      To learn more about simple interest, visit our
+      <a href="simple-interest-calculator.html">
+        Simple Interest Calculator
+      </a>.
+    </p>
+
+
+    <h2>Why Does Compounding Matter?</h2>
+
+    <p>
+      Compounding can have a significant effect over long periods because
+      interest earned earlier can become part of the balance used to calculate
+      future interest.
+    </p>
+
+    <p>
+      This is sometimes described as earning "interest on interest."
+    </p>
+
+    <p>
+      The effect can become more noticeable when you combine a longer time
+      period, regular contributions and a consistent rate of return.
+    </p>
+
+
+    <h2>Factors That Affect Compound Interest</h2>
+
+    <p>
+      Several factors can affect the amount of compound interest you earn or
+      pay.
+    </p>
+
+    <h3>1. Initial Principal</h3>
+
+    <p>
+      A larger starting balance generally results in more interest when all
+      other conditions remain the same.
+    </p>
+
+    <h3>2. Interest Rate</h3>
+
+    <p>
+      A higher interest rate generally produces a larger final amount,
+      assuming the other variables remain unchanged.
+    </p>
+
+    <h3>3. Time</h3>
+
+    <p>
+      The length of time can have a major effect because compounding occurs
+      repeatedly throughout the period.
+    </p>
+
+    <h3>4. Compounding Frequency</h3>
+
+    <p>
+      Interest may be compounded annually, quarterly, monthly or daily.
+      Changing the compounding frequency changes the calculation.
+    </p>
+
+
+    <h2>Compound Interest Formula Quick Reference</h2>
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>Calculation</th>
+          <th>Formula</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>Final amount</td>
+          <td>A = P(1 + r/n)<sup>nt</sup></td>
+        </tr>
+
+        <tr>
+          <td>Compound interest</td>
+          <td>A − P</td>
+        </tr>
+
+        <tr>
+          <td>Annual compounding</td>
+          <td>A = P(1 + r)<sup>t</sup></td>
+        </tr>
+
+        <tr>
+          <td>Monthly compounding</td>
+          <td>A = P(1 + r/12)<sup>12t</sup></td>
+        </tr>
+
+        <tr>
+          <td>Quarterly compounding</td>
+          <td>A = P(1 + r/4)<sup>4t</sup></td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+
+    <h2>How to Use a Compound Interest Calculator</h2>
+
+    <p>
+      If you do not want to calculate compound interest manually, an online
+      calculator can make the process much easier.
+    </p>
+
+    <ol>
+      <li>Enter the initial principal amount.</li>
+      <li>Enter the annual interest rate.</li>
+      <li>Enter the investment or loan period.</li>
+      <li>Select the compounding frequency.</li>
+      <li>Calculate the final amount and interest.</li>
+    </ol>
+
+    <p>
+      Our free
+      <a href="compound-interest-calculator.html">
+        Compound Interest Calculator
+      </a>
+      can help you perform these calculations quickly.
+    </p>
+
+    <a href="compound-interest-calculator.html" class="calculator-button">
+      Calculate Compound Interest
+    </a>
+
+
+    <h2>Common Mistakes When Calculating Compound Interest</h2>
+
+    <p>
+      Compound interest calculations can produce incorrect results if the
+      variables are entered incorrectly.
+    </p>
+
+    <ul>
+
+      <li>
+        Using 5 instead of 0.05 for a 5% interest rate.
+      </li>
+
+      <li>
+        Forgetting to divide the annual interest rate by the number of
+        compounding periods.
+      </li>
+
+      <li>
+        Using the wrong number of compounding periods.
+      </li>
+
+      <li>
+        Confusing the final amount with the interest earned.
+      </li>
+
+      <li>
+        Forgetting that the formula requires the time period in years.
+      </li>
+
+    </ul>
+
+
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+
+      <h3>What is compound interest?</h3>
+
+      <p>
+        Compound interest is interest calculated on the original principal
+        together with interest accumulated during previous periods.
+      </p>
+
+    </div>
+
+    <div class="faq-item">
+
+      <h3>What is the compound interest formula?</h3>
+
+      <p>
+        The standard formula is
+        <strong>A = P(1 + r/n)<sup>nt</sup></strong>.
+        P is the principal, r is the annual interest rate as a decimal,
+        n is the number of compounding periods per year and t is the number
+        of years.
+      </p>
+
+    </div>
+
+    <div class="faq-item">
+
+      <h3>What is the difference between compound interest and simple interest?</h3>
+
+      <p>
+        Simple interest is calculated on the original principal, while
+        compound interest is calculated on the principal plus accumulated
+        interest.
+      </p>
+
+    </div>
+
+    <div class="faq-item">
+
+      <h3>How can I calculate compound interest easily?</h3>
+
+      <p>
+        You can use the compound interest formula or use our free
+        <a href="compound-interest-calculator.html">
+          Compound Interest Calculator
+        </a>
+        to calculate the result quickly.
+      </p>
+
+    </div>
+
+
+    <h2>Related Finance Calculators</h2>
+
+    <p>
+      You may also find these free financial tools useful:
+    </p>
+
+    <ul>
+
+      <li>
+        <a href="simple-interest-calculator.html">
+          Simple Interest Calculator
+        </a>
+      </li>
+
+      <li>
+        <a href="mortgage-calculator.html">
+          Mortgage Calculator
+        </a>
+      </li>
+
+      <li>
+        <a href="tip-calculator.html">
+          Tip Calculator
+        </a>
+      </li>
+
+      <li>
+        <a href="finance-calculators.html">
+          Finance Calculators
+        </a>
+      </li>
+
+    </ul>
+
+
+    <h2>Final Thoughts</h2>
+
+    <p>
+      Compound interest is an important financial concept because it shows how
+      money can grow when interest is added to the balance and subsequently
+      earns additional interest.
+    </p>
+
+    <p>
+      The standard formula,
+      <strong>A = P(1 + r/n)<sup>nt</sup></strong>,
+      can be used to calculate the final amount when the principal, interest
+      rate, compounding frequency and time period are known.
+    </p>
+
+    <p>
+      For quick and convenient calculations, use the
+      <a href="compound-interest-calculator.html">
+        Compound Interest Calculator
+      </a>
+      on Easy Online Tool.
+    </p>
+
+    <div class="disclaimer">
+      <strong>Disclaimer:</strong>
+      This article is provided for general educational and informational
+      purposes. Actual interest calculations may vary depending on the terms,
+      fees, compounding rules and conditions of a particular financial product.
+      Always check the terms provided by your bank, lender or financial
+      institution.
+    </div>
+
+  </article>
+
+</main>
+
+<footer>
+
+  <p>
+    © 2026 Easy Online Tool. All rights reserved.
+  </p>
+
+  <p>
+    <a href="index.html">Home</a>
+    <a href="tools.html">Tools</a>
+    <a href="about.html">About</a>
+    <a href="faq.html">FAQ</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms.html">Terms</a>
+    <a href="contact.html">Contact</a>
+  </p>
+
+</footer>
+
+</body>
+</html>
