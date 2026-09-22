@@ -4,8 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-   <title>Simple Interest Calculator – Calculate Interest & Total Amount</title>
-<meta name="description" content="Calculate simple interest and total amount from principal, interest rate and time with this free Simple Interest Calculator.">
+    <title>Simple Interest Calculator – Calculate Interest & Total Amount</title>
+
+    <meta name="description" content="Calculate simple interest and total amount from principal, interest rate and time with this free Simple Interest Calculator. Includes formula, examples and related financial calculators.">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://easyonlinetools.github.io/my-tools/simple-interest-calculator.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Simple Interest Calculator – Calculate Interest & Total Amount">
+    <meta property="og:description" content="Calculate simple interest and total amount quickly using principal, interest rate and time.">
+    <meta property="og:url" content="https://easyonlinetools.github.io/my-tools/simple-interest-calculator.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Easy Online Tool">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://easyonlinetools.github.io/my-tools/simple-interest-calculator.html",
+          "url": "https://easyonlinetools.github.io/my-tools/simple-interest-calculator.html",
+          "name": "Simple Interest Calculator",
+          "description": "Calculate simple interest and total amount from principal, interest rate and time."
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Simple Interest Calculator",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "Web Browser",
+          "url": "https://easyonlinetools.github.io/my-tools/simple-interest-calculator.html",
+          "description": "Free online simple interest calculator for calculating interest and total amount."
+        }
+      ]
+    }
+    </script>
 
     <style>
         * {
@@ -61,6 +97,21 @@
             max-width: 850px;
             margin: 40px auto;
             padding: 0 20px;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: #6b7280;
+        }
+
+        .breadcrumb a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
         }
 
         .page-title {
@@ -203,9 +254,18 @@
             color: #111827;
         }
 
+        .info-section h3 {
+            color: #1f2937;
+            margin-top: 25px;
+        }
+
         .info-section p {
             line-height: 1.7;
             color: #4b5563;
+        }
+
+        .info-section a {
+            color: #2563eb;
         }
 
         .formula {
@@ -216,6 +276,43 @@
             font-weight: 600;
             text-align: center;
             line-height: 1.7;
+        }
+
+        .related-tools {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .related-tools a {
+            display: block;
+            padding: 14px;
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #2563eb;
+            font-weight: 600;
+        }
+
+        .related-tools a:hover {
+            background: #eff6ff;
+        }
+
+        .article-link {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 11px 16px;
+            background: #2563eb;
+            color: #ffffff !important;
+            border-radius: 7px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .article-link:hover {
+            background: #1d4ed8;
         }
 
         footer {
@@ -267,6 +364,10 @@
                 flex-direction: column;
                 gap: 4px;
             }
+
+            .related-tools {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -284,7 +385,7 @@
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="tools.html">Tools</a>
-            <a href="categories.html">Categories</a>
+            <a href="finance-calculators.html">Finance</a>
             <a href="about.html">About</a>
             <a href="faq.html">FAQ</a>
         </div>
@@ -296,16 +397,34 @@
 
 <main class="container">
 
+    <!-- BREADCRUMBS -->
+
+    <div class="breadcrumb">
+
+        <a href="index.html">Home</a>
+        →
+        <a href="finance-calculators.html">Financial Calculators</a>
+        →
+        Simple Interest Calculator
+
+    </div>
+
+
+    <!-- PAGE TITLE -->
+
     <div class="page-title">
 
         <h1>Simple Interest Calculator</h1>
 
         <p>
-            Calculate simple interest, total interest, and the final amount quickly and easily.
+            Calculate simple interest and total amount using the principal,
+            annual interest rate and time period.
         </p>
 
     </div>
 
+
+    <!-- CALCULATOR -->
 
     <div class="calculator-card">
 
@@ -367,9 +486,19 @@
             </label>
 
             <select id="timeUnit">
-                <option value="years">Years</option>
-                <option value="months">Months</option>
-                <option value="days">Days</option>
+
+                <option value="years">
+                    Years
+                </option>
+
+                <option value="months">
+                    Months
+                </option>
+
+                <option value="days">
+                    Days
+                </option>
+
             </select>
 
         </div>
@@ -398,28 +527,57 @@
             <h2>Calculation Result</h2>
 
             <div class="result-row">
-                <span class="result-label">Principal Amount</span>
+
+                <span class="result-label">
+                    Principal Amount
+                </span>
+
                 <span class="result-value" id="principalResult"></span>
+
             </div>
 
+
             <div class="result-row">
-                <span class="result-label">Interest Rate</span>
+
+                <span class="result-label">
+                    Interest Rate
+                </span>
+
                 <span class="result-value" id="rateResult"></span>
+
             </div>
 
+
             <div class="result-row">
-                <span class="result-label">Time</span>
+
+                <span class="result-label">
+                    Time
+                </span>
+
                 <span class="result-value" id="timeResult"></span>
+
             </div>
 
+
             <div class="result-row">
-                <span class="result-label">Simple Interest</span>
+
+                <span class="result-label">
+                    Simple Interest
+                </span>
+
                 <span class="result-value highlight" id="interestResult"></span>
+
             </div>
 
+
             <div class="result-row">
-                <span class="result-label">Total Amount</span>
+
+                <span class="result-label">
+                    Total Amount
+                </span>
+
                 <span class="result-value highlight" id="totalResult"></span>
+
             </div>
 
         </div>
@@ -427,14 +585,16 @@
     </div>
 
 
-    <div class="info-section">
+    <!-- MAIN INFORMATION -->
+
+    <section class="info-section">
 
         <h2>What Is Simple Interest?</h2>
 
         <p>
-            Simple interest is interest calculated only on the original principal
-            amount. It is commonly used for certain loans, investments, and
-            short-term financial calculations.
+            Simple interest is interest calculated only on the original
+            principal amount. It is commonly used for certain loans,
+            investments and short-term financial calculations.
         </p>
 
 
@@ -445,8 +605,8 @@
         </div>
 
         <p>
-            In this formula, the interest rate is the annual percentage rate and
-            the time must be expressed in years.
+            In this formula, the interest rate is the annual percentage rate
+            and the time must be expressed in years.
         </p>
 
 
@@ -457,7 +617,7 @@
         </div>
 
 
-        <h2>Example</h2>
+        <h2>Example of Simple Interest</h2>
 
         <p>
             Suppose you invest $10,000 at an annual interest rate of 5% for
@@ -465,96 +625,129 @@
         </p>
 
         <div class="formula">
+
             Simple Interest = (10,000 × 5 × 3) ÷ 100
+
             <br>
+
             Simple Interest = $1,500
+
             <br><br>
+
             Total Amount = $10,000 + $1,500
+
             <br>
+
             Total Amount = $11,500
+
         </div>
 
-    </div>
+
+        <h2>How to Use This Simple Interest Calculator</h2>
+
+        <p>
+            Enter the principal amount, annual interest rate and time period.
+            Select whether the time is measured in years, months or days,
+            then click Calculate. The calculator converts months or days into
+            years before applying the simple interest formula.
+        </p>
+
+
+        <h2>Learn How to Calculate Simple Interest</h2>
+
+        <p>
+            For a detailed step-by-step explanation of the formula, examples
+            and calculation method, read our complete guide:
+        </p>
+
+        <a
+            href="how-to-calculate-simple-interest.html"
+            class="article-link"
+        >
+            How to Calculate Simple Interest
+        </a>
+
+
+        <h2>Simple Interest Calculator FAQs</h2>
+
+        <h3>What is simple interest?</h3>
+
+        <p>
+            Simple interest is interest calculated only on the original
+            principal amount. Previously earned interest is not added to the
+            principal when calculating future simple interest.
+        </p>
+
+
+        <h3>What information is needed to calculate simple interest?</h3>
+
+        <p>
+            You generally need the principal amount, annual interest rate
+            and time period.
+        </p>
+
+
+        <h3>What is the difference between simple and compound interest?</h3>
+
+        <p>
+            Simple interest is calculated on the original principal, while
+            compound interest can be calculated on the principal plus
+            accumulated interest.
+        </p>
+
+
+        <h3>Can this calculator calculate the total amount?</h3>
+
+        <p>
+            Yes. It calculates both the simple interest and the total amount
+            after adding the interest to the original principal.
+        </p>
+
+    </section>
+
+
+    <!-- RELATED CALCULATORS -->
+
+    <section class="info-section">
+
+        <h2>Related Financial Calculators</h2>
+
+        <p>
+            Explore other free financial calculators on Easy Online Tool:
+        </p>
+
+        <div class="related-tools">
+
+            <a href="compound-interest-calculator.html">
+                Compound Interest Calculator
+            </a>
+
+            <a href="mortgage-calculator.html">
+                Mortgage Calculator
+            </a>
+
+            <a href="discount-calculator.html">
+                Discount Calculator
+            </a>
+
+            <a href="tip-calculator.html">
+                Tip Calculator
+            </a>
+
+            <a href="percentage-calculator.html">
+                Percentage Calculator
+            </a>
+
+            <a href="finance-calculators.html">
+                All Financial Calculators
+            </a>
+
+        </div>
+
+    </section>
 
 </main>
-<section class="info-section">
-  <h2>What Is a Simple Interest Calculator?</h2>
 
-  <p>
-    A Simple Interest Calculator helps you calculate the interest earned or
-    charged on a principal amount over a specific period. It can be useful
-    for understanding basic loans, savings and other financial calculations.
-  </p>
-
-  <h2>Simple Interest Formula</h2>
-
-  <p>
-    Simple interest is calculated using the principal amount, interest rate
-    and time period.
-  </p>
-
-  <p>
-    <strong>Simple Interest Formula:</strong> SI = P × R × T
-  </p>
-
-  <p>
-    In this formula, P represents the principal amount, R represents the
-    annual interest rate expressed as a decimal, and T represents the time
-    period in years.
-  </p>
-
-  <h2>How to Use the Simple Interest Calculator</h2>
-
-  <p>
-    Enter the principal amount, annual interest rate and time period into the
-    calculator above. The calculator will estimate the simple interest and
-    the total amount.
-  </p>
-
-  <h2>Why Use a Simple Interest Calculator?</h2>
-
-  <p>
-    A simple interest calculator can save time and reduce calculation
-    mistakes when estimating interest on a loan, investment or other
-    financial amount.
-  </p>
-
-  <h2>Simple Interest Calculator FAQs</h2>
-
-  <h3>What is simple interest?</h3>
-
-  <p>
-    Simple interest is interest calculated only on the original principal
-    amount. Unlike compound interest, previously earned interest is not added
-    to the principal for future interest calculations.
-  </p>
-
-  <h3>What information is needed to calculate simple interest?</h3>
-
-  <p>
-    You generally need the principal amount, annual interest rate and time
-    period to calculate simple interest.
-  </p>
-
-  <h3>What is the difference between simple and compound interest?</h3>
-
-  <p>
-    Simple interest is calculated on the original principal, while compound
-    interest can be calculated on the principal plus accumulated interest.
-  </p>
-
-  <h3>Can this calculator calculate the total amount?</h3>
-
-  <p>
-    Yes. The calculator can be used to determine the interest and the total
-    amount after adding the interest to the original principal.
-  </p>
-
-  <p>
-    Use our free Simple Interest Calculator above to calculate interest and
-    total amounts quickly.
-  </p>
-</section>
 
 <footer>
 
@@ -563,10 +756,35 @@
     </p>
 
     <p>
-        <a href="index.html">Home</a>
-        <a href="categories.html">Categories</a>
-        <a href="about.html">About</a>
-        <a href="faq.html">FAQ</a>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="finance-calculators.html">
+            Financial Calculators
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="faq.html">
+            FAQ
+        </a>
+
+        <a href="privacy-policy.html">
+            Privacy Policy
+        </a>
+
+        <a href="terms.html">
+            Terms
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
     </p>
 
 </footer>
@@ -576,17 +794,20 @@
 
 function calculateInterest() {
 
-    const principal = parseFloat(
-        document.getElementById("principal").value
-    );
+    const principal =
+        parseFloat(
+            document.getElementById("principal").value
+        );
 
-    const rate = parseFloat(
-        document.getElementById("rate").value
-    );
+    const rate =
+        parseFloat(
+            document.getElementById("rate").value
+        );
 
-    const time = parseFloat(
-        document.getElementById("time").value
-    );
+    const time =
+        parseFloat(
+            document.getElementById("time").value
+        );
 
     const timeUnit =
         document.getElementById("timeUnit").value;
@@ -608,30 +829,41 @@ function calculateInterest() {
     ) {
 
         error.style.display = "block";
+
         result.style.display = "none";
 
         return;
+
     }
 
 
     error.style.display = "none";
 
 
-    // Convert the entered time into years
+    // Convert time into years
+
     let timeInYears = time;
 
+
     if (timeUnit === "months") {
+
         timeInYears = time / 12;
+
     }
 
+
     if (timeUnit === "days") {
+
         timeInYears = time / 365;
+
     }
 
 
     // Simple Interest Formula
+
     const interest =
         (principal * rate * timeInYears) / 100;
+
 
     const total =
         principal + interest;
@@ -640,28 +872,36 @@ function calculateInterest() {
     document.getElementById("principalResult").textContent =
         formatNumber(principal);
 
+
     document.getElementById("rateResult").textContent =
         formatNumber(rate) + "% per year";
+
 
     document.getElementById("timeResult").textContent =
         formatNumber(time) + " " + timeUnit;
 
+
     document.getElementById("interestResult").textContent =
         formatNumber(interest);
+
 
     document.getElementById("totalResult").textContent =
         formatNumber(total);
 
 
     result.style.display = "block";
+
 }
 
 
 function formatNumber(number) {
 
     return number.toLocaleString(undefined, {
+
         minimumFractionDigits: 2,
+
         maximumFractionDigits: 2
+
     });
 
 }
@@ -680,15 +920,20 @@ function resetCalculator() {
     document.getElementById("result").style.display = "none";
 
     document.getElementById("error").style.display = "none";
+
 }
 
 
 document.getElementById("principal").addEventListener(
     "keydown",
     function(event) {
+
         if (event.key === "Enter") {
+
             calculateInterest();
+
         }
+
     }
 );
 
@@ -696,9 +941,13 @@ document.getElementById("principal").addEventListener(
 document.getElementById("rate").addEventListener(
     "keydown",
     function(event) {
+
         if (event.key === "Enter") {
+
             calculateInterest();
+
         }
+
     }
 );
 
@@ -706,9 +955,13 @@ document.getElementById("rate").addEventListener(
 document.getElementById("time").addEventListener(
     "keydown",
     function(event) {
+
         if (event.key === "Enter") {
+
             calculateInterest();
+
         }
+
     }
 );
 
