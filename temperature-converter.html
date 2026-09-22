@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Temperature Converter - Celsius, Fahrenheit & Kelvin | Easy Online Tool</title>
+    <meta name="description" content="Free online Temperature Converter. Convert Celsius, Fahrenheit and Kelvin instantly with accurate temperature conversion formulas.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://easyonlinetools.github.io/my-tools/temperature-converter.html">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            color: #222;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 20px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .page-title h1 {
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+
+        .page-title p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .calculator-box {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 7px;
+            font-size: 16px;
+            background: #fff;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        button {
+            flex: 1;
+            padding: 13px;
+            border: none;
+            border-radius: 7px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .calculate-btn {
+            background: #2563eb;
+            color: white;
+        }
+
+        .calculate-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .reset-btn {
+            background: #6b7280;
+            color: white;
+        }
+
+        .reset-btn:hover {
+            background: #4b5563;
+        }
+
+        .error {
+            display: none;
+            margin-top: 20px;
+            padding: 12px;
+            background: #fee2e2;
+            color: #b91c1c;
+            border-radius: 7px;
+        }
+
+        .results {
+            display: none;
+            margin-top: 25px;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+
+        .results h2 {
+            margin-top: 0;
+            font-size: 22px;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .result-row:last-child {
+            border-bottom: none;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .info-section {
+            margin-top: 35px;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .info-section h2 {
+            margin-top: 0;
+        }
+
+        .info-section p,
+        .info-section li {
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .formula {
+            background: #f3f4f6;
+            padding: 15px;
+            border-radius: 7px;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+
+        .related-tools {
+            margin-top: 35px;
+        }
+
+        .related-tools h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .related-card {
+            background: #ffffff;
+            padding: 18px;
+            border-radius: 9px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .related-card a {
+            text-decoration: none;
+            color: #2563eb;
+            font-weight: bold;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-item h3 {
+            margin-bottom: 7px;
+        }
+
+        footer {
+            margin-top: 40px;
+            background: #ffffff;
+            border-top: 1px solid #e5e7eb;
+            text-align: center;
+            padding: 25px;
+            color: #666;
+        }
+
+        @media (max-width: 700px) {
+
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                text-align: center;
+            }
+
+            nav a {
+                margin: 0 7px;
+            }
+
+            .container {
+                padding: 30px 15px;
+            }
+
+            .calculator-box {
+                padding: 20px;
+            }
+
+            .page-title h1 {
+                font-size: 27px;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .result-row {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Temperature Converter",
+        "url": "https://easyonlinetools.github.io/my-tools/temperature-converter.html",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All",
+        "description": "Free online Celsius, Fahrenheit and Kelvin temperature converter.",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+
+        <div class="logo">Easy Online Tool</div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="tools.html">Tools</a>
+            <a href="categories.html">Categories</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
+
+    </div>
+</header>
+
+<main class="container">
+
+    <div class="page-title">
+        <h1>Temperature Converter</h1>
+
+        <p>
+            Convert temperatures between Celsius, Fahrenheit and Kelvin
+            quickly and accurately with this free online temperature converter.
+        </p>
+    </div>
+
+    <div class="calculator-box">
+
+        <div class="input-group">
+
+            <label for="temperature">Enter Temperature</label>
+
+            <input
+                type="number"
+                id="temperature"
+                placeholder="Enter temperature"
+                step="any"
+            >
+
+        </div>
+
+        <div class="input-group">
+
+            <label for="fromUnit">From</label>
+
+            <select id="fromUnit">
+
+                <option value="celsius">Celsius (°C)</option>
+
+                <option value="fahrenheit">
+                    Fahrenheit (°F)
+                </option>
+
+                <option value="kelvin">
+                    Kelvin (K)
+                </option>
+
+            </select>
+
+        </div>
+
+        <div class="input-group">
+
+            <label for="toUnit">To</label>
+
+            <select id="toUnit">
+
+                <option value="fahrenheit">
+                    Fahrenheit (°F)
+                </option>
+
+                <option value="celsius">
+                    Celsius (°C)
+                </option>
+
+                <option value="kelvin">
+                    Kelvin (K)
+                </option>
+
+            </select>
+
+        </div>
+
+        <div class="button-group">
+
+            <button
+                class="calculate-btn"
+                onclick="convertTemperature()"
+            >
+                Convert
+            </button>
+
+            <button
+                class="reset-btn"
+                onclick="resetCalculator()"
+            >
+                Reset
+            </button>
+
+        </div>
+
+        <div class="error" id="error">
+            Please enter a valid temperature.
+        </div>
+
+        <div class="results" id="results">
+
+            <h2>Conversion Result</h2>
+
+            <div class="result-row">
+
+                <span>Original Temperature</span>
+
+                <span
+                    class="highlight"
+                    id="originalResult"
+                ></span>
+
+            </div>
+
+            <div class="result-row">
+
+                <span>Converted Temperature</span>
+
+                <span
+                    class="highlight"
+                    id="convertedResult"
+                ></span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <section class="info-section">
+
+        <h2>How to Use the Temperature Converter</h2>
+
+        <ol>
+
+            <li>
+                Enter the temperature you want to convert.
+            </li>
+
+            <li>
+                Select the original temperature unit.
+            </li>
+
+            <li>
+                Select the unit you want to convert to.
+            </li>
+
+            <li>
+                Click the <strong>Convert</strong> button.
+            </li>
+
+        </ol>
+
+        <h2>Temperature Conversion Formulas</h2>
+
+        <div class="formula">
+            Fahrenheit = (Celsius × 9/5) + 32
+        </div>
+
+        <div class="formula">
+            Celsius = (Fahrenheit − 32) × 5/9
+        </div>
+
+        <div class="formula">
+            Kelvin = Celsius + 273.15
+        </div>
+
+        <div class="formula">
+            Celsius = Kelvin − 273.15
+        </div>
+
+    </section>
+
+    <section class="info-section">
+
+        <h2>Common Temperature Conversions</h2>
+
+        <ul>
+
+            <li>
+                0°C = 32°F = 273.15 K
+            </li>
+
+            <li>
+                10°C = 50°F = 283.15 K
+            </li>
+
+            <li>
+                20°C = 68°F = 293.15 K
+            </li>
+
+            <li>
+                25°C = 77°F = 298.15 K
+            </li>
+
+            <li>
+                30°C = 86°F = 303.15 K
+            </li>
+
+            <li>
+                37°C = 98.6°F = 310.15 K
+            </li>
+
+            <li>
+                100°C = 212°F = 373.15 K
+            </li>
+
+        </ul>
+
+    </section>
+
+    <section class="info-section">
+
+        <h2>About Celsius, Fahrenheit and Kelvin</h2>
+
+        <p>
+            Celsius is commonly used around the world for everyday
+            temperature measurements. Fahrenheit is primarily used in
+            the United States and a few other locations.
+        </p>
+
+        <p>
+            Kelvin is the SI base unit for thermodynamic temperature
+            and is widely used in science and engineering.
+        </p>
+
+        <p>
+            The Kelvin scale begins at absolute zero, which is
+            0 K or approximately −273.15°C.
+        </p>
+
+    </section>
+
+    <section class="related-tools">
+
+        <h2>Related Tools</h2>
+
+        <div class="related-grid">
+
+            <div class="related-card">
+                <a href="unit-calculator.html">
+                    Unit Converter
+                </a>
+            </div>
+
+            <div class="related-card">
+                <a href="length-converter.html">
+                    Length Converter
+                </a>
+            </div>
+
+            <div class="related-card">
+                <a href="weight-converter.html">
+                    Weight Converter
+                </a>
+            </div>
+
+            <div class="related-card">
+                <a href="area-converter.html">
+                    Area Converter
+                </a>
+            </div>
+
+            <div class="related-card">
+                <a href="volume-converter.html">
+                    Volume Converter
+                </a>
+            </div>
+
+            <div class="related-card">
+                <a href="speed-converter.html">
+                    Speed Converter
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="info-section">
+
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+
+            <h3>
+                What is 0°C in Fahrenheit?
+            </h3>
+
+            <p>
+                0°C is equal to 32°F.
+            </p>
+
+        </div>
+
+        <div class="faq-item">
+
+            <h3>
+                What is 100°C in Fahrenheit?
+            </h3>
+
+            <p>
+                100°C is equal to 212°F.
+            </p>
+
+        </div>
+
+        <div class="faq-item">
+
+            <h3>
+                What is room temperature in Celsius?
+            </h3>
+
+            <p>
+                Typical indoor room temperature is often around
+                20°C to 25°C, although comfortable temperatures
+                vary.
+            </p>
+
+        </div>
+
+        <div class="faq-item">
+
+            <h3>
+                Can Celsius be converted to Kelvin?
+            </h3>
+
+            <p>
+                Yes. Add 273.15 to the Celsius temperature to
+                obtain the equivalent temperature in Kelvin.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    © 2026 Easy Online Tool. All rights reserved.
+</footer>
+
+<script>
+
+    function convertTemperature() {
+
+        const temperature = parseFloat(
+            document.getElementById("temperature").value
+        );
+
+        const fromUnit =
+            document.getElementById("fromUnit").value;
+
+        const toUnit =
+            document.getElementById("toUnit").value;
+
+        const error =
+            document.getElementById("error");
+
+        const results =
+            document.getElementById("results");
+
+        if (isNaN(temperature)) {
+
+            error.style.display = "block";
+            results.style.display = "none";
+
+            return;
+        }
+
+        error.style.display = "none";
+
+        let celsius;
+
+        // Convert original value to Celsius first
+
+        if (fromUnit === "celsius") {
+
+            celsius = temperature;
+
+        } else if (fromUnit === "fahrenheit") {
+
+            celsius = (temperature - 32) * 5 / 9;
+
+        } else if (fromUnit === "kelvin") {
+
+            celsius = temperature - 273.15;
+
+        }
+
+        // Prevent temperatures below absolute zero
+
+        if (celsius < -273.15) {
+
+            error.textContent =
+                "Temperature cannot be below absolute zero (-273.15°C).";
+
+            error.style.display = "block";
+            results.style.display = "none";
+
+            return;
+        }
+
+        let converted;
+
+        if (toUnit === "celsius") {
+
+            converted = celsius;
+
+        } else if (toUnit === "fahrenheit") {
+
+            converted = (celsius * 9 / 5) + 32;
+
+        } else if (toUnit === "kelvin") {
+
+            converted = celsius + 273.15;
+
+        }
+
+        document.getElementById("originalResult").textContent =
+            formatTemperature(temperature) +
+            " " +
+            getUnitSymbol(fromUnit);
+
+        document.getElementById("convertedResult").textContent =
+            formatTemperature(converted) +
+            " " +
+            getUnitSymbol(toUnit);
+
+        results.style.display = "block";
+
+        if (window.innerWidth <= 700) {
+
+            results.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        }
+    }
+
+    function getUnitSymbol(unit) {
+
+        if (unit === "celsius") {
+            return "°C";
+        }
+
+        if (unit === "fahrenheit") {
+            return "°F";
+        }
+
+        if (unit === "kelvin") {
+            return "K";
+        }
+
+        return "";
+    }
+
+    function formatTemperature(value) {
+
+        if (Math.abs(value) < 0.000001) {
+            return "0";
+        }
+
+        return Number(value.toFixed(6)).toLocaleString(
+            undefined,
+            {
+                maximumFractionDigits: 6
+            }
+        );
+    }
+
+    function resetCalculator() {
+
+        document.getElementById("temperature").value = "";
+
+        document.getElementById("fromUnit").value =
+            "celsius";
+
+        document.getElementById("toUnit").value =
+            "fahrenheit";
+
+        document.getElementById("error").style.display =
+            "none";
+
+        document.getElementById("results").style.display =
+            "none";
+
+        document.getElementById("error").textContent =
+            "Please enter a valid temperature.";
+
+    }
+
+    document
+        .getElementById("temperature")
+        .addEventListener("keydown", function(event) {
+
+            if (event.key === "Enter") {
+                convertTemperature();
+            }
+
+        });
+
+</script>
+
+</body>
+</html>
