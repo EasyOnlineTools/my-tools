@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Commission Calculator – Calculate Sales Commission Online</title>
+
+    <meta name="description" content="Use our free Commission Calculator to calculate sales commission, commission rate, and total earnings quickly and accurately.">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://easyonlinetools.github.io/my-tools/commission-calculator.html">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 18px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .page-title h1 {
+            margin-bottom: 10px;
+            font-size: 34px;
+        }
+
+        .page-title p {
+            color: #666;
+            margin: 0;
+        }
+
+        .calculator-box {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 7px;
+            font-size: 16px;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .button-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        button {
+            flex: 1;
+            padding: 13px;
+            border: none;
+            border-radius: 7px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .calculate-btn {
+            background: #2563eb;
+            color: white;
+        }
+
+        .calculate-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .reset-btn {
+            background: #e5e7eb;
+            color: #222;
+        }
+
+        .error {
+            display: none;
+            margin-top: 20px;
+            padding: 12px;
+            background: #fee2e2;
+            color: #b91c1c;
+            border-radius: 7px;
+        }
+
+        .results {
+            display: none;
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 10px;
+        }
+
+        .results h2 {
+            margin-top: 0;
+            font-size: 22px;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 12px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .result-row:last-child {
+            border-bottom: none;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .info-section {
+            background: #ffffff;
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .info-section h2 {
+            margin-top: 0;
+        }
+
+        .formula {
+            background: #f1f5f9;
+            padding: 15px;
+            border-radius: 7px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .related-tools {
+            margin-top: 30px;
+        }
+
+        .related-tools h2 {
+            text-align: center;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .related-grid a {
+            display: block;
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            color: #2563eb;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-item h3 {
+            margin-bottom: 7px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px 20px;
+            background: #ffffff;
+            border-top: 1px solid #e5e7eb;
+            margin-top: 40px;
+            color: #666;
+        }
+
+        @media (max-width: 700px) {
+            .header-container {
+                flex-direction: column;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .page-title h1 {
+                font-size: 28px;
+            }
+
+            .calculator-box {
+                padding: 20px;
+            }
+
+            .button-row {
+                flex-direction: column;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .result-row {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Commission Calculator",
+        "url": "https://easyonlinetools.github.io/my-tools/commission-calculator.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "description": "Free online commission calculator for calculating sales commission and total earnings.",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <a href="index.html" class="logo">Easy Online Tool</a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="tools.html">Tools</a>
+            <a href="categories.html">Categories</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+
+    <section class="page-title">
+        <h1>Commission Calculator</h1>
+        <p>Calculate sales commission and total earnings quickly and accurately.</p>
+    </section>
+
+    <section class="calculator-box">
+
+        <div class="input-group">
+            <label for="salesAmount">Sales Amount</label>
+            <input
+                type="number"
+                id="salesAmount"
+                placeholder="Enter sales amount"
+                min="0"
+                step="0.01"
+            >
+        </div>
+
+        <div class="input-group">
+            <label for="commissionRate">Commission Rate (%)</label>
+            <input
+                type="number"
+                id="commissionRate"
+                placeholder="Enter commission rate"
+                min="0"
+                step="0.01"
+            >
+        </div>
+
+        <div class="button-row">
+            <button class="calculate-btn" type="button" onclick="calculateCommission()">
+                Calculate
+            </button>
+
+            <button class="reset-btn" type="button" onclick="resetCalculator()">
+                Reset
+            </button>
+        </div>
+
+        <div class="error" id="error"></div>
+
+        <div class="results" id="results" aria-live="polite">
+            <h2>Commission Results</h2>
+
+            <div class="result-row">
+                <span>Sales Amount</span>
+                <strong id="resultSales"></strong>
+            </div>
+
+            <div class="result-row">
+                <span>Commission Rate</span>
+                <strong id="resultRate"></strong>
+            </div>
+
+            <div class="result-row">
+                <span>Commission Earned</span>
+                <strong class="highlight" id="resultCommission"></strong>
+            </div>
+
+            <div class="result-row">
+                <span>Total Earnings</span>
+                <strong class="highlight" id="resultTotal"></strong>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="info-section">
+        <h2>What Is a Commission Calculator?</h2>
+
+        <p>
+            A Commission Calculator helps salespeople, agents, employees,
+            freelancers, and businesses calculate commission earnings based
+            on a sales amount and commission percentage.
+        </p>
+
+        <p>
+            Enter the total sales amount and your commission rate to find out
+            how much commission you will earn and your total amount after
+            adding the commission.
+        </p>
+
+        <h2>Commission Formula</h2>
+
+        <div class="formula">
+            Commission = Sales Amount × (Commission Rate ÷ 100)
+        </div>
+
+        <div class="formula">
+            Total Earnings = Sales Amount + Commission
+        </div>
+
+        <h2>Example</h2>
+
+        <p>
+            If your sales amount is $10,000 and your commission rate is 5%:
+        </p>
+
+        <p>
+            Commission = $10,000 × 5% = $500
+        </p>
+
+        <p>
+            Total Earnings = $10,000 + $500 = $10,500
+        </p>
+    </section>
+
+    <section class="info-section">
+
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h3>How is commission calculated?</h3>
+            <p>
+                Commission is calculated by multiplying the sales amount
+                by the commission rate divided by 100.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What is a 10% commission on $5,000?</h3>
+            <p>
+                A 10% commission on $5,000 is $500.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Can I use this calculator for different commission rates?</h3>
+            <p>
+                Yes. You can enter any valid commission percentage and
+                calculate the corresponding commission.
+            </p>
+        </div>
+
+    </section>
+
+    <section class="related-tools">
+
+        <h2>Related Finance Tools</h2>
+
+        <div class="related-grid">
+            <a href="percentage-calculator.html">Percentage Calculator</a>
+            <a href="sales-tax-calculator.html">Sales Tax Calculator</a>
+            <a href="roi-calculator.html">ROI Calculator</a>
+            <a href="investment-calculator.html">Investment Calculator</a>
+            <a href="loan-calculator.html">Loan Calculator</a>
+            <a href="profit-margin-calculator.html">Profit Margin Calculator</a>
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    © 2026 Easy Online Tool. All rights reserved.
+</footer>
+
+<script>
+function formatNumber(value) {
+    return value.toLocaleString("en-US", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    });
+}
+
+function calculateCommission() {
+
+    const salesAmount = parseFloat(
+        document.getElementById("salesAmount").value
+    );
+
+    const commissionRate = parseFloat(
+        document.getElementById("commissionRate").value
+    );
+
+    const error = document.getElementById("error");
+    const results = document.getElementById("results");
+
+    error.style.display = "none";
+    results.style.display = "none";
+
+    if (
+        !Number.isFinite(salesAmount) ||
+        !Number.isFinite(commissionRate)
+    ) {
+        error.textContent = "Please enter both the sales amount and commission rate.";
+        error.style.display = "block";
+        return;
+    }
+
+    if (salesAmount < 0) {
+        error.textContent = "Sales amount cannot be negative.";
+        error.style.display = "block";
+        return;
+    }
+
+    if (commissionRate < 0) {
+        error.textContent = "Commission rate cannot be negative.";
+        error.style.display = "block";
+        return;
+    }
+
+    if (commissionRate > 1000) {
+        error.textContent = "Please enter a reasonable commission rate.";
+        error.style.display = "block";
+        return;
+    }
+
+    const commission =
+        salesAmount * (commissionRate / 100);
+
+    const totalEarnings =
+        salesAmount + commission;
+
+    document.getElementById("resultSales").textContent =
+        formatNumber(salesAmount);
+
+    document.getElementById("resultRate").textContent =
+        commissionRate.toFixed(2) + "%";
+
+    document.getElementById("resultCommission").textContent =
+        formatNumber(commission);
+
+    document.getElementById("resultTotal").textContent =
+        formatNumber(totalEarnings);
+
+    results.style.display = "block";
+
+    if (window.innerWidth <= 700) {
+        results.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }
+}
+
+function resetCalculator() {
+
+    document.getElementById("salesAmount").value = "";
+    document.getElementById("commissionRate").value = "";
+
+    document.getElementById("error").style.display = "none";
+    document.getElementById("results").style.display = "none";
+}
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        const active = document.activeElement;
+
+        if (
+            active &&
+            (active.id === "salesAmount" ||
+             active.id === "commissionRate")
+        ) {
+            calculateCommission();
+        }
+    }
+});
+</script>
+
+</body>
+</html>
