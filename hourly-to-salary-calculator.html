@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hourly to Salary Calculator - Convert Hourly Pay to Annual Salary | Easy Online Tool</title>
+    <meta name="description" content="Use our free Hourly to Salary Calculator to convert an hourly wage into estimated weekly, monthly, and annual salary. Calculate your salary quickly and easily.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://easyonlinetools.github.io/my-tools/hourly-to-salary-calculator.html">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            color: #222;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 35px 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .page-title h1 {
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+
+        .page-title p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .calculator-box {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 7px;
+            font-size: 16px;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .button-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        button {
+            flex: 1;
+            padding: 13px;
+            border: none;
+            border-radius: 7px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .calculate-btn {
+            background: #2563eb;
+            color: #fff;
+        }
+
+        .calculate-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .reset-btn {
+            background: #e5e7eb;
+            color: #222;
+        }
+
+        .reset-btn:hover {
+            background: #d1d5db;
+        }
+
+        .error {
+            display: none;
+            margin-top: 20px;
+            padding: 12px;
+            border-radius: 7px;
+            background: #fee2e2;
+            color: #b91c1c;
+        }
+
+        .results {
+            display: none;
+            margin-top: 30px;
+            padding: 22px;
+            background: #f8fafc;
+            border-radius: 10px;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 12px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .result-row:last-child {
+            border-bottom: none;
+        }
+
+        .result-row span:last-child {
+            font-weight: 600;
+            text-align: right;
+        }
+
+        .highlight {
+            color: #2563eb;
+            font-size: 22px;
+        }
+
+        .info-section {
+            margin-top: 35px;
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .info-section h2 {
+            margin-top: 0;
+        }
+
+        .info-section h3 {
+            margin-top: 25px;
+        }
+
+        .formula {
+            background: #f1f5f9;
+            padding: 15px;
+            border-radius: 7px;
+            margin: 15px 0;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+
+        .related-tools {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .related-tools a {
+            display: block;
+            padding: 14px;
+            background: #f1f5f9;
+            border-radius: 7px;
+            text-decoration: none;
+            color: #2563eb;
+            text-align: center;
+        }
+
+        .related-tools a:hover {
+            background: #e2e8f0;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-item h3 {
+            margin-bottom: 8px;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 25px;
+            text-align: center;
+            background: #fff;
+            border-top: 1px solid #e5e7eb;
+            color: #666;
+        }
+
+        @media (max-width: 700px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            .page-title h1 {
+                font-size: 27px;
+            }
+
+            .calculator-box {
+                padding: 22px;
+            }
+
+            .button-row {
+                flex-direction: column;
+            }
+
+            .related-tools {
+                grid-template-columns: 1fr;
+            }
+
+            .result-row {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .result-row span:last-child {
+                text-align: left;
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Hourly to Salary Calculator",
+        "url": "https://easyonlinetools.github.io/my-tools/hourly-to-salary-calculator.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "description": "Free calculator for converting hourly pay into weekly, monthly, and annual salary.",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <a href="index.html" class="logo">Easy Online Tool</a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="tools.html">Tools</a>
+            <a href="categories.html">Categories</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+
+    <div class="page-title">
+        <h1>Hourly to Salary Calculator</h1>
+        <p>Convert your hourly wage into estimated weekly, monthly, and annual salary.</p>
+    </div>
+
+    <div class="calculator-box">
+
+        <div class="input-group">
+            <label for="hourlyRate">Hourly Pay Rate</label>
+            <input type="number" id="hourlyRate" placeholder="e.g. 25" min="0" step="0.01">
+        </div>
+
+        <div class="input-group">
+            <label for="hoursPerWeek">Hours Worked Per Week</label>
+            <input type="number" id="hoursPerWeek" value="40" min="0.1" step="0.1">
+        </div>
+
+        <div class="input-group">
+            <label for="weeksPerYear">Working Weeks Per Year</label>
+            <input type="number" id="weeksPerYear" value="52" min="1" max="52" step="1">
+        </div>
+
+        <div class="button-row">
+            <button class="calculate-btn" onclick="calculateSalary()">Calculate Salary</button>
+            <button class="reset-btn" onclick="resetCalculator()">Reset</button>
+        </div>
+
+        <div class="error" id="error"></div>
+
+        <div class="results" id="results">
+
+            <div class="result-row">
+                <span>Hourly Pay</span>
+                <span id="hourlyResult"></span>
+            </div>
+
+            <div class="result-row">
+                <span>Weekly Salary</span>
+                <span id="weeklyResult"></span>
+            </div>
+
+            <div class="result-row">
+                <span>Monthly Salary</span>
+                <span id="monthlyResult"></span>
+            </div>
+
+            <div class="result-row">
+                <span>Annual Salary</span>
+                <span class="highlight" id="annualResult"></span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <section class="info-section">
+
+        <h2>What Is an Hourly to Salary Calculator?</h2>
+
+        <p>
+            An Hourly to Salary Calculator converts an hourly wage into
+            estimated weekly, monthly, and annual earnings. It can help
+            compare hourly pay with salaried compensation.
+        </p>
+
+        <h2>How to Convert Hourly Pay to Annual Salary</h2>
+
+        <p>
+            Multiply your hourly pay by the number of hours you work each
+            week and then multiply that amount by the number of working weeks
+            in a year.
+        </p>
+
+        <h2>Hourly to Salary Formula</h2>
+
+        <div class="formula">
+            Weekly Salary = Hourly Rate × Hours Per Week
+        </div>
+
+        <div class="formula">
+            Annual Salary = Hourly Rate × Hours Per Week × Working Weeks Per Year
+        </div>
+
+        <div class="formula">
+            Monthly Salary = Annual Salary ÷ 12
+        </div>
+
+        <h3>Example</h3>
+
+        <p>
+            If you earn $25 per hour, work 40 hours per week, and work
+            52 weeks per year:
+        </p>
+
+        <div class="formula">
+            Annual Salary = $25 × 40 × 52 = $52,000
+        </div>
+
+        <p>
+            Your estimated annual gross salary would be $52,000 before
+            taxes and other deductions.
+        </p>
+
+        <h2>Important Note</h2>
+
+        <p>
+            This calculator provides gross income estimates. It does not
+            account for taxes, overtime, bonuses, unpaid leave, benefits,
+            deductions, or other compensation.
+        </p>
+
+        <h2>Related Financial Calculators</h2>
+
+        <div class="related-tools">
+            <a href="salary-calculator.html">Salary Calculator</a>
+            <a href="salary-to-hourly-calculator.html">Salary to Hourly</a>
+            <a href="percentage-of-salary-calculator.html">Percentage of Salary</a>
+            <a href="debt-to-income-calculator.html">Debt-to-Income Ratio</a>
+            <a href="loan-calculator.html">Loan Calculator</a>
+            <a href="percentage-calculator.html">Percentage Calculator</a>
+        </div>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h3>How do I calculate annual salary from hourly pay?</h3>
+            <p>
+                Multiply your hourly rate by your weekly working hours and
+                then multiply by the number of working weeks per year.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What is $25 an hour annually?</h3>
+            <p>
+                At 40 hours per week and 52 working weeks per year,
+                $25 per hour equals an estimated $52,000 per year.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Does this calculator calculate take-home pay?</h3>
+            <p>
+                No. It calculates gross income before taxes and other
+                deductions.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Can I account for unpaid weeks?</h3>
+            <p>
+                Yes. Enter the approximate number of weeks you actually work
+                during the year instead of 52.
+            </p>
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    © 2026 Easy Online Tool. All rights reserved.
+</footer>
+
+<script>
+function calculateSalary() {
+
+    const hourlyRate = parseFloat(document.getElementById("hourlyRate").value);
+    const hoursPerWeek = parseFloat(document.getElementById("hoursPerWeek").value);
+    const weeksPerYear = parseFloat(document.getElementById("weeksPerYear").value);
+
+    const error = document.getElementById("error");
+    const results = document.getElementById("results");
+
+    error.style.display = "none";
+    results.style.display = "none";
+
+    if (!Number.isFinite(hourlyRate) || hourlyRate < 0) {
+        error.textContent = "Please enter a valid hourly pay rate.";
+        error.style.display = "block";
+        return;
+    }
+
+    if (!Number.isFinite(hoursPerWeek) || hoursPerWeek <= 0) {
+        error.textContent = "Please enter valid weekly working hours greater than 0.";
+        error.style.display = "block";
+        return;
+    }
+
+    if (!Number.isFinite(weeksPerYear) || weeksPerYear <= 0 || weeksPerYear > 52) {
+        error.textContent = "Please enter working weeks between 1 and 52.";
+        error.style.display = "block";
+        return;
+    }
+
+    const weeklySalary = hourlyRate * hoursPerWeek;
+    const annualSalary = weeklySalary * weeksPerYear;
+    const monthlySalary = annualSalary / 12;
+
+    function money(value) {
+        return "$" + value.toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
+    }
+
+    document.getElementById("hourlyResult").textContent = money(hourlyRate);
+    document.getElementById("weeklyResult").textContent = money(weeklySalary);
+    document.getElementById("monthlyResult").textContent = money(monthlySalary);
+    document.getElementById("annualResult").textContent = money(annualSalary);
+
+    results.style.display = "block";
+
+    if (window.innerWidth <= 700) {
+        results.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }
+}
+
+function resetCalculator() {
+
+    document.getElementById("hourlyRate").value = "";
+    document.getElementById("hoursPerWeek").value = "40";
+    document.getElementById("weeksPerYear").value = "52";
+
+    document.getElementById("error").style.display = "none";
+    document.getElementById("results").style.display = "none";
+}
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        calculateSalary();
+    }
+});
+</script>
+
+</body>
+</html>
