@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Proportion Calculator - Solve Proportions Online | Easy Online Tool</title>
+
+    <meta name="description" content="Use our free Proportion Calculator to solve proportions and find the missing value quickly. Enter three known values and calculate the fourth value instantly.">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://easyonlinetools.github.io/my-tools/proportion-calculator.html">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #222;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #444;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #007bff;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .page-title h1 {
+            margin-bottom: 10px;
+            font-size: 34px;
+        }
+
+        .page-title p {
+            color: #666;
+            margin: 0;
+        }
+
+        .calculator-box {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        .proportion-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .fraction-box {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        .fraction-line {
+            height: 2px;
+            background: #333;
+            margin: 0 5px;
+        }
+
+        .equals {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 7px;
+            font-size: 16px;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+
+        .input-note {
+            color: #666;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .button-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        button {
+            border: none;
+            border-radius: 7px;
+            padding: 12px 22px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .calculate-btn {
+            background: #007bff;
+            color: #ffffff;
+        }
+
+        .calculate-btn:hover {
+            background: #0069d9;
+        }
+
+        .reset-btn {
+            background: #e5e7eb;
+            color: #333;
+        }
+
+        .reset-btn:hover {
+            background: #d1d5db;
+        }
+
+        .error {
+            display: none;
+            background: #fee2e2;
+            color: #b91c1c;
+            padding: 12px;
+            border-radius: 7px;
+            margin-top: 20px;
+        }
+
+        .results {
+            display: none;
+            margin-top: 25px;
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .results h2 {
+            margin-top: 0;
+            font-size: 22px;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 10px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .result-row:last-child {
+            border-bottom: none;
+        }
+
+        .result-label {
+            font-weight: bold;
+        }
+
+        .highlight {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .info-section {
+            background: #ffffff;
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .info-section h2 {
+            margin-top: 0;
+        }
+
+        .formula {
+            background: #f1f5f9;
+            padding: 15px;
+            border-radius: 7px;
+            margin: 15px 0;
+            font-weight: bold;
+            overflow-x: auto;
+        }
+
+        .related-tools {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .related-tools a {
+            display: block;
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            padding: 14px;
+            border-radius: 7px;
+            text-decoration: none;
+            color: #333;
+            text-align: center;
+        }
+
+        .related-tools a:hover {
+            border-color: #007bff;
+            color: #007bff;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-item h3 {
+            margin-bottom: 6px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px 20px;
+            margin-top: 30px;
+            background: #ffffff;
+            border-top: 1px solid #e5e7eb;
+            color: #666;
+        }
+
+        @media (max-width: 700px) {
+            .header-container {
+                flex-direction: column;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .page-title h1 {
+                font-size: 28px;
+            }
+
+            .calculator-box {
+                padding: 20px;
+            }
+
+            .proportion-layout {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .equals {
+                font-size: 24px;
+            }
+
+            .button-row {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+
+            .related-tools {
+                grid-template-columns: 1fr;
+            }
+
+            .result-row {
+                flex-direction: column;
+                gap: 4px;
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Proportion Calculator",
+        "url": "https://easyonlinetools.github.io/my-tools/proportion-calculator.html",
+        "applicationCategory": "CalculatorApplication",
+        "operatingSystem": "All",
+        "description": "Free online calculator for solving proportions and finding missing values.",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <a href="index.html" class="logo">Easy Online Tool</a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="tools.html">Tools</a>
+            <a href="categories.html">Categories</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+
+    <section class="page-title">
+        <h1>Proportion Calculator</h1>
+        <p>Solve proportions and find the missing value quickly and accurately.</p>
+    </section>
+
+    <section class="calculator-box">
+
+        <div class="proportion-layout">
+
+            <div class="fraction-box">
+
+                <div class="input-group">
+                    <label for="a">First Value (A)</label>
+                    <input type="number" id="a" step="any" placeholder="Example: 2">
+                </div>
+
+                <div class="fraction-line"></div>
+
+                <div class="input-group">
+                    <label for="b">Second Value (B)</label>
+                    <input type="number" id="b" step="any" placeholder="Example: 4">
+                </div>
+
+            </div>
+
+            <div class="fraction-box">
+
+                <div class="input-group">
+                    <label for="c">Third Value (C)</label>
+                    <input type="number" id="c" step="any" placeholder="Example: 6">
+                </div>
+
+                <div class="fraction-line"></div>
+
+                <div class="input-group">
+                    <label for="d">Fourth Value (D)</label>
+                    <input type="number" id="d" step="any" placeholder="Leave empty to calculate">
+                </div>
+
+            </div>
+
+        </div>
+
+        <p class="input-note">
+            Enter any three values. Leave exactly one field empty to calculate the missing value.
+        </p>
+
+        <div class="button-row">
+
+            <button type="button" class="calculate-btn" onclick="calculateProportion()">
+                Calculate Proportion
+            </button>
+
+            <button type="button" class="reset-btn" onclick="resetCalculator()">
+                Reset
+            </button>
+
+        </div>
+
+        <div id="error" class="error"></div>
+
+        <div id="results" class="results" aria-live="polite">
+
+            <h2>Proportion Result</h2>
+
+            <div class="result-row">
+                <span class="result-label">Proportion</span>
+                <span id="proportionDisplay"></span>
+            </div>
+
+            <div class="result-row">
+                <span class="result-label">Missing Value</span>
+                <span id="missingLabel"></span>
+            </div>
+
+            <div class="result-row">
+                <span class="result-label">Answer</span>
+                <span id="answer" class="highlight"></span>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="info-section">
+
+        <h2>What Is a Proportion?</h2>
+
+        <p>
+            A proportion is an equation showing that two ratios are equal.
+            It can be written as:
+        </p>
+
+        <div class="formula">
+            A ÷ B = C ÷ D
+        </div>
+
+        <p>
+            When three values are known, the Proportion Calculator can find the
+            fourth missing value.
+        </p>
+
+        <h2>How to Solve a Proportion</h2>
+
+        <p>
+            If you have:
+        </p>
+
+        <div class="formula">
+            2 ÷ 4 = 6 ÷ D
+        </div>
+
+        <p>
+            Cross multiplication gives:
+        </p>
+
+        <div class="formula">
+            2 × D = 4 × 6
+            <br>
+            2D = 24
+            <br>
+            D = 12
+        </div>
+
+        <p>
+            Therefore, the missing value is <strong>12</strong>.
+        </p>
+
+        <h2>Where Are Proportions Used?</h2>
+
+        <p>
+            Proportions are commonly used in mathematics, cooking, measurements,
+            maps, construction, science, finance, and everyday calculations.
+        </p>
+
+    </section>
+
+    <section class="info-section">
+
+        <h2>Related Tools</h2>
+
+        <div class="related-tools">
+
+            <a href="percentage-calculator.html">
+                Percentage Calculator
+            </a>
+
+            <a href="average-calculator.html">
+                Average Calculator
+            </a>
+
+            <a href="fraction-calculator.html">
+                Fraction Calculator
+            </a>
+
+            <a href="ratio-calculator.html">
+                Ratio Calculator
+            </a>
+
+            <a href="gcd-lcm-calculator.html">
+                GCD & LCM Calculator
+            </a>
+
+            <a href="percentage-increase-decrease-calculator.html">
+                Percentage Increase & Decrease
+            </a>
+
+        </div>
+
+    </section>
+
+    <section class="info-section">
+
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h3>What is a proportion calculator?</h3>
+            <p>
+                A proportion calculator finds an unknown value when two ratios
+                are equal and three of the four values are known.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How many values do I need?</h3>
+            <p>
+                Enter three known values and leave exactly one value empty.
+                The calculator will find the missing value.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Can I use decimal values?</h3>
+            <p>
+                Yes. Decimal numbers such as 2.5, 4.75, and 10.25 are supported.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What formula is used?</h3>
+            <p>
+                The calculator uses cross multiplication to solve
+                A ÷ B = C ÷ D.
+            </p>
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    © 2026 Easy Online Tool. All rights reserved.
+</footer>
+
+<script>
+function formatNumber(value) {
+    return value.toLocaleString("en-US", {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 10
+    });
+}
+
+function calculateProportion() {
+
+    const aInput = document.getElementById("a");
+    const bInput = document.getElementById("b");
+    const cInput = document.getElementById("c");
+    const dInput = document.getElementById("d");
+
+    const error = document.getElementById("error");
+    const results = document.getElementById("results");
+
+    error.style.display = "none";
+    results.style.display = "none";
+
+    const fields = [
+        { input: aInput, name: "A" },
+        { input: bInput, name: "B" },
+        { input: cInput, name: "C" },
+        { input: dInput, name: "D" }
+    ];
+
+    const emptyFields = fields.filter(field => field.input.value.trim() === "");
+
+    if (emptyFields.length !== 1) {
+        error.textContent =
+            "Please enter exactly three values and leave exactly one value empty.";
+        error.style.display = "block";
+        return;
+    }
+
+    const values = {};
+
+    for (const field of fields) {
+        if (field.input.value.trim() !== "") {
+            const value = Number(field.input.value);
+
+            if (!Number.isFinite(value)) {
+                error.textContent = "Please enter valid numbers.";
+                error.style.display = "block";
+                return;
+            }
+
+            values[field.name] = value;
+        }
+    }
+
+    let missing;
+    let answer;
+
+    if (!("A" in values)) {
+
+        if (values.B === 0) {
+            error.textContent = "The second value (B) cannot be zero.";
+            error.style.display = "block";
+            return;
+        }
+
+        answer = (values.B * values.C) / values.D;
+        missing = "A";
+
+    } else if (!("B" in values)) {
+
+        if (values.D === 0) {
+            error.textContent = "The fourth value (D) cannot be zero.";
+            error.style.display = "block";
+            return;
+        }
+
+        answer = (values.A * values.D) / values.C;
+        missing = "B";
+
+    } else if (!("C" in values)) {
+
+        if (values.B === 0) {
+            error.textContent = "The second value (B) cannot be zero.";
+            error.style.display = "block";
+            return;
+        }
+
+        answer = (values.A * values.D) / values.B;
+        missing = "C";
+
+    } else {
+
+        if (values.A === 0) {
+            error.textContent = "The first value (A) cannot be zero when calculating D.";
+            error.style.display = "block";
+            return;
+        }
+
+        answer = (values.B * values.C) / values.A;
+        missing = "D";
+    }
+
+    if (!Number.isFinite(answer)) {
+        error.textContent =
+            "The calculation could not be completed. Please check your values.";
+        error.style.display = "block";
+        return;
+    }
+
+    const finalValues = {
+        A: values.A,
+        B: values.B,
+        C: values.C,
+        D: values.D
+    };
+
+    finalValues[missing] = answer;
+
+    document.getElementById("proportionDisplay").textContent =
+        formatNumber(finalValues.A) +
+        " ÷ " +
+        formatNumber(finalValues.B) +
+        " = " +
+        formatNumber(finalValues.C) +
+        " ÷ " +
+        formatNumber(finalValues.D);
+
+    document.getElementById("missingLabel").textContent =
+        "Value " + missing;
+
+    document.getElementById("answer").textContent =
+        formatNumber(answer);
+
+    results.style.display = "block";
+
+    if (window.innerWidth <= 700) {
+        results.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }
+}
+
+function resetCalculator() {
+
+    document.getElementById("a").value = "";
+    document.getElementById("b").value = "";
+    document.getElementById("c").value = "";
+    document.getElementById("d").value = "";
+
+    document.getElementById("error").style.display = "none";
+    document.getElementById("results").style.display = "none";
+}
+
+document.querySelectorAll("input").forEach(function(input) {
+
+    input.addEventListener("keydown", function(event) {
+
+        if (event.key === "Enter") {
+            event.preventDefault();
+            calculateProportion();
+        }
+
+    });
+
+});
+</script>
+
+</body>
+</html>
