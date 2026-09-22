@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Energy Converter - Free Online Energy Conversion Tool</title>
+    <meta name="description" content="Convert energy units instantly with our free online Energy Converter. Convert joules, kilojoules, calories, kilocalories, watt-hours, kilowatt-hours, BTU and more.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://easyonlinetools.github.io/my-tools/energy-converter.html">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .page-title h1 {
+            margin-bottom: 10px;
+            font-size: 32px;
+            color: #222;
+        }
+
+        .page-title p {
+            color: #666;
+            margin: 0;
+        }
+
+        .calculator-box {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 7px;
+            font-size: 16px;
+            background: #fff;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        button {
+            flex: 1;
+            padding: 13px 20px;
+            border: none;
+            border-radius: 7px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .convert-btn {
+            background: #2563eb;
+            color: white;
+        }
+
+        .convert-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .reset-btn {
+            background: #e5e7eb;
+            color: #333;
+        }
+
+        .reset-btn:hover {
+            background: #d1d5db;
+        }
+
+        .error {
+            display: none;
+            margin-top: 15px;
+            padding: 12px;
+            background: #fee2e2;
+            color: #b91c1c;
+            border-radius: 7px;
+        }
+
+        .results {
+            display: none;
+            margin-top: 25px;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+
+        .results h2 {
+            margin-top: 0;
+            font-size: 22px;
+            color: #222;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 10px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .result-row:last-child {
+            border-bottom: none;
+        }
+
+        .result-value {
+            font-weight: bold;
+            color: #2563eb;
+            text-align: right;
+            word-break: break-word;
+        }
+
+        .highlight {
+            margin-top: 15px;
+            padding: 15px;
+            background: #eff6ff;
+            border-radius: 7px;
+            font-weight: bold;
+            text-align: center;
+            color: #1d4ed8;
+        }
+
+        .info-section {
+            margin-top: 35px;
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .info-section h2 {
+            color: #222;
+            margin-top: 0;
+        }
+
+        .info-section h3 {
+            color: #333;
+            margin-top: 25px;
+        }
+
+        .formula {
+            background: #f3f4f6;
+            padding: 15px;
+            border-left: 4px solid #2563eb;
+            margin: 15px 0;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        .related-tools {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .related-tools a {
+            display: block;
+            padding: 15px;
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            color: #2563eb;
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .related-tools a:hover {
+            background: #eff6ff;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-item h3 {
+            margin-bottom: 7px;
+            font-size: 18px;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 25px 20px;
+            background: #fff;
+            border-top: 1px solid #e5e7eb;
+            text-align: center;
+            color: #666;
+        }
+
+        @media (max-width: 700px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .page-title h1 {
+                font-size: 27px;
+            }
+
+            .calculator-box {
+                padding: 20px;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .related-tools {
+                grid-template-columns: 1fr;
+            }
+
+            .result-row {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .result-value {
+                text-align: left;
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Energy Converter",
+        "url": "https://easyonlinetools.github.io/my-tools/energy-converter.html",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All",
+        "description": "Free online energy converter for converting joules, kilojoules, calories, kilocalories, watt-hours, kilowatt-hours, BTU and other energy units.",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <a href="index.html" class="logo">Easy Online Tool</a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="tools.html">Tools</a>
+            <a href="categories.html">Categories</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+
+    <div class="page-title">
+        <h1>Energy Converter</h1>
+        <p>Convert energy units quickly and accurately with this free online tool.</p>
+    </div>
+
+    <div class="calculator-box">
+
+        <div class="input-group">
+            <label for="value">Enter Energy Value</label>
+            <input type="number" id="value" placeholder="Enter a value" step="any">
+        </div>
+
+        <div class="input-group">
+            <label for="fromUnit">From Unit</label>
+            <select id="fromUnit">
+                <option value="j">Joule (J)</option>
+                <option value="kj">Kilojoule (kJ)</option>
+                <option value="mj">Megajoule (MJ)</option>
+                <option value="cal">Calorie (cal)</option>
+                <option value="kcal">Kilocalorie (kcal)</option>
+                <option value="wh">Watt-hour (Wh)</option>
+                <option value="kwh">Kilowatt-hour (kWh)</option>
+                <option value="mwh">Megawatt-hour (MWh)</option>
+                <option value="btu">British Thermal Unit (BTU)</option>
+                <option value="ftlb">Foot-pound (ft·lb)</option>
+                <option value="erg">Erg</option>
+                <option value="therm">Therm</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="toUnit">To Unit</label>
+            <select id="toUnit">
+                <option value="j">Joule (J)</option>
+                <option value="kj" selected>Kilojoule (kJ)</option>
+                <option value="mj">Megajoule (MJ)</option>
+                <option value="cal">Calorie (cal)</option>
+                <option value="kcal">Kilocalorie (kcal)</option>
+                <option value="wh">Watt-hour (Wh)</option>
+                <option value="kwh">Kilowatt-hour (kWh)</option>
+                <option value="mwh">Megawatt-hour (MWh)</option>
+                <option value="btu">British Thermal Unit (BTU)</option>
+                <option value="ftlb">Foot-pound (ft·lb)</option>
+                <option value="erg">Erg</option>
+                <option value="therm">Therm</option>
+            </select>
+        </div>
+
+        <div class="button-group">
+            <button class="convert-btn" onclick="convertEnergy()">Convert</button>
+            <button class="reset-btn" onclick="resetCalculator()">Reset</button>
+        </div>
+
+        <div id="error" class="error"></div>
+
+        <div id="results" class="results">
+            <h2>Conversion Result</h2>
+
+            <div class="result-row">
+                <span>Original Value</span>
+                <span class="result-value" id="originalResult"></span>
+            </div>
+
+            <div class="result-row">
+                <span>Converted Value</span>
+                <span class="result-value" id="convertedResult"></span>
+            </div>
+
+            <div class="highlight" id="summary"></div>
+        </div>
+
+    </div>
+
+    <section class="info-section">
+        <h2>Energy Converter</h2>
+
+        <p>
+            The Energy Converter allows you to convert between commonly used
+            energy units quickly and easily. It supports joules, kilojoules,
+            megajoules, calories, kilocalories, watt-hours, kilowatt-hours,
+            BTU and several other energy measurements.
+        </p>
+
+        <h3>Common Energy Units</h3>
+
+        <p>
+            <strong>Joule (J):</strong> The SI unit used to measure energy.
+        </p>
+
+        <p>
+            <strong>Kilojoule (kJ):</strong> Equal to 1,000 joules and commonly
+            used for food energy and scientific measurements.
+        </p>
+
+        <p>
+            <strong>Calorie (cal):</strong> A traditional unit of energy.
+        </p>
+
+        <p>
+            <strong>Kilocalorie (kcal):</strong> Equal to 1,000 calories and
+            commonly used when describing food energy.
+        </p>
+
+        <p>
+            <strong>Watt-hour (Wh):</strong> A unit of energy commonly used
+            for electrical energy.
+        </p>
+
+        <p>
+            <strong>Kilowatt-hour (kWh):</strong> A widely used unit for
+            measuring electrical energy consumption.
+        </p>
+
+        <p>
+            <strong>BTU:</strong> British Thermal Unit, commonly used in
+            heating, cooling and energy applications.
+        </p>
+
+        <h3>Energy Conversion Formula</h3>
+
+        <div class="formula">
+            All conversions are performed by first converting the entered
+            value to Joules (J), then converting the Joule value to the
+            selected target unit.
+        </div>
+
+        <h3>Useful Conversions</h3>
+
+        <p>
+            1 kJ = 1,000 J
+        </p>
+
+        <p>
+            1 MJ = 1,000,000 J
+        </p>
+
+        <p>
+            1 Wh = 3,600 J
+        </p>
+
+        <p>
+            1 kWh = 3,600,000 J
+        </p>
+
+        <p>
+            1 kcal = 4,184 J
+        </p>
+    </section>
+
+    <section class="info-section">
+        <h2>Related Tools</h2>
+
+        <div class="related-tools">
+            <a href="unit-calculator.html">Unit Converter</a>
+            <a href="length-converter.html">Length Converter</a>
+            <a href="weight-converter.html">Weight Converter</a>
+            <a href="temperature-converter.html">Temperature Converter</a>
+            <a href="area-converter.html">Area Converter</a>
+            <a href="volume-converter.html">Volume Converter</a>
+            <a href="speed-converter.html">Speed Converter</a>
+            <a href="pressure-converter.html">Pressure Converter</a>
+        </div>
+    </section>
+
+    <section class="info-section">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h3>What is the SI unit of energy?</h3>
+            <p>
+                The Joule (J) is the SI unit of energy.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How many joules are in one kilojoule?</h3>
+            <p>
+                One kilojoule is equal to 1,000 joules.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How many joules are in one kilowatt-hour?</h3>
+            <p>
+                One kilowatt-hour is equal to 3,600,000 joules.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Can I convert calories to kilojoules?</h3>
+            <p>
+                Yes. Select calories as the source unit and kilojoules as
+                the target unit, then click Convert.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Can I convert kWh to Joules?</h3>
+            <p>
+                Yes. One kWh equals 3,600,000 joules.
+            </p>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    © 2026 Easy Online Tool. All rights reserved.
+</footer>
+
+<script>
+
+    const conversionFactors = {
+        j: 1,
+        kj: 1000,
+        mj: 1000000,
+        cal: 4.184,
+        kcal: 4184,
+        wh: 3600,
+        kwh: 3600000,
+        mwh: 3600000000,
+        btu: 1055.05585262,
+        ftlb: 1.3558179483314004,
+        erg: 0.0000001,
+        therm: 105505585.257348
+    };
+
+    const unitNames = {
+        j: "J",
+        kj: "kJ",
+        mj: "MJ",
+        cal: "cal",
+        kcal: "kcal",
+        wh: "Wh",
+        kwh: "kWh",
+        mwh: "MWh",
+        btu: "BTU",
+        ftlb: "ft·lb",
+        erg: "erg",
+        therm: "therm"
+    };
+
+    function formatNumber(number) {
+        if (!Number.isFinite(number)) {
+            return "Invalid";
+        }
+
+        if (number === 0) {
+            return "0";
+        }
+
+        if (Math.abs(number) >= 0.000001 && Math.abs(number) < 1000000000) {
+            return Number(number.toFixed(10)).toLocaleString("en-US");
+        }
+
+        return number.toExponential(6);
+    }
+
+    function convertEnergy() {
+
+        const valueInput = document.getElementById("value");
+        const fromUnit = document.getElementById("fromUnit").value;
+        const toUnit = document.getElementById("toUnit").value;
+
+        const error = document.getElementById("error");
+        const results = document.getElementById("results");
+
+        const value = parseFloat(valueInput.value);
+
+        error.style.display = "none";
+        results.style.display = "none";
+
+        if (valueInput.value.trim() === "" || !Number.isFinite(value)) {
+            error.textContent = "Please enter a valid energy value.";
+            error.style.display = "block";
+            return;
+        }
+
+        const joules = value * conversionFactors[fromUnit];
+        const converted = joules / conversionFactors[toUnit];
+
+        document.getElementById("originalResult").textContent =
+            formatNumber(value) + " " + unitNames[fromUnit];
+
+        document.getElementById("convertedResult").textContent =
+            formatNumber(converted) + " " + unitNames[toUnit];
+
+        document.getElementById("summary").textContent =
+            formatNumber(value) + " " + unitNames[fromUnit] +
+            " = " +
+            formatNumber(converted) + " " + unitNames[toUnit];
+
+        results.style.display = "block";
+
+        if (window.innerWidth <= 700) {
+            results.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
+    }
+
+    function resetCalculator() {
+
+        document.getElementById("value").value = "";
+        document.getElementById("fromUnit").value = "j";
+        document.getElementById("toUnit").value = "kj";
+
+        document.getElementById("error").style.display = "none";
+        document.getElementById("results").style.display = "none";
+
+        document.getElementById("value").focus();
+    }
+
+    document.getElementById("value").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            convertEnergy();
+        }
+    });
+
+</script>
+
+</body>
+</html>
