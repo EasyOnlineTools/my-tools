@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Macro Calculator - Calculate Protein, Carbs & Fat | Easy Online Tool</title>
+
+    <meta name="description" content="Free Macro Calculator to estimate daily protein, carbohydrate, and fat requirements based on calories and macronutrient percentages.">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://easyonlinetools.github.io/my-tools/macro-calculator.html">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Macro Calculator",
+        "url": "https://easyonlinetools.github.io/my-tools/macro-calculator.html",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "All",
+        "description": "Free online calculator for estimating daily protein, carbohydrate and fat macronutrients.",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2563eb;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .page-title h1 {
+            margin-bottom: 10px;
+            font-size: 34px;
+        }
+
+        .page-title p {
+            color: #666;
+            margin: 0;
+        }
+
+        .calculator-box {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 7px;
+            font-size: 16px;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+        }
+
+        .unit-note {
+            color: #666;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .percentage-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        button {
+            border: none;
+            padding: 13px 22px;
+            border-radius: 7px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .calculate-btn {
+            background: #2563eb;
+            color: white;
+        }
+
+        .calculate-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .reset-btn {
+            background: #e5e7eb;
+            color: #333;
+        }
+
+        .reset-btn:hover {
+            background: #d1d5db;
+        }
+
+        .error {
+            display: none;
+            background: #fee2e2;
+            color: #b91c1c;
+            padding: 12px;
+            border-radius: 7px;
+            margin-top: 20px;
+        }
+
+        .results {
+            display: none;
+            margin-top: 25px;
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 10px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .result-row:last-child {
+            border-bottom: none;
+        }
+
+        .result-row strong {
+            text-align: right;
+            word-break: break-word;
+        }
+
+        .highlight {
+            color: #2563eb;
+            font-size: 20px;
+        }
+
+        .info-section {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+            margin-bottom: 25px;
+        }
+
+        .info-section h2 {
+            margin-top: 0;
+            font-size: 24px;
+        }
+
+        .info-section h3 {
+            margin-top: 22px;
+        }
+
+        .formula {
+            background: #f1f5f9;
+            padding: 15px;
+            border-radius: 7px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .related-tools {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .related-tools a {
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            padding: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #2563eb;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .related-tools a:hover {
+            background: #eff6ff;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-item h3 {
+            font-size: 18px;
+            margin-bottom: 7px;
+        }
+
+        .note {
+            background: #f8fafc;
+            border-left: 4px solid #2563eb;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        footer {
+            background: #ffffff;
+            border-top: 1px solid #e5e7eb;
+            text-align: center;
+            padding: 25px 20px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        @media (max-width: 700px) {
+
+            .header-container {
+                flex-direction: column;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 14px;
+            }
+
+            .page-title h1 {
+                font-size: 28px;
+            }
+
+            .calculator-box,
+            .info-section {
+                padding: 20px;
+            }
+
+            .percentage-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+
+            .related-tools {
+                grid-template-columns: 1fr;
+            }
+
+            .result-row {
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            .result-row strong {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+
+        <a href="index.html" class="logo">
+            Easy Online Tool
+        </a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="tools.html">Tools</a>
+            <a href="categories.html">Categories</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
+
+    </div>
+</header>
+
+<main class="container">
+
+    <div class="page-title">
+        <h1>Macro Calculator</h1>
+        <p>Calculate your daily protein, carbohydrate, and fat targets.</p>
+    </div>
+
+    <div class="calculator-box">
+
+        <div class="input-group">
+            <label for="calories">Daily Calories</label>
+
+            <input
+                type="number"
+                id="calories"
+                placeholder="Enter daily calories, e.g. 2000"
+                min="1"
+                step="any"
+            >
+
+            <div class="unit-note">
+                Enter your desired or estimated daily calorie intake.
+            </div>
+        </div>
+
+        <h3>Macronutrient Percentages</h3>
+
+        <p>
+            Enter the percentage of your calories you want to allocate to
+            each macronutrient. The total must equal 100%.
+        </p>
+
+        <div class="percentage-grid">
+
+            <div class="input-group">
+                <label for="proteinPercent">Protein (%)</label>
+
+                <input
+                    type="number"
+                    id="proteinPercent"
+                    value="30"
+                    min="0"
+                    max="100"
+                    step="any"
+                >
+            </div>
+
+            <div class="input-group">
+                <label for="carbPercent">Carbohydrates (%)</label>
+
+                <input
+                    type="number"
+                    id="carbPercent"
+                    value="40"
+                    min="0"
+                    max="100"
+                    step="any"
+                >
+            </div>
+
+            <div class="input-group">
+                <label for="fatPercent">Fat (%)</label>
+
+                <input
+                    type="number"
+                    id="fatPercent"
+                    value="30"
+                    min="0"
+                    max="100"
+                    step="any"
+                >
+            </div>
+
+        </div>
+
+        <div class="button-group">
+
+            <button
+                class="calculate-btn"
+                onclick="calculateMacros()"
+            >
+                Calculate
+            </button>
+
+            <button
+                class="reset-btn"
+                onclick="resetCalculator()"
+            >
+                Reset
+            </button>
+
+        </div>
+
+        <div id="error" class="error"></div>
+
+        <div id="results" class="results">
+
+            <div class="result-row">
+                <span>Daily Calories</span>
+                <strong id="resultCalories"></strong>
+            </div>
+
+            <div class="result-row">
+                <span>Protein</span>
+                <strong id="resultProtein" class="highlight"></strong>
+            </div>
+
+            <div class="result-row">
+                <span>Carbohydrates</span>
+                <strong id="resultCarbs" class="highlight"></strong>
+            </div>
+
+            <div class="result-row">
+                <span>Fat</span>
+                <strong id="resultFat" class="highlight"></strong>
+            </div>
+
+            <div class="result-row">
+                <span>Macro Split</span>
+                <strong id="resultSplit"></strong>
+            </div>
+
+        </div>
+
+    </div>
+
+    <section class="info-section">
+
+        <h2>What Are Macronutrients?</h2>
+
+        <p>
+            Macronutrients, commonly called macros, are nutrients that
+            provide energy and are needed in relatively large amounts.
+            The three main macronutrients are protein, carbohydrates, and
+            fat.
+        </p>
+
+        <h3>Protein</h3>
+
+        <p>
+            Protein provides approximately 4 calories per gram and is
+            important for maintaining and building body tissues.
+        </p>
+
+        <h3>Carbohydrates</h3>
+
+        <p>
+            Carbohydrates provide approximately 4 calories per gram and
+            are an important source of energy.
+        </p>
+
+        <h3>Fat</h3>
+
+        <p>
+            Dietary fat provides approximately 9 calories per gram and
+            plays important roles in energy storage and normal body
+            functions.
+        </p>
+
+        <div class="note">
+            <strong>Important:</strong> Macro requirements vary between
+            individuals. This calculator is intended for general
+            informational purposes and does not provide individualized
+            medical or nutritional advice.
+        </div>
+
+    </section>
+
+    <section class="info-section">
+
+        <h2>How the Macro Calculator Works</h2>
+
+        <p>
+            First, the calculator determines how many calories are
+            allocated to each macronutrient based on the percentages you
+            enter.
+        </p>
+
+        <div class="formula">
+            Macro Calories = Total Calories × Macro Percentage
+        </div>
+
+        <p>
+            Calories are then converted into grams using the approximate
+            calorie values for each macronutrient.
+        </p>
+
+        <div class="formula">
+            Protein Grams = Protein Calories ÷ 4
+        </div>
+
+        <div class="formula">
+            Carbohydrate Grams = Carbohydrate Calories ÷ 4
+        </div>
+
+        <div class="formula">
+            Fat Grams = Fat Calories ÷ 9
+        </div>
+
+    </section>
+
+    <section class="info-section">
+
+        <h2>Example Macro Calculation</h2>
+
+        <p>
+            Suppose your daily calorie target is 2,000 calories and you
+            choose a 30% protein, 40% carbohydrate, and 30% fat split.
+        </p>
+
+        <ul>
+            <li>
+                Protein: 600 calories ÷ 4 = 150 grams
+            </li>
+
+            <li>
+                Carbohydrates: 800 calories ÷ 4 = 200 grams
+            </li>
+
+            <li>
+                Fat: 600 calories ÷ 9 ≈ 66.67 grams
+            </li>
+        </ul>
+
+        <div class="formula">
+            30% + 40% + 30% = 100%
+        </div>
+
+    </section>
+
+    <section class="info-section">
+
+        <h2>How to Use This Calculator</h2>
+
+        <ol>
+            <li>Enter your daily calorie target.</li>
+            <li>Enter the desired protein percentage.</li>
+            <li>Enter the desired carbohydrate percentage.</li>
+            <li>Enter the desired fat percentage.</li>
+            <li>Make sure the percentages total exactly 100%.</li>
+            <li>Click Calculate.</li>
+        </ol>
+
+    </section>
+
+    <section class="info-section">
+
+        <h2>Related Calculators</h2>
+
+        <div class="related-tools">
+
+            <a href="calorie-calculator.html">
+                Calorie Calculator
+            </a>
+
+            <a href="bmr-calculator.html">
+                BMR Calculator
+            </a>
+
+            <a href="body-fat-calculator.html">
+                Body Fat Calculator
+            </a>
+
+            <a href="ideal-weight-calculator.html">
+                Ideal Weight Calculator
+            </a>
+
+            <a href="water-intake-calculator.html">
+                Water Intake Calculator
+            </a>
+
+            <a href="protein-calculator.html">
+                Protein Calculator
+            </a>
+
+        </div>
+
+    </section>
+
+    <section class="info-section">
+
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+
+            <h3>What is a macro calculator?</h3>
+
+            <p>
+                A macro calculator estimates the number of grams of
+                protein, carbohydrates, and fat corresponding to a chosen
+                calorie target and macronutrient percentage split.
+            </p>
+
+        </div>
+
+        <div class="faq-item">
+
+            <h3>How many calories are in one gram of protein?</h3>
+
+            <p>
+                Protein provides approximately 4 calories per gram.
+            </p>
+
+        </div>
+
+        <div class="faq-item">
+
+            <h3>How many calories are in one gram of carbohydrates?</h3>
+
+            <p>
+                Carbohydrates provide approximately 4 calories per gram.
+            </p>
+
+        </div>
+
+        <div class="faq-item">
+
+            <h3>How many calories are in one gram of fat?</h3>
+
+            <p>
+                Fat provides approximately 9 calories per gram.
+            </p>
+
+        </div>
+
+        <div class="faq-item">
+
+            <h3>Do the macro percentages have to equal 100%?</h3>
+
+            <p>
+                Yes. The protein, carbohydrate, and fat percentages should
+                add up to exactly 100% for the calculator to produce a
+                complete macro split.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    © 2026 Easy Online Tool. All rights reserved.
+</footer>
+
+<script>
+
+function formatNumber(number, decimals = 2) {
+
+    if (!Number.isFinite(number)) {
+        return "Undefined";
+    }
+
+    return Number(number.toFixed(decimals)).toLocaleString();
+}
+
+function calculateMacros() {
+
+    const calories = Number(
+        document.getElementById("calories").value
+    );
+
+    const proteinPercent = Number(
+        document.getElementById("proteinPercent").value
+    );
+
+    const carbPercent = Number(
+        document.getElementById("carbPercent").value
+    );
+
+    const fatPercent = Number(
+        document.getElementById("fatPercent").value
+    );
+
+    const error = document.getElementById("error");
+    const results = document.getElementById("results");
+
+    error.style.display = "none";
+    results.style.display = "none";
+
+    if (
+        !Number.isFinite(calories) ||
+        !Number.isFinite(proteinPercent) ||
+        !Number.isFinite(carbPercent) ||
+        !Number.isFinite(fatPercent)
+    ) {
+        error.textContent = "Please enter valid numbers in all fields.";
+        error.style.display = "block";
+        return;
+    }
+
+    if (calories <= 0) {
+        error.textContent = "Daily calories must be greater than zero.";
+        error.style.display = "block";
+        return;
+    }
+
+    if (
+        proteinPercent < 0 ||
+        carbPercent < 0 ||
+        fatPercent < 0 ||
+        proteinPercent > 100 ||
+        carbPercent > 100 ||
+        fatPercent > 100
+    ) {
+        error.textContent =
+            "Each macronutrient percentage must be between 0% and 100%.";
+        error.style.display = "block";
+        return;
+    }
+
+    const totalPercent =
+        proteinPercent +
+        carbPercent +
+        fatPercent;
+
+    if (Math.abs(totalPercent - 100) > 0.000001) {
+        error.textContent =
+            "Protein, carbohydrate, and fat percentages must total exactly 100%. Current total: " +
+            formatNumber(totalPercent, 2) +
+            "%.";
+
+        error.style.display = "block";
+        return;
+    }
+
+    const proteinCalories =
+        calories * (proteinPercent / 100);
+
+    const carbCalories =
+        calories * (carbPercent / 100);
+
+    const fatCalories =
+        calories * (fatPercent / 100);
+
+    const proteinGrams =
+        proteinCalories / 4;
+
+    const carbGrams =
+        carbCalories / 4;
+
+    const fatGrams =
+        fatCalories / 9;
+
+    document.getElementById("resultCalories").textContent =
+        formatNumber(calories, 0) + " kcal";
+
+    document.getElementById("resultProtein").textContent =
+        formatNumber(proteinGrams) + " g (" +
+        formatNumber(proteinPercent) + "%)";
+
+    document.getElementById("resultCarbs").textContent =
+        formatNumber(carbGrams) + " g (" +
+        formatNumber(carbPercent) + "%)";
+
+    document.getElementById("resultFat").textContent =
+        formatNumber(fatGrams) + " g (" +
+        formatNumber(fatPercent) + "%)";
+
+    document.getElementById("resultSplit").textContent =
+        formatNumber(proteinPercent) + "% Protein / " +
+        formatNumber(carbPercent) + "% Carbs / " +
+        formatNumber(fatPercent) + "% Fat";
+
+    results.style.display = "block";
+
+    if (window.innerWidth <= 700) {
+
+        results.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }
+}
+
+function resetCalculator() {
+
+    document.getElementById("calories").value = "";
+
+    document.getElementById("proteinPercent").value = "30";
+    document.getElementById("carbPercent").value = "40";
+    document.getElementById("fatPercent").value = "30";
+
+    document.getElementById("error").style.display = "none";
+    document.getElementById("results").style.display = "none";
+}
+
+document.getElementById("calories").addEventListener(
+    "keydown",
+    function(event) {
+        if (event.key === "Enter") {
+            calculateMacros();
+        }
+    }
+);
+
+document.getElementById("proteinPercent").addEventListener(
+    "keydown",
+    function(event) {
+        if (event.key === "Enter") {
+            calculateMacros();
+        }
+    }
+);
+
+document.getElementById("carbPercent").addEventListener(
+    "keydown",
+    function(event) {
+        if (event.key === "Enter") {
+            calculateMacros();
+        }
+    }
+);
+
+document.getElementById("fatPercent").addEventListener(
+    "keydown",
+    function(event) {
+        if (event.key === "Enter") {
+            calculateMacros();
+        }
+    }
+);
+
+</script>
+
+</body>
+</html>
