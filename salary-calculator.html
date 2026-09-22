@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Salary Calculator - Calculate Annual, Monthly & Hourly Salary | Easy Online Tool</title>
+    <meta name="description" content="Use our free Salary Calculator to convert your salary between annual, monthly, weekly, daily, and hourly amounts. Simple and easy salary calculator.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://easyonlinetools.github.io/my-tools/salary-calculator.html">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            color: #222;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 35px 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .page-title h1 {
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+
+        .page-title p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .calculator-box {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 7px;
+            font-size: 16px;
+            background: #fff;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .button-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        button {
+            flex: 1;
+            padding: 13px;
+            border: none;
+            border-radius: 7px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .calculate-btn {
+            background: #2563eb;
+            color: #fff;
+        }
+
+        .calculate-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .reset-btn {
+            background: #e5e7eb;
+            color: #222;
+        }
+
+        .reset-btn:hover {
+            background: #d1d5db;
+        }
+
+        .error {
+            display: none;
+            margin-top: 20px;
+            padding: 12px;
+            border-radius: 7px;
+            background: #fee2e2;
+            color: #b91c1c;
+        }
+
+        .results {
+            display: none;
+            margin-top: 30px;
+            padding: 22px;
+            background: #f8fafc;
+            border-radius: 10px;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 12px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .result-row:last-child {
+            border-bottom: none;
+        }
+
+        .result-row span:last-child {
+            font-weight: 600;
+            text-align: right;
+        }
+
+        .highlight {
+            color: #2563eb;
+            font-size: 22px;
+        }
+
+        .info-section {
+            margin-top: 35px;
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .info-section h2 {
+            margin-top: 0;
+        }
+
+        .info-section h3 {
+            margin-top: 25px;
+        }
+
+        .formula {
+            background: #f1f5f9;
+            padding: 15px;
+            border-radius: 7px;
+            margin: 15px 0;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+
+        .related-tools {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .related-tools a {
+            display: block;
+            padding: 14px;
+            background: #f1f5f9;
+            border-radius: 7px;
+            text-decoration: none;
+            color: #2563eb;
+            text-align: center;
+        }
+
+        .related-tools a:hover {
+            background: #e2e8f0;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-item h3 {
+            margin-bottom: 8px;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 25px;
+            text-align: center;
+            background: #fff;
+            border-top: 1px solid #e5e7eb;
+            color: #666;
+        }
+
+        @media (max-width: 700px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            .page-title h1 {
+                font-size: 27px;
+            }
+
+            .calculator-box {
+                padding: 22px;
+            }
+
+            .button-row {
+                flex-direction: column;
+            }
+
+            .related-tools {
+                grid-template-columns: 1fr;
+            }
+
+            .result-row {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .result-row span:last-child {
+                text-align: left;
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Salary Calculator",
+        "url": "https://easyonlinetools.github.io/my-tools/salary-calculator.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "description": "Free salary calculator for converting annual, monthly, weekly, daily, and hourly salary amounts.",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <a href="index.html" class="logo">Easy Online Tool</a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="tools.html">Tools</a>
+            <a href="categories.html">Categories</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+
+    <div class="page-title">
+        <h1>Salary Calculator</h1>
+        <p>Convert your salary between annual, monthly, weekly, daily, and hourly amounts.</p>
+    </div>
+
+    <div class="calculator-box">
+
+        <div class="input-group">
+            <label for="salary">Salary Amount</label>
+            <input type="number" id="salary" placeholder="e.g. 60000" min="0" step="0.01">
+        </div>
+
+        <div class="input-group">
+            <label for="period">Salary Period</label>
+            <select id="period">
+                <option value="annual">Annual</option>
+                <option value="monthly">Monthly</option>
+                <option value="weekly">Weekly</option>
+                <option value="daily">Daily</option>
+                <option value="hourly">Hourly</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="hours">Work Hours Per Week</label>
+            <input type="number" id="hours" value="40" min="0.1" step="0.1">
+        </div>
+
+        <div class="input-group">
+            <label for="weeks">Working Weeks Per Year</label>
+            <input type="number" id="weeks" value="52" min="1" max="52" step="1">
+        </div>
+
+        <div class="button-row">
+            <button class="calculate-btn" onclick="calculateSalary()">Calculate Salary</button>
+            <button class="reset-btn" onclick="resetCalculator()">Reset</button>
+        </div>
+
+        <div class="error" id="error"></div>
+
+        <div class="results" id="results">
+
+            <div class="result-row">
+                <span>Annual Salary</span>
+                <span class="highlight" id="annualResult"></span>
+            </div>
+
+            <div class="result-row">
+                <span>Monthly Salary</span>
+                <span id="monthlyResult"></span>
+            </div>
+
+            <div class="result-row">
+                <span>Weekly Salary</span>
+                <span id="weeklyResult"></span>
+            </div>
+
+            <div class="result-row">
+                <span>Daily Salary</span>
+                <span id="dailyResult"></span>
+            </div>
+
+            <div class="result-row">
+                <span>Hourly Salary</span>
+                <span id="hourlyResult"></span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <section class="info-section">
+
+        <h2>What Is a Salary Calculator?</h2>
+
+        <p>
+            A Salary Calculator helps convert income between annual, monthly,
+            weekly, daily, and hourly salary amounts. It can be useful when
+            comparing job offers, understanding compensation, or converting
+            an hourly wage into an estimated annual salary.
+        </p>
+
+        <h2>How the Salary Calculator Works</h2>
+
+        <p>
+            Enter your salary amount, select the period that applies to that
+            amount, and enter your typical working hours and weeks per year.
+            The calculator converts the amount into equivalent salary periods.
+        </p>
+
+        <h2>Salary Conversion Formulas</h2>
+
+        <div class="formula">
+            Annual Salary = Hourly Rate × Hours Per Week × Working Weeks Per Year
+        </div>
+
+        <div class="formula">
+            Monthly Salary = Annual Salary ÷ 12
+        </div>
+
+        <div class="formula">
+            Weekly Salary = Annual Salary ÷ Working Weeks Per Year
+        </div>
+
+        <div class="formula">
+            Daily Salary = Weekly Salary ÷ 5
+        </div>
+
+        <div class="formula">
+            Hourly Salary = Weekly Salary ÷ Hours Per Week
+        </div>
+
+        <h3>Example</h3>
+
+        <p>
+            If your annual salary is $60,000 and you work 40 hours per week
+            for 52 weeks per year, the calculator estimates your equivalent
+            monthly, weekly, daily, and hourly amounts.
+        </p>
+
+        <h2>Important Note</h2>
+
+        <p>
+            The results are gross salary estimates and do not account for
+            income tax, social security, benefits, bonuses, overtime,
+            deductions, unpaid leave, or other compensation adjustments.
+        </p>
+
+        <h2>Related Financial Calculators</h2>
+
+        <div class="related-tools">
+            <a href="hourly-to-salary-calculator.html">Hourly to Salary</a>
+            <a href="salary-to-hourly-calculator.html">Salary to Hourly</a>
+            <a href="percentage-of-salary-calculator.html">Percentage of Salary</a>
+            <a href="debt-to-income-calculator.html">Debt-to-Income Ratio</a>
+            <a href="loan-calculator.html">Loan Calculator</a>
+            <a href="percentage-calculator.html">Percentage Calculator</a>
+        </div>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h3>Is this salary calculator based on gross income?</h3>
+            <p>
+                Yes. The calculator works with gross salary before taxes and
+                other deductions.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How many working weeks should I enter?</h3>
+            <p>
+                Use the number of weeks you normally work during the year.
+                The default is 52 weeks.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Can I convert hourly pay to annual salary?</h3>
+            <p>
+                Yes. Select Hourly as the salary period and enter your hourly
+                rate, weekly hours, and working weeks per year.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Does the calculator include taxes?</h3>
+            <p>
+                No. The calculator provides gross salary conversions and does
+                not calculate take-home pay.
+            </p>
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    © 2026 Easy Online Tool. All rights reserved.
+</footer>
+
+<script>
+function calculateSalary() {
+
+    const salary = parseFloat(document.getElementById("salary").value);
+    const period = document.getElementById("period").value;
+    const hours = parseFloat(document.getElementById("hours").value);
+    const weeks = parseFloat(document.getElementById("weeks").value);
+
+    const error = document.getElementById("error");
+    const results = document.getElementById("results");
+
+    error.style.display = "none";
+    results.style.display = "none";
+
+    if (!Number.isFinite(salary) || salary < 0) {
+        error.textContent = "Please enter a valid salary amount.";
+        error.style.display = "block";
+        return;
+    }
+
+    if (!Number.isFinite(hours) || hours <= 0) {
+        error.textContent = "Please enter valid work hours greater than 0.";
+        error.style.display = "block";
+        return;
+    }
+
+    if (!Number.isFinite(weeks) || weeks <= 0 || weeks > 52) {
+        error.textContent = "Please enter working weeks between 1 and 52.";
+        error.style.display = "block";
+        return;
+    }
+
+    let annualSalary;
+
+    if (period === "annual") {
+        annualSalary = salary;
+    } else if (period === "monthly") {
+        annualSalary = salary * 12;
+    } else if (period === "weekly") {
+        annualSalary = salary * weeks;
+    } else if (period === "daily") {
+        annualSalary = salary * 5 * weeks;
+    } else if (period === "hourly") {
+        annualSalary = salary * hours * weeks;
+    }
+
+    const monthlySalary = annualSalary / 12;
+    const weeklySalary = annualSalary / weeks;
+    const dailySalary = weeklySalary / 5;
+    const hourlySalary = weeklySalary / hours;
+
+    function money(value) {
+        return "$" + value.toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
+    }
+
+    document.getElementById("annualResult").textContent = money(annualSalary);
+    document.getElementById("monthlyResult").textContent = money(monthlySalary);
+    document.getElementById("weeklyResult").textContent = money(weeklySalary);
+    document.getElementById("dailyResult").textContent = money(dailySalary);
+    document.getElementById("hourlyResult").textContent = money(hourlySalary);
+
+    results.style.display = "block";
+
+    if (window.innerWidth <= 700) {
+        results.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }
+}
+
+function resetCalculator() {
+
+    document.getElementById("salary").value = "";
+    document.getElementById("period").value = "annual";
+    document.getElementById("hours").value = "40";
+    document.getElementById("weeks").value = "52";
+
+    document.getElementById("error").style.display = "none";
+    document.getElementById("results").style.display = "none";
+}
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        calculateSalary();
+    }
+});
+</script>
+
+</body>
+</html>
