@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Debt-to-Income Ratio Calculator - Free DTI Calculator | Easy Online Tool</title>
+    <meta name="description" content="Use our free Debt-to-Income Ratio Calculator to calculate your DTI percentage from monthly income and debt payments. Simple, fast, and easy to use.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://easyonlinetools.github.io/my-tools/debt-to-income-calculator.html">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            color: #222;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 35px 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .page-title h1 {
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+
+        .page-title p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .calculator-box {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 7px;
+            font-size: 16px;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .button-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        button {
+            flex: 1;
+            padding: 13px;
+            border: none;
+            border-radius: 7px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .calculate-btn {
+            background: #2563eb;
+            color: #fff;
+        }
+
+        .calculate-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .reset-btn {
+            background: #e5e7eb;
+            color: #222;
+        }
+
+        .reset-btn:hover {
+            background: #d1d5db;
+        }
+
+        .error {
+            display: none;
+            margin-top: 20px;
+            padding: 12px;
+            border-radius: 7px;
+            background: #fee2e2;
+            color: #b91c1c;
+        }
+
+        .results {
+            display: none;
+            margin-top: 30px;
+            padding: 22px;
+            background: #f8fafc;
+            border-radius: 10px;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 12px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .result-row:last-child {
+            border-bottom: none;
+        }
+
+        .result-row span:last-child {
+            font-weight: 600;
+            text-align: right;
+        }
+
+        .highlight {
+            color: #2563eb;
+            font-size: 22px;
+        }
+
+        .info-section {
+            margin-top: 35px;
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .info-section h2 {
+            margin-top: 0;
+        }
+
+        .info-section h3 {
+            margin-top: 25px;
+        }
+
+        .formula {
+            background: #f1f5f9;
+            padding: 15px;
+            border-radius: 7px;
+            margin: 15px 0;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+
+        .related-tools {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .related-tools a {
+            display: block;
+            padding: 14px;
+            background: #f1f5f9;
+            border-radius: 7px;
+            text-decoration: none;
+            color: #2563eb;
+            text-align: center;
+        }
+
+        .related-tools a:hover {
+            background: #e2e8f0;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-item h3 {
+            margin-bottom: 8px;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 25px;
+            text-align: center;
+            background: #fff;
+            border-top: 1px solid #e5e7eb;
+            color: #666;
+        }
+
+        @media (max-width: 700px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            .page-title h1 {
+                font-size: 27px;
+            }
+
+            .calculator-box {
+                padding: 22px;
+            }
+
+            .button-row {
+                flex-direction: column;
+            }
+
+            .related-tools {
+                grid-template-columns: 1fr;
+            }
+
+            .result-row {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .result-row span:last-child {
+                text-align: left;
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Debt-to-Income Ratio Calculator",
+        "url": "https://easyonlinetools.github.io/my-tools/debt-to-income-calculator.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "description": "Free Debt-to-Income Ratio Calculator for calculating DTI percentage from monthly income and debt payments.",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <a href="index.html" class="logo">Easy Online Tool</a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="tools.html">Tools</a>
+            <a href="categories.html">Categories</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+
+    <div class="page-title">
+        <h1>Debt-to-Income Ratio Calculator</h1>
+        <p>Calculate your monthly debt-to-income ratio quickly and easily.</p>
+    </div>
+
+    <div class="calculator-box">
+
+        <div class="input-group">
+            <label for="income">Gross Monthly Income</label>
+            <input type="number" id="income" placeholder="e.g. 5000" min="0" step="0.01">
+        </div>
+
+        <div class="input-group">
+            <label for="debt">Total Monthly Debt Payments</label>
+            <input type="number" id="debt" placeholder="e.g. 1500" min="0" step="0.01">
+        </div>
+
+        <div class="button-row">
+            <button class="calculate-btn" onclick="calculateDTI()">Calculate DTI</button>
+            <button class="reset-btn" onclick="resetCalculator()">Reset</button>
+        </div>
+
+        <div class="error" id="error"></div>
+
+        <div class="results" id="results">
+
+            <div class="result-row">
+                <span>Gross Monthly Income</span>
+                <span id="incomeResult"></span>
+            </div>
+
+            <div class="result-row">
+                <span>Monthly Debt Payments</span>
+                <span id="debtResult"></span>
+            </div>
+
+            <div class="result-row">
+                <span>Debt-to-Income Ratio</span>
+                <span class="highlight" id="dtiResult"></span>
+            </div>
+
+            <div class="result-row">
+                <span>Debt Portion of Income</span>
+                <span id="statusResult"></span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <section class="info-section">
+
+        <h2>What Is a Debt-to-Income Ratio?</h2>
+
+        <p>
+            Debt-to-Income Ratio (DTI) is a percentage that compares your
+            monthly debt payments with your gross monthly income. It is
+            commonly used to understand how much of your income goes toward
+            paying debts.
+        </p>
+
+        <h2>DTI Formula</h2>
+
+        <div class="formula">
+            DTI = (Total Monthly Debt Payments ÷ Gross Monthly Income) × 100
+        </div>
+
+        <h2>How to Calculate DTI</h2>
+
+        <p>
+            Enter your gross monthly income and the total amount you pay
+            toward debts each month. The calculator divides your monthly
+            debt payments by your gross monthly income and converts the
+            result into a percentage.
+        </p>
+
+        <h3>Example</h3>
+
+        <p>
+            If your gross monthly income is $5,000 and your monthly debt
+            payments are $1,500:
+        </p>
+
+        <div class="formula">
+            DTI = (1,500 ÷ 5,000) × 100 = 30%
+        </div>
+
+        <p>
+            This means that 30% of your gross monthly income goes toward
+            monthly debt payments.
+        </p>
+
+        <h2>Related Financial Calculators</h2>
+
+        <div class="related-tools">
+            <a href="loan-calculator.html">Loan Calculator</a>
+            <a href="mortgage-calculator.html">Mortgage Calculator</a>
+            <a href="credit-card-payoff-calculator.html">Credit Card Payoff</a>
+            <a href="percentage-calculator.html">Percentage Calculator</a>
+            <a href="investment-calculator.html">Investment Calculator</a>
+            <a href="savings-calculator.html">Savings Calculator</a>
+        </div>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h3>What does DTI mean?</h3>
+            <p>
+                DTI stands for Debt-to-Income Ratio. It measures monthly debt
+                payments as a percentage of gross monthly income.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How is DTI calculated?</h3>
+            <p>
+                Divide your total monthly debt payments by your gross monthly
+                income and multiply the result by 100.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What is a 30% DTI?</h3>
+            <p>
+                A 30% DTI means that monthly debt payments equal 30% of gross
+                monthly income.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Does this calculator include taxes?</h3>
+            <p>
+                No. The calculator uses gross monthly income, which is income
+                before taxes and other deductions.
+            </p>
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    © 2026 Easy Online Tool. All rights reserved.
+</footer>
+
+<script>
+function calculateDTI() {
+
+    const income = parseFloat(document.getElementById("income").value);
+    const debt = parseFloat(document.getElementById("debt").value);
+
+    const error = document.getElementById("error");
+    const results = document.getElementById("results");
+
+    error.style.display = "none";
+    results.style.display = "none";
+
+    if (!Number.isFinite(income) || income <= 0) {
+        error.textContent = "Please enter a valid gross monthly income greater than 0.";
+        error.style.display = "block";
+        return;
+    }
+
+    if (!Number.isFinite(debt) || debt < 0) {
+        error.textContent = "Please enter a valid monthly debt payment amount.";
+        error.style.display = "block";
+        return;
+    }
+
+    const dti = (debt / income) * 100;
+
+    document.getElementById("incomeResult").textContent =
+        "$" + income.toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
+
+    document.getElementById("debtResult").textContent =
+        "$" + debt.toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
+
+    document.getElementById("dtiResult").textContent =
+        dti.toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        }) + "%";
+
+    document.getElementById("statusResult").textContent =
+        dti.toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        }) + "% of gross income";
+
+    results.style.display = "block";
+
+    if (window.innerWidth <= 700) {
+        results.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }
+}
+
+function resetCalculator() {
+
+    document.getElementById("income").value = "";
+    document.getElementById("debt").value = "";
+
+    document.getElementById("error").style.display = "none";
+    document.getElementById("results").style.display = "none";
+}
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        calculateDTI();
+    }
+});
+</script>
+
+</body>
+</html>
