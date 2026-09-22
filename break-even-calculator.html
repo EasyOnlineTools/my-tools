@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Break-Even Calculator – Calculate Break-Even Point</title>
+
+    <meta name="description" content="Use our free Break-Even Calculator to calculate the break-even point in units and sales revenue using fixed costs, variable costs, and selling price.">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://easyonlinetools.github.io/my-tools/break-even-calculator.html">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 18px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .page-title h1 {
+            margin-bottom: 10px;
+            font-size: 34px;
+        }
+
+        .page-title p {
+            color: #666;
+            margin: 0;
+        }
+
+        .calculator-box {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 7px;
+            font-size: 16px;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .button-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        button {
+            flex: 1;
+            padding: 13px;
+            border: none;
+            border-radius: 7px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .calculate-btn {
+            background: #2563eb;
+            color: white;
+        }
+
+        .calculate-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .reset-btn {
+            background: #e5e7eb;
+            color: #222;
+        }
+
+        .error {
+            display: none;
+            margin-top: 20px;
+            padding: 12px;
+            background: #fee2e2;
+            color: #b91c1c;
+            border-radius: 7px;
+        }
+
+        .results {
+            display: none;
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 10px;
+        }
+
+        .results h2 {
+            margin-top: 0;
+            font-size: 22px;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 12px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .result-row:last-child {
+            border-bottom: none;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .info-section {
+            background: #ffffff;
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .info-section h2 {
+            margin-top: 0;
+        }
+
+        .formula {
+            background: #f1f5f9;
+            padding: 15px;
+            border-radius: 7px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .related-tools {
+            margin-top: 30px;
+        }
+
+        .related-tools h2 {
+            text-align: center;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .related-grid a {
+            display: block;
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            color: #2563eb;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-item h3 {
+            margin-bottom: 7px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px 20px;
+            background: #ffffff;
+            border-top: 1px solid #e5e7eb;
+            margin-top: 40px;
+            color: #666;
+        }
+
+        @media (max-width: 700px) {
+            .header-container {
+                flex-direction: column;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .page-title h1 {
+                font-size: 28px;
+            }
+
+            .calculator-box {
+                padding: 20px;
+            }
+
+            .button-row {
+                flex-direction: column;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .result-row {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Break-Even Calculator",
+        "url": "https://easyonlinetools.github.io/my-tools/break-even-calculator.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "description": "Free online break-even calculator for calculating break-even units and sales revenue.",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <a href="index.html" class="logo">Easy Online Tool</a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="tools.html">Tools</a>
+            <a href="categories.html">Categories</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+
+    <section class="page-title">
+        <h1>Break-Even Calculator</h1>
+        <p>Calculate how many units you need to sell to cover your costs.</p>
+    </section>
+
+    <section class="calculator-box">
+
+        <div class="input-group">
+            <label for="fixedCosts">Fixed Costs</label>
+            <input
+                type="number"
+                id="fixedCosts"
+                placeholder="Enter fixed costs"
+                min="0"
+                step="0.01"
+            >
+        </div>
+
+        <div class="input-group">
+            <label for="variableCost">Variable Cost Per Unit</label>
+            <input
+                type="number"
+                id="variableCost"
+                placeholder="Enter variable cost per unit"
+                min="0"
+                step="0.01"
+            >
+        </div>
+
+        <div class="input-group">
+            <label for="sellingPrice">Selling Price Per Unit</label>
+            <input
+                type="number"
+                id="sellingPrice"
+                placeholder="Enter selling price per unit"
+                min="0"
+                step="0.01"
+            >
+        </div>
+
+        <div class="button-row">
+            <button class="calculate-btn" type="button" onclick="calculateBreakEven()">
+                Calculate
+            </button>
+
+            <button class="reset-btn" type="button" onclick="resetCalculator()">
+                Reset
+            </button>
+        </div>
+
+        <div class="error" id="error"></div>
+
+        <div class="results" id="results" aria-live="polite">
+            <h2>Break-Even Results</h2>
+
+            <div class="result-row">
+                <span>Fixed Costs</span>
+                <strong id="resultFixedCosts"></strong>
+            </div>
+
+            <div class="result-row">
+                <span>Variable Cost Per Unit</span>
+                <strong id="resultVariableCost"></strong>
+            </div>
+
+            <div class="result-row">
+                <span>Selling Price Per Unit</span>
+                <strong id="resultSellingPrice"></strong>
+            </div>
+
+            <div class="result-row">
+                <span>Contribution Per Unit</span>
+                <strong id="resultContribution"></strong>
+            </div>
+
+            <div class="result-row">
+                <span>Break-Even Units</span>
+                <strong class="highlight" id="resultUnits"></strong>
+            </div>
+
+            <div class="result-row">
+                <span>Break-Even Sales</span>
+                <strong class="highlight" id="resultSales"></strong>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="info-section">
+
+        <h2>What Is a Break-Even Point?</h2>
+
+        <p>
+            The break-even point is the level of sales where total revenue
+            equals total costs. At this point, a business has neither a
+            profit nor a loss.
+        </p>
+
+        <p>
+            The Break-Even Calculator helps businesses, entrepreneurs,
+            sellers, and students determine how many units must be sold
+            before a business begins generating profit.
+        </p>
+
+        <h2>Break-Even Formula</h2>
+
+        <div class="formula">
+            Contribution Per Unit = Selling Price − Variable Cost
+        </div>
+
+        <div class="formula">
+            Break-Even Units = Fixed Costs ÷ Contribution Per Unit
+        </div>
+
+        <div class="formula">
+            Break-Even Sales = Break-Even Units × Selling Price
+        </div>
+
+        <h2>Example</h2>
+
+        <p>
+            Suppose your fixed costs are $5,000, your variable cost per unit
+            is $20, and your selling price is $50.
+        </p>
+
+        <p>
+            Contribution per unit = $50 − $20 = $30
+        </p>
+
+        <p>
+            Break-even units = $5,000 ÷ $30 = 166.67 units
+        </p>
+
+        <p>
+            Therefore, you need to sell approximately 167 units to cover
+            your costs.
+        </p>
+
+    </section>
+
+    <section class="info-section">
+
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h3>What does break-even mean?</h3>
+            <p>
+                Break-even means that total revenue is equal to total costs,
+                resulting in neither profit nor loss.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What happens if the selling price equals the variable cost?</h3>
+            <p>
+                There is no contribution margin available to cover fixed
+                costs, so a normal break-even point cannot be calculated.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Can I use this calculator for a small business?</h3>
+            <p>
+                Yes. It can be used for products, services, retail sales,
+                manufacturing, and other business situations where fixed
+                and variable costs are known.
+            </p>
+        </div>
+
+    </section>
+
+    <section class="related-tools">
+
+        <h2>Related Finance Tools</h2>
+
+        <div class="related-grid">
+            <a href="profit-margin-calculator.html">Profit Margin Calculator</a>
+            <a href="commission-calculator.html">Commission Calculator</a>
+            <a href="roi-calculator.html">ROI Calculator</a>
+            <a href="investment-calculator.html">Investment Calculator</a>
+            <a href="percentage-calculator.html">Percentage Calculator</a>
+            <a href="sales-tax-calculator.html">Sales Tax Calculator</a>
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    © 2026 Easy Online Tool. All rights reserved.
+</footer>
+
+<script>
+function formatNumber(value) {
+    return value.toLocaleString("en-US", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    });
+}
+
+function calculateBreakEven() {
+
+    const fixedCosts = parseFloat(
+        document.getElementById("fixedCosts").value
+    );
+
+    const variableCost = parseFloat(
+        document.getElementById("variableCost").value
+    );
+
+    const sellingPrice = parseFloat(
+        document.getElementById("sellingPrice").value
+    );
+
+    const error = document.getElementById("error");
+    const results = document.getElementById("results");
+
+    error.style.display = "none";
+    results.style.display = "none";
+
+    if (
+        !Number.isFinite(fixedCosts) ||
+        !Number.isFinite(variableCost) ||
+        !Number.isFinite(sellingPrice)
+    ) {
+        error.textContent = "Please enter all three values.";
+        error.style.display = "block";
+        return;
+    }
+
+    if (fixedCosts < 0 || variableCost < 0 || sellingPrice < 0) {
+        error.textContent = "Costs and selling price cannot be negative.";
+        error.style.display = "block";
+        return;
+    }
+
+    const contribution = sellingPrice - variableCost;
+
+    if (contribution <= 0) {
+        error.textContent =
+            "Selling price must be greater than variable cost per unit.";
+        error.style.display = "block";
+        return;
+    }
+
+    const breakEvenUnits = fixedCosts / contribution;
+    const breakEvenSales = breakEvenUnits * sellingPrice;
+
+    document.getElementById("resultFixedCosts").textContent =
+        formatNumber(fixedCosts);
+
+    document.getElementById("resultVariableCost").textContent =
+        formatNumber(variableCost);
+
+    document.getElementById("resultSellingPrice").textContent =
+        formatNumber(sellingPrice);
+
+    document.getElementById("resultContribution").textContent =
+        formatNumber(contribution);
+
+    document.getElementById("resultUnits").textContent =
+        formatNumber(breakEvenUnits) + " units";
+
+    document.getElementById("resultSales").textContent =
+        formatNumber(breakEvenSales);
+
+    results.style.display = "block";
+
+    if (window.innerWidth <= 700) {
+        results.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }
+}
+
+function resetCalculator() {
+
+    document.getElementById("fixedCosts").value = "";
+    document.getElementById("variableCost").value = "";
+    document.getElementById("sellingPrice").value = "";
+
+    document.getElementById("error").style.display = "none";
+    document.getElementById("results").style.display = "none";
+}
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter") {
+
+        const active = document.activeElement;
+
+        if (
+            active &&
+            (
+                active.id === "fixedCosts" ||
+                active.id === "variableCost" ||
+                active.id === "sellingPrice"
+            )
+        ) {
+            calculateBreakEven();
+        }
+    }
+});
+</script>
+
+</body>
+</html>
