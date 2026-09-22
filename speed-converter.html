@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Speed Converter - km/h, mph, m/s & More | Easy Online Tool</title>
+    <meta name="description" content="Free online Speed Converter. Convert kilometers per hour, miles per hour, meters per second, knots and other speed units instantly.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://easyonlinetools.github.io/my-tools/speed-converter.html">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            color: #222;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 20px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .page-title h1 {
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+
+        .page-title p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .calculator-box {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 7px;
+            font-size: 16px;
+            background: #fff;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        button {
+            flex: 1;
+            padding: 13px;
+            border: none;
+            border-radius: 7px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .calculate-btn {
+            background: #2563eb;
+            color: white;
+        }
+
+        .calculate-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .reset-btn {
+            background: #6b7280;
+            color: white;
+        }
+
+        .reset-btn:hover {
+            background: #4b5563;
+        }
+
+        .error {
+            display: none;
+            margin-top: 20px;
+            padding: 12px;
+            background: #fee2e2;
+            color: #b91c1c;
+            border-radius: 7px;
+        }
+
+        .results {
+            display: none;
+            margin-top: 25px;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+
+        .results h2 {
+            margin-top: 0;
+            font-size: 22px;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .result-row:last-child {
+            border-bottom: none;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #2563eb;
+            text-align: right;
+        }
+
+        .info-section {
+            margin-top: 35px;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .info-section h2 {
+            margin-top: 0;
+        }
+
+        .info-section p,
+        .info-section li {
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .formula {
+            background: #f3f4f6;
+            padding: 15px;
+            border-radius: 7px;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+
+        .related-tools {
+            margin-top: 35px;
+        }
+
+        .related-tools h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .related-card {
+            background: #ffffff;
+            padding: 18px;
+            border-radius: 9px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .related-card a {
+            text-decoration: none;
+            color: #2563eb;
+            font-weight: bold;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-item h3 {
+            margin-bottom: 7px;
+        }
+
+        footer {
+            margin-top: 40px;
+            background: #ffffff;
+            border-top: 1px solid #e5e7eb;
+            text-align: center;
+            padding: 25px;
+            color: #666;
+        }
+
+        @media (max-width: 700px) {
+
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                text-align: center;
+            }
+
+            nav a {
+                margin: 0 7px;
+            }
+
+            .container {
+                padding: 30px 15px;
+            }
+
+            .calculator-box {
+                padding: 20px;
+            }
+
+            .page-title h1 {
+                font-size: 27px;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .result-row {
+                flex-direction: column;
+                gap: 6px;
+            }
+
+            .highlight {
+                text-align: left;
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Speed Converter",
+        "url": "https://easyonlinetools.github.io/my-tools/speed-converter.html",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All",
+        "description": "Free online speed conversion calculator.",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+
+        <div class="logo">Easy Online Tool</div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="tools.html">Tools</a>
+            <a href="categories.html">Categories</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
+
+    </div>
+</header>
+
+<main class="container">
+
+    <div class="page-title">
+
+        <h1>Speed Converter</h1>
+
+        <p>
+            Convert kilometers per hour, miles per hour, meters per second,
+            knots and other common speed units quickly and accurately.
+        </p>
+
+    </div>
+
+    <div class="calculator-box">
+
+        <div class="input-group">
+
+            <label for="amount">Enter Speed</label>
+
+            <input
+                type="number"
+                id="amount"
+                placeholder="Enter a speed value"
+                step="any"
+                min="0"
+            >
+
+        </div>
+
+        <div class="input-group">
+
+            <label for="fromUnit">From</label>
+
+            <select id="fromUnit">
+
+                <option value="kmh">Kilometers per Hour (km/h)</option>
+                <option value="mph">Miles per Hour (mph)</option>
+                <option value="ms">Meters per Second (m/s)</option>
+                <option value="knot">Knots (kn)</option>
+                <option value="fps">Feet per Second (ft/s)</option>
+                <option value="mach">Mach</option>
+
+            </select>
+
+        </div>
+
+        <div class="input-group">
+
+            <label for="toUnit">To</label>
+
+            <select id="toUnit">
+
+                <option value="mph">Miles per Hour (mph)</option>
+                <option value="kmh">Kilometers per Hour (km/h)</option>
+                <option value="ms">Meters per Second (m/s)</option>
+                <option value="knot">Knots (kn)</option>
+                <option value="fps">Feet per Second (ft/s)</option>
+                <option value="mach">Mach</option>
+
+            </select>
+
+        </div>
+
+        <div class="button-group">
+
+            <button
+                class="calculate-btn"
+                onclick="convertSpeed()"
+            >
+                Convert
+            </button>
+
+            <button
+                class="reset-btn"
+                onclick="resetCalculator()"
+            >
+                Reset
+            </button>
+
+        </div>
+
+        <div class="error" id="error">
+            Please enter a valid non-negative number.
+        </div>
+
+        <div class="results" id="results">
+
+            <h2>Conversion Result</h2>
+
+            <div class="result-row">
+
+                <span>Original Speed</span>
+
+                <span
+                    class="highlight"
+                    id="originalResult"
+                ></span>
+
+            </div>
+
+            <div class="result-row">
+
+                <span>Converted Speed</span>
+
+                <span
+                    class="highlight"
+                    id="convertedResult"
+                ></span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <section class="info-section">
+
+        <h2>How to Use the Speed Converter</h2>
+
+        <ol>
+
+            <li>
+                Enter the speed you want to convert.
+            </li>
+
+            <li>
+                Select the original speed unit.
+            </li>
+
+            <li>
+                Select the destination speed unit.
+            </li>
+
+            <li>
+                Click the <strong>Convert</strong> button.
+            </li>
+
+        </ol>
+
+        <h2>Common Speed Conversion Formulas</h2>
+
+        <div class="formula">
+            1 km/h ≈ 0.621371 mph
+        </div>
+
+        <div class="formula">
+            1 mph ≈ 1.60934 km/h
+        </div>
+
+        <div class="formula">
+            1 m/s = 3.6 km/h
+        </div>
+
+        <div class="formula">
+            1 knot = 1.852 km/h
+        </div>
+
+        <div class="formula">
+            1 mph ≈ 1.46667 ft/s
+        </div>
+
+    </section>
+
+    <section class="info-section">
+
+        <h2>Common Speed Conversions</h2>
+
+        <ul>
+
+            <li>
+                10 km/h ≈ 6.21371 mph
+            </li>
+
+            <li>
+                20 km/h ≈ 12.4274 mph
+            </li>
+
+            <li>
+                50 km/h ≈ 31.0686 mph
+            </li>
+
+            <li>
+                60 km/h ≈ 37.2823 mph
+            </li>
+
+            <li>
+                80 km/h ≈ 49.7097 mph
+            </li>
+
+            <li>
+                100 km/h ≈ 62.1371 mph
+            </li>
+
+            <li>
+                1 m/s = 3.6 km/h
+            </li>
+
+        </ul>
+
+    </section>
+
+    <section class="info-section">
+
+        <h2>About Speed Units</h2>
+
+        <p>
+            Kilometers per hour (km/h) is commonly used for vehicle
+            speeds in many countries around the world.
+        </p>
+
+        <p>
+            Miles per hour (mph) is commonly used for road speeds
+            in the United States and the United Kingdom.
+        </p>
+
+        <p>
+            Meters per second (m/s) is an SI unit commonly used in
+            science and engineering. Knots are commonly used in
+            aviation and maritime navigation.
+        </p>
+
+        <p>
+            Mach expresses speed relative to the speed of sound.
+            For this calculator, Mach 1 is approximated as
+            343 meters per second under standard reference conditions.
+        </p>
+
+    </section>
+
+    <section class="related-tools">
+
+        <h2>Related Tools</h2>
+
+        <div class="related-grid">
+
+            <div class="related-card">
+                <a href="unit-calculator.html">
+                    Unit Converter
+                </a>
+            </div>
+
+            <div class="related-card">
+                <a href="length-converter.html">
+                    Length Converter
+                </a>
+            </div>
+
+            <div class="related-card">
+                <a href="weight-converter.html">
+                    Weight Converter
+                </a>
+            </div>
+
+            <div class="related-card">
+                <a href="temperature-converter.html">
+                    Temperature Converter
+                </a>
+            </div>
+
+            <div class="related-card">
+                <a href="area-converter.html">
+                    Area Converter
+                </a>
+            </div>
+
+            <div class="related-card">
+                <a href="volume-converter.html">
+                    Volume Converter
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="info-section">
+
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+
+            <h3>
+                How many mph is 100 km/h?
+            </h3>
+
+            <p>
+                100 km/h is approximately 62.1371 mph.
+            </p>
+
+        </div>
+
+        <div class="faq-item">
+
+            <h3>
+                How many km/h is 60 mph?
+            </h3>
+
+            <p>
+                60 mph is approximately 96.5606 km/h.
+            </p>
+
+        </div>
+
+        <div class="faq-item">
+
+            <h3>
+                How fast is one knot?
+            </h3>
+
+            <p>
+                One knot is equal to 1.852 kilometers per hour.
+            </p>
+
+        </div>
+
+        <div class="faq-item">
+
+            <h3>
+                What is Mach 1?
+            </h3>
+
+            <p>
+                Mach 1 represents approximately the speed of sound.
+                Its exact speed varies with conditions such as
+                temperature and altitude. This calculator uses
+                343 m/s as a standard approximation.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    © 2026 Easy Online Tool. All rights reserved.
+</footer>
+
+<script>
+
+    /*
+        Conversion factors to meters per second.
+
+        Mach is approximated using:
+        Mach 1 = 343 m/s
+    */
+
+    const conversionRates = {
+
+        kmh: 1 / 3.6,
+
+        mph: 0.44704,
+
+        ms: 1,
+
+        knot: 0.5144444444444444,
+
+        fps: 0.3048,
+
+        mach: 343
+
+    };
+
+    const unitNames = {
+
+        kmh: "Kilometers per Hour (km/h)",
+
+        mph: "Miles per Hour (mph)",
+
+        ms: "Meters per Second (m/s)",
+
+        knot: "Knots (kn)",
+
+        fps: "Feet per Second (ft/s)",
+
+        mach: "Mach"
+
+    };
+
+    function convertSpeed() {
+
+        const amount =
+            parseFloat(document.getElementById("amount").value);
+
+        const fromUnit =
+            document.getElementById("fromUnit").value;
+
+        const toUnit =
+            document.getElementById("toUnit").value;
+
+        const error =
+            document.getElementById("error");
+
+        const results =
+            document.getElementById("results");
+
+        if (isNaN(amount) || amount < 0) {
+
+            error.textContent =
+                "Please enter a valid non-negative number.";
+
+            error.style.display = "block";
+
+            results.style.display = "none";
+
+            return;
+        }
+
+        error.style.display = "none";
+
+        /*
+            Convert entered speed to meters per second.
+        */
+
+        const valueInMetersPerSecond =
+            amount * conversionRates[fromUnit];
+
+        /*
+            Convert meters per second to destination unit.
+        */
+
+        const convertedValue =
+            valueInMetersPerSecond / conversionRates[toUnit];
+
+        document.getElementById("originalResult").textContent =
+            formatNumber(amount) +
+            " " +
+            unitNames[fromUnit];
+
+        document.getElementById("convertedResult").textContent =
+            formatNumber(convertedValue) +
+            " " +
+            unitNames[toUnit];
+
+        results.style.display = "block";
+
+        if (window.innerWidth <= 700) {
+
+            results.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        }
+    }
+
+    function formatNumber(value) {
+
+        if (value === 0) {
+            return "0";
+        }
+
+        if (
+            Math.abs(value) >= 0.000001 &&
+            Math.abs(value) < 1000000000
+        ) {
+
+            return Number(
+                value.toFixed(8)
+            ).toLocaleString();
+
+        }
+
+        return value.toExponential(6);
+    }
+
+    function resetCalculator() {
+
+        document.getElementById("amount").value = "";
+
+        document.getElementById("fromUnit").value =
+            "kmh";
+
+        document.getElementById("toUnit").value =
+            "mph";
+
+        document.getElementById("error").style.display =
+            "none";
+
+        document.getElementById("results").style.display =
+            "none";
+
+    }
+
+    document
+        .getElementById("amount")
+        .addEventListener("keydown", function(event) {
+
+            if (event.key === "Enter") {
+                convertSpeed();
+            }
+
+        });
+
+</script>
+
+</body>
+</html>
