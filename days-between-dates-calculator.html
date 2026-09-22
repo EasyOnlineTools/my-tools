@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Days Between Dates Calculator | Easy Online Tool</title>
+    <meta name="description" content="Calculate the exact number of days, weeks, months, and years between two dates with our free Days Between Dates Calculator.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://easyonlinetools.github.io/my-tools/days-between-dates-calculator.html">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #222;
+            text-decoration: none;
+        }
+
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #333;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #007bff;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 30px 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .page-title h1 {
+            margin-bottom: 8px;
+            font-size: 32px;
+        }
+
+        .page-title p {
+            color: #666;
+            margin-top: 0;
+        }
+
+        .calculator-box {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        input[type="date"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 12px 22px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .calculate-btn {
+            background: #007bff;
+            color: white;
+        }
+
+        .calculate-btn:hover {
+            background: #0056b3;
+        }
+
+        .reset-btn {
+            background: #6c757d;
+            color: white;
+        }
+
+        .reset-btn:hover {
+            background: #545b62;
+        }
+
+        .error {
+            display: none;
+            background: #f8d7da;
+            color: #721c24;
+            padding: 12px;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+
+        .results {
+            display: none;
+            margin-top: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .results h2 {
+            margin-top: 0;
+            font-size: 22px;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 11px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .result-row:last-child {
+            border-bottom: none;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #007bff;
+            text-align: right;
+        }
+
+        .info-section {
+            background: #fff;
+            margin-top: 25px;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .info-section h2 {
+            margin-top: 0;
+        }
+
+        .formula {
+            background: #f1f3f5;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            font-family: monospace;
+        }
+
+        .related-tools {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .related-tools a {
+            display: block;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 7px;
+            text-decoration: none;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+
+        .related-tools a:hover {
+            color: #007bff;
+            border-color: #007bff;
+        }
+
+        .faq-item {
+            margin-bottom: 18px;
+        }
+
+        .faq-item h3 {
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px 15px;
+            margin-top: 30px;
+            background: #fff;
+            border-top: 1px solid #ddd;
+            color: #666;
+        }
+
+        @media (max-width: 700px) {
+            .header-container {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 0 7px;
+            }
+
+            .calculator-box {
+                padding: 20px;
+            }
+
+            .related-tools {
+                grid-template-columns: 1fr;
+            }
+
+            .page-title h1 {
+                font-size: 27px;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+
+            .result-row {
+                flex-direction: column;
+                gap: 3px;
+            }
+
+            .highlight {
+                text-align: left;
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Days Between Dates Calculator",
+        "url": "https://easyonlinetools.github.io/my-tools/days-between-dates-calculator.html",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All",
+        "description": "Free online calculator for finding the number of days, weeks, and approximate months and years between two dates.",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <a href="index.html" class="logo">Easy Online Tool</a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="tools.html">Tools</a>
+            <a href="categories.html">Categories</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+
+    <div class="page-title">
+        <h1>Days Between Dates Calculator</h1>
+        <p>Calculate the exact number of days between two dates.</p>
+    </div>
+
+    <div class="calculator-box">
+
+        <div class="input-group">
+            <label for="startDate">Start Date</label>
+            <input type="date" id="startDate">
+        </div>
+
+        <div class="input-group">
+            <label for="endDate">End Date</label>
+            <input type="date" id="endDate">
+        </div>
+
+        <div class="button-group">
+            <button class="calculate-btn" onclick="calculateDays()">
+                Calculate Difference
+            </button>
+
+            <button class="reset-btn" onclick="resetCalculator()">
+                Reset
+            </button>
+        </div>
+
+        <div id="error" class="error"></div>
+
+        <div id="results" class="results">
+
+            <h2>Date Difference</h2>
+
+            <div class="result-row">
+                <span>Total Days</span>
+                <span id="totalDays" class="highlight"></span>
+            </div>
+
+            <div class="result-row">
+                <span>Total Weeks</span>
+                <span id="totalWeeks" class="highlight"></span>
+            </div>
+
+            <div class="result-row">
+                <span>Approximate Months</span>
+                <span id="totalMonths" class="highlight"></span>
+            </div>
+
+            <div class="result-row">
+                <span>Approximate Years</span>
+                <span id="totalYears" class="highlight"></span>
+            </div>
+
+            <div class="result-row">
+                <span>Calendar Difference</span>
+                <span id="calendarDifference" class="highlight"></span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <section class="info-section">
+
+        <h2>What Is a Days Between Dates Calculator?</h2>
+
+        <p>
+            A Days Between Dates Calculator determines how much time has passed
+            between two calendar dates. It can be useful for calculating the
+            duration of projects, vacations, events, deadlines, subscriptions,
+            and other periods.
+        </p>
+
+        <h2>How to Calculate the Difference Between Two Dates</h2>
+
+        <p>
+            The calculator converts both dates into calendar values and determines
+            the number of complete days between them.
+        </p>
+
+        <div class="formula">
+            Number of Days = End Date − Start Date
+        </div>
+
+        <p>
+            For example, if the start date is January 1 and the end date is
+            January 11, the difference is 10 days.
+        </p>
+
+        <h2>How to Use This Calculator</h2>
+
+        <ol>
+            <li>Enter the start date.</li>
+            <li>Enter the end date.</li>
+            <li>Click <strong>Calculate Difference</strong>.</li>
+            <li>View the number of days, weeks, months, and years.</li>
+        </ol>
+
+        <h2>Important Note About Counting Dates</h2>
+
+        <p>
+            This calculator measures the elapsed time between the two dates.
+            Therefore, the starting date itself is not counted as a completed
+            day. If you need inclusive counting, add one day to the displayed
+            total.
+        </p>
+
+    </section>
+
+    <section class="info-section">
+
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h3>Can I calculate days between dates in different years?</h3>
+            <p>
+                Yes. The calculator can calculate the difference between dates
+                across months, years, and leap years.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Does the calculator account for leap years?</h3>
+            <p>
+                Yes. JavaScript's calendar date calculations account for the
+                different number of days in leap years.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What does total weeks mean?</h3>
+            <p>
+                Total weeks represents the number of days divided by seven.
+                The result may include a decimal portion when the number of days
+                is not a complete number of weeks.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What is the difference between elapsed and inclusive days?</h3>
+            <p>
+                Elapsed days measure the time between two dates. Inclusive
+                counting includes both the start and end dates.
+            </p>
+        </div>
+
+    </section>
+
+    <section class="info-section">
+
+        <h2>Related Tools</h2>
+
+        <div class="related-tools">
+            <a href="date-calculator.html">Date Calculator</a>
+            <a href="time-calculator.html">Time Calculator</a>
+            <a href="age-calculator.html">Age Calculator</a>
+            <a href="pregnancy-calculator.html">Pregnancy Calculator</a>
+            <a href="unit-calculator.html">Unit Converter</a>
+            <a href="number-calculator.html">Number Calculator</a>
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    © 2026 Easy Online Tool. All rights reserved.
+</footer>
+
+<script>
+function parseDateUTC(dateString) {
+
+    const parts = dateString.split("-");
+
+    if (parts.length !== 3) {
+        return null;
+    }
+
+    const year = parseInt(parts[0], 10);
+    const month = parseInt(parts[1], 10);
+    const day = parseInt(parts[2], 10);
+
+    if (!year || !month || !day) {
+        return null;
+    }
+
+    return new Date(Date.UTC(year, month - 1, day));
+}
+
+function formatCalendarDifference(start, end) {
+
+    let years = end.getUTCFullYear() - start.getUTCFullYear();
+    let months = end.getUTCMonth() - start.getUTCMonth();
+    let days = end.getUTCDate() - start.getUTCDate();
+
+    if (days < 0) {
+        months--;
+
+        const daysInPreviousMonth = new Date(
+            Date.UTC(
+                end.getUTCFullYear(),
+                end.getUTCMonth(),
+                0
+            )
+        ).getUTCDate();
+
+        days += daysInPreviousMonth;
+    }
+
+    if (months < 0) {
+        years--;
+        months += 12;
+    }
+
+    return years + " year(s), " +
+           months + " month(s), " +
+           days + " day(s)";
+}
+
+function calculateDays() {
+
+    const startInput = document.getElementById("startDate").value;
+    const endInput = document.getElementById("endDate").value;
+
+    const error = document.getElementById("error");
+    const results = document.getElementById("results");
+
+    error.style.display = "none";
+    results.style.display = "none";
+
+    if (!startInput || !endInput) {
+        error.textContent = "Please enter both start and end dates.";
+        error.style.display = "block";
+        return;
+    }
+
+    const startDate = parseDateUTC(startInput);
+    const endDate = parseDateUTC(endInput);
+
+    if (!startDate || !endDate) {
+        error.textContent = "Please enter valid dates.";
+        error.style.display = "block";
+        return;
+    }
+
+    if (endDate < startDate) {
+        error.textContent = "The end date must be on or after the start date.";
+        error.style.display = "block";
+        return;
+    }
+
+    const differenceMilliseconds =
+        endDate.getTime() - startDate.getTime();
+
+    const totalDays =
+        Math.round(differenceMilliseconds / 86400000);
+
+    const totalWeeks = totalDays / 7;
+    const totalMonths = totalDays / 30.4375;
+    const totalYears = totalDays / 365.2425;
+
+    document.getElementById("totalDays").textContent =
+        totalDays.toLocaleString() + " day(s)";
+
+    document.getElementById("totalWeeks").textContent =
+        totalWeeks.toFixed(2) + " week(s)";
+
+    document.getElementById("totalMonths").textContent =
+        totalMonths.toFixed(2) + " month(s)";
+
+    document.getElementById("totalYears").textContent =
+        totalYears.toFixed(2) + " year(s)";
+
+    document.getElementById("calendarDifference").textContent =
+        formatCalendarDifference(startDate, endDate);
+
+    results.style.display = "block";
+
+    if (window.innerWidth <= 700) {
+        results.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }
+}
+
+function resetCalculator() {
+
+    document.getElementById("startDate").value = "";
+    document.getElementById("endDate").value = "";
+
+    document.getElementById("error").style.display = "none";
+    document.getElementById("results").style.display = "none";
+}
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter") {
+        calculateDays();
+    }
+
+});
+</script>
+
+</body>
+</html>
