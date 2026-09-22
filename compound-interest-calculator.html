@@ -691,21 +691,23 @@ function calculateCompoundInterest() {
         document.getElementById("frequency").value
     );
 
-    const error =
-        document.getElementById("error");
+    const error = document.getElementById("error");
+    const result = document.getElementById("result");
 
-    const result =
-        document.getElementById("result");
-
-
+    /*
+     * Validate inputs
+     */
     if (
-        isNaN(principal) ||
-        isNaN(rate) ||
-        isNaN(time) ||
+        !Number.isFinite(principal) ||
+        !Number.isFinite(rate) ||
+        !Number.isFinite(time) ||
         principal < 0 ||
         rate < 0 ||
         time < 0
     ) {
+
+        error.textContent =
+            "Please enter valid non-negative values.";
 
         error.style.display = "block";
         result.style.display = "none";
@@ -713,16 +715,33 @@ function calculateCompoundInterest() {
         return;
     }
 
+    /*
+     * Prevent calculations that are too large
+     * for JavaScript to display safely.
+     */
+    if (principal > 1e15 || rate > 1000 || time > 1000) {
+
+        error.textContent =
+            "Please enter smaller values to perform a reliable calculation.";
+
+        error.style.display = "block";
+        result.style.display = "none";
+
+        return;
+    }
 
     error.style.display = "none";
 
-
-    // Convert percentage to decimal
+    /*
+     * Convert annual percentage rate to decimal
+     */
     const decimalRate = rate / 100;
 
-
-    // Compound interest formula:
-    // A = P(1 + r/n)^(nt)
+    /*
+     * Compound Interest Formula:
+     *
+     * A = P × (1 + r/n)^(nt)
+     */
 
     const totalAmount =
         principal *
@@ -731,10 +750,29 @@ function calculateCompoundInterest() {
             frequency * time
         );
 
-
     const compoundInterest =
         totalAmount - principal;
 
+    /*
+     * Check calculation result
+     */
+    if (
+        !Number.isFinite(totalAmount) ||
+        !Number.isFinite(compoundInterest)
+    ) {
+
+        error.textContent =
+            "The values entered are too large to calculate safely.";
+
+        error.style.display = "block";
+        result.style.display = "none";
+
+        return;
+    }
+
+    /*
+     * Display input information
+     */
 
     document.getElementById("principalResult").textContent =
         formatNumber(principal);
@@ -745,6 +783,9 @@ function calculateCompoundInterest() {
     document.getElementById("timeResult").textContent =
         formatNumber(time) + " years";
 
+    /*
+     * Compounding frequency names
+     */
 
     const frequencyNames = {
         1: "Annually",
@@ -754,10 +795,12 @@ function calculateCompoundInterest() {
         365: "Daily"
     };
 
-
     document.getElementById("frequencyResult").textContent =
-        frequencyNames[frequency];
+        frequencyNames[frequency] || "Selected frequency";
 
+    /*
+     * Display results
+     */
 
     document.getElementById("interestResult").textContent =
         formatNumber(compoundInterest);
@@ -765,10 +808,30 @@ function calculateCompoundInterest() {
     document.getElementById("totalResult").textContent =
         formatNumber(totalAmount);
 
+    /*
+     * Show result section
+     */
 
     result.style.display = "block";
+
+    /*
+     * Scroll result into view on smaller screens
+     */
+
+    if (window.innerWidth <= 600) {
+
+        result.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest"
+        });
+
+    }
 }
 
+
+/*
+ * Format numbers with two decimal places
+ */
 
 function formatNumber(number) {
 
@@ -779,6 +842,10 @@ function formatNumber(number) {
 
 }
 
+
+/*
+ * Reset calculator
+ */
 
 function resetCalculator() {
 
@@ -793,8 +860,13 @@ function resetCalculator() {
     document.getElementById("result").style.display = "none";
 
     document.getElementById("error").style.display = "none";
+
 }
 
+
+/*
+ * Press Enter to calculate
+ */
 
 document.getElementById("principal").addEventListener(
     "keydown",
