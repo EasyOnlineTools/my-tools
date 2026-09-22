@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Markup Calculator – Calculate Markup Percentage and Price</title>
+
+    <meta name="description" content="Use our free Markup Calculator to calculate markup percentage, markup amount, selling price, and profit from cost and selling price.">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://easyonlinetools.github.io/my-tools/markup-calculator.html">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 18px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .page-title h1 {
+            margin-bottom: 10px;
+            font-size: 34px;
+        }
+
+        .page-title p {
+            color: #666;
+            margin: 0;
+        }
+
+        .calculator-box {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 7px;
+            font-size: 16px;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .button-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        button {
+            flex: 1;
+            padding: 13px;
+            border: none;
+            border-radius: 7px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .calculate-btn {
+            background: #2563eb;
+            color: white;
+        }
+
+        .calculate-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .reset-btn {
+            background: #e5e7eb;
+            color: #222;
+        }
+
+        .error {
+            display: none;
+            margin-top: 20px;
+            padding: 12px;
+            background: #fee2e2;
+            color: #b91c1c;
+            border-radius: 7px;
+        }
+
+        .results {
+            display: none;
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 10px;
+        }
+
+        .results h2 {
+            margin-top: 0;
+            font-size: 22px;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 12px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .result-row:last-child {
+            border-bottom: none;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .info-section {
+            background: #ffffff;
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .info-section h2 {
+            margin-top: 0;
+        }
+
+        .formula {
+            background: #f1f5f9;
+            padding: 15px;
+            border-radius: 7px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .related-tools {
+            margin-top: 30px;
+        }
+
+        .related-tools h2 {
+            text-align: center;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .related-grid a {
+            display: block;
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            color: #2563eb;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-item h3 {
+            margin-bottom: 7px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px 20px;
+            background: #ffffff;
+            border-top: 1px solid #e5e7eb;
+            margin-top: 40px;
+            color: #666;
+        }
+
+        @media (max-width: 700px) {
+            .header-container {
+                flex-direction: column;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .page-title h1 {
+                font-size: 28px;
+            }
+
+            .calculator-box {
+                padding: 20px;
+            }
+
+            .button-row {
+                flex-direction: column;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .result-row {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Markup Calculator",
+        "url": "https://easyonlinetools.github.io/my-tools/markup-calculator.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "description": "Free online markup calculator for calculating markup amount, markup percentage, and selling price.",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <a href="index.html" class="logo">Easy Online Tool</a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="tools.html">Tools</a>
+            <a href="categories.html">Categories</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+
+    <section class="page-title">
+        <h1>Markup Calculator</h1>
+        <p>Calculate markup amount, markup percentage, and selling price.</p>
+    </section>
+
+    <section class="calculator-box">
+
+        <div class="input-group">
+            <label for="costPrice">Cost Price</label>
+            <input
+                type="number"
+                id="costPrice"
+                placeholder="Enter cost price"
+                min="0"
+                step="0.01"
+            >
+        </div>
+
+        <div class="input-group">
+            <label for="markupPercent">Markup Percentage (%)</label>
+            <input
+                type="number"
+                id="markupPercent"
+                placeholder="Enter markup percentage"
+                min="0"
+                step="0.01"
+            >
+        </div>
+
+        <div class="button-row">
+            <button class="calculate-btn" type="button" onclick="calculateMarkup()">
+                Calculate
+            </button>
+
+            <button class="reset-btn" type="button" onclick="resetCalculator()">
+                Reset
+            </button>
+        </div>
+
+        <div class="error" id="error"></div>
+
+        <div class="results" id="results" aria-live="polite">
+            <h2>Markup Results</h2>
+
+            <div class="result-row">
+                <span>Cost Price</span>
+                <strong id="resultCost"></strong>
+            </div>
+
+            <div class="result-row">
+                <span>Markup Percentage</span>
+                <strong id="resultRate"></strong>
+            </div>
+
+            <div class="result-row">
+                <span>Markup Amount</span>
+                <strong class="highlight" id="resultMarkup"></strong>
+            </div>
+
+            <div class="result-row">
+                <span>Selling Price</span>
+                <strong class="highlight" id="resultSelling"></strong>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="info-section">
+
+        <h2>What Is Markup?</h2>
+
+        <p>
+            Markup is the amount added to the cost of a product or service
+            to determine its selling price. It is commonly used by retailers,
+            wholesalers, businesses, and sellers when setting prices.
+        </p>
+
+        <h2>Markup Formula</h2>
+
+        <div class="formula">
+            Markup Amount = Cost Price × (Markup Percentage ÷ 100)
+        </div>
+
+        <div class="formula">
+            Selling Price = Cost Price + Markup Amount
+        </div>
+
+        <p>
+            For example, if an item costs $100 and you apply a 25% markup:
+        </p>
+
+        <p>
+            Markup Amount = $100 × 25% = $25
+        </p>
+
+        <p>
+            Selling Price = $100 + $25 = $125
+        </p>
+
+    </section>
+
+    <section class="info-section">
+
+        <h2>Markup vs. Profit Margin</h2>
+
+        <p>
+            Markup and profit margin are related but they are not the same
+            calculation. Markup is calculated based on the cost price,
+            while profit margin is calculated based on the selling price.
+        </p>
+
+        <div class="formula">
+            Markup % = (Profit ÷ Cost Price) × 100
+        </div>
+
+        <div class="formula">
+            Profit Margin % = (Profit ÷ Selling Price) × 100
+        </div>
+
+    </section>
+
+    <section class="info-section">
+
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h3>How do I calculate a markup?</h3>
+            <p>
+                Multiply the cost price by the markup percentage divided by
+                100. Then add the markup amount to the cost price.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What is a 20% markup on $50?</h3>
+            <p>
+                A 20% markup on $50 is $10, making the selling price $60.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Is markup the same as profit margin?</h3>
+            <p>
+                No. Markup uses the cost price as its base, while profit
+                margin uses the selling price.
+            </p>
+        </div>
+
+    </section>
+
+    <section class="related-tools">
+
+        <h2>Related Finance Tools</h2>
+
+        <div class="related-grid">
+            <a href="profit-margin-calculator.html">Profit Margin Calculator</a>
+            <a href="break-even-calculator.html">Break-Even Calculator</a>
+            <a href="commission-calculator.html">Commission Calculator</a>
+            <a href="roi-calculator.html">ROI Calculator</a>
+            <a href="percentage-calculator.html">Percentage Calculator</a>
+            <a href="sales-tax-calculator.html">Sales Tax Calculator</a>
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    © 2026 Easy Online Tool. All rights reserved.
+</footer>
+
+<script>
+function formatNumber(value) {
+    return value.toLocaleString("en-US", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    });
+}
+
+function calculateMarkup() {
+
+    const costPrice = parseFloat(
+        document.getElementById("costPrice").value
+    );
+
+    const markupPercent = parseFloat(
+        document.getElementById("markupPercent").value
+    );
+
+    const error = document.getElementById("error");
+    const results = document.getElementById("results");
+
+    error.style.display = "none";
+    results.style.display = "none";
+
+    if (
+        !Number.isFinite(costPrice) ||
+        !Number.isFinite(markupPercent)
+    ) {
+        error.textContent =
+            "Please enter both the cost price and markup percentage.";
+        error.style.display = "block";
+        return;
+    }
+
+    if (costPrice < 0 || markupPercent < 0) {
+        error.textContent =
+            "Cost price and markup percentage cannot be negative.";
+        error.style.display = "block";
+        return;
+    }
+
+    if (markupPercent > 10000) {
+        error.textContent =
+            "Please enter a reasonable markup percentage.";
+        error.style.display = "block";
+        return;
+    }
+
+    const markupAmount =
+        costPrice * (markupPercent / 100);
+
+    const sellingPrice =
+        costPrice + markupAmount;
+
+    document.getElementById("resultCost").textContent =
+        formatNumber(costPrice);
+
+    document.getElementById("resultRate").textContent =
+        markupPercent.toFixed(2) + "%";
+
+    document.getElementById("resultMarkup").textContent =
+        formatNumber(markupAmount);
+
+    document.getElementById("resultSelling").textContent =
+        formatNumber(sellingPrice);
+
+    results.style.display = "block";
+
+    if (window.innerWidth <= 700) {
+        results.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }
+}
+
+function resetCalculator() {
+
+    document.getElementById("costPrice").value = "";
+    document.getElementById("markupPercent").value = "";
+
+    document.getElementById("error").style.display = "none";
+    document.getElementById("results").style.display = "none";
+}
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter") {
+
+        const active = document.activeElement;
+
+        if (
+            active &&
+            (
+                active.id === "costPrice" ||
+                active.id === "markupPercent"
+            )
+        ) {
+            calculateMarkup();
+        }
+    }
+});
+</script>
+
+</body>
+</html>
