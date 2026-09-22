@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Volume Converter - Liters, Gallons, Cups & More | Easy Online Tool</title>
+    <meta name="description" content="Free online Volume Converter. Convert liters, milliliters, gallons, quarts, pints, cups, fluid ounces, cubic meters and more.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://easyonlinetools.github.io/my-tools/volume-converter.html">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            color: #222;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 20px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .page-title h1 {
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+
+        .page-title p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .calculator-box {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 7px;
+            font-size: 16px;
+            background: #fff;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        button {
+            flex: 1;
+            padding: 13px;
+            border: none;
+            border-radius: 7px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .calculate-btn {
+            background: #2563eb;
+            color: white;
+        }
+
+        .calculate-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .reset-btn {
+            background: #6b7280;
+            color: white;
+        }
+
+        .reset-btn:hover {
+            background: #4b5563;
+        }
+
+        .error {
+            display: none;
+            margin-top: 20px;
+            padding: 12px;
+            background: #fee2e2;
+            color: #b91c1c;
+            border-radius: 7px;
+        }
+
+        .results {
+            display: none;
+            margin-top: 25px;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+
+        .results h2 {
+            margin-top: 0;
+            font-size: 22px;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .result-row:last-child {
+            border-bottom: none;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #2563eb;
+            text-align: right;
+        }
+
+        .info-section {
+            margin-top: 35px;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .info-section h2 {
+            margin-top: 0;
+        }
+
+        .info-section p,
+        .info-section li {
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .formula {
+            background: #f3f4f6;
+            padding: 15px;
+            border-radius: 7px;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+
+        .related-tools {
+            margin-top: 35px;
+        }
+
+        .related-tools h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .related-card {
+            background: #ffffff;
+            padding: 18px;
+            border-radius: 9px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .related-card a {
+            text-decoration: none;
+            color: #2563eb;
+            font-weight: bold;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-item h3 {
+            margin-bottom: 7px;
+        }
+
+        footer {
+            margin-top: 40px;
+            background: #ffffff;
+            border-top: 1px solid #e5e7eb;
+            text-align: center;
+            padding: 25px;
+            color: #666;
+        }
+
+        @media (max-width: 700px) {
+
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                text-align: center;
+            }
+
+            nav a {
+                margin: 0 7px;
+            }
+
+            .container {
+                padding: 30px 15px;
+            }
+
+            .calculator-box {
+                padding: 20px;
+            }
+
+            .page-title h1 {
+                font-size: 27px;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .result-row {
+                flex-direction: column;
+                gap: 6px;
+            }
+
+            .highlight {
+                text-align: left;
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Volume Converter",
+        "url": "https://easyonlinetools.github.io/my-tools/volume-converter.html",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All",
+        "description": "Free online volume and capacity conversion calculator.",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+
+        <div class="logo">Easy Online Tool</div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="tools.html">Tools</a>
+            <a href="categories.html">Categories</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
+
+    </div>
+</header>
+
+<main class="container">
+
+    <div class="page-title">
+
+        <h1>Volume Converter</h1>
+
+        <p>
+            Convert liters, milliliters, gallons, quarts, pints, cups,
+            fluid ounces and cubic units quickly and accurately.
+        </p>
+
+    </div>
+
+    <div class="calculator-box">
+
+        <div class="input-group">
+
+            <label for="amount">Enter Volume</label>
+
+            <input
+                type="number"
+                id="amount"
+                placeholder="Enter a volume value"
+                step="any"
+                min="0"
+            >
+
+        </div>
+
+        <div class="input-group">
+
+            <label for="fromUnit">From</label>
+
+            <select id="fromUnit">
+
+                <option value="liter">Liters (L)</option>
+                <option value="milliliter">Milliliters (mL)</option>
+                <option value="cubicmeter">Cubic Meters (m³)</option>
+                <option value="cubiccentimeter">Cubic Centimeters (cm³)</option>
+                <option value="cubicinch">Cubic Inches (in³)</option>
+                <option value="cubicfoot">Cubic Feet (ft³)</option>
+                <option value="gallonUS">US Gallons</option>
+                <option value="gallonUK">UK Gallons</option>
+                <option value="quartUS">US Quarts</option>
+                <option value="quartUK">UK Quarts</option>
+                <option value="pintUS">US Pints</option>
+                <option value="pintUK">UK Pints</option>
+                <option value="cupUS">US Cups</option>
+                <option value="cupMetric">Metric Cups</option>
+                <option value="fluidounceUS">US Fluid Ounces</option>
+                <option value="fluidounceUK">UK Fluid Ounces</option>
+
+            </select>
+
+        </div>
+
+        <div class="input-group">
+
+            <label for="toUnit">To</label>
+
+            <select id="toUnit">
+
+                <option value="gallonUS">US Gallons</option>
+                <option value="liter">Liters (L)</option>
+                <option value="milliliter">Milliliters (mL)</option>
+                <option value="cubicmeter">Cubic Meters (m³)</option>
+                <option value="cubiccentimeter">Cubic Centimeters (cm³)</option>
+                <option value="cubicinch">Cubic Inches (in³)</option>
+                <option value="cubicfoot">Cubic Feet (ft³)</option>
+                <option value="gallonUK">UK Gallons</option>
+                <option value="quartUS">US Quarts</option>
+                <option value="quartUK">UK Quarts</option>
+                <option value="pintUS">US Pints</option>
+                <option value="pintUK">UK Pints</option>
+                <option value="cupUS">US Cups</option>
+                <option value="cupMetric">Metric Cups</option>
+                <option value="fluidounceUS">US Fluid Ounces</option>
+                <option value="fluidounceUK">UK Fluid Ounces</option>
+
+            </select>
+
+        </div>
+
+        <div class="button-group">
+
+            <button
+                class="calculate-btn"
+                onclick="convertVolume()"
+            >
+                Convert
+            </button>
+
+            <button
+                class="reset-btn"
+                onclick="resetCalculator()"
+            >
+                Reset
+            </button>
+
+        </div>
+
+        <div class="error" id="error">
+            Please enter a valid non-negative number.
+        </div>
+
+        <div class="results" id="results">
+
+            <h2>Conversion Result</h2>
+
+            <div class="result-row">
+
+                <span>Original Volume</span>
+
+                <span
+                    class="highlight"
+                    id="originalResult"
+                ></span>
+
+            </div>
+
+            <div class="result-row">
+
+                <span>Converted Volume</span>
+
+                <span
+                    class="highlight"
+                    id="convertedResult"
+                ></span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <section class="info-section">
+
+        <h2>How to Use the Volume Converter</h2>
+
+        <ol>
+
+            <li>
+                Enter the volume value you want to convert.
+            </li>
+
+            <li>
+                Select the original volume unit.
+            </li>
+
+            <li>
+                Select the destination unit.
+            </li>
+
+            <li>
+                Click the <strong>Convert</strong> button.
+            </li>
+
+        </ol>
+
+        <h2>Common Volume Conversion Formulas</h2>
+
+        <div class="formula">
+            1 liter = 1,000 milliliters
+        </div>
+
+        <div class="formula">
+            1 liter = 1,000 cubic centimeters
+        </div>
+
+        <div class="formula">
+            1 US gallon = 3.785411784 liters
+        </div>
+
+        <div class="formula">
+            1 UK gallon = 4.54609 liters
+        </div>
+
+        <div class="formula">
+            1 cubic meter = 1,000 liters
+        </div>
+
+    </section>
+
+    <section class="info-section">
+
+        <h2>Common Volume Conversions</h2>
+
+        <ul>
+
+            <li>
+                1 L = 1,000 mL
+            </li>
+
+            <li>
+                1 L = 1,000 cm³
+            </li>
+
+            <li>
+                1 US gallon ≈ 3.78541 L
+            </li>
+
+            <li>
+                1 UK gallon ≈ 4.54609 L
+            </li>
+
+            <li>
+                1 US quart ≈ 0.946353 L
+            </li>
+
+            <li>
+                1 US pint ≈ 0.473176 L
+            </li>
+
+            <li>
+                1 US cup ≈ 0.236588 L
+            </li>
+
+            <li>
+                1 US fluid ounce ≈ 29.5735 mL
+            </li>
+
+            <li>
+                1 cubic meter = 1,000 L
+            </li>
+
+        </ul>
+
+    </section>
+
+    <section class="info-section">
+
+        <h2>About Volume Measurements</h2>
+
+        <p>
+            Liters and milliliters are commonly used for measuring
+            liquids and other volumes in the metric system.
+        </p>
+
+        <p>
+            Gallons, quarts, pints, cups and fluid ounces are commonly
+            used for liquid measurements in the United States and the
+            United Kingdom. US and UK units are different, so the
+            appropriate unit should be selected when making a conversion.
+        </p>
+
+        <p>
+            Cubic meters, cubic feet and cubic inches are commonly used
+            for larger physical volumes and three-dimensional measurements.
+        </p>
+
+    </section>
+
+    <section class="related-tools">
+
+        <h2>Related Tools</h2>
+
+        <div class="related-grid">
+
+            <div class="related-card">
+                <a href="unit-calculator.html">
+                    Unit Converter
+                </a>
+            </div>
+
+            <div class="related-card">
+                <a href="length-converter.html">
+                    Length Converter
+                </a>
+            </div>
+
+            <div class="related-card">
+                <a href="weight-converter.html">
+                    Weight Converter
+                </a>
+            </div>
+
+            <div class="related-card">
+                <a href="temperature-converter.html">
+                    Temperature Converter
+                </a>
+            </div>
+
+            <div class="related-card">
+                <a href="area-converter.html">
+                    Area Converter
+                </a>
+            </div>
+
+            <div class="related-card">
+                <a href="speed-converter.html">
+                    Speed Converter
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="info-section">
+
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+
+            <h3>
+                How many milliliters are in one liter?
+            </h3>
+
+            <p>
+                One liter contains exactly 1,000 milliliters.
+            </p>
+
+        </div>
+
+        <div class="faq-item">
+
+            <h3>
+                How many liters are in a US gallon?
+            </h3>
+
+            <p>
+                One US gallon is equal to approximately
+                3.78541 liters.
+            </p>
+
+        </div>
+
+        <div class="faq-item">
+
+            <h3>
+                How many liters are in a UK gallon?
+            </h3>
+
+            <p>
+                One UK gallon is equal to approximately
+                4.54609 liters.
+            </p>
+
+        </div>
+
+        <div class="faq-item">
+
+            <h3>
+                Is a US gallon the same as a UK gallon?
+            </h3>
+
+            <p>
+                No. A US gallon and a UK imperial gallon have
+                different volumes.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    © 2026 Easy Online Tool. All rights reserved.
+</footer>
+
+<script>
+
+    /*
+        All conversion factors are expressed in liters.
+    */
+
+    const conversionRates = {
+
+        liter: 1,
+
+        milliliter: 0.001,
+
+        cubicmeter: 1000,
+
+        cubiccentimeter: 0.001,
+
+        cubicinch: 0.016387064,
+
+        cubicfoot: 28.316846592,
+
+        gallonUS: 3.785411784,
+
+        gallonUK: 4.54609,
+
+        quartUS: 0.946352946,
+
+        quartUK: 1.1365225,
+
+        pintUS: 0.473176473,
+
+        pintUK: 0.56826125,
+
+        cupUS: 0.2365882365,
+
+        cupMetric: 0.25,
+
+        fluidounceUS: 0.0295735295625,
+
+        fluidounceUK: 0.0284130625
+
+    };
+
+    const unitNames = {
+
+        liter: "Liters (L)",
+
+        milliliter: "Milliliters (mL)",
+
+        cubicmeter: "Cubic Meters (m³)",
+
+        cubiccentimeter: "Cubic Centimeters (cm³)",
+
+        cubicinch: "Cubic Inches (in³)",
+
+        cubicfoot: "Cubic Feet (ft³)",
+
+        gallonUS: "US Gallons",
+
+        gallonUK: "UK Gallons",
+
+        quartUS: "US Quarts",
+
+        quartUK: "UK Quarts",
+
+        pintUS: "US Pints",
+
+        pintUK: "UK Pints",
+
+        cupUS: "US Cups",
+
+        cupMetric: "Metric Cups",
+
+        fluidounceUS: "US Fluid Ounces",
+
+        fluidounceUK: "UK Fluid Ounces"
+
+    };
+
+    function convertVolume() {
+
+        const amount =
+            parseFloat(document.getElementById("amount").value);
+
+        const fromUnit =
+            document.getElementById("fromUnit").value;
+
+        const toUnit =
+            document.getElementById("toUnit").value;
+
+        const error =
+            document.getElementById("error");
+
+        const results =
+            document.getElementById("results");
+
+        if (isNaN(amount) || amount < 0) {
+
+            error.textContent =
+                "Please enter a valid non-negative number.";
+
+            error.style.display = "block";
+
+            results.style.display = "none";
+
+            return;
+        }
+
+        error.style.display = "none";
+
+        /*
+            Convert the original value to liters.
+        */
+
+        const valueInLiters =
+            amount * conversionRates[fromUnit];
+
+        /*
+            Convert liters to the selected destination unit.
+        */
+
+        const convertedValue =
+            valueInLiters / conversionRates[toUnit];
+
+        document.getElementById("originalResult").textContent =
+            formatNumber(amount) +
+            " " +
+            unitNames[fromUnit];
+
+        document.getElementById("convertedResult").textContent =
+            formatNumber(convertedValue) +
+            " " +
+            unitNames[toUnit];
+
+        results.style.display = "block";
+
+        if (window.innerWidth <= 700) {
+
+            results.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        }
+    }
+
+    function formatNumber(value) {
+
+        if (value === 0) {
+            return "0";
+        }
+
+        if (
+            Math.abs(value) >= 0.000001 &&
+            Math.abs(value) < 1000000000
+        ) {
+
+            return Number(
+                value.toFixed(8)
+            ).toLocaleString();
+
+        }
+
+        return value.toExponential(6);
+    }
+
+    function resetCalculator() {
+
+        document.getElementById("amount").value = "";
+
+        document.getElementById("fromUnit").value =
+            "liter";
+
+        document.getElementById("toUnit").value =
+            "gallonUS";
+
+        document.getElementById("error").style.display =
+            "none";
+
+        document.getElementById("results").style.display =
+            "none";
+
+    }
+
+    document
+        .getElementById("amount")
+        .addEventListener("keydown", function(event) {
+
+            if (event.key === "Enter") {
+                convertVolume();
+            }
+
+        });
+
+</script>
+
+</body>
+</html>
