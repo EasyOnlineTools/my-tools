@@ -1068,14 +1068,14 @@
     <li>Useful tools for everyday calculations</li>
   </ul>
 
-  <p>
+ <p>
     Explore our
     <a href="tools.html">free online tools</a>
     or browse our
-    <a href="math-calculators.html">math calculators</a>,
-    <a href="finance-calculators.html">finance calculators</a> and
-    <a href="health-fitness.html">health and fitness calculators</a>.
-  </p>
+    <a href="tools.html#math">math calculators</a>,
+    <a href="tools.html#finance">finance calculators</a> and
+    <a href="tools.html#health">health and fitness calculators</a>.
+</p>
 </section>
 
 
@@ -1553,8 +1553,8 @@ function searchTools() {
     const searchInput =
         document.getElementById("toolSearch").value.toLowerCase().trim();
 
-    const cards =
-        document.querySelectorAll(".tool-card");
+   const cards =
+    document.querySelectorAll(".popular-tool-card");
 
     let found = false;
 
@@ -1578,7 +1578,7 @@ function searchTools() {
 
     if (!found && searchInput !== "") {
 
-        alert("No matching tool found. More tools are coming soon!");
+       alert("No matching popular tool found. Please visit the Tools page to see all available tools.");
 
     }
 
