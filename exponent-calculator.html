@@ -6,7 +6,9 @@
 
     <title>Exponent Calculator - Calculate Powers Online | Easy Online Tool</title>
 
-    <meta name="description" content="Free online Exponent Calculator to calculate powers of numbers quickly and accurately. Calculate base raised to any positive, negative, or decimal exponent.">
+    <meta name="description" content="Free online Exponent Calculator to calculate powers of numbers quickly and accurately. Calculate positive, negative, zero, and decimal exponents.">
+
+    <meta name="keywords" content="exponent calculator, power calculator, calculate exponents, calculate powers, exponent calculator online, math calculator">
 
     <meta name="robots" content="index, follow">
 
@@ -254,6 +256,22 @@
             background: #eff6ff;
         }
 
+        .internal-navigation {
+            text-align: center;
+            margin: 30px 0;
+            font-size: 15px;
+        }
+
+        .internal-navigation a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .internal-navigation a:hover {
+            text-decoration: underline;
+        }
+
         .faq-item {
             margin-bottom: 20px;
         }
@@ -270,6 +288,20 @@
             padding: 25px 20px;
             color: #666;
             font-size: 14px;
+        }
+
+        .footer-links {
+            margin-top: 10px;
+        }
+
+        .footer-links a {
+            color: #2563eb;
+            text-decoration: none;
+            margin: 0 7px;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
         }
 
         @media (max-width: 700px) {
@@ -319,15 +351,19 @@
 
 <header>
     <div class="header-container">
-        <a href="index.html" class="logo">Easy Online Tool</a>
+
+        <a href="index.html" class="logo">
+            Easy Online Tool
+        </a>
 
         <nav>
             <a href="index.html">Home</a>
             <a href="tools.html">Tools</a>
-            <a href="categories.html">Categories</a>
-            <a href="about.html">About</a>
-            <a href="faq.html">FAQ</a>
+            <a href="index.html#categories">Categories</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#faq">FAQ</a>
         </nav>
+
     </div>
 </header>
 
@@ -361,6 +397,7 @@
         </div>
 
         <div class="button-group">
+
             <button class="calculate-btn" onclick="calculateExponent()">
                 Calculate
             </button>
@@ -368,6 +405,7 @@
             <button class="reset-btn" onclick="resetCalculator()">
                 Reset
             </button>
+
         </div>
 
         <div id="error" class="error"></div>
@@ -444,6 +482,7 @@
         <h2>Examples of Exponents</h2>
 
         <h3>Positive Exponent</h3>
+
         <p>
             If the base is 2 and the exponent is 4:
         </p>
@@ -453,6 +492,7 @@
         </div>
 
         <h3>Zero Exponent</h3>
+
         <p>
             Any non-zero number raised to the power of zero equals 1.
         </p>
@@ -462,6 +502,7 @@
         </div>
 
         <h3>Negative Exponent</h3>
+
         <p>
             A negative exponent represents the reciprocal of the positive
             power.
@@ -472,6 +513,7 @@
         </div>
 
         <h3>Decimal Exponent</h3>
+
         <p>
             Decimal exponents can represent roots. For example:
         </p>
@@ -496,6 +538,10 @@
                 Number Calculator
             </a>
 
+            <a href="square-root-calculator.html">
+                Square Root Calculator
+            </a>
+
             <a href="fraction-calculator.html">
                 Fraction Calculator
             </a>
@@ -508,8 +554,16 @@
                 GCD &amp; LCM Calculator
             </a>
 
-            <a href="prime-number-calculator.html">
-                Prime Number Calculator
+            <a href="prime-number-checker.html">
+                Prime Number Checker
+            </a>
+
+            <a href="proportion-calculator.html">
+                Proportion Calculator
+            </a>
+
+            <a href="random-number-generator.html">
+                Random Number Generator
             </a>
 
         </div>
@@ -560,25 +614,49 @@
 
     </section>
 
+    <div class="internal-navigation">
+        <a href="tools.html">← All Tools</a>
+        &nbsp; | &nbsp;
+        <a href="tools.html#math">Math &amp; Advanced Calculators</a>
+    </div>
+
 </main>
 
 <footer>
+
     © 2026 Easy Online Tool. All rights reserved.
+
+    <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="tools.html">All Tools</a>
+        <a href="index.html#categories">Categories</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
 </footer>
 
 <script>
 
 function formatNumber(number) {
+
     if (!Number.isFinite(number)) {
         return "Undefined";
     }
 
-    if (Math.abs(number) >= 1e12 || (Math.abs(number) > 0 && Math.abs(number) < 1e-10)) {
+    if (
+        Math.abs(number) >= 1e12 ||
+        (Math.abs(number) > 0 && Math.abs(number) < 1e-10)
+    ) {
         return number.toExponential(10);
     }
 
     return Number(number.toPrecision(12)).toString();
 }
+
 
 function calculateExponent() {
 
@@ -592,8 +670,12 @@ function calculateExponent() {
     results.style.display = "none";
 
     if (baseInput === "" || exponentInput === "") {
-        error.textContent = "Please enter both the base and exponent.";
+
+        error.textContent =
+            "Please enter both the base and exponent.";
+
         error.style.display = "block";
+
         return;
     }
 
@@ -601,44 +683,64 @@ function calculateExponent() {
     const exponent = Number(exponentInput);
 
     if (!Number.isFinite(base) || !Number.isFinite(exponent)) {
-        error.textContent = "Please enter valid numbers.";
+
+        error.textContent =
+            "Please enter valid numbers.";
+
         error.style.display = "block";
+
         return;
     }
 
     if (base === 0 && exponent < 0) {
-        error.textContent = "A zero base cannot be raised to a negative exponent.";
+
+        error.textContent =
+            "A zero base cannot be raised to a negative exponent.";
+
         error.style.display = "block";
+
         return;
     }
 
     const result = Math.pow(base, exponent);
 
     if (!Number.isFinite(result)) {
-        error.textContent = "The result is too large or undefined. Please try smaller values.";
+
+        error.textContent =
+            "The result is too large or undefined. Please try smaller values.";
+
         error.style.display = "block";
+
         return;
     }
 
-    document.getElementById("resultBase").textContent = formatNumber(base);
-    document.getElementById("resultExponent").textContent = formatNumber(exponent);
+    document.getElementById("resultBase").textContent =
+        formatNumber(base);
+
+    document.getElementById("resultExponent").textContent =
+        formatNumber(exponent);
 
     document.getElementById("calculation").innerHTML =
-        formatNumber(base) + "<sup>" +
+        formatNumber(base) +
+        "<sup>" +
         formatNumber(exponent) +
         "</sup>";
 
-    document.getElementById("result").textContent = formatNumber(result);
+    document.getElementById("result").textContent =
+        formatNumber(result);
 
     results.style.display = "block";
 
     if (window.innerWidth <= 700) {
+
         results.scrollIntoView({
             behavior: "smooth",
             block: "start"
         });
+
     }
 }
+
 
 function resetCalculator() {
 
@@ -647,19 +749,32 @@ function resetCalculator() {
 
     document.getElementById("error").style.display = "none";
     document.getElementById("results").style.display = "none";
+
 }
 
-document.getElementById("base").addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
-        calculateExponent();
-    }
-});
 
-document.getElementById("exponent").addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
-        calculateExponent();
+document.getElementById("base").addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Enter") {
+            calculateExponent();
+        }
+
     }
-});
+);
+
+
+document.getElementById("exponent").addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Enter") {
+            calculateExponent();
+        }
+
+    }
+);
 
 </script>
 
