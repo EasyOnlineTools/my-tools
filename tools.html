@@ -20,6 +20,10 @@
             padding: 0;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: Arial, sans-serif;
             background: #f5f7fb;
@@ -89,6 +93,7 @@
 
         .category {
             margin-bottom: 45px;
+            scroll-margin-top: 90px;
         }
 
         .category-title {
@@ -136,6 +141,43 @@
         .tool-card p {
             color: #6b7280;
             font-size: 14px;
+        }
+
+        .category-navigation {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 0 auto 45px;
+        }
+
+        .category-navigation a {
+            background: #ffffff;
+            border: 1px solid #dbe2ea;
+            color: #2563eb;
+            padding: 9px 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .category-navigation a:hover {
+            background: #eff6ff;
+            border-color: #2563eb;
+        }
+
+        .back-top {
+            display: inline-block;
+            margin-top: 15px;
+            color: #2563eb;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .back-top:hover {
+            text-decoration: underline;
         }
 
         footer {
@@ -186,6 +228,11 @@
             .page-title h1 {
                 font-size: 28px;
             }
+
+            .category-navigation a {
+                font-size: 13px;
+                padding: 8px 12px;
+            }
         }
     </style>
 </head>
@@ -226,11 +273,30 @@
     </section>
 
 
+    <!-- CATEGORY NAVIGATION -->
+
+    <div class="category-navigation">
+
+        <a href="#math">Math</a>
+
+        <a href="#finance">Finance</a>
+
+        <a href="#health">Health & Fitness</a>
+
+        <a href="#date-time">Date & Time</a>
+
+        <a href="#converters">Converters</a>
+
+        <a href="#other">Other Tools</a>
+
+    </div>
+
+
     <!-- ========================= -->
     <!-- MATH & ADVANCED -->
     <!-- ========================= -->
 
-    <section class="category">
+    <section class="category" id="math">
 
         <h2 class="category-title">
             Math & Advanced Calculators
@@ -315,6 +381,8 @@
 
         </div>
 
+        <a href="#top" class="back-top">↑ Back to categories</a>
+
     </section>
 
 
@@ -322,7 +390,7 @@
     <!-- FINANCE -->
     <!-- ========================= -->
 
-    <section class="category">
+    <section class="category" id="finance">
 
         <h2 class="category-title">
             Finance Calculators
@@ -437,6 +505,8 @@
 
         </div>
 
+        <a href="#top" class="back-top">↑ Back to categories</a>
+
     </section>
 
 
@@ -444,7 +514,7 @@
     <!-- HEALTH & FITNESS -->
     <!-- ========================= -->
 
-    <section class="category">
+    <section class="category" id="health">
 
         <h2 class="category-title">
             Health & Fitness Calculators
@@ -504,6 +574,8 @@
 
         </div>
 
+        <a href="#top" class="back-top">↑ Back to categories</a>
+
     </section>
 
 
@@ -511,7 +583,7 @@
     <!-- DATE & TIME -->
     <!-- ========================= -->
 
-    <section class="category">
+    <section class="category" id="date-time">
 
         <h2 class="category-title">
             Date & Time Calculators
@@ -551,6 +623,8 @@
 
         </div>
 
+        <a href="#top" class="back-top">↑ Back to categories</a>
+
     </section>
 
 
@@ -558,7 +632,7 @@
     <!-- UNIT & CONVERTERS -->
     <!-- ========================= -->
 
-    <section class="category">
+    <section class="category" id="converters">
 
         <h2 class="category-title">
             Unit & Conversion Tools
@@ -618,6 +692,8 @@
 
         </div>
 
+        <a href="#top" class="back-top">↑ Back to categories</a>
+
     </section>
 
 
@@ -625,7 +701,7 @@
     <!-- OTHER USEFUL TOOLS -->
     <!-- ========================= -->
 
-    <section class="category">
+    <section class="category" id="other">
 
         <h2 class="category-title">
             Other Useful Tools
@@ -645,6 +721,8 @@
 
         </div>
 
+        <a href="#top" class="back-top">↑ Back to categories</a>
+
     </section>
 
 </main>
@@ -653,6 +731,9 @@
 <footer>
 
     <div>
+        <a href="index.html">Home</a>
+        <a href="tools.html">All Tools</a>
+        <a href="index.html#categories">Categories</a>
         <a href="about.html">About</a>
         <a href="faq.html">FAQ</a>
         <a href="privacy-policy.html">Privacy Policy</a>
