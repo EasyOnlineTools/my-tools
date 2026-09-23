@@ -8,6 +8,8 @@
 
     <meta name="description" content="Use our free Scientific Calculator for advanced calculations including trigonometry, logarithms, powers, square roots, percentages, and basic arithmetic.">
 
+    <meta name="keywords" content="scientific calculator, online scientific calculator, trigonometry calculator, logarithm calculator, advanced calculator, free calculator">
+
     <meta name="robots" content="index, follow">
 
     <link rel="canonical" href="https://easyonlinetools.github.io/my-tools/scientific-calculator.html">
@@ -267,6 +269,22 @@
             color: #007bff;
         }
 
+        .internal-navigation {
+            text-align: center;
+            margin-top: 30px;
+            padding: 15px;
+        }
+
+        .internal-navigation a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .internal-navigation a:hover {
+            text-decoration: underline;
+        }
+
         .faq-item {
             margin-bottom: 20px;
         }
@@ -282,6 +300,20 @@
             background: #ffffff;
             border-top: 1px solid #e5e7eb;
             color: #666;
+        }
+
+        .footer-links {
+            margin-top: 10px;
+        }
+
+        .footer-links a {
+            color: #666;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        .footer-links a:hover {
+            color: #007bff;
         }
 
         @media (max-width: 700px) {
@@ -371,9 +403,9 @@
         <nav>
             <a href="index.html">Home</a>
             <a href="tools.html">Tools</a>
-            <a href="categories.html">Categories</a>
-            <a href="about.html">About</a>
-            <a href="faq.html">FAQ</a>
+            <a href="index.html#categories">Categories</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#faq">FAQ</a>
         </nav>
 
     </div>
@@ -544,7 +576,7 @@
 
     <section class="info-section">
 
-        <h2>Related Tools</h2>
+        <h2>Related Math &amp; Advanced Tools</h2>
 
         <div class="related-tools">
 
@@ -568,13 +600,31 @@
                 GCD &amp; LCM Calculator
             </a>
 
-            <a href="prime-number-calculator.html">
+            <a href="prime-number-checker.html">
                 Prime Number Checker
+            </a>
+
+            <a href="random-number-generator.html">
+                Random Number Generator
+            </a>
+
+            <a href="percentage-increase-decrease.html">
+                Percentage Increase &amp; Decrease
+            </a>
+
+            <a href="proportion-calculator.html">
+                Proportion Calculator
             </a>
 
         </div>
 
     </section>
+
+    <div class="internal-navigation">
+        <a href="tools.html">← All Tools</a>
+        &nbsp; | &nbsp;
+        <a href="tools.html#math">Math &amp; Advanced Calculators</a>
+    </div>
 
     <section class="info-section">
 
@@ -616,7 +666,20 @@
 </main>
 
 <footer>
+
     © 2026 Easy Online Tool. All rights reserved.
+
+    <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="tools.html">All Tools</a>
+        <a href="index.html#categories">Categories</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="privacy-policy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
 </footer>
 
 <script>
@@ -732,7 +795,10 @@ function getCurrentValue() {
         .replace(/÷/g, "/")
         .replace(/−/g, "-");
 
-    prepared = prepared.replace(/(\d+(?:\.\d+)?)%/g, "($1/100)");
+    prepared = prepared.replace(
+        /(\d+(?:\.\d+)?)%/g,
+        "($1/100)"
+    );
 
     if (!/^[0-9+\-*/().\sA-Za-z]+$/.test(prepared)) {
         throw new Error("Invalid expression.");
@@ -744,7 +810,9 @@ function getCurrentValue() {
         throw new Error("Invalid expression.");
     }
 
-    const value = Function('"use strict"; return (' + prepared + ')')();
+    const value = Function(
+        '"use strict"; return (' + prepared + ')'
+    )();
 
     if (!Number.isFinite(value)) {
         throw new Error("The result is not a finite number.");
@@ -786,7 +854,10 @@ function calculateResult() {
 
     } catch (error) {
 
-        showError(error.message || "Unable to calculate the expression.");
+        showError(
+            error.message ||
+            "Unable to calculate the expression."
+        );
     }
 }
 
@@ -815,6 +886,7 @@ function calculateFunction(type) {
                 break;
 
             case "asin":
+
                 result = Math.asin(value);
 
                 if (angleMode === "DEG") {
@@ -824,6 +896,7 @@ function calculateFunction(type) {
                 break;
 
             case "acos":
+
                 result = Math.acos(value);
 
                 if (angleMode === "DEG") {
@@ -833,6 +906,7 @@ function calculateFunction(type) {
                 break;
 
             case "atan":
+
                 result = Math.atan(value);
 
                 if (angleMode === "DEG") {
@@ -842,26 +916,33 @@ function calculateFunction(type) {
                 break;
 
             case "sqrt":
+
                 if (value < 0) {
-                    throw new Error("Square root requires a non-negative number.");
+                    throw new Error(
+                        "Square root requires a non-negative number."
+                    );
                 }
 
                 result = Math.sqrt(value);
                 break;
 
             case "abs":
+
                 result = Math.abs(value);
                 break;
 
             case "exp":
+
                 result = Math.exp(value);
                 break;
 
             case "tenpow":
+
                 result = Math.pow(10, value);
                 break;
 
             case "factorial":
+
                 result = factorial(value);
 
                 if (!Number.isFinite(result)) {
@@ -873,6 +954,7 @@ function calculateFunction(type) {
                 break;
 
             case "reciprocal":
+
                 if (value === 0) {
                     throw new Error("Cannot divide by zero.");
                 }
@@ -881,37 +963,55 @@ function calculateFunction(type) {
                 break;
 
             case "cube":
+
                 result = Math.pow(value, 3);
                 break;
 
+            case "square":
+
+                result = Math.pow(value, 2);
+                break;
+
             case "log":
+
                 if (value <= 0) {
-                    throw new Error("Logarithm requires a positive number.");
+                    throw new Error(
+                        "Logarithm requires a positive number."
+                    );
                 }
 
                 result = Math.log10(value);
                 break;
 
             case "ln":
+
                 if (value <= 0) {
-                    throw new Error("Natural logarithm requires a positive number.");
+                    throw new Error(
+                        "Natural logarithm requires a positive number."
+                    );
                 }
 
                 result = Math.log(value);
                 break;
 
             default:
+
                 throw new Error("Unknown function.");
         }
 
         if (!Number.isFinite(result)) {
-            throw new Error("The result is outside the supported range.");
+            throw new Error(
+                "The result is outside the supported range."
+            );
         }
 
         const formatted = formatResult(result);
 
         document.getElementById("expression").textContent =
-            getFunctionLabel(type) + "(" + formatResult(value) + ")";
+            getFunctionLabel(type) +
+            "(" +
+            formatResult(value) +
+            ")";
 
         document.getElementById("resultValue").textContent =
             formatted;
@@ -931,7 +1031,10 @@ function calculateFunction(type) {
 
     } catch (error) {
 
-        showError(error.message || "Unable to calculate the function.");
+        showError(
+            error.message ||
+            "Unable to calculate the function."
+        );
     }
 }
 
@@ -962,7 +1065,10 @@ function toggleSign() {
 
     } catch (error) {
 
-        showError(error.message || "Enter a number first.");
+        showError(
+            error.message ||
+            "Enter a number first."
+        );
     }
 }
 
@@ -997,9 +1103,9 @@ function getFunctionLabel(type) {
         factorial: "!",
         reciprocal: "1/",
         cube: "x³",
+        square: "x²",
         log: "log",
-        ln: "ln",
-        square: "x²"
+        ln: "ln"
     };
 
     return labels[type] || type;
@@ -1026,17 +1132,23 @@ document.addEventListener("keydown", function(event) {
     }
 
     if (key === "Enter" || key === "=") {
+
         calculateResult();
+
         event.preventDefault();
     }
 
     if (key === "Backspace") {
+
         deleteLast();
+
         event.preventDefault();
     }
 
     if (key === "Escape") {
+
         clearCalculator();
+
         event.preventDefault();
     }
 
