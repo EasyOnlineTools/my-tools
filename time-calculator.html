@@ -4,8 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Time Calculator – Add, Subtract & Calculate Time</title>
-<meta name="description" content="Add and subtract hours, minutes and seconds with this free Time Calculator. Quickly calculate time durations and results.">
+    <title>Time Calculator – Add, Subtract, Multiply & Divide Time | Easy Online Tool</title>
+
+    <meta name="description" content="Free Time Calculator to add, subtract, multiply, and divide hours, minutes, and seconds. Quickly calculate time durations and convert time values online.">
+
+    <meta name="keywords" content="time calculator, time duration calculator, add time calculator, subtract time calculator, hours minutes seconds calculator, time calculator online">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://easyonlinetools.github.io/my-tools/time-calculator.html">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Time Calculator",
+        "url": "https://easyonlinetools.github.io/my-tools/time-calculator.html",
+        "applicationCategory": "CalculatorApplication",
+        "operatingSystem": "All",
+        "description": "Free online calculator for adding, subtracting, multiplying, and dividing hours, minutes, and seconds.",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+
     <style>
         * {
             box-sizing: border-box;
@@ -181,11 +206,66 @@
             margin-top: 25px;
         }
 
-        footer {
+        .related-tools {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .related-tools a {
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            padding: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #2563eb;
             text-align: center;
-            padding: 25px;
+            font-weight: 600;
+        }
+
+        .related-tools a:hover {
+            background: #eff6ff;
+        }
+
+        .internal-navigation {
+            text-align: center;
+            margin: 30px 0;
+            font-size: 15px;
+        }
+
+        .internal-navigation a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .internal-navigation a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #ffffff;
+            border-top: 1px solid #e5e7eb;
+            text-align: center;
+            padding: 25px 20px;
             color: #777;
             margin-top: 40px;
+            font-size: 14px;
+        }
+
+        .footer-links {
+            margin-top: 10px;
+        }
+
+        .footer-links a {
+            color: #2563eb;
+            text-decoration: none;
+            margin: 0 7px;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
         }
 
         @media (max-width: 600px) {
@@ -193,6 +273,10 @@
             .header-container {
                 flex-direction: column;
                 gap: 12px;
+            }
+
+            nav {
+                text-align: center;
             }
 
             nav a {
@@ -215,6 +299,10 @@
             .result-time {
                 font-size: 25px;
             }
+
+            .related-tools {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -231,15 +319,15 @@
         <nav>
             <a href="index.html">Home</a>
             <a href="tools.html">Tools</a>
-            <a href="categories.html">Categories</a>
-            <a href="about.html">About</a>
-            <a href="faq.html">FAQ</a>
+            <a href="index.html#categories">Categories</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#faq">FAQ</a>
         </nav>
 
     </div>
 </header>
 
-<div class="container">
+<main class="container">
 
     <h1>Time Calculator</h1>
 
@@ -257,17 +345,35 @@
 
                 <div class="input-group">
                     <label for="hours1">Hours</label>
-                    <input type="number" id="hours1" value="0" min="0">
+                    <input
+                        type="number"
+                        id="hours1"
+                        value="0"
+                        min="0"
+                        step="any"
+                    >
                 </div>
 
                 <div class="input-group">
                     <label for="minutes1">Minutes</label>
-                    <input type="number" id="minutes1" value="0" min="0">
+                    <input
+                        type="number"
+                        id="minutes1"
+                        value="0"
+                        min="0"
+                        step="any"
+                    >
                 </div>
 
                 <div class="input-group">
                     <label for="seconds1">Seconds</label>
-                    <input type="number" id="seconds1" value="0" min="0">
+                    <input
+                        type="number"
+                        id="seconds1"
+                        value="0"
+                        min="0"
+                        step="any"
+                    >
                 </div>
 
             </div>
@@ -276,13 +382,28 @@
 
         <div class="operation-group">
 
-            <label for="operation">Operation</label>
+            <label for="operation">
+                Operation
+            </label>
 
             <select id="operation">
-                <option value="add">Add (+)</option>
-                <option value="subtract">Subtract (-)</option>
-                <option value="multiply">Multiply (×)</option>
-                <option value="divide">Divide (÷)</option>
+
+                <option value="add">
+                    Add (+)
+                </option>
+
+                <option value="subtract">
+                    Subtract (-)
+                </option>
+
+                <option value="multiply">
+                    Multiply (×)
+                </option>
+
+                <option value="divide">
+                    Divide (÷)
+                </option>
+
             </select>
 
         </div>
@@ -295,17 +416,35 @@
 
                 <div class="input-group">
                     <label for="hours2">Hours</label>
-                    <input type="number" id="hours2" value="0" min="0">
+                    <input
+                        type="number"
+                        id="hours2"
+                        value="0"
+                        min="0"
+                        step="any"
+                    >
                 </div>
 
                 <div class="input-group">
                     <label for="minutes2">Minutes</label>
-                    <input type="number" id="minutes2" value="0" min="0">
+                    <input
+                        type="number"
+                        id="minutes2"
+                        value="0"
+                        min="0"
+                        step="any"
+                    >
                 </div>
 
                 <div class="input-group">
                     <label for="seconds2">Seconds</label>
-                    <input type="number" id="seconds2" value="0" min="0">
+                    <input
+                        type="number"
+                        id="seconds2"
+                        value="0"
+                        min="0"
+                        step="any"
+                    >
                 </div>
 
             </div>
@@ -332,7 +471,7 @@
 
     </div>
 
-    <div class="info-section">
+    <section class="info-section">
 
         <h2>What Is a Time Calculator?</h2>
 
@@ -345,121 +484,222 @@
         <h3>Examples</h3>
 
         <p>
-            <strong>Add:</strong> 2 hours 30 minutes + 1 hour 45 minutes
+            <strong>Add:</strong>
+            2 hours 30 minutes + 1 hour 45 minutes
             = 4 hours 15 minutes.
         </p>
 
         <p>
-            <strong>Subtract:</strong> 5 hours 20 minutes − 2 hours 10 minutes
+            <strong>Subtract:</strong>
+            5 hours 20 minutes − 2 hours 10 minutes
             = 3 hours 10 minutes.
         </p>
 
         <p>
-            <strong>Multiply:</strong> 1 hour 30 minutes × 2
+            <strong>Multiply:</strong>
+            1 hour 30 minutes × 2
             = 3 hours.
         </p>
 
         <p>
-            <strong>Divide:</strong> 4 hours ÷ 2
+            <strong>Divide:</strong>
+            4 hours ÷ 2
             = 2 hours.
         </p>
 
+    </section>
+
+    <section class="info-section">
+
+        <h2>How Does a Time Calculator Work?</h2>
+
+        <p>
+            Enter the hours, minutes, and seconds you want to calculate.
+            Select an operation and click the Calculate Time button.
+            The calculator converts the entered values into seconds,
+            performs the selected calculation, and displays the result
+            as hours, minutes, and seconds.
+        </p>
+
+        <h3>Adding Time</h3>
+
+        <p>
+            Adding time is useful when combining multiple durations.
+            For example, 2 hours plus 1 hour and 30 minutes equals
+            3 hours and 30 minutes.
+        </p>
+
+        <h3>Subtracting Time</h3>
+
+        <p>
+            Subtracting time can help you find the difference between
+            two durations. It can be useful for schedules, working hours,
+            study sessions, and other time-based activities.
+        </p>
+
+        <h3>Multiplying Time</h3>
+
+        <p>
+            Multiplication can be used when the same time duration occurs
+            several times. For example, 1 hour and 30 minutes multiplied
+            by 2 equals 3 hours.
+        </p>
+
+        <h3>Dividing Time</h3>
+
+        <p>
+            Division can be useful when splitting a time duration into
+            equal parts. For example, 4 hours divided by 2 equals 2 hours.
+        </p>
+
+    </section>
+
+    <section class="info-section">
+
+        <h2>Why Use an Online Time Calculator?</h2>
+
+        <p>
+            Time uses different units, with 60 minutes in an hour and
+            60 seconds in a minute. Calculating these values manually can
+            sometimes lead to mistakes. An online Time Calculator provides
+            a quick and convenient way to perform time calculations.
+        </p>
+
+        <p>
+            Students, teachers, employees, freelancers, and anyone who
+            needs to calculate time durations can use this free online tool.
+        </p>
+
+    </section>
+
+    <section class="info-section">
+
+        <h2>Related Time &amp; Math Calculators</h2>
+
+        <div class="related-tools">
+
+            <a href="date-calculator.html">
+                Date Calculator
+            </a>
+
+            <a href="days-between-dates-calculator.html">
+                Days Between Dates
+            </a>
+
+            <a href="date-add-subtract-calculator.html">
+                Date Add &amp; Subtract
+            </a>
+
+            <a href="time-zone-converter.html">
+                Time Zone Converter
+            </a>
+
+            <a href="percentage-calculator.html">
+                Percentage Calculator
+            </a>
+
+            <a href="average-calculator.html">
+                Average Calculator
+            </a>
+
+            <a href="number-calculator.html">
+                Number Calculator
+            </a>
+
+            <a href="scientific-calculator.html">
+                Scientific Calculator
+            </a>
+
+            <a href="unit-calculator.html">
+                Unit Calculator
+            </a>
+
+        </div>
+
+    </section>
+
+    <section class="info-section">
+
+        <h2>Time Calculator FAQs</h2>
+
+        <h3>What can a Time Calculator calculate?</h3>
+
+        <p>
+            A Time Calculator can add, subtract, multiply, and divide
+            hours, minutes, and seconds.
+        </p>
+
+        <h3>Can I add hours and minutes together?</h3>
+
+        <p>
+            Yes. Enter the hours, minutes, and seconds for each time period
+            and select the Add operation.
+        </p>
+
+        <h3>Why is calculating time manually difficult?</h3>
+
+        <p>
+            Time uses different units, with 60 minutes in an hour and
+            60 seconds in a minute. Converting between these units manually
+            can sometimes result in calculation errors.
+        </p>
+
+        <h3>Can the calculator subtract a larger time from a smaller time?</h3>
+
+        <p>
+            Yes. The calculator displays negative results when the second
+            time is greater than the first time during subtraction.
+        </p>
+
+        <h3>Can I divide time by another time?</h3>
+
+        <p>
+            Yes. The calculator divides the first time duration by the
+            second time duration. The second time cannot be zero.
+        </p>
+
+    </section>
+
+    <div class="internal-navigation">
+
+        <a href="tools.html">
+            ← All Tools
+        </a>
+
+        &nbsp; | &nbsp;
+
+        <a href="tools.html#date-time">
+            Date &amp; Time Calculators
+        </a>
+
     </div>
 
-</div>
-<section class="info-section">
-  <h2>Related Math & Time Calculators</h2>
+</main>
 
-  <p>
-    You may also find these free calculators useful:
-  </p>
-
-  <p>
-    <a href="percentage-calculator.html">Percentage Calculator</a> |
-    <a href="average-calculator.html">Average Calculator</a> |
-    <a href="date-calculator.html">Date Calculator</a> |
-    <a href="number-converter.html">Number Converter</a>
-  </p>
-</section>
-    <section class="info-section">
-  <h2>What Is a Time Calculator?</h2>
-
-  <p>
-    A Time Calculator is a free online tool that helps you add and subtract
-    hours, minutes and seconds. It can also be useful for calculating the
-    duration between different amounts of time.
-  </p>
-
-  <h2>How Does a Time Calculator Work?</h2>
-
-  <p>
-    Enter the hours, minutes and seconds you want to calculate into the
-    calculator above. The tool processes the values and provides the
-    resulting time quickly.
-  </p>
-
-  <h2>Adding Time</h2>
-
-  <p>
-    Adding time can be useful when combining multiple durations. For example,
-    if one task takes 2 hours and another takes 1 hour and 30 minutes, the
-    total duration is 3 hours and 30 minutes.
-  </p>
-
-  <h2>Subtracting Time</h2>
-
-  <p>
-    Subtracting time can help you find the difference between two durations.
-    It can be useful when planning schedules, calculating working hours or
-    comparing time periods.
-  </p>
-
-  <h2>Why Use an Online Time Calculator?</h2>
-
-  <p>
-    Calculating hours, minutes and seconds manually can sometimes lead to
-    mistakes, especially when minutes or seconds need to be converted.
-    An online Time Calculator provides quick and convenient results.
-  </p>
-
-  <h2>Time Calculator FAQs</h2>
-
-  <h3>What can a Time Calculator calculate?</h3>
-
-  <p>
-    A Time Calculator can add or subtract hours, minutes and seconds and help
-    calculate time durations.
-  </p>
-
-  <h3>Can I add hours and minutes together?</h3>
-
-  <p>
-    Yes. You can enter different time values and calculate their combined
-    duration using the calculator above.
-  </p>
-
-  <h3>Why is calculating time manually difficult?</h3>
-
-  <p>
-    Time uses different units, with 60 minutes in an hour and 60 seconds in a
-    minute. Converting between these units manually can sometimes result in
-    calculation errors.
-  </p>
-
-  <h3>Who can use a Time Calculator?</h3>
-
-  <p>
-    Students, teachers, employees, freelancers and anyone who needs to
-    calculate time durations can use this free online tool.
-  </p>
-
-  <p>
-    Use our free Time Calculator above to add, subtract and calculate time
-    durations quickly and easily.
-  </p>
-</section>
 <footer>
+
     © 2026 Easy Online Tool. All rights reserved.
+
+    <div class="footer-links">
+
+        <a href="index.html">Home</a>
+
+        <a href="tools.html">All Tools</a>
+
+        <a href="index.html#categories">Categories</a>
+
+        <a href="index.html#about">About</a>
+
+        <a href="index.html#faq">FAQ</a>
+
+        <a href="privacy-policy.html">Privacy Policy</a>
+
+        <a href="terms.html">Terms</a>
+
+        <a href="contact.html">Contact</a>
+
+    </div>
+
 </footer>
 
 <script>
@@ -483,27 +723,39 @@ function getTimeInSeconds(hoursId, minutesId, secondsId) {
            seconds;
 }
 
+
 function formatTime(totalSeconds) {
 
     const sign = totalSeconds < 0 ? "-" : "";
 
     totalSeconds = Math.abs(totalSeconds);
 
-    const hours = Math.floor(totalSeconds / 3600);
+    let hours = Math.floor(totalSeconds / 3600);
 
-    const minutes = Math.floor(
+    let minutes = Math.floor(
         (totalSeconds % 3600) / 60
     );
 
-    const seconds = Math.round(
+    let seconds = Math.round(
         totalSeconds % 60
     );
+
+    if (seconds === 60) {
+        seconds = 0;
+        minutes++;
+    }
+
+    if (minutes === 60) {
+        minutes = 0;
+        hours++;
+    }
 
     return sign +
         hours + "h " +
         minutes + "m " +
         seconds + "s";
 }
+
 
 function calculateTime() {
 
@@ -539,7 +791,9 @@ function calculateTime() {
     } else if (operation === "divide") {
 
         if (time2 === 0) {
+
             alert("You cannot divide by zero.");
+
             return;
         }
 
@@ -554,6 +808,15 @@ function calculateTime() {
 
     document.getElementById("result").style.display =
         "block";
+
+    if (window.innerWidth <= 600) {
+
+        document.getElementById("result").scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }
 }
 
 </script>
