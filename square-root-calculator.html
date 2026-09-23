@@ -8,6 +8,8 @@
 
     <meta name="description" content="Free online Square Root Calculator to calculate square roots quickly and accurately. Find the square root of positive numbers with an easy-to-use calculator.">
 
+    <meta name="keywords" content="square root calculator, square root calculator online, calculate square root, square root, math calculator, free calculator">
+
     <meta name="robots" content="index, follow">
 
     <link rel="canonical" href="https://easyonlinetools.github.io/my-tools/square-root-calculator.html">
@@ -254,6 +256,22 @@
             background: #eff6ff;
         }
 
+        .internal-navigation {
+            text-align: center;
+            margin: 30px 0;
+            font-size: 15px;
+        }
+
+        .internal-navigation a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .internal-navigation a:hover {
+            text-decoration: underline;
+        }
+
         .faq-item {
             margin-bottom: 20px;
         }
@@ -270,6 +288,20 @@
             padding: 25px 20px;
             color: #666;
             font-size: 14px;
+        }
+
+        .footer-links {
+            margin-top: 10px;
+        }
+
+        .footer-links a {
+            color: #2563eb;
+            text-decoration: none;
+            margin: 0 7px;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
         }
 
         @media (max-width: 700px) {
@@ -328,9 +360,9 @@
         <nav>
             <a href="index.html">Home</a>
             <a href="tools.html">Tools</a>
-            <a href="categories.html">Categories</a>
-            <a href="about.html">About</a>
-            <a href="faq.html">FAQ</a>
+            <a href="index.html#categories">Categories</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#faq">FAQ</a>
         </nav>
 
     </div>
@@ -346,7 +378,10 @@
     <div class="calculator-box">
 
         <div class="input-group">
-            <label for="number">Enter a Number</label>
+
+            <label for="number">
+                Enter a Number
+            </label>
 
             <input
                 type="number"
@@ -354,6 +389,7 @@
                 placeholder="Enter a number, e.g. 144"
                 step="any"
             >
+
         </div>
 
         <div class="button-group">
@@ -504,12 +540,24 @@
                 Fraction Calculator
             </a>
 
-            <a href="prime-number-calculator.html">
-                Prime Number Calculator
+            <a href="prime-number-checker.html">
+                Prime Number Checker
             </a>
 
             <a href="gcd-lcm-calculator.html">
                 GCD &amp; LCM Calculator
+            </a>
+
+            <a href="percentage-calculator.html">
+                Percentage Calculator
+            </a>
+
+            <a href="proportion-calculator.html">
+                Proportion Calculator
+            </a>
+
+            <a href="random-number-generator.html">
+                Random Number Generator
             </a>
 
         </div>
@@ -576,10 +624,46 @@
 
     </section>
 
+    <div class="internal-navigation">
+
+        <a href="tools.html">
+            ← All Tools
+        </a>
+
+        &nbsp; | &nbsp;
+
+        <a href="tools.html#math">
+            Math &amp; Advanced Calculators
+        </a>
+
+    </div>
+
 </main>
 
 <footer>
+
     © 2026 Easy Online Tool. All rights reserved.
+
+    <div class="footer-links">
+
+        <a href="index.html">Home</a>
+
+        <a href="tools.html">All Tools</a>
+
+        <a href="index.html#categories">Categories</a>
+
+        <a href="index.html#about">About</a>
+
+        <a href="index.html#faq">FAQ</a>
+
+        <a href="privacy-policy.html">Privacy Policy</a>
+
+        <a href="terms.html">Terms</a>
+
+        <a href="contact.html">Contact</a>
+
+    </div>
+
 </footer>
 
 <script>
@@ -600,19 +684,26 @@ function formatNumber(number) {
     return Number(number.toPrecision(12)).toString();
 }
 
+
 function calculateSquareRoot() {
 
-    const input = document.getElementById("number").value.trim();
+    const input =
+        document.getElementById("number").value.trim();
 
-    const error = document.getElementById("error");
-    const results = document.getElementById("results");
+    const error =
+        document.getElementById("error");
+
+    const results =
+        document.getElementById("results");
 
     error.style.display = "none";
     results.style.display = "none";
 
     if (input === "") {
 
-        error.textContent = "Please enter a number.";
+        error.textContent =
+            "Please enter a number.";
+
         error.style.display = "block";
 
         return;
@@ -622,7 +713,9 @@ function calculateSquareRoot() {
 
     if (!Number.isFinite(number)) {
 
-        error.textContent = "Please enter a valid number.";
+        error.textContent =
+            "Please enter a valid number.";
+
         error.style.display = "block";
 
         return;
@@ -647,8 +740,10 @@ function calculateSquareRoot() {
         formatNumber(result);
 
     document.getElementById("verification").textContent =
-        formatNumber(result) + " × " +
-        formatNumber(result) + " ≈ " +
+        formatNumber(result) +
+        " × " +
+        formatNumber(result) +
+        " ≈ " +
         formatNumber(number);
 
     results.style.display = "block";
@@ -663,14 +758,18 @@ function calculateSquareRoot() {
     }
 }
 
+
 function resetCalculator() {
 
     document.getElementById("number").value = "";
 
-    document.getElementById("error").style.display = "none";
+    document.getElementById("error").style.display =
+        "none";
 
-    document.getElementById("results").style.display = "none";
+    document.getElementById("results").style.display =
+        "none";
 }
+
 
 document.getElementById("number").addEventListener(
     "keydown",
