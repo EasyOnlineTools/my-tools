@@ -8,6 +8,8 @@
 
     <meta name="description" content="Use our free Proportion Calculator to solve proportions and find the missing value quickly. Enter three known values and calculate the fourth value instantly.">
 
+    <meta name="keywords" content="proportion calculator, solve proportions, ratio calculator, missing value calculator, proportion solver, free online calculator">
+
     <meta name="robots" content="index, follow">
 
     <link rel="canonical" href="https://easyonlinetools.github.io/my-tools/proportion-calculator.html">
@@ -109,12 +111,6 @@
             height: 2px;
             background: #333;
             margin: 0 5px;
-        }
-
-        .equals {
-            text-align: center;
-            font-size: 28px;
-            font-weight: bold;
         }
 
         .input-group {
@@ -265,6 +261,22 @@
             color: #007bff;
         }
 
+        .internal-navigation {
+            text-align: center;
+            margin-top: 30px;
+            padding: 15px;
+        }
+
+        .internal-navigation a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .internal-navigation a:hover {
+            text-decoration: underline;
+        }
+
         .faq-item {
             margin-bottom: 20px;
         }
@@ -280,6 +292,20 @@
             background: #ffffff;
             border-top: 1px solid #e5e7eb;
             color: #666;
+        }
+
+        .footer-links {
+            margin-top: 10px;
+        }
+
+        .footer-links a {
+            color: #666;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        .footer-links a:hover {
+            color: #007bff;
         }
 
         @media (max-width: 700px) {
@@ -302,10 +328,6 @@
             .proportion-layout {
                 grid-template-columns: 1fr;
                 gap: 15px;
-            }
-
-            .equals {
-                font-size: 24px;
             }
 
             .button-row {
@@ -354,9 +376,9 @@
         <nav>
             <a href="index.html">Home</a>
             <a href="tools.html">Tools</a>
-            <a href="categories.html">Categories</a>
-            <a href="about.html">About</a>
-            <a href="faq.html">FAQ</a>
+            <a href="index.html#categories">Categories</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#faq">FAQ</a>
         </nav>
     </div>
 </header>
@@ -502,7 +524,7 @@
 
     <section class="info-section">
 
-        <h2>Related Tools</h2>
+        <h2>Related Math & Advanced Tools</h2>
 
         <div class="related-tools">
 
@@ -526,13 +548,31 @@
                 GCD & LCM Calculator
             </a>
 
-            <a href="percentage-increase-decrease-calculator.html">
+            <a href="percentage-increase-decrease.html">
                 Percentage Increase & Decrease
+            </a>
+
+            <a href="number-to-words.html">
+                Number to Words
+            </a>
+
+            <a href="prime-number-checker.html">
+                Prime Number Checker
+            </a>
+
+            <a href="number-calculator.html">
+                Number Calculator
             </a>
 
         </div>
 
     </section>
+
+    <div class="internal-navigation">
+        <a href="tools.html">← All Tools</a>
+        &nbsp; | &nbsp;
+        <a href="tools.html#math">Math & Advanced Calculators</a>
+    </div>
 
     <section class="info-section">
 
@@ -574,7 +614,20 @@
 </main>
 
 <footer>
+
     © 2026 Easy Online Tool. All rights reserved.
+
+    <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="tools.html">All Tools</a>
+        <a href="index.html#categories">Categories</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="privacy-policy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
 </footer>
 
 <script>
@@ -605,7 +658,9 @@ function calculateProportion() {
         { input: dInput, name: "D" }
     ];
 
-    const emptyFields = fields.filter(field => field.input.value.trim() === "");
+    const emptyFields = fields.filter(
+        field => field.input.value.trim() === ""
+    );
 
     if (emptyFields.length !== 1) {
         error.textContent =
@@ -617,7 +672,9 @@ function calculateProportion() {
     const values = {};
 
     for (const field of fields) {
+
         if (field.input.value.trim() !== "") {
+
             const value = Number(field.input.value);
 
             if (!Number.isFinite(value)) {
@@ -635,8 +692,8 @@ function calculateProportion() {
 
     if (!("A" in values)) {
 
-        if (values.B === 0) {
-            error.textContent = "The second value (B) cannot be zero.";
+        if (values.D === 0) {
+            error.textContent = "The fourth value (D) cannot be zero.";
             error.style.display = "block";
             return;
         }
@@ -646,8 +703,8 @@ function calculateProportion() {
 
     } else if (!("B" in values)) {
 
-        if (values.D === 0) {
-            error.textContent = "The fourth value (D) cannot be zero.";
+        if (values.C === 0) {
+            error.textContent = "The third value (C) cannot be zero.";
             error.style.display = "block";
             return;
         }
@@ -669,7 +726,8 @@ function calculateProportion() {
     } else {
 
         if (values.A === 0) {
-            error.textContent = "The first value (A) cannot be zero when calculating D.";
+            error.textContent =
+                "The first value (A) cannot be zero when calculating D.";
             error.style.display = "block";
             return;
         }
