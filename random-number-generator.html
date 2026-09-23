@@ -128,4 +128,636 @@
         .generate-btn {
             width: 100%;
             margin-top: 22px;
-            padding: 14px
+            padding: 14px;
+            border: none;
+            border-radius: 7px;
+            background: #2563eb;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .generate-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .clear-btn {
+            width: 100%;
+            margin-top: 10px;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 7px;
+            background: #ffffff;
+            color: #374151;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .clear-btn:hover {
+            background: #f3f4f6;
+        }
+
+        .result {
+            display: none;
+            margin-top: 25px;
+            padding: 25px;
+            background: #f0f7ff;
+            border-radius: 8px;
+        }
+
+        .result h2 {
+            text-align: center;
+            margin-bottom: 18px;
+            color: #111827;
+        }
+
+        .numbers {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .number-box {
+            min-width: 70px;
+            padding: 12px 15px;
+            background: #ffffff;
+            border-radius: 7px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .info {
+            background: white;
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .info h2 {
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .info h3 {
+            margin-top: 20px;
+            margin-bottom: 8px;
+            color: #111827;
+        }
+
+        .info p {
+            margin-bottom: 14px;
+            color: #4b5563;
+        }
+
+        .info a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .info a:hover {
+            text-decoration: underline;
+        }
+
+        .internal-nav {
+            max-width: 850px;
+            margin: 25px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .internal-nav a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .internal-nav a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 25px 20px;
+            text-align: center;
+            background: #ffffff;
+            border-top: 1px solid #e5e7eb;
+            color: #6b7280;
+        }
+
+        footer p {
+            margin-bottom: 8px;
+        }
+
+        footer a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 650px) {
+
+            .nav-container {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .tool-header h1 {
+                font-size: 28px;
+            }
+
+            .calculator {
+                padding: 20px;
+            }
+
+            .input-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="nav-container">
+
+        <a href="index.html" class="logo">
+            Easy Online Tool
+        </a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="tools.html">Tools</a>
+            <a href="index.html#categories">Categories</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#faq">FAQ</a>
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+    <div class="tool-header">
+
+        <h1>Random Number Generator</h1>
+
+        <p>
+            Generate random numbers between any minimum and maximum values.
+        </p>
+
+    </div>
+
+
+    <div class="calculator">
+
+        <div class="input-grid">
+
+            <div class="input-group">
+
+                <label for="minimum">
+                    Minimum Number
+                </label>
+
+                <input
+                    type="number"
+                    id="minimum"
+                    value="1"
+                    placeholder="Example: 1"
+                >
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label for="maximum">
+                    Maximum Number
+                </label>
+
+                <input
+                    type="number"
+                    id="maximum"
+                    value="100"
+                    placeholder="Example: 100"
+                >
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label for="quantity">
+                    How Many Numbers?
+                </label>
+
+                <input
+                    type="number"
+                    id="quantity"
+                    value="1"
+                    min="1"
+                    max="100"
+                    step="1"
+                >
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label for="unique">
+                    Number Selection
+                </label>
+
+                <select id="unique">
+
+                    <option value="no">
+                        Allow Repeats
+                    </option>
+
+                    <option value="yes">
+                        Unique Numbers Only
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="generate-btn"
+            onclick="generateNumbers()"
+        >
+            Generate Random Numbers
+        </button>
+
+
+        <button
+            class="clear-btn"
+            onclick="clearCalculator()"
+        >
+            Clear
+        </button>
+
+
+        <div class="result" id="result">
+
+            <h2>Random Numbers</h2>
+
+            <div class="numbers" id="numbers"></div>
+
+        </div>
+
+    </div>
+
+
+    <div class="info">
+
+        <h2>What is a Random Number Generator?</h2>
+
+        <p>
+            A random number generator creates numbers randomly within a
+            range that you choose. You can specify a minimum number,
+            maximum number and how many random numbers you want.
+        </p>
+
+
+        <h2>How to Use the Random Number Generator</h2>
+
+        <p>
+            Enter your minimum and maximum values, choose how many
+            numbers you want, and click "Generate Random Numbers".
+        </p>
+
+        <p>
+            You can also choose whether repeated numbers are allowed
+            or whether every generated number must be unique.
+        </p>
+
+    </div>
+
+
+    <div class="info">
+
+        <h2>Related Math Calculators</h2>
+
+        <p>
+            Explore more free math tools from Easy Online Tool:
+        </p>
+
+        <p>
+            <a href="prime-number-checker.html">Prime Number Checker</a> |
+            <a href="gcd-lcm-calculator.html">GCD & LCM Calculator</a> |
+            <a href="fraction-calculator.html">Fraction Calculator</a> |
+            <a href="percentage-calculator.html">Percentage Calculator</a> |
+            <a href="average-calculator.html">Average Calculator</a>
+        </p>
+
+    </div>
+
+
+    <div class="info">
+
+        <h2>Common Uses of Random Number Generators</h2>
+
+        <p>
+            Random number generators can be useful for games, classroom
+            activities, contests, simulations, testing, selecting random
+            items and other everyday tasks.
+        </p>
+
+        <h2>Generate Random Numbers With or Without Repeats</h2>
+
+        <p>
+            This calculator allows you to generate multiple numbers and
+            choose whether repeated numbers are allowed. Select
+            "Unique Numbers Only" when every generated number needs to
+            be different.
+        </p>
+
+        <h2>Why Use an Online Random Number Generator?</h2>
+
+        <p>
+            Generating random numbers manually can be inconvenient,
+            especially when you need several numbers or a specific range.
+            This free online tool provides quick results directly in your
+            browser.
+        </p>
+
+    </div>
+
+
+    <div class="info">
+
+        <h2>Random Number Generator FAQs</h2>
+
+        <h3>What is a random number generator?</h3>
+
+        <p>
+            A random number generator is a tool that produces numbers
+            within a specified range using a random selection process.
+        </p>
+
+        <h3>Can I generate multiple random numbers?</h3>
+
+        <p>
+            Yes. You can generate up to 100 random numbers at once using
+            this calculator.
+        </p>
+
+        <h3>Can random numbers repeat?</h3>
+
+        <p>
+            Yes. Select "Allow Repeats" if repeated numbers are permitted.
+            Select "Unique Numbers Only" when duplicate numbers should not
+            appear.
+        </p>
+
+        <h3>Can I generate random numbers between negative values?</h3>
+
+        <p>
+            Yes. You can enter negative or positive whole numbers as the
+            minimum and maximum values, provided the minimum is not greater
+            than the maximum.
+        </p>
+
+        <h3>What can random numbers be used for?</h3>
+
+        <p>
+            Random numbers can be useful for games, classroom exercises,
+            contests, simulations, testing and randomly selecting items.
+        </p>
+
+    </div>
+
+</main>
+
+
+<div class="internal-nav">
+
+    <a href="tools.html">← All Tools</a>
+    |
+    <a href="tools.html#math">Math & Advanced Calculators</a>
+
+</div>
+
+
+<footer>
+
+    <p>
+        © 2026 Easy Online Tool. All rights reserved.
+    </p>
+
+    <p>
+        <a href="index.html">Home</a> |
+        <a href="tools.html">All Tools</a> |
+        <a href="index.html#categories">Categories</a> |
+        <a href="index.html#about">About</a> |
+        <a href="index.html#faq">FAQ</a>
+    </p>
+
+    <p>
+        <a href="privacy-policy.html">Privacy Policy</a> |
+        <a href="terms.html">Terms</a> |
+        <a href="contact.html">Contact</a>
+    </p>
+
+</footer>
+
+
+<script>
+
+function generateNumbers() {
+
+    const minimumInput =
+        document.getElementById("minimum").value;
+
+    const maximumInput =
+        document.getElementById("maximum").value;
+
+    const quantityInput =
+        document.getElementById("quantity").value;
+
+    const unique =
+        document.getElementById("unique").value;
+
+
+    if (
+        minimumInput === "" ||
+        maximumInput === "" ||
+        quantityInput === ""
+    ) {
+
+        alert("Please enter all required values.");
+
+        return;
+    }
+
+
+    const minimum = Number(minimumInput);
+    const maximum = Number(maximumInput);
+    const quantity = Number(quantityInput);
+
+
+    if (!Number.isInteger(minimum) ||
+        !Number.isInteger(maximum)) {
+
+        alert("Please enter whole numbers for the minimum and maximum.");
+
+        return;
+    }
+
+
+    if (minimum > maximum) {
+
+        alert("Minimum number cannot be greater than maximum number.");
+
+        return;
+    }
+
+
+    if (!Number.isInteger(quantity) || quantity < 1) {
+
+        alert("Please enter a valid quantity.");
+
+        return;
+    }
+
+
+    if (quantity > 100) {
+
+        alert("You can generate a maximum of 100 numbers at once.");
+
+        return;
+    }
+
+
+    const availableNumbers =
+        maximum - minimum + 1;
+
+
+    if (
+        unique === "yes" &&
+        quantity > availableNumbers
+    ) {
+
+        alert(
+            "There are not enough numbers in this range for " +
+            quantity +
+            " unique numbers."
+        );
+
+        return;
+    }
+
+
+    const generated = [];
+
+
+    if (unique === "yes") {
+
+        while (generated.length < quantity) {
+
+            const randomNumber =
+                Math.floor(
+                    Math.random() *
+                    (maximum - minimum + 1)
+                ) + minimum;
+
+
+            if (!generated.includes(randomNumber)) {
+
+                generated.push(randomNumber);
+
+            }
+
+        }
+
+    } else {
+
+        for (let i = 0; i < quantity; i++) {
+
+            const randomNumber =
+                Math.floor(
+                    Math.random() *
+                    (maximum - minimum + 1)
+                ) + minimum;
+
+            generated.push(randomNumber);
+        }
+
+    }
+
+
+    displayNumbers(generated);
+
+}
+
+
+function displayNumbers(numbers) {
+
+    const container =
+        document.getElementById("numbers");
+
+    container.innerHTML = "";
+
+
+    numbers.forEach(function(number) {
+
+        const box =
+            document.createElement("div");
+
+        box.className = "number-box";
+
+        box.textContent = number;
+
+        container.appendChild(box);
+
+    });
+
+
+    document.getElementById("result").style.display =
+        "block";
+
+}
+
+
+function clearCalculator() {
+
+    document.getElementById("minimum").value = "1";
+
+    document.getElementById("maximum").value = "100";
+
+    document.getElementById("quantity").value = "1";
+
+    document.getElementById("unique").value = "no";
+
+    document.getElementById("numbers").innerHTML = "";
+
+    document.getElementById("result").style.display =
+        "none";
+
+}
+
+</script>
+
+</body>
+</html>
