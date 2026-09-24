@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Length Converter – Free Online Length Conversion Tool</title>
+
+    <meta name="description"
+        content="Use our free online Length Converter to convert meters, kilometers, centimeters, millimeters, miles, yards, feet, inches and more.">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical"
+        href="https://easyonlinetools.github.io/my-tools/length-converter.html">
+
+    <meta property="og:title"
+        content="Length Converter – Easy Online Tool">
+
+    <meta property="og:description"
+        content="Convert length and distance units quickly with this free online Length Converter.">
+
+    <meta property="og:type" content="website">
+
+    <meta property="og:url"
+        content="https://easyonlinetools.github.io/my-tools/length-converter.html">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #ddd;
+            padding: 16px 20px;
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #222;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .calculator-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+            font-size: 32px;
+        }
+
+        .intro {
+            text-align: center;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+            background: #fff;
+        }
+
+        .convert-button {
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 6px;
+            background: #222;
+            color: #fff;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .convert-button:hover {
+            opacity: 0.9;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 18px;
+            background: #f0f4f8;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            display: none;
+        }
+
+        .info-section {
+            background: #ffffff;
+            margin-top: 25px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+        }
+
+        .info-section h2 {
+            margin-top: 0;
+        }
+
+        .related-tools {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .related-tools a {
+            display: block;
+            padding: 12px 15px;
+            background: #f5f7fa;
+            border-radius: 6px;
+            color: #222;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .related-tools a:hover {
+            text-decoration: underline;
+        }
+
+        .internal-navigation {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .internal-navigation a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #333;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+            color: #666;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 26px;
+            }
+
+            .calculator-card,
+            .info-section {
+                padding: 20px;
+            }
+
+            .header-container {
+                flex-direction: column;
+            }
+
+            nav {
+                justify-content: center;
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Length Converter",
+        "url": "https://easyonlinetools.github.io/my-tools/length-converter.html",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "description": "Free online length and distance converter for converting common measurement units."
+    }
+    </script>
+
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+
+        <a href="index.html" class="logo">
+            Easy Online Tool
+        </a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="tools.html">Tools</a>
+            <a href="tools.html#categories">Categories</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
+
+    </div>
+</header>
+
+<main>
+
+    <div class="calculator-card">
+
+        <h1>Length Converter</h1>
+
+        <p class="intro">
+            Convert length and distance measurements quickly and easily.
+            Choose your units, enter a value, and get the converted result instantly.
+        </p>
+
+        <div class="form-group">
+
+            <label for="value">
+                Enter Value
+            </label>
+
+            <input
+                type="number"
+                id="value"
+                placeholder="Enter a number"
+                step="any"
+            >
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="fromUnit">
+                From
+            </label>
+
+            <select id="fromUnit">
+
+                <option value="meter">Meter (m)</option>
+                <option value="kilometer">Kilometer (km)</option>
+                <option value="centimeter">Centimeter (cm)</option>
+                <option value="millimeter">Millimeter (mm)</option>
+                <option value="micrometer">Micrometer (µm)</option>
+                <option value="nanometer">Nanometer (nm)</option>
+                <option value="mile">Mile (mi)</option>
+                <option value="yard">Yard (yd)</option>
+                <option value="foot">Foot (ft)</option>
+                <option value="inch">Inch (in)</option>
+                <option value="nautical-mile">Nautical Mile (nmi)</option>
+
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="toUnit">
+                To
+            </label>
+
+            <select id="toUnit">
+
+                <option value="meter">Meter (m)</option>
+                <option value="kilometer">Kilometer (km)</option>
+                <option value="centimeter">Centimeter (cm)</option>
+                <option value="millimeter">Millimeter (mm)</option>
+                <option value="micrometer">Micrometer (µm)</option>
+                <option value="nanometer">Nanometer (nm)</option>
+                <option value="mile">Mile (mi)</option>
+                <option value="yard">Yard (yd)</option>
+                <option value="foot">Foot (ft)</option>
+                <option value="inch">Inch (in)</option>
+                <option value="nautical-mile">Nautical Mile (nmi)</option>
+
+            </select>
+
+        </div>
+
+        <button class="convert-button" onclick="convertLength()">
+            Convert Length
+        </button>
+
+        <div id="result" class="result"></div>
+
+    </div>
+
+
+    <section class="info-section">
+
+        <h2>Length Conversion</h2>
+
+        <p>
+            The Length Converter helps you convert measurements between
+            common metric and imperial units. You can convert meters,
+            kilometers, centimeters, millimeters, miles, yards, feet,
+            inches and nautical miles.
+        </p>
+
+        <p>
+            This free online converter is useful for everyday measurements,
+            school work, construction, engineering, travel, fitness and
+            other situations where different length units need to be converted.
+        </p>
+
+    </section>
+
+
+    <section class="info-section">
+
+        <h2>Common Length Conversions</h2>
+
+        <p>
+            Some commonly used length conversions include:
+        </p>
+
+        <ul>
+            <li>1 kilometer = 1,000 meters</li>
+            <li>1 meter = 100 centimeters</li>
+            <li>1 meter = 1,000 millimeters</li>
+            <li>1 mile = 5,280 feet</li>
+            <li>1 yard = 3 feet</li>
+            <li>1 foot = 12 inches</li>
+        </ul>
+
+    </section>
+
+
+    <section class="info-section">
+
+        <h2>Related Conversion Tools</h2>
+
+        <p>
+            Explore other free conversion tools for converting weight,
+            temperature, area, volume, speed, pressure, energy and data storage.
+        </p>
+
+        <div class="related-tools">
+
+            <a href="unit-calculator.html">
+                Unit Converter
+            </a>
+
+            <a href="weight-converter.html">
+                Weight Converter
+            </a>
+
+            <a href="temperature-converter.html">
+                Temperature Converter
+            </a>
+
+            <a href="area-converter.html">
+                Area Converter
+            </a>
+
+            <a href="volume-converter.html">
+                Volume Converter
+            </a>
+
+            <a href="speed-converter.html">
+                Speed Converter
+            </a>
+
+            <a href="pressure-converter.html">
+                Pressure Converter
+            </a>
+
+            <a href="energy-converter.html">
+                Energy Converter
+            </a>
+
+            <a href="data-storage-converter.html">
+                Data Storage Converter
+            </a>
+
+            <a href="tools.html#converters">
+                More Conversion Tools
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <div class="internal-navigation">
+
+        <a href="tools.html">
+            ← All Tools
+        </a>
+
+        <a href="tools.html#converters">
+            Conversion Tools
+        </a>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 Easy Online Tool. All rights reserved.
+    </p>
+
+</footer>
+
+
+<script>
+
+function convertLength() {
+
+    const value = parseFloat(document.getElementById("value").value);
+
+    const fromUnit = document.getElementById("fromUnit").value;
+
+    const toUnit = document.getElementById("toUnit").value;
+
+    const result = document.getElementById("result");
+
+    if (isNaN(value)) {
+
+        result.style.display = "block";
+
+        result.textContent = "Please enter a valid number.";
+
+        return;
+    }
+
+    const units = {
+
+        "meter": 1,
+
+        "kilometer": 1000,
+
+        "centimeter": 0.01,
+
+        "millimeter": 0.001,
+
+        "micrometer": 0.000001,
+
+        "nanometer": 0.000000001,
+
+        "mile": 1609.344,
+
+        "yard": 0.9144,
+
+        "foot": 0.3048,
+
+        "inch": 0.0254,
+
+        "nautical-mile": 1852
+
+    };
+
+    const valueInMeters = value * units[fromUnit];
+
+    const convertedValue = valueInMeters / units[toUnit];
+
+    result.style.display = "block";
+
+    result.textContent =
+        value + " " + getUnitName(fromUnit) +
+        " = " +
+        formatNumber(convertedValue) + " " +
+        getUnitName(toUnit);
+
+}
+
+
+function formatNumber(number) {
+
+    if (Math.abs(number) >= 0.000001 && Math.abs(number) < 1000000000) {
+
+        return Number(number.toFixed(10)).toString();
+
+    }
+
+    return number.toExponential(6);
+
+}
+
+
+function getUnitName(unit) {
+
+    const names = {
+
+        "meter": "meters",
+
+        "kilometer": "kilometers",
+
+        "centimeter": "centimeters",
+
+        "millimeter": "millimeters",
+
+        "micrometer": "micrometers",
+
+        "nanometer": "nanometers",
+
+        "mile": "miles",
+
+        "yard": "yards",
+
+        "foot": "feet",
+
+        "inch": "inches",
+
+        "nautical-mile": "nautical miles"
+
+    };
+
+    return names[unit];
+
+}
+
+</script>
+
+</body>
+
+</html>
