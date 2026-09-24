@@ -1,0 +1,710 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Percentage of Salary Calculator – Calculate Salary Percentage | Easy Online Tool</title>
+
+    <meta name="description"
+        content="Use our free Percentage of Salary Calculator to calculate any percentage of your salary quickly. Find salary percentages, increases, deductions, bonuses, and more.">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical"
+        href="https://easyonlinetools.github.io/my-tools/percentage-of-salary-calculator.html">
+
+    <meta name="keywords"
+        content="percentage of salary calculator, salary percentage calculator, calculate percentage of salary, salary calculator, percentage calculator, salary increase calculator">
+
+    <!-- Open Graph -->
+    <meta property="og:title"
+        content="Percentage of Salary Calculator – Calculate Salary Percentage">
+
+    <meta property="og:description"
+        content="Calculate any percentage of your salary quickly with this free online Percentage of Salary Calculator.">
+
+    <meta property="og:type" content="website">
+
+    <meta property="og:url"
+        content="https://easyonlinetools.github.io/my-tools/percentage-of-salary-calculator.html">
+
+    <meta property="og:site_name" content="Easy Online Tool">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Percentage of Salary Calculator",
+        "url": "https://easyonlinetools.github.io/my-tools/percentage-of-salary-calculator.html",
+        "description": "A free online calculator for finding a percentage of a salary.",
+        "applicationCategory": "Calculator",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fa;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 15px 20px;
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #222;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .calculator-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+            font-size: 32px;
+        }
+
+        .intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #555;
+        }
+
+        .section-title {
+            font-size: 21px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .input-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cfd5dc;
+            border-radius: 7px;
+            font-size: 16px;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #666;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        button {
+            flex: 1;
+            padding: 13px 18px;
+            border: none;
+            border-radius: 7px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .calculate-btn {
+            background: #222;
+            color: #ffffff;
+        }
+
+        .reset-btn {
+            background: #e5e7eb;
+            color: #222;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 8px;
+            background: #f1f3f5;
+            display: none;
+        }
+
+        .result h2 {
+            margin-top: 0;
+            font-size: 22px;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .result-row:last-child {
+            border-bottom: none;
+        }
+
+        .result-label {
+            font-weight: bold;
+        }
+
+        .highlight {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .formula-box {
+            margin-top: 30px;
+            padding: 20px;
+            background: #fafafa;
+            border-left: 4px solid #555;
+            border-radius: 5px;
+        }
+
+        .info-section {
+            margin-top: 35px;
+        }
+
+        .info-section h2 {
+            font-size: 24px;
+        }
+
+        .info-section h3 {
+            font-size: 19px;
+            margin-top: 25px;
+        }
+
+        .info-section p {
+            color: #444;
+        }
+
+        .related-tools {
+            margin-top: 35px;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 10px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .related-tools a {
+            display: inline-block;
+            margin: 6px 10px 6px 0;
+            color: #222;
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 25px 20px;
+            text-align: center;
+            background: #ffffff;
+            border-top: 1px solid #e5e7eb;
+            color: #666;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #444;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        @media (max-width: 650px) {
+
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            .container {
+                margin-top: 25px;
+            }
+
+            .calculator-card {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 27px;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .result-row {
+                flex-direction: column;
+                gap: 2px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+
+        <div class="header-container">
+
+            <a href="index.html" class="logo">
+                Easy Online Tool
+            </a>
+
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="tools.html">Tools</a>
+                <a href="tools.html#finance">Finance</a>
+                <a href="about.html">About</a>
+                <a href="faq.html">FAQ</a>
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <main class="container">
+
+        <div class="calculator-card">
+
+            <h1>Percentage of Salary Calculator</h1>
+
+            <p class="intro">
+                Calculate any percentage of your salary quickly and easily.
+                Enter your salary and the percentage you want to calculate
+                to find the exact amount instantly.
+            </p>
+
+
+            <h2 class="section-title">Calculate Percentage of Salary</h2>
+
+
+            <div class="input-group">
+
+                <label for="salary">
+                    Salary Amount
+                </label>
+
+                <input
+                    type="number"
+                    id="salary"
+                    placeholder="Enter your salary"
+                    min="0"
+                    step="0.01">
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label for="percentage">
+                    Percentage (%)
+                </label>
+
+                <input
+                    type="number"
+                    id="percentage"
+                    placeholder="Enter percentage"
+                    min="0"
+                    step="0.01">
+
+            </div>
+
+
+            <div class="button-group">
+
+                <button
+                    type="button"
+                    class="calculate-btn"
+                    onclick="calculateSalaryPercentage()">
+                    Calculate
+                </button>
+
+                <button
+                    type="button"
+                    class="reset-btn"
+                    onclick="resetCalculator()">
+                    Reset
+                </button>
+
+            </div>
+
+
+            <div class="result" id="result">
+
+                <h2>Calculation Result</h2>
+
+                <div class="result-row">
+
+                    <span class="result-label">
+                        Salary:
+                    </span>
+
+                    <span id="displaySalary">
+                        $0.00
+                    </span>
+
+                </div>
+
+
+                <div class="result-row">
+
+                    <span class="result-label">
+                        Percentage:
+                    </span>
+
+                    <span id="displayPercentage">
+                        0%
+                    </span>
+
+                </div>
+
+
+                <div class="result-row">
+
+                    <span class="result-label">
+                        Percentage Amount:
+                    </span>
+
+                    <span id="percentageAmount">
+                        $0.00
+                    </span>
+
+                </div>
+
+
+                <div class="result-row highlight">
+
+                    <span>
+                        Salary Remaining:
+                    </span>
+
+                    <span id="remainingSalary">
+                        $0.00
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="formula-box">
+
+                <strong>Percentage of Salary Formula:</strong>
+
+                <p>
+                    Percentage Amount = Salary × (Percentage ÷ 100)
+                </p>
+
+                <p>
+                    Salary Remaining = Salary − Percentage Amount
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <section class="info-section">
+
+            <h2>What Is a Percentage of Salary Calculator?</h2>
+
+            <p>
+                A Percentage of Salary Calculator helps you find a specific
+                percentage of your salary quickly. It can be useful when
+                calculating deductions, savings, bonuses, contributions,
+                allowances, raises, or other salary-related amounts.
+            </p>
+
+
+            <h3>How to Calculate a Percentage of Salary</h3>
+
+            <p>
+                To calculate a percentage of your salary, multiply your salary
+                by the percentage divided by 100.
+            </p>
+
+            <p>
+                For example, if your salary is $5,000 and you want to calculate
+                10% of your salary:
+            </p>
+
+            <p>
+                $5,000 × 10 ÷ 100 = $500
+            </p>
+
+            <p>
+                Therefore, 10% of a $5,000 salary is $500.
+            </p>
+
+
+            <h3>Salary Percentage Example</h3>
+
+            <p>
+                Suppose your monthly salary is $4,000 and you want to know
+                how much 15% of your salary is.
+            </p>
+
+            <p>
+                Percentage Amount = $4,000 × 15 ÷ 100
+            </p>
+
+            <p>
+                Percentage Amount = $600
+            </p>
+
+            <p>
+                So, 15% of a $4,000 salary is $600.
+            </p>
+
+
+            <h3>Common Uses</h3>
+
+            <p>
+                This calculator can be used for salary deductions, retirement
+                contributions, savings targets, employee bonuses, commissions,
+                salary increases, charitable contributions, and budgeting.
+            </p>
+
+
+            <h3>Salary Increase Example</h3>
+
+            <p>
+                If your salary is $3,000 and you receive a 10% increase,
+                10% of $3,000 is $300. The new salary would therefore be
+                $3,300.
+            </p>
+
+
+            <h3>Why Use Our Percentage of Salary Calculator?</h3>
+
+            <p>
+                Our calculator provides a fast and simple way to calculate
+                salary percentages without doing the calculation manually.
+                It works directly in your web browser and is free to use.
+            </p>
+
+        </section>
+
+
+        <section class="related-tools">
+
+            <h2>Related Calculators</h2>
+
+            <a href="percentage-calculator.html">
+                Percentage Calculator
+            </a>
+
+            <a href="percentage-increase-decrease.html">
+                Percentage Increase &amp; Decrease
+            </a>
+
+            <a href="sales-tax-calculator.html">
+                Sales Tax Calculator
+            </a>
+
+            <a href="discount-calculator.html">
+                Discount Calculator
+            </a>
+
+            <a href="commission-calculator.html">
+                Commission Calculator
+            </a>
+
+            <a href="debt-to-income-ratio-calculator.html">
+                Debt-to-Income Ratio Calculator
+            </a>
+
+            <a href="loan-calculator.html">
+                Loan Calculator
+            </a>
+
+            <a href="simple-interest-calculator.html">
+                Simple Interest Calculator
+            </a>
+
+            <a href="compound-interest-calculator.html">
+                Compound Interest Calculator
+            </a>
+
+            <a href="tools.html#finance">
+                More Finance Calculators
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            © 2026 Easy Online Tool. All rights reserved.
+        </p>
+
+        <p>
+            <a href="index.html">Home</a>
+
+            <a href="tools.html">Tools</a>
+
+            <a href="about.html">About</a>
+
+            <a href="faq.html">FAQ</a>
+        </p>
+
+    </footer>
+
+
+    <script>
+
+        function calculateSalaryPercentage() {
+
+            const salaryInput =
+                document.getElementById("salary").value;
+
+            const percentageInput =
+                document.getElementById("percentage").value;
+
+
+            const salary = parseFloat(salaryInput);
+
+            const percentage = parseFloat(percentageInput);
+
+
+            if (
+                isNaN(salary) ||
+                isNaN(percentage) ||
+                salary < 0 ||
+                percentage < 0
+            ) {
+
+                alert(
+                    "Please enter a valid salary and percentage."
+                );
+
+                return;
+            }
+
+
+            const percentageAmount =
+                salary * (percentage / 100);
+
+
+            const remainingSalary =
+                salary - percentageAmount;
+
+
+            document.getElementById("displaySalary").textContent =
+                "$" + salary.toFixed(2);
+
+
+            document.getElementById("displayPercentage").textContent =
+                percentage.toFixed(2) + "%";
+
+
+            document.getElementById("percentageAmount").textContent =
+                "$" + percentageAmount.toFixed(2);
+
+
+            document.getElementById("remainingSalary").textContent =
+                "$" + remainingSalary.toFixed(2);
+
+
+            document.getElementById("result").style.display =
+                "block";
+
+        }
+
+
+        function resetCalculator() {
+
+            document.getElementById("salary").value = "";
+
+            document.getElementById("percentage").value = "";
+
+            document.getElementById("result").style.display =
+                "none";
+
+        }
+
+    </script>
+
+</body>
+
+</html>
+```
