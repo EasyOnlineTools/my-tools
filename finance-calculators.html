@@ -5,17 +5,16 @@
 
     <meta charset="UTF-8">
 
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Free Finance Calculators – Online Financial Tools | Easy Online Tool</title>
+    <title>Free Finance Calculators – Online Financial Tools | Easy Online Tool</title>
 
-<meta name="description" content="Use free finance calculators to calculate simple and compound interest, mortgage payments, tips and other common financial calculations.">
+    <meta name="description" content="Use free finance calculators to calculate simple and compound interest, mortgage payments, discounts, tips, sales tax and other common financial calculations.">
 
-<meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://easyonlinetools.github.io/my-tools/finance-calculators.html">
 
-<link rel="canonical" href="https://easyonlinetools.github.io/my-tools/finance-calculators.html">
     <style>
 
         * {
@@ -27,31 +26,52 @@
             font-family: Arial, sans-serif;
             background: #f7f9fc;
             color: #1f2937;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2563eb;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #2563eb;
         }
 
         .page-container {
             max-width: 1100px;
             margin: auto;
             padding: 30px 20px 60px;
-        }
-
-        .page-header {
-            text-align: center;
-            padding: 30px 10px 40px;
-        }
-
-        .page-header h1 {
-            font-size: 36px;
-            margin-bottom: 12px;
-            color: #111827;
-        }
-
-        .page-header p {
-            color: #6b7280;
-            font-size: 17px;
-            max-width: 700px;
-            margin: auto;
-            line-height: 1.6;
         }
 
         .back-home {
@@ -66,6 +86,25 @@
             text-decoration: underline;
         }
 
+        .page-header {
+            text-align: center;
+            padding: 20px 10px 40px;
+        }
+
+        .page-header h1 {
+            font-size: 36px;
+            margin-bottom: 12px;
+            color: #111827;
+        }
+
+        .page-header p {
+            color: #6b7280;
+            font-size: 17px;
+            max-width: 750px;
+            margin: auto;
+            line-height: 1.7;
+        }
+
         .tools-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -73,6 +112,7 @@
         }
 
         .tool-card {
+            display: block;
             background: #ffffff;
             border: 1px solid #e5e7eb;
             border-radius: 15px;
@@ -116,10 +156,54 @@
             font-size: 14px;
         }
 
+        .info-section {
+            background: #ffffff;
+            margin-top: 35px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .info-section h2 {
+            margin-top: 0;
+            color: #111827;
+        }
+
+        .info-section h3 {
+            margin-top: 25px;
+        }
+
+        .info-section a {
+            color: #2563eb;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #ffffff;
+            border-top: 1px solid #e5e7eb;
+            text-align: center;
+            padding: 25px 20px;
+            color: #666;
+            font-size: 14px;
+        }
+
         @media (max-width: 850px) {
 
             .tools-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 700px) {
+
+            .header-container {
+                flex-direction: column;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 14px;
             }
 
         }
@@ -134,16 +218,46 @@
                 grid-template-columns: 1fr;
             }
 
+            .info-section {
+                padding: 22px;
+            }
+
         }
 
     </style>
 
 </head>
 
-
 <body>
 
-<div class="page-container">
+<header>
+
+    <div class="header-container">
+
+        <a href="index.html" class="logo">
+            Easy Online Tool
+        </a>
+
+        <nav>
+
+            <a href="index.html">Home</a>
+
+            <a href="tools.html">Tools</a>
+
+            <a href="categories.html">Categories</a>
+
+            <a href="about.html">About</a>
+
+            <a href="faq.html">FAQ</a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main class="page-container">
 
     <a href="index.html" class="back-home">
         ← Back to Easy Online Tool
@@ -154,16 +268,16 @@
 
         <h1>Free Finance Calculators</h1>
 
-       <p>
-  Calculate common financial values quickly with our free online finance
-  calculators. Estimate interest, mortgage payments, tips and other useful
-  financial calculations.
-</p>
+        <p>
+            Calculate common financial values quickly with our free online
+            finance calculators. Calculate interest, mortgage payments,
+            discounts, tips, sales tax and other useful financial values.
+        </p>
 
     </header>
 
 
-    <div class="tools-grid">
+    <section class="tools-grid">
 
 
         <!-- SALES TAX -->
@@ -215,28 +329,8 @@
             <h2>Tip Calculator</h2>
 
             <p>
-                Calculate tips and easily split a restaurant
-                bill between people.
-            </p>
-
-            <span class="use-tool">
-                Use Calculator →
-            </span>
-
-        </a>
-
-
-        <!-- LOAN -->
-
-        <a href="loan-calculator.html" class="tool-card">
-
-            <div class="tool-icon">🏦</div>
-
-            <h2>Loan Calculator</h2>
-
-            <p>
-                Estimate monthly loan payments based on
-                loan amount and interest rate.
+                Calculate tips and split a restaurant bill
+                between multiple people.
             </p>
 
             <span class="use-tool">
@@ -275,8 +369,8 @@
             <h2>Compound Interest Calculator</h2>
 
             <p>
-                Calculate compound interest and future
-                investment value.
+                Calculate compound interest and estimate
+                future investment value.
             </p>
 
             <span class="use-tool">
@@ -296,7 +390,7 @@
 
             <p>
                 Estimate monthly mortgage payments and
-                total repayment.
+                total mortgage repayment.
             </p>
 
             <span class="use-tool">
@@ -306,9 +400,121 @@
         </a>
 
 
-    </div>
+    </section>
 
-</div>
+
+    <section class="info-section">
+
+        <h2>Free Financial Calculators</h2>
+
+        <p>
+            Easy Online Tool provides free financial calculators designed
+            to help you perform common financial calculations quickly.
+            These tools can be useful for personal budgeting, shopping,
+            loans, interest calculations and everyday financial planning.
+        </p>
+
+        <h3>Interest Calculators</h3>
+
+        <p>
+            Use the
+            <a href="simple-interest-calculator.html">
+                Simple Interest Calculator
+            </a>
+            to calculate simple interest based on the principal amount,
+            interest rate and time.
+        </p>
+
+        <p>
+            The
+            <a href="compound-interest-calculator.html">
+                Compound Interest Calculator
+            </a>
+            can be used to calculate compound interest and estimate
+            the future value of an amount.
+        </p>
+
+        <h3>Price and Shopping Calculators</h3>
+
+        <p>
+            The
+            <a href="discount-calculator.html">
+                Discount Calculator
+            </a>
+            helps calculate discounts, savings and the final price
+            after a discount.
+        </p>
+
+        <p>
+            The
+            <a href="tax-calculator.html">
+                Sales Tax Calculator
+            </a>
+            helps calculate tax and the final price after tax is added.
+        </p>
+
+        <h3>Mortgage Calculator</h3>
+
+        <p>
+            Use the
+            <a href="mortgage-calculator.html">
+                Mortgage Calculator
+            </a>
+            to estimate mortgage payments and total repayment based
+            on the values entered.
+        </p>
+
+        <h3>Tip Calculator</h3>
+
+        <p>
+            The
+            <a href="tip-calculator.html">
+                Tip Calculator
+            </a>
+            helps calculate a restaurant tip and divide the bill
+            between multiple people.
+        </p>
+
+    </section>
+
+
+    <section class="info-section">
+
+        <h2>Related Calculator Categories</h2>
+
+        <p>
+            You can also explore other free calculator categories
+            available on Easy Online Tool.
+        </p>
+
+        <p>
+            <a href="math-calculators.html">
+                Math Calculators
+            </a>
+            |
+            <a href="health-calculators.html">
+                Health Calculators
+            </a>
+            |
+            <a href="date-calculators.html">
+                Date Calculators
+            </a>
+            |
+            <a href="conversion-calculators.html">
+                Conversion Calculators
+            </a>
+        </p>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    © 2026 Easy Online Tool. All rights reserved.
+
+</footer>
 
 </body>
 
