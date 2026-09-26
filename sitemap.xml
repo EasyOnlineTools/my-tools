@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- Main Website Pages -->
+
   <url>
     <loc>https://easyonlinetools.github.io/my-tools/</loc>
   </url>
@@ -29,36 +31,19 @@
     <loc>https://easyonlinetools.github.io/my-tools/contact.html</loc>
   </url>
 
-  <url>
-    <loc>https://easyonlinetools.github.io/my-tools/age-calculator.html</loc>
-  </url>
+
+  <!-- Math & Advanced Calculators -->
 
   <url>
     <loc>https://easyonlinetools.github.io/my-tools/percentage-calculator.html</loc>
   </url>
 
   <url>
-    <loc>https://easyonlinetools.github.io/my-tools/bmi-calculator.html</loc>
-  </url>
-
-  <url>
-    <loc>https://easyonlinetools.github.io/my-tools/discount-calculator.html</loc>
-  </url>
-
-  <url>
-    <loc>https://easyonlinetools.github.io/my-tools/password-generator.html</loc>
-  </url>
-
-  <url>
-    <loc>https://easyonlinetools.github.io/my-tools/word-counter.html</loc>
+    <loc>https://easyonlinetools.github.io/my-tools/average-calculator.html</loc>
   </url>
 
   <url>
     <loc>https://easyonlinetools.github.io/my-tools/fraction-calculator.html</loc>
-  </url>
-
-  <url>
-    <loc>https://easyonlinetools.github.io/my-tools/average-calculator.html</loc>
   </url>
 
   <url>
@@ -86,8 +71,31 @@
   </url>
 
   <url>
-    <loc>https://easyonlinetools.github.io/my-tools/tip-calculator.html</loc>
+    <loc>https://easyonlinetools.github.io/my-tools/proportion-calculator.html</loc>
   </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/scientific-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/exponent-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/square-root-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/time-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/number-calculator.html</loc>
+  </url>
+
+
+  <!-- Finance Calculators -->
 
   <url>
     <loc>https://easyonlinetools.github.io/my-tools/simple-interest-calculator.html</loc>
@@ -102,11 +110,90 @@
   </url>
 
   <url>
-    <loc>https://easyonlinetools.github.io/my-tools/calorie-calculator.html</loc>
+    <loc>https://easyonlinetools.github.io/my-tools/loan-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/savings-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/investment-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/sales-tax-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/roi-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/inflation-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/commission-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/break-even-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/markup-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/profit-margin-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/debt-to-income-ratio-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/credit-card-payoff-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/salary-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/hourly-to-salary-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/salary-to-hourly-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/percentage-of-salary-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/tip-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/discount-calculator.html</loc>
+  </url>
+
+
+  <!-- Health & Fitness Calculators -->
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/bmi-calculator.html</loc>
   </url>
 
   <url>
     <loc>https://easyonlinetools.github.io/my-tools/bmr-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/calorie-calculator.html</loc>
   </url>
 
   <url>
@@ -118,42 +205,135 @@
   </url>
 
   <url>
-    <loc>https://easyonlinetools.github.io/my-tools/time-calculator.html</loc>
+    <loc>https://easyonlinetools.github.io/my-tools/body-fat-calculator.html</loc>
   </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/macro-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/protein-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/pace-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/pregnancy-calculator.html</loc>
+  </url>
+
+
+  <!-- Date & Time Calculators -->
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/age-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/date-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/days-between-dates-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/date-add-subtract-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/time-zone-converter.html</loc>
+  </url>
+
+
+  <!-- Converters -->
 
   <url>
     <loc>https://easyonlinetools.github.io/my-tools/unit-converter.html</loc>
   </url>
 
   <url>
-    <loc>https://easyonlinetools.github.io/my-tools/number-converter.html</loc>
+    <loc>https://easyonlinetools.github.io/my-tools/length-converter.html</loc>
   </url>
 
   <url>
-    <loc>https://easyonlinetools.github.io/my-tools/date-calculator.html</loc>
+    <loc>https://easyonlinetools.github.io/my-tools/weight-converter.html</loc>
   </url>
+
   <url>
-  <loc>https://easyonlinetools.github.io/my-tools/how-to-calculate-bmi.html</loc>
-</url>
+    <loc>https://easyonlinetools.github.io/my-tools/temperature-converter.html</loc>
+  </url>
+
   <url>
-  <loc>https://easyonlinetools.github.io/my-tools/how-to-calculate-percentage.html</loc>
-</url>
+    <loc>https://easyonlinetools.github.io/my-tools/area-converter.html</loc>
+  </url>
+
   <url>
-  <loc>https://easyonlinetools.github.io/my-tools/how-to-calculate-compound-interest.html</loc>
-</url>
+    <loc>https://easyonlinetools.github.io/my-tools/volume-converter.html</loc>
+  </url>
+
   <url>
-  <loc>https://easyonlinetools.github.io/my-tools/how-to-calculate-age.html</loc>
-</url>
+    <loc>https://easyonlinetools.github.io/my-tools/speed-converter.html</loc>
+  </url>
+
   <url>
-  <loc>https://easyonlinetools.github.io/my-tools/how-to-calculate-discount-percentage.html</loc>
-</url>
-<url>
-  <loc>https://easyonlinetools.github.io/my-tools/how-to-calculate-average.html</loc>
-</url>
+    <loc>https://easyonlinetools.github.io/my-tools/pressure-converter.html</loc>
+  </url>
+
   <url>
-  <loc>https://easyonlinetools.github.io/my-tools/how-to-calculate-ratio.html</loc>
-</url>
+    <loc>https://easyonlinetools.github.io/my-tools/energy-converter.html</loc>
+  </url>
+
   <url>
-  <loc>https://easyonlinetools.github.io/my-tools/how-to-calculate-fractions.html</loc>
-</url>
+    <loc>https://easyonlinetools.github.io/my-tools/data-storage-converter.html</loc>
+  </url>
+
+
+  <!-- Other Tools -->
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/password-generator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/word-counter.html</loc>
+  </url>
+
+
+  <!-- How-To Articles -->
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/how-to-calculate-bmi.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/how-to-calculate-percentage.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/how-to-calculate-compound-interest.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/how-to-calculate-age.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/how-to-calculate-discount-percentage.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/how-to-calculate-average.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/how-to-calculate-ratio.html</loc>
+  </url>
+
+  <url>
+    <loc>https://easyonlinetools.github.io/my-tools/how-to-calculate-fractions.html</loc>
+  </url>
+
 </urlset>
