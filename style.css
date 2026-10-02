@@ -418,4 +418,12 @@ footer {
     .search-box button {
         padding: 13px;
     }
+   .email a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.email a:hover {
+    text-decoration: underline;
+}
 }
