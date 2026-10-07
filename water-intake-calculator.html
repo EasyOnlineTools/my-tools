@@ -485,64 +485,87 @@
 </footer>
 
 <script>
+document.addEventListener("DOMContentLoaded", function () {
 
-function calculateWater() {
+    const weightInput = document.getElementById("weight");
+    const activityInput = document.getElementById("activity");
+    const climateInput = document.getElementById("climate");
 
-    const weight = parseFloat(
-        document.getElementById("weight").value
+    const resultBox = document.getElementById("result");
+    const waterResult = document.getElementById("waterResult");
+    const mlResult = document.getElementById("mlResult");
+    const glassResult = document.getElementById("glassResult");
+    const weightResult = document.getElementById("weightResult");
+
+    const calculateButton = document.querySelector(
+        'button[onclick="calculateWater()"]'
     );
 
-    const activityExtra = parseFloat(
-        document.getElementById("activity").value
-    );
-
-    const climateExtra = parseFloat(
-        document.getElementById("climate").value
-    );
-
-    if (
-        isNaN(weight) ||
-        weight <= 0
-    ) {
-        alert("Please enter a valid weight.");
+    if (!calculateButton) {
+        console.error("Calculate button not found.");
         return;
     }
 
-    /*
-        Basic estimate:
-        35 ml of water per kg of body weight
-    */
+    calculateButton.removeAttribute("onclick");
 
-    const basicWater = weight * 35;
+    calculateButton.addEventListener("click", function () {
 
-    const totalWater =
-        basicWater +
-        activityExtra +
-        climateExtra;
+        const weight = parseFloat(weightInput.value);
+        const activityExtra = parseFloat(activityInput.value) || 0;
+        const climateExtra = parseFloat(climateInput.value) || 0;
 
-    const liters = totalWater / 1000;
+        if (!Number.isFinite(weight) || weight <= 0) {
+            resultBox.style.display = "block";
+            waterResult.textContent = "Please enter a valid weight.";
+            mlResult.textContent = "";
+            glassResult.textContent = "";
+            weightResult.textContent = "";
+            return;
+        }
 
-    /*
-        One glass is estimated as 250 ml
-    */
+        /*
+         * Basic estimate:
+         * 35 ml of water per kg of body weight
+         */
 
-    const glasses = totalWater / 250;
+        const basicWater = weight * 35;
 
-    document.getElementById("waterResult").textContent =
-        liters.toFixed(2) + " liters/day";
+        /*
+         * Add adjustments for activity and climate.
+         */
 
-    document.getElementById("mlResult").textContent =
-        Math.round(totalWater).toLocaleString() + " ml/day";
+        const totalWater = basicWater + activityExtra + climateExtra;
 
-    document.getElementById("glassResult").textContent =
-        Math.round(glasses) + " glasses";
+        const liters = totalWater / 1000;
 
-    document.getElementById("weightResult").textContent =
-        weight.toFixed(1) + " kg";
+        /*
+         * Approximate glass size:
+         * 250 ml per glass
+         */
 
-    document.getElementById("result").style.display = "block";
-}
+        const glasses = totalWater / 250;
 
+        waterResult.textContent =
+            liters.toFixed(2) + " liters/day";
+
+        mlResult.textContent =
+            Math.round(totalWater).toLocaleString() + " ml/day";
+
+        glassResult.textContent =
+            Math.round(glasses) + " glasses";
+
+        weightResult.textContent =
+            weight.toFixed(1) + " kg";
+
+        resultBox.style.display = "block";
+
+        resultBox.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest"
+        });
+    });
+
+});
 </script>
 
 </body>
