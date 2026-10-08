@@ -5,9 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>ROI Calculator - Calculate Return on Investment | Easy Online Tool</title>
-    <meta name="description" content="Use our free ROI Calculator to calculate return on investment, profit or loss, and ROI percentage quickly and easily.">
+    <meta name="description" content="Use this free ROI Calculator to calculate return on investment, profit or loss, and ROI percentage quickly and easily.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://easyonlinetools.online/roi-calculator.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="ROI Calculator - Calculate Return on Investment">
+    <meta property="og:description" content="Calculate return on investment, profit or loss, and ROI percentage with this free online ROI Calculator.">
+    <meta property="og:url" content="https://easyonlinetools.online/roi-calculator.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Easy Online Tool">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "ROI Calculator",
+        "url": "https://easyonlinetools.online/roi-calculator.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "description": "Free ROI Calculator for calculating return on investment, profit or loss, and ROI percentage.",
+        "browserRequirements": "Requires a modern web browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
 
     <style>
         * {
@@ -59,6 +85,17 @@
             padding: 0 20px;
         }
 
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
         .page-title {
             text-align: center;
             margin-bottom: 30px;
@@ -96,6 +133,18 @@
             border: 1px solid #ccc;
             border-radius: 7px;
             font-size: 16px;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
+        }
+
+        .hint {
+            margin-top: 6px;
+            font-size: 13px;
+            color: #666;
         }
 
         .button-row {
@@ -179,6 +228,11 @@
 
         .info-section h2 {
             color: #222;
+            margin-top: 25px;
+        }
+
+        .info-section h2:first-child {
+            margin-top: 0;
         }
 
         .formula {
@@ -187,6 +241,7 @@
             border-radius: 7px;
             font-family: monospace;
             margin: 15px 0;
+            overflow-x: auto;
         }
 
         .related-tools {
@@ -218,12 +273,34 @@
             margin-bottom: 6px;
         }
 
+        .important-note {
+            margin-top: 25px;
+            padding: 15px;
+            background: #f8fafc;
+            border-left: 4px solid #2563eb;
+            border-radius: 5px;
+        }
+
         footer {
             margin-top: 50px;
             padding: 25px;
             text-align: center;
             background: #ffffff;
             color: #666;
+        }
+
+        footer a {
+            color: #2563eb;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-links {
+            margin-bottom: 12px;
         }
 
         @media (max-width: 700px) {
@@ -257,25 +334,12 @@
                 flex-direction: column;
                 gap: 3px;
             }
+
+            .container {
+                margin-top: 25px;
+            }
         }
     </style>
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "ROI Calculator",
-        "url": "https://easyonlinetools.online/roi-calculator.html",
-        "applicationCategory": "FinanceApplication",
-        "operatingSystem": "All",
-        "description": "Free ROI Calculator for calculating return on investment, profit or loss, and ROI percentage.",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-        }
-    }
-    </script>
 </head>
 
 <body>
@@ -296,6 +360,13 @@
 
 <main class="container">
 
+    <div class="breadcrumb">
+        <a href="index.html">Home</a> →
+        <a href="tools.html">Tools</a> →
+        <a href="tools.html#finance">Finance Calculators</a> →
+        ROI Calculator
+    </div>
+
     <div class="page-title">
         <h1>ROI Calculator</h1>
         <p>Calculate your return on investment, profit or loss, and ROI percentage.</p>
@@ -305,19 +376,40 @@
 
         <div class="input-group">
             <label for="initialInvestment">Initial Investment</label>
-            <input type="number" id="initialInvestment" min="0" step="any"
-                   placeholder="e.g. 10000">
+            <input
+                type="number"
+                id="initialInvestment"
+                min="0"
+                step="any"
+                placeholder="e.g. 10000"
+            >
+            <div class="hint">
+                Enter the original amount invested.
+            </div>
         </div>
 
         <div class="input-group">
             <label for="finalValue">Final Investment Value</label>
-            <input type="number" id="finalValue" min="0" step="any"
-                   placeholder="e.g. 12500">
+            <input
+                type="number"
+                id="finalValue"
+                min="0"
+                step="any"
+                placeholder="e.g. 12500"
+            >
+            <div class="hint">
+                Enter the investment value at the end of the period.
+            </div>
         </div>
 
         <div class="button-row">
-            <button class="calculate-btn" onclick="calculateROI()">Calculate ROI</button>
-            <button class="reset-btn" onclick="resetCalculator()">Reset</button>
+            <button class="calculate-btn" onclick="calculateROI()">
+                Calculate ROI
+            </button>
+
+            <button class="reset-btn" onclick="resetCalculator()">
+                Reset
+            </button>
         </div>
 
         <div class="error" id="errorMessage"></div>
@@ -371,8 +463,27 @@
         </div>
 
         <p>
-            For example, if you invest 10,000 and the investment grows to
-            12,500, your profit is 2,500 and your ROI is 25%.
+            Profit or loss is calculated by subtracting the initial investment
+            from the final investment value.
+        </p>
+
+        <div class="formula">
+            Profit / Loss = Final Value − Initial Investment
+        </div>
+
+        <h2>ROI Example</h2>
+
+        <p>
+            Suppose you invest 10,000 and the investment grows to 12,500.
+            Your profit is 2,500.
+        </p>
+
+        <div class="formula">
+            ROI = ((12,500 − 10,000) ÷ 10,000) × 100 = 25%
+        </div>
+
+        <p>
+            Therefore, the investment produced a total ROI of 25%.
         </p>
 
         <h2>How to Use This ROI Calculator</h2>
@@ -384,76 +495,107 @@
             <li>The calculator will show your profit or loss and ROI percentage.</li>
         </ol>
 
-       <h2>Related Finance Calculators</h2>
+        <h2>Understanding Positive and Negative ROI</h2>
 
-<p>
-    Explore other free financial calculators for investments, savings,
-    interest, loans, returns, income, debt, and everyday financial planning.
-</p>
+        <p>
+            A positive ROI means the final investment value is greater than the
+            original investment. A negative ROI means the final value is lower
+            than the original investment and represents a loss.
+        </p>
 
-<div class="related-tools">
+        <p>
+            For example, an investment of 10,000 that falls to 9,000 produces
+            a loss of 1,000 and an ROI of -10%.
+        </p>
 
-    <a href="investment-calculator.html">
-        Investment Calculator
-    </a>
+        <h2>ROI and Investment Time</h2>
 
-    <a href="savings-calculator.html">
-        Savings Calculator
-    </a>
+        <p>
+            This calculator measures total ROI and does not calculate annualized
+            return. Two investments can have the same ROI but produce that
+            return over different periods of time. When comparing investments,
+            consider the length of the investment period as well as the total
+            return.
+        </p>
 
-    <a href="compound-interest-calculator.html">
-        Compound Interest Calculator
-    </a>
+        <div class="important-note">
+            <strong>Important:</strong>
+            ROI is a simple performance measure and does not automatically
+            account for taxes, fees, inflation, dividends, cash-flow timing,
+            or the time value of money. For important financial decisions,
+            verify the figures and consider appropriate professional advice.
+        </div>
 
-    <a href="simple-interest-calculator.html">
-        Simple Interest Calculator
-    </a>
+        <h2>Related Finance Calculators</h2>
 
-    <a href="inflation-calculator.html">
-        Inflation Calculator
-    </a>
+        <p>
+            Explore other free financial calculators for investments, savings,
+            interest, loans, returns, income, debt, and everyday financial planning.
+        </p>
 
-    <a href="loan-calculator.html">
-        Loan Calculator
-    </a>
+        <div class="related-tools">
 
-    <a href="mortgage-calculator.html">
-        Mortgage Calculator
-    </a>
+            <a href="investment-calculator.html">
+                Investment Calculator
+            </a>
 
-    <a href="credit-card-payoff-calculator.html">
-        Credit Card Payoff Calculator
-    </a>
+            <a href="savings-calculator.html">
+                Savings Calculator
+            </a>
 
-    <a href="debt-to-income-ratio-calculator.html">
-        Debt-to-Income Ratio Calculator
-    </a>
+            <a href="compound-interest-calculator.html">
+                Compound Interest Calculator
+            </a>
 
-    <a href="salary-calculator.html">
-        Salary Calculator
-    </a>
+            <a href="simple-interest-calculator.html">
+                Simple Interest Calculator
+            </a>
 
-    <a href="percentage-of-salary-calculator.html">
-        Percentage of Salary Calculator
-    </a>
+            <a href="inflation-calculator.html">
+                Inflation Calculator
+            </a>
 
-    <a href="commission-calculator.html">
-        Commission Calculator
-    </a>
+            <a href="loan-calculator.html">
+                Loan Calculator
+            </a>
 
-    <a href="sales-tax-calculator.html">
-        Sales Tax Calculator
-    </a>
+            <a href="mortgage-calculator.html">
+                Mortgage Calculator
+            </a>
 
-    <a href="discount-calculator.html">
-        Discount Calculator
-    </a>
+            <a href="credit-card-payoff-calculator.html">
+                Credit Card Payoff Calculator
+            </a>
 
-    <a href="tools.html#finance">
-        More Finance Calculators
-    </a>
+            <a href="debt-to-income-ratio-calculator.html">
+                Debt-to-Income Ratio Calculator
+            </a>
 
-</div>
+            <a href="salary-calculator.html">
+                Salary Calculator
+            </a>
+
+            <a href="percentage-of-salary-calculator.html">
+                Percentage of Salary Calculator
+            </a>
+
+            <a href="commission-calculator.html">
+                Commission Calculator
+            </a>
+
+            <a href="sales-tax-calculator.html">
+                Sales Tax Calculator
+            </a>
+
+            <a href="discount-calculator.html">
+                Discount Calculator
+            </a>
+
+            <a href="tools.html#finance">
+                More Finance Calculators
+            </a>
+
+        </div>
 
         <h2>Frequently Asked Questions</h2>
 
@@ -474,11 +616,29 @@
         </div>
 
         <div class="faq-item">
+            <h3>Can ROI be more than 100%?</h3>
+            <p>
+                Yes. An ROI greater than 100% means the profit is greater than
+                the original investment. For example, an investment that grows
+                from 10,000 to 25,000 has a 150% ROI.
+            </p>
+        </div>
+
+        <div class="faq-item">
             <h3>Does this calculator include investment time?</h3>
             <p>
-                No. This basic ROI calculator calculates the total return
-                based on the initial investment and final value. It does not
-                calculate annualized ROI.
+                No. This basic ROI calculator calculates total return based on
+                the initial investment and final value. It does not calculate
+                annualized ROI.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Does ROI include fees and taxes?</h3>
+            <p>
+                No. This calculator uses only the initial investment and final
+                investment value that you enter. Fees, taxes, dividends,
+                inflation and other investment costs are not included.
             </p>
         </div>
 
@@ -487,7 +647,20 @@
 </main>
 
 <footer>
+
+    <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="tools.html">Tools</a>
+        <a href="categories.html">Categories</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms & Conditions</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
     © 2026 Easy Online Tool. All rights reserved.
+
 </footer>
 
 <script>
@@ -500,13 +673,11 @@ function formatNumber(value) {
 
 function calculateROI() {
 
-    const initialInvestment = parseFloat(
-        document.getElementById("initialInvestment").value
-    );
+    const initialInput = document.getElementById("initialInvestment").value.trim();
+    const finalInput = document.getElementById("finalValue").value.trim();
 
-    const finalValue = parseFloat(
-        document.getElementById("finalValue").value
-    );
+    const initialInvestment = Number(initialInput);
+    const finalValue = Number(finalInput);
 
     const errorMessage = document.getElementById("errorMessage");
     const results = document.getElementById("results");
@@ -514,9 +685,12 @@ function calculateROI() {
     errorMessage.style.display = "none";
     results.style.display = "none";
 
-    if (!Number.isFinite(initialInvestment) ||
-        !Number.isFinite(finalValue)) {
-
+    if (
+        initialInput === "" ||
+        finalInput === "" ||
+        !Number.isFinite(initialInvestment) ||
+        !Number.isFinite(finalValue)
+    ) {
         errorMessage.textContent =
             "Please enter valid values for both fields.";
 
@@ -525,7 +699,6 @@ function calculateROI() {
     }
 
     if (initialInvestment <= 0) {
-
         errorMessage.textContent =
             "Initial investment must be greater than zero.";
 
@@ -533,9 +706,18 @@ function calculateROI() {
         return;
     }
 
-    if (initialInvestment > 1000000000000 ||
-        finalValue > 1000000000000) {
+    if (finalValue < 0) {
+        errorMessage.textContent =
+            "Final investment value cannot be negative.";
 
+        errorMessage.style.display = "block";
+        return;
+    }
+
+    if (
+        initialInvestment > 1000000000000 ||
+        finalValue > 1000000000000
+    ) {
         errorMessage.textContent =
             "Please enter reasonable investment values.";
 
@@ -546,6 +728,14 @@ function calculateROI() {
     const profitLoss = finalValue - initialInvestment;
 
     const roi = (profitLoss / initialInvestment) * 100;
+
+    if (!Number.isFinite(roi)) {
+        errorMessage.textContent =
+            "The calculation could not be completed. Please check your values.";
+
+        errorMessage.style.display = "block";
+        return;
+    }
 
     document.getElementById("resultInvestment").textContent =
         formatNumber(initialInvestment);
@@ -580,7 +770,10 @@ function resetCalculator() {
 
 document.addEventListener("keydown", function(event) {
 
-    if (event.key === "Enter") {
+    if (
+        event.key === "Enter" &&
+        event.target.tagName === "INPUT"
+    ) {
         calculateROI();
     }
 
