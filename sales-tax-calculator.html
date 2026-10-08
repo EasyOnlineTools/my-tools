@@ -19,7 +19,6 @@
     <meta name="keywords"
         content="sales tax calculator, sales tax calculator online, calculate sales tax, tax calculator, sales tax percentage calculator, price after tax calculator">
 
-    <!-- Open Graph -->
     <meta property="og:title"
         content="Sales Tax Calculator – Calculate Sales Tax Online">
 
@@ -29,20 +28,21 @@
     <meta property="og:type" content="website">
 
     <meta property="og:url"
-        content="https://easyonlinetools.github.io/my-tools/sales-tax-calculator.html">
+        content="https://easyonlinetools.online/sales-tax-calculator.html">
 
     <meta property="og:site_name" content="Easy Online Tool">
 
-    <!-- Structured Data -->
+
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebApplication",
         "name": "Sales Tax Calculator",
         "url": "https://easyonlinetools.online/sales-tax-calculator.html",
-        "description": "A free online calculator for calculating sales tax, tax amount, and total price.",
-        "applicationCategory": "Calculator",
-        "operatingSystem": "Any",
+        "description": "Free online Sales Tax Calculator for calculating sales tax, tax amount, and total price.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires a modern web browser",
         "offers": {
             "@type": "Offer",
             "price": "0",
@@ -51,7 +51,9 @@
     }
     </script>
 
+
     <style>
+
         * {
             box-sizing: border-box;
         }
@@ -84,6 +86,7 @@
             font-weight: bold;
             color: #222;
             text-decoration: none;
+            white-space: nowrap;
         }
 
         nav {
@@ -99,6 +102,7 @@
         }
 
         nav a:hover {
+            color: #0077cc;
             text-decoration: underline;
         }
 
@@ -106,6 +110,17 @@
             max-width: 900px;
             margin: 40px auto;
             padding: 0 20px;
+        }
+
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #0077cc;
+            text-decoration: none;
         }
 
         .calculator-card {
@@ -144,6 +159,13 @@
             margin-bottom: 7px;
         }
 
+        .input-help {
+            display: block;
+            margin-top: 6px;
+            color: #666;
+            font-size: 14px;
+        }
+
         input,
         select {
             width: 100%;
@@ -151,12 +173,14 @@
             border: 1px solid #cfd5dc;
             border-radius: 7px;
             font-size: 16px;
+            background: #fff;
         }
 
         input:focus,
         select:focus {
             outline: none;
-            border-color: #666;
+            border-color: #0077cc;
+            box-shadow: 0 0 0 2px rgba(0, 119, 204, 0.08);
         }
 
         .button-group {
@@ -187,6 +211,15 @@
 
         button:hover {
             opacity: 0.9;
+        }
+
+        .error {
+            display: none;
+            margin-top: 18px;
+            padding: 12px;
+            border-radius: 7px;
+            background: #fee2e2;
+            color: #991b1b;
         }
 
         .result {
@@ -233,10 +266,14 @@
 
         .info-section {
             margin-top: 35px;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
         }
 
         .info-section h2 {
             font-size: 24px;
+            margin-top: 0;
         }
 
         .info-section h3 {
@@ -248,8 +285,15 @@
             color: #444;
         }
 
+        .important-note {
+            margin-top: 20px;
+            padding: 18px;
+            background: #f3f4f6;
+            border-radius: 8px;
+        }
+
         .related-tools {
-            margin-top: 35px;
+            margin-top: 25px;
             padding: 20px;
             background: #ffffff;
             border-radius: 10px;
@@ -259,8 +303,24 @@
         .related-tools a {
             display: inline-block;
             margin: 6px 10px 6px 0;
+            padding: 8px 12px;
             color: #222;
-            text-decoration: underline;
+            text-decoration: none;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+        }
+
+        .related-tools a:hover {
+            color: #0077cc;
+            border-color: #0077cc;
+        }
+
+        .faq-item {
+            margin-bottom: 22px;
+        }
+
+        .faq-item h3 {
+            margin-bottom: 7px;
         }
 
         footer {
@@ -279,14 +339,19 @@
             margin: 0 8px;
         }
 
+        footer a:hover {
+            color: #0077cc;
+        }
+
         @media (max-width: 650px) {
 
             .header-container {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: center;
             }
 
             nav {
+                justify-content: center;
                 gap: 12px;
             }
 
@@ -294,7 +359,8 @@
                 margin-top: 25px;
             }
 
-            .calculator-card {
+            .calculator-card,
+            .info-section {
                 padding: 20px;
             }
 
@@ -306,352 +372,664 @@
                 flex-direction: column;
             }
 
+            button {
+                width: 100%;
+            }
+
             .result-row {
                 flex-direction: column;
                 gap: 2px;
             }
+
         }
+
     </style>
+
 </head>
+
 
 <body>
 
-    <header>
-        <div class="header-container">
+<header>
 
-            <a href="index.html" class="logo">
-                Easy Online Tool
-            </a>
+    <div class="header-container">
 
-            <nav>
-                <a href="index.html">Home</a>
-                <a href="tools.html">Tools</a>
-                <a href="tools.html#finance">Finance</a>
-                <a href="about.html">About</a>
-                <a href="faq.html">FAQ</a>
-            </nav>
-
-        </div>
-    </header>
-
-
-    <main class="container">
-
-        <div class="calculator-card">
-
-            <h1>Sales Tax Calculator</h1>
-
-            <p class="intro">
-                Calculate sales tax quickly and easily. Enter the original price
-                and sales tax rate to find the tax amount and the final price
-                including sales tax.
-            </p>
-
-
-            <h2 class="section-title">Calculate Sales Tax</h2>
-
-            <div class="input-group">
-                <label for="price">Original Price</label>
-                <input
-                    type="number"
-                    id="price"
-                    placeholder="Enter price"
-                    min="0"
-                    step="0.01">
-            </div>
-
-
-            <div class="input-group">
-                <label for="taxRate">Sales Tax Rate (%)</label>
-                <input
-                    type="number"
-                    id="taxRate"
-                    placeholder="Enter tax rate"
-                    min="0"
-                    step="0.01">
-            </div>
-
-
-            <div class="button-group">
-
-                <button
-                    class="calculate-btn"
-                    onclick="calculateTax()">
-                    Calculate
-                </button>
-
-                <button
-                    class="reset-btn"
-                    onclick="resetCalculator()">
-                    Reset
-                </button>
-
-            </div>
-
-
-            <div class="result" id="result">
-
-                <h2>Sales Tax Result</h2>
-
-                <div class="result-row">
-                    <span class="result-label">Original Price:</span>
-                    <span id="originalPrice">$0.00</span>
-                </div>
-
-                <div class="result-row">
-                    <span class="result-label">Sales Tax Rate:</span>
-                    <span id="displayTaxRate">0%</span>
-                </div>
-
-                <div class="result-row">
-                    <span class="result-label">Sales Tax:</span>
-                    <span id="taxAmount">$0.00</span>
-                </div>
-
-                <div class="result-row total">
-                    <span>Total Price:</span>
-                    <span id="totalPrice">$0.00</span>
-                </div>
-
-            </div>
-
-
-            <div class="formula-box">
-
-                <strong>Sales Tax Formula:</strong>
-
-                <p>
-                    Sales Tax = Original Price × (Tax Rate ÷ 100)
-                </p>
-
-                <p>
-                    Total Price = Original Price + Sales Tax
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <section class="info-section">
-
-            <h2>What Is a Sales Tax Calculator?</h2>
-
-            <p>
-                A Sales Tax Calculator is a simple online tool that helps you
-                determine how much sales tax will be added to the price of a
-                product or service. It also calculates the final amount you
-                will pay after adding the tax.
-            </p>
-
-            <p>
-                Instead of calculating the percentage manually, enter the
-                original price and tax rate and the calculator will instantly
-                show the sales tax and total price.
-            </p>
-
-
-            <h3>How to Calculate Sales Tax</h3>
-
-            <p>
-                To calculate sales tax, multiply the original price by the
-                sales tax rate divided by 100.
-            </p>
-
-            <p>
-                For example, if an item costs $100 and the sales tax rate is
-                8%, the sales tax is $8. The final price including tax is $108.
-            </p>
-
-
-            <h3>Sales Tax Formula</h3>
-
-            <p>
-                <strong>Sales Tax = Price × Tax Rate ÷ 100</strong>
-            </p>
-
-            <p>
-                <strong>Total Price = Price + Sales Tax</strong>
-            </p>
-
-
-            <h3>Example</h3>
-
-            <p>
-                Suppose a product costs $250 and the sales tax rate is 7.5%.
-            </p>
-
-            <p>
-                Sales Tax = $250 × 7.5 ÷ 100 = $18.75
-            </p>
-
-            <p>
-                Total Price = $250 + $18.75 = $268.75
-            </p>
-
-
-            <h3>Why Use Our Sales Tax Calculator?</h3>
-
-            <p>
-                Our free Sales Tax Calculator provides a quick way to calculate
-                tax before making a purchase. It can be useful for shoppers,
-                businesses, students, and anyone who needs to calculate
-                percentage-based sales tax.
-            </p>
-
-            <p>
-                The calculator works directly in your browser and does not
-                require an account or software installation.
-            </p>
-
-        </section>
-
-<section class="info-section">
-
-    <h2>Related Math &amp; Advanced Calculators</h2>
-
-    <p>
-        Explore other free math and advanced calculators for percentages,
-        fractions, ratios, proportions, powers, square roots, scientific
-        calculations, and other mathematical operations.
-    </p>
-
-    <div class="related-tools">
-
-        <a href="percentage-calculator.html">
-            Percentage Calculator
+        <a href="index.html" class="logo">
+            Easy Online Tool
         </a>
 
-        <a href="percentage-increase-decrease.html">
-            Percentage Increase &amp; Decrease
-        </a>
-
-        <a href="fraction-calculator.html">
-            Fraction Calculator
-        </a>
-
-        <a href="ratio-calculator.html">
-            Ratio Calculator
-        </a>
-
-        <a href="proportion-calculator.html">
-            Proportion Calculator
-        </a>
-
-        <a href="scientific-calculator.html">
-            Scientific Calculator
-        </a>
-
-        <a href="exponent-calculator.html">
-            Exponent Calculator
-        </a>
-
-        <a href="square-root-calculator.html">
-            Square Root Calculator
-        </a>
-
-        <a href="gcd-lcm-calculator.html">
-            GCD &amp; LCM Calculator
-        </a>
-
-        <a href="prime-number-checker.html">
-            Prime Number Checker
-        </a>
-
-        <a href="number-to-words.html">
-            Number to Words
-        </a>
-
-        <a href="random-number-generator.html">
-            Random Number Generator
-        </a>
-
-        <a href="tools.html#math">
-            More Math &amp; Advanced Calculators
-        </a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="tools.html">Tools</a>
+            <a href="tools.html#finance">Finance</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
 
     </div>
 
-</section>
-
-    </main>
+</header>
 
 
-    <footer>
+<main class="container">
+
+
+    <div class="breadcrumb">
+
+        <a href="index.html">Home</a>
+        →
+        <a href="tools.html">Tools</a>
+        →
+        <a href="tools.html#finance">Finance Calculators</a>
+        →
+        Sales Tax Calculator
+
+    </div>
+
+
+    <div class="calculator-card">
+
+        <h1>Sales Tax Calculator</h1>
+
+        <p class="intro">
+            Calculate sales tax quickly and easily. Enter the original price
+            and sales tax rate to find the tax amount and the final price
+            including sales tax.
+        </p>
+
+
+        <h2 class="section-title">
+            Calculate Sales Tax
+        </h2>
+
+
+        <div class="input-group">
+
+            <label for="price">
+                Original Price
+            </label>
+
+            <input
+                type="number"
+                id="price"
+                placeholder="Example: 100"
+                min="0"
+                step="0.01"
+                inputmode="decimal"
+            >
+
+            <span class="input-help">
+                Enter the price before sales tax.
+            </span>
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label for="taxRate">
+                Sales Tax Rate (%)
+            </label>
+
+            <input
+                type="number"
+                id="taxRate"
+                placeholder="Example: 8"
+                min="0"
+                step="0.01"
+                inputmode="decimal"
+            >
+
+            <span class="input-help">
+                Enter the sales tax percentage.
+            </span>
+
+        </div>
+
+
+        <div class="button-group">
+
+            <button
+                type="button"
+                class="calculate-btn"
+                onclick="calculateTax()">
+                Calculate
+            </button>
+
+            <button
+                type="button"
+                class="reset-btn"
+                onclick="resetCalculator()">
+                Reset
+            </button>
+
+        </div>
+
+
+        <div
+            class="error"
+            id="error"
+            role="alert">
+        </div>
+
+
+        <div
+            class="result"
+            id="result"
+            aria-live="polite">
+
+            <h2>
+                Sales Tax Result
+            </h2>
+
+
+            <div class="result-row">
+
+                <span class="result-label">
+                    Original Price:
+                </span>
+
+                <span id="originalPrice">
+                    $0.00
+                </span>
+
+            </div>
+
+
+            <div class="result-row">
+
+                <span class="result-label">
+                    Sales Tax Rate:
+                </span>
+
+                <span id="displayTaxRate">
+                    0.00%
+                </span>
+
+            </div>
+
+
+            <div class="result-row">
+
+                <span class="result-label">
+                    Sales Tax:
+                </span>
+
+                <span id="taxAmount">
+                    $0.00
+                </span>
+
+            </div>
+
+
+            <div class="result-row total">
+
+                <span>
+                    Total Price:
+                </span>
+
+                <span id="totalPrice">
+                    $0.00
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="formula-box">
+
+            <strong>
+                Sales Tax Formula:
+            </strong>
+
+            <p>
+                Sales Tax = Original Price × (Tax Rate ÷ 100)
+            </p>
+
+            <p>
+                Total Price = Original Price + Sales Tax
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <section class="info-section">
+
+        <h2>
+            What Is a Sales Tax Calculator?
+        </h2>
 
         <p>
-            © 2026 Easy Online Tool. All rights reserved.
+            A Sales Tax Calculator is an online tool that helps you determine
+            how much sales tax will be added to the price of a product or
+            service. It also calculates the final amount after the tax is
+            added.
         </p>
 
         <p>
-            <a href="index.html">Home</a>
-            <a href="tools.html">Tools</a>
-            <a href="about.html">About</a>
-            <a href="faq.html">FAQ</a>
+            Instead of calculating the percentage manually, enter the original
+            price and tax rate and the calculator will instantly show the sales
+            tax and total price.
         </p>
 
-    </footer>
+
+        <h3>
+            How to Calculate Sales Tax
+        </h3>
+
+        <p>
+            To calculate sales tax, multiply the original price by the sales
+            tax rate divided by 100.
+        </p>
+
+        <p>
+            For example, if an item costs $100 and the sales tax rate is 8%,
+            the sales tax is $8 and the final price including tax is $108.
+        </p>
 
 
-    <script>
+        <h3>
+            Sales Tax Formula
+        </h3>
 
-        function calculateTax() {
+        <p>
+            <strong>
+                Sales Tax = Price × Tax Rate ÷ 100
+            </strong>
+        </p>
 
-            const priceInput = document.getElementById("price").value;
-            const taxRateInput = document.getElementById("taxRate").value;
-
-            const price = parseFloat(priceInput);
-            const taxRate = parseFloat(taxRateInput);
-
-            if (
-                isNaN(price) ||
-                isNaN(taxRate) ||
-                price < 0 ||
-                taxRate < 0
-            ) {
-
-                alert("Please enter a valid price and sales tax rate.");
-
-                return;
-            }
+        <p>
+            <strong>
+                Total Price = Price + Sales Tax
+            </strong>
+        </p>
 
 
-            const taxAmount = price * (taxRate / 100);
+        <h3>
+            Example
+        </h3>
 
-            const totalPrice = price + taxAmount;
+        <p>
+            Suppose a product costs $250 and the sales tax rate is 7.5%.
+        </p>
 
+        <p>
+            Sales Tax = $250 × 7.5 ÷ 100 = $18.75
+        </p>
 
-            document.getElementById("originalPrice").textContent =
-                "$" + price.toFixed(2);
-
-            document.getElementById("displayTaxRate").textContent =
-                taxRate.toFixed(2) + "%";
-
-            document.getElementById("taxAmount").textContent =
-                "$" + taxAmount.toFixed(2);
-
-            document.getElementById("totalPrice").textContent =
-                "$" + totalPrice.toFixed(2);
-
-
-            document.getElementById("result").style.display = "block";
-
-        }
+        <p>
+            Total Price = $250 + $18.75 = $268.75
+        </p>
 
 
-        function resetCalculator() {
+        <h3>
+            Why Use a Sales Tax Calculator?
+        </h3>
 
-            document.getElementById("price").value = "";
+        <p>
+            A sales tax calculator provides a quick way to estimate the tax
+            before making a purchase. It can be useful for shoppers, businesses,
+            students, budgeting, and everyday percentage calculations.
+        </p>
 
-            document.getElementById("taxRate").value = "";
+        <p>
+            The calculator works directly in your browser and does not require
+            an account or software installation.
+        </p>
 
-            document.getElementById("result").style.display = "none";
 
-        }
+        <div class="important-note">
 
-    </script>
+            <strong>Important:</strong>
+            Sales tax rates and tax rules vary by location and may change over
+            time. This calculator provides a mathematical estimate based on the
+            tax rate you enter. For actual tax obligations, verify the applicable
+            rate and rules for your location.
+
+        </div>
+
+    </section>
+
+
+    <section class="info-section">
+
+        <h2>
+            Related Finance Calculators
+        </h2>
+
+        <p>
+            Explore other free financial calculators for interest, loans,
+            savings, investments, percentages, discounts, and everyday
+            financial calculations.
+        </p>
+
+
+        <div class="related-tools">
+
+            <a href="percentage-calculator.html">
+                Percentage Calculator
+            </a>
+
+            <a href="discount-calculator.html">
+                Discount Calculator
+            </a>
+
+            <a href="commission-calculator.html">
+                Commission Calculator
+            </a>
+
+            <a href="tip-calculator.html">
+                Tip Calculator
+            </a>
+
+            <a href="simple-interest-calculator.html">
+                Simple Interest Calculator
+            </a>
+
+            <a href="compound-interest-calculator.html">
+                Compound Interest Calculator
+            </a>
+
+            <a href="savings-calculator.html">
+                Savings Calculator
+            </a>
+
+            <a href="investment-calculator.html">
+                Investment Calculator
+            </a>
+
+            <a href="loan-calculator.html">
+                Loan Calculator
+            </a>
+
+            <a href="mortgage-calculator.html">
+                Mortgage Calculator
+            </a>
+
+            <a href="percentage-of-salary-calculator.html">
+                Percentage of Salary Calculator
+            </a>
+
+            <a href="credit-card-payoff-calculator.html">
+                Credit Card Payoff Calculator
+            </a>
+
+            <a href="debt-to-income-ratio-calculator.html">
+                Debt-to-Income Ratio Calculator
+            </a>
+
+            <a href="tools.html#finance">
+                More Finance Calculators
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <section class="info-section">
+
+        <h2>
+            Sales Tax Calculator FAQs
+        </h2>
+
+
+        <div class="faq-item">
+
+            <h3>
+                How is sales tax calculated?
+            </h3>
+
+            <p>
+                Sales tax is calculated by multiplying the original price by
+                the sales tax rate divided by 100.
+            </p>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <h3>
+                Does the calculator include sales tax in the final price?
+            </h3>
+
+            <p>
+                Yes. The calculator shows the original price, sales tax amount,
+                and total price after adding the tax.
+            </p>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <h3>
+                Can I enter decimal tax rates?
+            </h3>
+
+            <p>
+                Yes. You can enter decimal tax rates such as 7.5%, 8.25%, or
+                another valid percentage.
+            </p>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <h3>
+                Can I calculate sales tax for a zero-price item?
+            </h3>
+
+            <p>
+                Yes. A price of zero is valid, and the calculated sales tax and
+                total price will also be zero.
+            </p>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <h3>
+                Does this calculator determine the tax rate for my location?
+            </h3>
+
+            <p>
+                No. You must enter the applicable sales tax rate yourself.
+                Tax rates and rules vary by location.
+            </p>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <h3>
+                Is this Sales Tax Calculator free?
+            </h3>
+
+            <p>
+                Yes. The Sales Tax Calculator on Easy Online Tool is free to
+                use and does not require registration.
+            </p>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 Easy Online Tool. All rights reserved.
+    </p>
+
+    <p>
+        <a href="index.html">Home</a>
+        <a href="tools.html">Tools</a>
+        <a href="categories.html">Categories</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="contact.html">Contact</a>
+    </p>
+
+</footer>
+
+
+<script>
+
+function calculateTax() {
+
+    const priceInput =
+        document.getElementById("price").value.trim();
+
+    const taxRateInput =
+        document.getElementById("taxRate").value.trim();
+
+
+    const price =
+        Number(priceInput);
+
+    const taxRate =
+        Number(taxRateInput);
+
+
+    const error =
+        document.getElementById("error");
+
+    const result =
+        document.getElementById("result");
+
+
+    error.style.display = "none";
+    result.style.display = "none";
+
+
+    if (
+        priceInput === "" ||
+        taxRateInput === "" ||
+        !Number.isFinite(price) ||
+        !Number.isFinite(taxRate) ||
+        price < 0 ||
+        taxRate < 0
+    ) {
+
+        error.textContent =
+            "Please enter a valid price and sales tax rate.";
+
+        error.style.display = "block";
+
+        return;
+    }
+
+
+    if (
+        price > 1000000000000 ||
+        taxRate > 100
+    ) {
+
+        error.textContent =
+            "Please enter reasonable values for the sales tax calculation.";
+
+        error.style.display = "block";
+
+        return;
+    }
+
+
+    const taxAmount =
+        price * (taxRate / 100);
+
+
+    const totalPrice =
+        price + taxAmount;
+
+
+    if (
+        !Number.isFinite(taxAmount) ||
+        !Number.isFinite(totalPrice)
+    ) {
+
+        error.textContent =
+            "The entered values are too large to calculate safely.";
+
+        error.style.display = "block";
+
+        return;
+    }
+
+
+    document.getElementById("originalPrice").textContent =
+        "$" + price.toFixed(2);
+
+
+    document.getElementById("displayTaxRate").textContent =
+        taxRate.toFixed(2) + "%";
+
+
+    document.getElementById("taxAmount").textContent =
+        "$" + taxAmount.toFixed(2);
+
+
+    document.getElementById("totalPrice").textContent =
+        "$" + totalPrice.toFixed(2);
+
+
+    result.style.display = "block";
+
+
+    if (window.innerWidth <= 650) {
+
+        result.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }
+
+}
+
+
+function resetCalculator() {
+
+    document.getElementById("price").value = "";
+
+    document.getElementById("taxRate").value = "";
+
+    document.getElementById("error").style.display = "none";
+
+    document.getElementById("result").style.display = "none";
+
+}
+
+
+document.addEventListener("keydown", function(event) {
+
+    if (
+        event.key === "Enter" &&
+        event.target.tagName === "INPUT"
+    ) {
+
+        event.preventDefault();
+
+        calculateTax();
+
+    }
+
+});
+
+</script>
+
 
 </body>
-
 </html>
-```
