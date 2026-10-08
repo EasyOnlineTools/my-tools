@@ -13,7 +13,7 @@
 
     <meta name="robots" content="index, follow">
 
-   <link rel="canonical" href="https://easyonlinetools.online/number-calculator.html">
+    <link rel="canonical" href="https://easyonlinetools.online/number-calculator.html">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Number Calculator – Basic Number Operations | Easy Online Tool">
@@ -28,10 +28,11 @@
         "@context": "https://schema.org",
         "@type": "WebApplication",
         "name": "Number Calculator",
-      "url": "https://easyonlinetools.online/number-calculator.html",
-        "applicationCategory": "Calculator",
-        "operatingSystem": "Any",
-        "description": "A free online Number Calculator for performing basic mathematical operations including addition, subtraction, multiplication and division.",
+        "url": "https://easyonlinetools.online/number-calculator.html",
+        "applicationCategory": "CalculatorApplication",
+        "operatingSystem": "All",
+        "description": "A free online Number Calculator for performing basic mathematical operations including addition, subtraction, multiplication, division and percentage calculations.",
+        "browserRequirements": "Requires a modern web browser",
         "offers": {
             "@type": "Offer",
             "price": "0",
@@ -141,6 +142,20 @@
             font-size: 16px;
         }
 
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 2px rgba(0,123,255,0.1);
+        }
+
+        .operation-help {
+            display: block;
+            margin-top: 6px;
+            color: #666;
+            font-size: 14px;
+        }
+
         button {
             width: 100%;
             padding: 14px;
@@ -184,6 +199,7 @@
             font-size: 30px;
             font-weight: bold;
             color: #007bff;
+            word-break: break-word;
         }
 
         .content-section {
@@ -196,6 +212,25 @@
 
         .content-section h2 {
             margin-top: 0;
+        }
+
+        .content-section h3 {
+            margin-top: 28px;
+        }
+
+        .content-section p,
+        .content-section li {
+            line-height: 1.7;
+        }
+
+        .formula {
+            background: #f1f5f9;
+            padding: 15px;
+            border-radius: 7px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 15px 0;
         }
 
         .related-tools {
@@ -233,6 +268,10 @@
             font-weight: 600;
         }
 
+        .internal-nav a:hover {
+            text-decoration: underline;
+        }
+
         footer {
             background: #222;
             color: #ddd;
@@ -252,6 +291,7 @@
         }
 
         @media (max-width: 700px) {
+
             .header-container {
                 flex-direction: column;
                 gap: 12px;
@@ -272,6 +312,14 @@
 
             .calculator {
                 padding: 22px;
+            }
+
+            .content-section {
+                padding: 22px;
+            }
+
+            .result-value {
+                font-size: 26px;
             }
         }
     </style>
@@ -301,49 +349,88 @@
 <main class="container">
 
     <section class="hero">
+
         <h1>Number Calculator</h1>
 
         <p>
             Perform basic number calculations including addition,
-            subtraction, multiplication and division quickly and easily.
+            subtraction, multiplication, division and percentage
+            calculations quickly and easily.
         </p>
+
     </section>
 
 
     <section class="calculator">
 
         <div class="input-group">
-            <label for="number1">First Number</label>
+
+            <label for="number1">
+                First Number
+            </label>
+
             <input
                 type="number"
                 id="number1"
                 placeholder="Enter first number"
                 step="any"
             >
+
         </div>
 
 
         <div class="input-group">
-            <label for="operation">Operation</label>
+
+            <label for="operation">
+                Operation
+            </label>
 
             <select id="operation">
-                <option value="add">Addition (+)</option>
-                <option value="subtract">Subtraction (−)</option>
-                <option value="multiply">Multiplication (×)</option>
-                <option value="divide">Division (÷)</option>
-                <option value="percent">Percentage (%)</option>
+
+                <option value="add">
+                    Addition (+)
+                </option>
+
+                <option value="subtract">
+                    Subtraction (−)
+                </option>
+
+                <option value="multiply">
+                    Multiplication (×)
+                </option>
+
+                <option value="divide">
+                    Division (÷)
+                </option>
+
+                <option value="percent">
+                    Percentage of a Number (%)
+                </option>
+
             </select>
+
+            <small class="operation-help">
+                For percentage calculations, enter the percentage as the
+                first number and the total as the second number.
+                Example: 25% of 200 = 50.
+            </small>
+
         </div>
 
 
         <div class="input-group">
-            <label for="number2">Second Number</label>
+
+            <label for="number2">
+                Second Number
+            </label>
+
             <input
                 type="number"
                 id="number2"
                 placeholder="Enter second number"
                 step="any"
             >
+
         </div>
 
 
@@ -351,7 +438,11 @@
             Calculate
         </button>
 
-        <button class="clear-btn" onclick="clearCalculator()">
+
+        <button
+            class="clear-btn"
+            onclick="clearCalculator()"
+        >
             Clear
         </button>
 
@@ -360,7 +451,10 @@
 
             <h2>Result</h2>
 
-            <div class="result-value" id="resultValue">
+            <div
+                class="result-value"
+                id="resultValue"
+            >
                 0
             </div>
 
@@ -370,9 +464,17 @@
 
 
     <div class="internal-nav">
-        <a href="tools.html">← All Tools</a>
+
+        <a href="tools.html">
+            ← All Tools
+        </a>
+
         &nbsp; | &nbsp;
-        <a href="tools.html#math">Math & Advanced Calculators</a>
+
+        <a href="tools.html#math">
+            Math &amp; Advanced Calculators
+        </a>
+
     </div>
 
 
@@ -398,12 +500,56 @@
         <h2>How to Use the Number Calculator</h2>
 
         <ol>
-            <li>Enter your first number.</li>
-            <li>Select the mathematical operation you want to perform.</li>
-            <li>Enter the second number.</li>
-            <li>Click the <strong>Calculate</strong> button.</li>
-            <li>Your answer will appear immediately.</li>
+
+            <li>
+                Enter your first number.
+            </li>
+
+            <li>
+                Select the mathematical operation you want to perform.
+            </li>
+
+            <li>
+                Enter the second number.
+            </li>
+
+            <li>
+                Click the <strong>Calculate</strong> button.
+            </li>
+
+            <li>
+                Your answer will appear immediately.
+            </li>
+
         </ol>
+
+
+        <h2>Number Calculator Formulas</h2>
+
+        <p>
+            The calculator uses standard mathematical operations for
+            the selected calculation.
+        </p>
+
+        <div class="formula">
+            Addition: A + B
+        </div>
+
+        <div class="formula">
+            Subtraction: A − B
+        </div>
+
+        <div class="formula">
+            Multiplication: A × B
+        </div>
+
+        <div class="formula">
+            Division: A ÷ B
+        </div>
+
+        <div class="formula">
+            Percentage: (A ÷ 100) × B
+        </div>
 
 
         <h2>Examples</h2>
@@ -415,21 +561,64 @@
         </p>
 
         <p>
-            Similarly, selecting Multiplication with 12 and 5 will
+            If you select Subtraction and enter 50 and 20,
+            the result will be 30.
+        </p>
+
+        <p>
+            Selecting Multiplication with 12 and 5 will
             produce a result of 60.
+        </p>
+
+        <p>
+            For division, entering 100 and 4 produces a result of 25.
+        </p>
+
+        <p>
+            For a percentage calculation, entering 25 as the first number
+            and 200 as the second number calculates 25% of 200, which is 50.
         </p>
 
 
         <h2>Why Use This Calculator?</h2>
 
         <ul>
-            <li>Free to use</li>
-            <li>No registration required</li>
-            <li>Works on desktop and mobile devices</li>
-            <li>Fast and simple calculations</li>
-            <li>Supports decimal numbers</li>
-            <li>Useful for everyday mathematical problems</li>
+
+            <li>
+                Free to use
+            </li>
+
+            <li>
+                No registration required
+            </li>
+
+            <li>
+                Works on desktop and mobile devices
+            </li>
+
+            <li>
+                Fast and simple calculations
+            </li>
+
+            <li>
+                Supports decimal numbers
+            </li>
+
+            <li>
+                Useful for everyday mathematical problems
+            </li>
+
         </ul>
+
+
+        <h2>Important Note</h2>
+
+        <p>
+            This calculator is designed for general mathematical and
+            educational purposes. For important financial, business or
+            other decisions, verify calculations independently when
+            appropriate.
+        </p>
 
     </section>
 
@@ -438,53 +627,95 @@
 
         <h2>Related Math Calculators</h2>
 
+        <p>
+            Explore other free math and advanced calculators for
+            percentages, averages, fractions, ratios, number properties,
+            proportions, powers and scientific calculations.
+        </p>
+
         <div class="related-tools">
 
-            <a class="tool-link" href="percentage-calculator.html">
+            <a
+                class="tool-link"
+                href="percentage-calculator.html"
+            >
                 Percentage Calculator
             </a>
 
-            <a class="tool-link" href="average-calculator.html">
+            <a
+                class="tool-link"
+                href="average-calculator.html"
+            >
                 Average Calculator
             </a>
 
-            <a class="tool-link" href="fraction-calculator.html">
+            <a
+                class="tool-link"
+                href="fraction-calculator.html"
+            >
                 Fraction Calculator
             </a>
 
-            <a class="tool-link" href="ratio-calculator.html">
+            <a
+                class="tool-link"
+                href="ratio-calculator.html"
+            >
                 Ratio Calculator
             </a>
 
-            <a class="tool-link" href="gcd-lcm-calculator.html">
-                GCD & LCM Calculator
+            <a
+                class="tool-link"
+                href="gcd-lcm-calculator.html"
+            >
+                GCD &amp; LCM Calculator
             </a>
 
-            <a class="tool-link" href="prime-number-checker.html">
+            <a
+                class="tool-link"
+                href="prime-number-checker.html"
+            >
                 Prime Number Checker
             </a>
 
-            <a class="tool-link" href="percentage-increase-decrease.html">
-                Percentage Increase & Decrease
+            <a
+                class="tool-link"
+                href="percentage-increase-decrease.html"
+            >
+                Percentage Increase &amp; Decrease
             </a>
 
-            <a class="tool-link" href="number-to-words.html">
+            <a
+                class="tool-link"
+                href="number-to-words.html"
+            >
                 Number to Words
             </a>
 
-            <a class="tool-link" href="proportion-calculator.html">
+            <a
+                class="tool-link"
+                href="proportion-calculator.html"
+            >
                 Proportion Calculator
             </a>
 
-            <a class="tool-link" href="scientific-calculator.html">
+            <a
+                class="tool-link"
+                href="scientific-calculator.html"
+            >
                 Scientific Calculator
             </a>
 
-            <a class="tool-link" href="exponent-calculator.html">
+            <a
+                class="tool-link"
+                href="exponent-calculator.html"
+            >
                 Exponent Calculator
             </a>
 
-            <a class="tool-link" href="square-root-calculator.html">
+            <a
+                class="tool-link"
+                href="square-root-calculator.html"
+            >
                 Square Root Calculator
             </a>
 
@@ -498,14 +729,46 @@
 <footer>
 
     <p>
-        <a href="index.html">Home</a> |
-        <a href="tools.html">All Tools</a> |
-        <a href="index.html#categories">Categories</a> |
-        <a href="index.html#about">About</a> |
-        <a href="index.html#faq">FAQ</a> |
-        <a href="privacy-policy.html">Privacy</a> |
-        <a href="terms.html">Terms</a> |
-        <a href="contact.html">Contact</a>
+
+        <a href="index.html">
+            Home
+        </a>
+        |
+
+        <a href="tools.html">
+            All Tools
+        </a>
+        |
+
+        <a href="index.html#categories">
+            Categories
+        </a>
+        |
+
+        <a href="index.html#about">
+            About
+        </a>
+        |
+
+        <a href="index.html#faq">
+            FAQ
+        </a>
+        |
+
+        <a href="privacy-policy.html">
+            Privacy
+        </a>
+        |
+
+        <a href="terms.html">
+            Terms
+        </a>
+        |
+
+        <a href="contact.html">
+            Contact
+        </a>
+
     </p>
 
     <p>
@@ -519,13 +782,11 @@
 
 function calculateNumber() {
 
-    const number1 = parseFloat(
-        document.getElementById("number1").value
-    );
+    const number1Input =
+        document.getElementById("number1").value.trim();
 
-    const number2 = parseFloat(
-        document.getElementById("number2").value
-    );
+    const number2Input =
+        document.getElementById("number2").value.trim();
 
     const operation =
         document.getElementById("operation").value;
@@ -537,9 +798,21 @@ function calculateNumber() {
         document.getElementById("resultValue");
 
 
-    if (isNaN(number1) || isNaN(number2)) {
+    if (number1Input === "" || number2Input === "") {
 
         alert("Please enter both numbers.");
+
+        return;
+    }
+
+
+    const number1 = Number(number1Input);
+    const number2 = Number(number2Input);
+
+
+    if (!Number.isFinite(number1) || !Number.isFinite(number2)) {
+
+        alert("Please enter valid numbers.");
 
         return;
     }
@@ -602,7 +875,9 @@ function calculateNumber() {
 
     if (!Number.isFinite(result)) {
 
-        alert("The calculation could not be completed.");
+        alert(
+            "The calculation could not be completed. Please try smaller values."
+        );
 
         return;
     }
