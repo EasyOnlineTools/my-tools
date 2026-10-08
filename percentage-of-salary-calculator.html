@@ -9,7 +9,7 @@
     <title>Percentage of Salary Calculator – Calculate Salary Percentage | Easy Online Tool</title>
 
     <meta name="description"
-        content="Use our free Percentage of Salary Calculator to calculate any percentage of your salary quickly. Find salary percentages, increases, deductions, bonuses, and more.">
+        content="Use our free Percentage of Salary Calculator to calculate any percentage of your salary quickly. Find salary percentages, deductions, bonuses, contributions, increases, and more.">
 
     <meta name="robots" content="index, follow">
 
@@ -19,7 +19,6 @@
     <meta name="keywords"
         content="percentage of salary calculator, salary percentage calculator, calculate percentage of salary, salary calculator, percentage calculator, salary increase calculator">
 
-    <!-- Open Graph -->
     <meta property="og:title"
         content="Percentage of Salary Calculator – Calculate Salary Percentage">
 
@@ -33,16 +32,16 @@
 
     <meta property="og:site_name" content="Easy Online Tool">
 
-    <!-- Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebApplication",
         "name": "Percentage of Salary Calculator",
         "url": "https://easyonlinetools.online/percentage-of-salary-calculator.html",
-        "description": "A free online calculator for finding a percentage of a salary.",
-        "applicationCategory": "Calculator",
-        "operatingSystem": "Any",
+        "description": "A free online calculator for finding a percentage of a salary and calculating the remaining salary amount.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires a modern web browser",
         "offers": {
             "@type": "Offer",
             "price": "0",
@@ -108,6 +107,21 @@
             padding: 0 20px;
         }
 
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .breadcrumb span {
+            margin: 0 6px;
+        }
+
         .calculator-card {
             background: #ffffff;
             padding: 30px;
@@ -128,6 +142,15 @@
             color: #555;
         }
 
+        .input-help {
+            margin-bottom: 25px;
+            padding: 14px 16px;
+            background: #f1f5f9;
+            border-radius: 7px;
+            color: #4b5563;
+            font-size: 14px;
+        }
+
         .section-title {
             font-size: 21px;
             margin-top: 30px;
@@ -144,8 +167,7 @@
             margin-bottom: 7px;
         }
 
-        input,
-        select {
+        input {
             width: 100%;
             padding: 12px;
             border: 1px solid #cfd5dc;
@@ -153,10 +175,9 @@
             font-size: 16px;
         }
 
-        input:focus,
-        select:focus {
+        input:focus {
             outline: none;
-            border-color: #666;
+            border-color: #2563eb;
         }
 
         .button-group {
@@ -187,6 +208,15 @@
 
         button:hover {
             opacity: 0.9;
+        }
+
+        .error {
+            display: none;
+            margin-top: 20px;
+            padding: 12px;
+            border-radius: 7px;
+            background: #fee2e2;
+            color: #b91c1c;
         }
 
         .result {
@@ -233,10 +263,14 @@
 
         .info-section {
             margin-top: 35px;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
         }
 
         .info-section h2 {
             font-size: 24px;
+            margin-top: 0;
         }
 
         .info-section h3 {
@@ -249,11 +283,15 @@
         }
 
         .related-tools {
-            margin-top: 35px;
+            margin-top: 30px;
             padding: 20px;
             background: #ffffff;
             border-radius: 10px;
             border: 1px solid #e5e7eb;
+        }
+
+        .related-tools h2 {
+            margin-top: 0;
         }
 
         .related-tools a {
@@ -277,6 +315,10 @@
             color: #444;
             text-decoration: none;
             margin: 0 8px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
 
         @media (max-width: 650px) {
@@ -310,410 +352,538 @@
                 flex-direction: column;
                 gap: 2px;
             }
+
+            footer a {
+                display: inline-block;
+                margin: 4px 6px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <header>
+<header>
 
-        <div class="header-container">
+    <div class="header-container">
 
-            <a href="index.html" class="logo">
-                Easy Online Tool
-            </a>
+        <a href="index.html" class="logo">
+            Easy Online Tool
+        </a>
 
-            <nav>
-                <a href="index.html">Home</a>
-                <a href="tools.html">Tools</a>
-                <a href="tools.html#finance">Finance</a>
-                <a href="about.html">About</a>
-                <a href="faq.html">FAQ</a>
-            </nav>
-
-        </div>
-
-    </header>
-
-
-    <main class="container">
-
-        <div class="calculator-card">
-
-            <h1>Percentage of Salary Calculator</h1>
-
-            <p class="intro">
-                Calculate any percentage of your salary quickly and easily.
-                Enter your salary and the percentage you want to calculate
-                to find the exact amount instantly.
-            </p>
-
-
-            <h2 class="section-title">Calculate Percentage of Salary</h2>
-
-
-            <div class="input-group">
-
-                <label for="salary">
-                    Salary Amount
-                </label>
-
-                <input
-                    type="number"
-                    id="salary"
-                    placeholder="Enter your salary"
-                    min="0"
-                    step="0.01">
-
-            </div>
-
-
-            <div class="input-group">
-
-                <label for="percentage">
-                    Percentage (%)
-                </label>
-
-                <input
-                    type="number"
-                    id="percentage"
-                    placeholder="Enter percentage"
-                    min="0"
-                    step="0.01">
-
-            </div>
-
-
-            <div class="button-group">
-
-                <button
-                    type="button"
-                    class="calculate-btn"
-                    onclick="calculateSalaryPercentage()">
-                    Calculate
-                </button>
-
-                <button
-                    type="button"
-                    class="reset-btn"
-                    onclick="resetCalculator()">
-                    Reset
-                </button>
-
-            </div>
-
-
-            <div class="result" id="result">
-
-                <h2>Calculation Result</h2>
-
-                <div class="result-row">
-
-                    <span class="result-label">
-                        Salary:
-                    </span>
-
-                    <span id="displaySalary">
-                        $0.00
-                    </span>
-
-                </div>
-
-
-                <div class="result-row">
-
-                    <span class="result-label">
-                        Percentage:
-                    </span>
-
-                    <span id="displayPercentage">
-                        0%
-                    </span>
-
-                </div>
-
-
-                <div class="result-row">
-
-                    <span class="result-label">
-                        Percentage Amount:
-                    </span>
-
-                    <span id="percentageAmount">
-                        $0.00
-                    </span>
-
-                </div>
-
-
-                <div class="result-row highlight">
-
-                    <span>
-                        Salary Remaining:
-                    </span>
-
-                    <span id="remainingSalary">
-                        $0.00
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <div class="formula-box">
-
-                <strong>Percentage of Salary Formula:</strong>
-
-                <p>
-                    Percentage Amount = Salary × (Percentage ÷ 100)
-                </p>
-
-                <p>
-                    Salary Remaining = Salary − Percentage Amount
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <section class="info-section">
-
-            <h2>What Is a Percentage of Salary Calculator?</h2>
-
-            <p>
-                A Percentage of Salary Calculator helps you find a specific
-                percentage of your salary quickly. It can be useful when
-                calculating deductions, savings, bonuses, contributions,
-                allowances, raises, or other salary-related amounts.
-            </p>
-
-
-            <h3>How to Calculate a Percentage of Salary</h3>
-
-            <p>
-                To calculate a percentage of your salary, multiply your salary
-                by the percentage divided by 100.
-            </p>
-
-            <p>
-                For example, if your salary is $5,000 and you want to calculate
-                10% of your salary:
-            </p>
-
-            <p>
-                $5,000 × 10 ÷ 100 = $500
-            </p>
-
-            <p>
-                Therefore, 10% of a $5,000 salary is $500.
-            </p>
-
-
-            <h3>Salary Percentage Example</h3>
-
-            <p>
-                Suppose your monthly salary is $4,000 and you want to know
-                how much 15% of your salary is.
-            </p>
-
-            <p>
-                Percentage Amount = $4,000 × 15 ÷ 100
-            </p>
-
-            <p>
-                Percentage Amount = $600
-            </p>
-
-            <p>
-                So, 15% of a $4,000 salary is $600.
-            </p>
-
-
-            <h3>Common Uses</h3>
-
-            <p>
-                This calculator can be used for salary deductions, retirement
-                contributions, savings targets, employee bonuses, commissions,
-                salary increases, charitable contributions, and budgeting.
-            </p>
-
-
-            <h3>Salary Increase Example</h3>
-
-            <p>
-                If your salary is $3,000 and you receive a 10% increase,
-                10% of $3,000 is $300. The new salary would therefore be
-                $3,300.
-            </p>
-
-
-            <h3>Why Use Our Percentage of Salary Calculator?</h3>
-
-            <p>
-                Our calculator provides a fast and simple way to calculate
-                salary percentages without doing the calculation manually.
-                It works directly in your web browser and is free to use.
-            </p>
-
-        </section>
-
-
-       <section class="related-tools">
-
-    <h2>Related Calculators</h2>
-
-    <a href="percentage-calculator.html">
-        Percentage Calculator
-    </a>
-
-    <a href="percentage-increase-decrease.html">
-        Percentage Increase &amp; Decrease
-    </a>
-
-    <a href="salary-calculator.html">
-        Salary Calculator
-    </a>
-
-    <a href="hourly-to-salary-calculator.html">
-        Hourly to Salary Calculator
-    </a>
-
-    <a href="salary-to-hourly-calculator.html">
-        Salary to Hourly Calculator
-    </a>
-
-    <a href="sales-tax-calculator.html">
-        Sales Tax Calculator
-    </a>
-
-    <a href="discount-calculator.html">
-        Discount Calculator
-    </a>
-
-    <a href="commission-calculator.html">
-        Commission Calculator
-    </a>
-
-    <a href="debt-to-income-ratio-calculator.html">
-        Debt-to-Income Ratio Calculator
-    </a>
-
-    <a href="loan-calculator.html">
-        Loan Calculator
-    </a>
-
-    <a href="simple-interest-calculator.html">
-        Simple Interest Calculator
-    </a>
-
-    <a href="compound-interest-calculator.html">
-        Compound Interest Calculator
-    </a>
-
-    <a href="tools.html#finance">
-        More Finance Calculators
-    </a>
-
-</section>
-
-    </main>
-
-
-    <footer>
-
-        <p>
-            © 2026 Easy Online Tool. All rights reserved.
-        </p>
-
-        <p>
+        <nav>
             <a href="index.html">Home</a>
-
             <a href="tools.html">Tools</a>
-
+            <a href="tools.html#finance">Finance</a>
             <a href="about.html">About</a>
-
             <a href="faq.html">FAQ</a>
+        </nav>
+
+    </div>
+
+</header>
+
+<main class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span>›</span>
+        <a href="tools.html#finance">Finance Calculators</a>
+        <span>›</span>
+        <span>Percentage of Salary Calculator</span>
+    </nav>
+
+    <div class="calculator-card">
+
+        <h1>Percentage of Salary Calculator</h1>
+
+        <p class="intro">
+            Calculate any percentage of your salary quickly and easily.
+            Enter your salary and the percentage you want to calculate
+            to find the percentage amount and remaining salary.
         </p>
 
-    </footer>
+        <h2 class="section-title">
+            Calculate Percentage of Salary
+        </h2>
 
+        <div class="input-help">
+            Enter your salary amount and the percentage you want to calculate.
+            The calculator shows the percentage amount and the salary remaining
+            after subtracting that percentage.
+        </div>
 
-    <script>
+        <div class="input-group">
 
-        function calculateSalaryPercentage() {
+            <label for="salary">
+                Salary Amount
+            </label>
 
-            const salaryInput =
-                document.getElementById("salary").value;
+            <input
+                type="number"
+                id="salary"
+                placeholder="Enter your salary"
+                min="0"
+                step="0.01"
+                inputmode="decimal">
 
-            const percentageInput =
-                document.getElementById("percentage").value;
+        </div>
 
+        <div class="input-group">
 
-            const salary = parseFloat(salaryInput);
+            <label for="percentage">
+                Percentage (%)
+            </label>
 
-            const percentage = parseFloat(percentageInput);
+            <input
+                type="number"
+                id="percentage"
+                placeholder="Enter percentage"
+                min="0"
+                step="0.01"
+                inputmode="decimal">
 
+        </div>
 
-            if (
-                isNaN(salary) ||
-                isNaN(percentage) ||
-                salary < 0 ||
-                percentage < 0
-            ) {
+        <div class="button-group">
 
-                alert(
-                    "Please enter a valid salary and percentage."
-                );
+            <button
+                type="button"
+                class="calculate-btn"
+                onclick="calculateSalaryPercentage()">
+                Calculate
+            </button>
 
-                return;
-            }
+            <button
+                type="button"
+                class="reset-btn"
+                onclick="resetCalculator()">
+                Reset
+            </button>
 
+        </div>
 
-            const percentageAmount =
-                salary * (percentage / 100);
+        <div class="error" id="error"></div>
 
+        <div class="result" id="result">
 
-            const remainingSalary =
-                salary - percentageAmount;
+            <h2>Calculation Result</h2>
 
+            <div class="result-row">
 
-            document.getElementById("displaySalary").textContent =
-                "$" + salary.toFixed(2);
+                <span class="result-label">
+                    Salary:
+                </span>
 
+                <span id="displaySalary">
+                    $0.00
+                </span>
 
-            document.getElementById("displayPercentage").textContent =
-                percentage.toFixed(2) + "%";
+            </div>
 
+            <div class="result-row">
 
-            document.getElementById("percentageAmount").textContent =
-                "$" + percentageAmount.toFixed(2);
+                <span class="result-label">
+                    Percentage:
+                </span>
 
+                <span id="displayPercentage">
+                    0%
+                </span>
 
-            document.getElementById("remainingSalary").textContent =
-                "$" + remainingSalary.toFixed(2);
+            </div>
 
+            <div class="result-row">
 
-            document.getElementById("result").style.display =
-                "block";
+                <span class="result-label">
+                    Percentage Amount:
+                </span>
 
-        }
+                <span id="percentageAmount">
+                    $0.00
+                </span>
 
+            </div>
 
-        function resetCalculator() {
+            <div class="result-row highlight">
 
-            document.getElementById("salary").value = "";
+                <span>
+                    Salary Remaining:
+                </span>
 
-            document.getElementById("percentage").value = "";
+                <span id="remainingSalary">
+                    $0.00
+                </span>
 
-            document.getElementById("result").style.display =
-                "none";
+            </div>
 
-        }
+        </div>
 
-    </script>
+        <div class="formula-box">
+
+            <strong>Percentage of Salary Formulas:</strong>
+
+            <p>
+                Percentage Amount = Salary × (Percentage ÷ 100)
+            </p>
+
+            <p>
+                Salary Remaining = Salary − Percentage Amount
+            </p>
+
+        </div>
+
+    </div>
+
+    <section class="info-section">
+
+        <h2>What Is a Percentage of Salary Calculator?</h2>
+
+        <p>
+            A Percentage of Salary Calculator helps you find a specific
+            percentage of your salary quickly. It can be useful when
+            estimating deductions, savings, bonuses, contributions,
+            allowances, raises, or other salary-related amounts.
+        </p>
+
+        <h2>How to Calculate a Percentage of Salary</h2>
+
+        <p>
+            To calculate a percentage of your salary, multiply the salary
+            by the percentage divided by 100.
+        </p>
+
+        <p>
+            For example, if your salary is $5,000 and you want to calculate
+            10% of your salary:
+        </p>
+
+        <div class="formula-box">
+            $5,000 × 10 ÷ 100 = $500
+        </div>
+
+        <p>
+            Therefore, 10% of a $5,000 salary is $500.
+        </p>
+
+        <h2>Salary Percentage Example</h2>
+
+        <p>
+            Suppose your monthly salary is $4,000 and you want to know
+            how much 15% of your salary is.
+        </p>
+
+        <div class="formula-box">
+            $4,000 × 15 ÷ 100 = $600
+        </div>
+
+        <p>
+            So, 15% of a $4,000 salary is $600. If you subtract that
+            amount from the salary, the remaining amount is $3,400.
+        </p>
+
+        <h2>Salary Increase Example</h2>
+
+        <p>
+            If your salary is $3,000 and you receive a 10% increase,
+            10% of $3,000 is $300. The new salary would therefore be
+            $3,300.
+        </p>
+
+        <h2>Common Uses of Salary Percentages</h2>
+
+        <p>
+            Salary percentages are commonly used when estimating retirement
+            contributions, savings targets, employee bonuses, commissions,
+            salary increases, charitable contributions, deductions, and
+            personal budgets.
+        </p>
+
+        <h2>Percentage of Salary vs. Salary Increase</h2>
+
+        <p>
+            A percentage of salary represents a portion of the current salary.
+            A salary increase uses a percentage to calculate an additional
+            amount that is added to the existing salary.
+        </p>
+
+        <p>
+            For example, 10% of a $4,000 salary is $400. If the $400 represents
+            a 10% salary increase, the new salary would be $4,400.
+        </p>
+
+        <h2>Important Note</h2>
+
+        <p>
+            This calculator performs a basic percentage calculation. It does
+            not calculate actual payroll taxes, government deductions,
+            retirement rules, employer contributions, or other compensation
+            policies. Actual salary deductions and benefits can vary by
+            employer and location.
+        </p>
+
+        <h2>Why Use Our Percentage of Salary Calculator?</h2>
+
+        <p>
+            This free calculator provides a quick way to calculate salary
+            percentages without performing the calculation manually. It works
+            directly in your web browser and can be used for common financial
+            planning and salary-related calculations.
+        </p>
+
+    </section>
+
+    <section class="related-tools">
+
+        <h2>Related Financial Calculators</h2>
+
+        <a href="percentage-calculator.html">
+            Percentage Calculator
+        </a>
+
+        <a href="percentage-increase-decrease.html">
+            Percentage Increase &amp; Decrease
+        </a>
+
+        <a href="salary-calculator.html">
+            Salary Calculator
+        </a>
+
+        <a href="hourly-to-salary-calculator.html">
+            Hourly to Salary Calculator
+        </a>
+
+        <a href="salary-to-hourly-calculator.html">
+            Salary to Hourly Calculator
+        </a>
+
+        <a href="sales-tax-calculator.html">
+            Sales Tax Calculator
+        </a>
+
+        <a href="discount-calculator.html">
+            Discount Calculator
+        </a>
+
+        <a href="commission-calculator.html">
+            Commission Calculator
+        </a>
+
+        <a href="debt-to-income-ratio-calculator.html">
+            Debt-to-Income Ratio Calculator
+        </a>
+
+        <a href="loan-calculator.html">
+            Loan Calculator
+        </a>
+
+        <a href="simple-interest-calculator.html">
+            Simple Interest Calculator
+        </a>
+
+        <a href="compound-interest-calculator.html">
+            Compound Interest Calculator
+        </a>
+
+        <a href="tools.html#finance">
+            More Finance Calculators
+        </a>
+
+    </section>
+
+</main>
+
+<footer>
+
+    <p>
+        © 2026 Easy Online Tool. All rights reserved.
+    </p>
+
+    <p>
+        <a href="index.html">Home</a>
+        <a href="tools.html">Tools</a>
+        <a href="categories.html">Categories</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="contact.html">Contact</a>
+    </p>
+
+</footer>
+
+<script>
+
+function calculateSalaryPercentage() {
+
+    const salaryValue =
+        document.getElementById("salary").value.trim();
+
+    const percentageValue =
+        document.getElementById("percentage").value.trim();
+
+    const error =
+        document.getElementById("error");
+
+    const result =
+        document.getElementById("result");
+
+    error.style.display = "none";
+    result.style.display = "none";
+
+    if (salaryValue === "") {
+
+        error.textContent =
+            "Please enter your salary amount.";
+
+        error.style.display = "block";
+
+        return;
+    }
+
+    if (percentageValue === "") {
+
+        error.textContent =
+            "Please enter the percentage.";
+
+        error.style.display = "block";
+
+        return;
+    }
+
+    const salary = Number(salaryValue);
+    const percentage = Number(percentageValue);
+
+    if (
+        !Number.isFinite(salary) ||
+        salary < 0
+    ) {
+
+        error.textContent =
+            "Please enter a valid salary amount.";
+
+        error.style.display = "block";
+
+        return;
+    }
+
+    if (salary > 1000000000000) {
+
+        error.textContent =
+            "Please enter a reasonable salary amount.";
+
+        error.style.display = "block";
+
+        return;
+    }
+
+    if (
+        !Number.isFinite(percentage) ||
+        percentage < 0
+    ) {
+
+        error.textContent =
+            "Please enter a valid percentage.";
+
+        error.style.display = "block";
+
+        return;
+    }
+
+    if (percentage > 100000) {
+
+        error.textContent =
+            "Please enter a reasonable percentage.";
+
+        error.style.display = "block";
+
+        return;
+    }
+
+    const percentageAmount =
+        salary * (percentage / 100);
+
+    const remainingSalary =
+        salary - percentageAmount;
+
+    if (
+        !Number.isFinite(percentageAmount) ||
+        !Number.isFinite(remainingSalary)
+    ) {
+
+        error.textContent =
+            "The calculated result is too large. Please check your values.";
+
+        error.style.display = "block";
+
+        return;
+    }
+
+    function money(value) {
+
+        return "$" + value.toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
+
+    }
+
+    document.getElementById("displaySalary").textContent =
+        money(salary);
+
+    document.getElementById("displayPercentage").textContent =
+        percentage.toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        }) + "%";
+
+    document.getElementById("percentageAmount").textContent =
+        money(percentageAmount);
+
+    document.getElementById("remainingSalary").textContent =
+        money(remainingSalary);
+
+    result.style.display = "block";
+
+    if (window.innerWidth <= 650) {
+
+        result.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }
+
+}
+
+function resetCalculator() {
+
+    document.getElementById("salary").value = "";
+
+    document.getElementById("percentage").value = "";
+
+    document.getElementById("error").style.display =
+        "none";
+
+    document.getElementById("result").style.display =
+        "none";
+
+}
+
+document.addEventListener("keydown", function(event) {
+
+    if (
+        event.key === "Enter" &&
+        event.target.tagName === "INPUT"
+    ) {
+
+        calculateSalaryPercentage();
+
+    }
+
+});
+
+</script>
 
 </body>
 
