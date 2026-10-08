@@ -4,13 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Profit Margin Calculator – Calculate Profit Margin</title>
+    <title>Profit Margin Calculator – Calculate Profit Margin | Easy Online Tool</title>
 
-    <meta name="description" content="Use our free Profit Margin Calculator to calculate profit, profit margin percentage, and markup from cost and selling price.">
+    <meta name="description" content="Use this free Profit Margin Calculator to calculate profit or loss, profit margin percentage, and markup from cost price and selling price.">
 
     <meta name="robots" content="index, follow">
 
     <link rel="canonical" href="https://easyonlinetools.online/profit-margin-calculator.html">
+
+    <meta property="og:title" content="Profit Margin Calculator – Calculate Profit Margin">
+    <meta property="og:description" content="Calculate profit, profit margin percentage, and markup from cost price and selling price with this free online calculator.">
+    <meta property="og:url" content="https://easyonlinetools.online/profit-margin-calculator.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Easy Online Tool">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Profit Margin Calculator",
+        "url": "https://easyonlinetools.online/profit-margin-calculator.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "description": "Free online profit margin calculator for calculating profit or loss, profit margin percentage, and markup from cost and selling price.",
+        "browserRequirements": "Requires a modern web browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
 
     <style>
         * {
@@ -69,6 +93,17 @@
             padding: 40px 20px;
         }
 
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
         .page-title {
             text-align: center;
             margin-bottom: 30px;
@@ -112,6 +147,13 @@
         .input-group input:focus {
             outline: none;
             border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
+        }
+
+        .hint {
+            margin-top: 6px;
+            font-size: 13px;
+            color: #666;
         }
 
         .button-row {
@@ -141,6 +183,10 @@
         .reset-btn {
             background: #e5e7eb;
             color: #222;
+        }
+
+        .reset-btn:hover {
+            background: #d1d5db;
         }
 
         .error {
@@ -190,6 +236,10 @@
         }
 
         .info-section h2 {
+            margin-top: 25px;
+        }
+
+        .info-section h2:first-child {
             margin-top: 0;
         }
 
@@ -199,6 +249,15 @@
             border-radius: 7px;
             font-weight: bold;
             margin: 15px 0;
+            overflow-x: auto;
+        }
+
+        .important-note {
+            margin-top: 25px;
+            padding: 15px;
+            background: #f8fafc;
+            border-left: 4px solid #2563eb;
+            border-radius: 5px;
         }
 
         .related-tools {
@@ -227,6 +286,10 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.06);
         }
 
+        .related-grid a:hover {
+            background: #f1f5f9;
+        }
+
         .faq-item {
             margin-bottom: 20px;
         }
@@ -244,7 +307,22 @@
             color: #666;
         }
 
+        footer a {
+            color: #2563eb;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-links {
+            margin-bottom: 12px;
+        }
+
         @media (max-width: 700px) {
+
             .header-container {
                 flex-direction: column;
             }
@@ -273,32 +351,23 @@
                 flex-direction: column;
                 gap: 5px;
             }
+
+            .container {
+                padding-top: 25px;
+            }
         }
     </style>
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "Profit Margin Calculator",
-        "url": "https://easyonlinetools.online/profit-margin-calculator.html",
-        "applicationCategory": "FinanceApplication",
-        "operatingSystem": "All",
-        "description": "Free online profit margin calculator for calculating profit, profit margin percentage, and markup.",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-        }
-    }
-    </script>
 </head>
 
 <body>
 
 <header>
+
     <div class="header-container">
-        <a href="index.html" class="logo">Easy Online Tool</a>
+
+        <a href="index.html" class="logo">
+            Easy Online Tool
+        </a>
 
         <nav>
             <a href="index.html">Home</a>
@@ -307,53 +376,95 @@
             <a href="about.html">About</a>
             <a href="faq.html">FAQ</a>
         </nav>
+
     </div>
+
 </header>
 
 <main class="container">
 
+    <div class="breadcrumb">
+        <a href="index.html">Home</a> →
+        <a href="tools.html">Tools</a> →
+        <a href="tools.html#finance">Finance Calculators</a> →
+        Profit Margin Calculator
+    </div>
+
     <section class="page-title">
+
         <h1>Profit Margin Calculator</h1>
-        <p>Calculate profit, profit margin percentage, and markup from cost and selling price.</p>
+
+        <p>
+            Calculate profit or loss, profit margin percentage, and markup
+            from cost and selling price.
+        </p>
+
     </section>
 
     <section class="calculator-box">
 
         <div class="input-group">
-            <label for="costPrice">Cost Price</label>
+
+            <label for="costPrice">
+                Cost Price
+            </label>
+
             <input
                 type="number"
                 id="costPrice"
-                placeholder="Enter cost price"
+                placeholder="e.g. 60"
                 min="0"
                 step="0.01"
             >
+
+            <div class="hint">
+                Enter the amount paid or the total cost of the product or service.
+            </div>
+
         </div>
 
         <div class="input-group">
-            <label for="sellingPrice">Selling Price</label>
+
+            <label for="sellingPrice">
+                Selling Price
+            </label>
+
             <input
                 type="number"
                 id="sellingPrice"
-                placeholder="Enter selling price"
+                placeholder="e.g. 100"
                 min="0"
                 step="0.01"
             >
+
+            <div class="hint">
+                Enter the price at which the product or service is sold.
+            </div>
+
         </div>
 
         <div class="button-row">
-            <button class="calculate-btn" type="button" onclick="calculateMargin()">
+
+            <button
+                class="calculate-btn"
+                type="button"
+                onclick="calculateMargin()">
                 Calculate
             </button>
 
-            <button class="reset-btn" type="button" onclick="resetCalculator()">
+            <button
+                class="reset-btn"
+                type="button"
+                onclick="resetCalculator()">
                 Reset
             </button>
+
         </div>
 
         <div class="error" id="error"></div>
 
         <div class="results" id="results" aria-live="polite">
+
             <h2>Profit Margin Results</h2>
 
             <div class="result-row">
@@ -380,6 +491,7 @@
                 <span>Markup</span>
                 <strong id="resultMarkup"></strong>
             </div>
+
         </div>
 
     </section>
@@ -389,15 +501,14 @@
         <h2>What Is Profit Margin?</h2>
 
         <p>
-            Profit margin shows how much of a company's selling revenue
-            remains as profit after accounting for the cost of the product
-            or service.
+            Profit margin shows how much of a product's or service's selling
+            revenue remains after subtracting its cost. It is commonly
+            expressed as a percentage of the selling price.
         </p>
 
         <p>
-            This calculator uses the cost price and selling price to
-            calculate the profit or loss, profit margin percentage, and
-            markup percentage.
+            This calculator uses the cost price and selling price to calculate
+            profit or loss, profit margin percentage, and markup percentage.
         </p>
 
         <h2>Profit Margin Formula</h2>
@@ -414,22 +525,27 @@
             Markup = (Profit ÷ Cost Price) × 100
         </div>
 
-        <h2>Example</h2>
+        <h2>Profit Margin Example</h2>
 
         <p>
-            If an item costs $60 and is sold for $100:
+            Suppose an item costs $60 and is sold for $100.
         </p>
 
-        <p>
+        <div class="formula">
             Profit = $100 − $60 = $40
-        </p>
+        </div>
 
-        <p>
+        <div class="formula">
             Profit Margin = ($40 ÷ $100) × 100 = 40%
-        </p>
+        </div>
+
+        <div class="formula">
+            Markup = ($40 ÷ $60) × 100 = 66.67%
+        </div>
 
         <p>
-            Markup = ($40 ÷ $60) × 100 = 66.67%
+            Therefore, the item produces a $40 profit, a 40% profit margin,
+            and a 66.67% markup.
         </p>
 
     </section>
@@ -440,20 +556,38 @@
 
         <p>
             Profit margin and markup measure profitability from different
-            perspectives.
-        </p>
-
-        <p>
-            <strong>Profit margin</strong> uses the selling price as the
-            denominator, while <strong>markup</strong> uses the cost price.
+            perspectives. Profit margin uses the selling price as its base,
+            while markup uses the cost price.
         </p>
 
         <div class="formula">
-            Margin % = Profit ÷ Selling Price × 100
+            Profit Margin % = (Profit ÷ Selling Price) × 100
         </div>
 
         <div class="formula">
-            Markup % = Profit ÷ Cost Price × 100
+            Markup % = (Profit ÷ Cost Price) × 100
+        </div>
+
+        <p>
+            For example, a product costing $100 and selling for $125 has a
+            20% profit margin and a 25% markup.
+        </p>
+
+        <h2>What If There Is a Loss?</h2>
+
+        <p>
+            If the selling price is lower than the cost price, the calculation
+            produces a negative profit and a negative profit margin. This
+            indicates that the product is being sold for less than its stated
+            cost.
+        </p>
+
+        <div class="important-note">
+            <strong>Important:</strong>
+            This calculator uses a basic profit-margin model based only on
+            cost price and selling price. Actual business profitability may
+            also depend on taxes, shipping, operating expenses, commissions,
+            discounts, fees, overhead, and other costs.
         </div>
 
     </section>
@@ -463,120 +597,154 @@
         <h2>Frequently Asked Questions</h2>
 
         <div class="faq-item">
+
             <h3>How do I calculate profit margin?</h3>
+
             <p>
                 Subtract the cost price from the selling price to find the
-                profit, then divide the profit by the selling price and
+                profit. Then divide the profit by the selling price and
                 multiply by 100.
             </p>
+
         </div>
 
         <div class="faq-item">
+
             <h3>What is the difference between margin and markup?</h3>
+
             <p>
-                Margin is based on the selling price, while markup is based
-                on the cost price.
+                Profit margin is based on the selling price, while markup is
+                based on the cost price.
             </p>
+
         </div>
 
         <div class="faq-item">
+
             <h3>Can profit margin be negative?</h3>
+
             <p>
                 Yes. If the selling price is lower than the cost price,
-                the result represents a loss and the profit margin is
-                negative.
+                the result represents a loss and the profit margin is negative.
             </p>
+
+        </div>
+
+        <div class="faq-item">
+
+            <h3>Can the cost price be zero?</h3>
+
+            <p>
+                Yes. The calculator can calculate the profit margin when the
+                cost price is zero. Markup is shown as N/A because markup
+                requires a positive cost price as its denominator.
+            </p>
+
         </div>
 
     </section>
 
-   <section class="related-tools">
+    <section class="related-tools">
 
-    <h2>Related Finance Tools</h2>
+        <h2>Related Finance Tools</h2>
 
-    <p>
-        Explore other free financial calculators for profit margins,
-        markup, business costs, commissions, investments, taxes,
-        discounts, income, loans, and everyday financial planning.
-    </p>
+        <p>
+            Explore other free financial calculators for profit margins,
+            markup, business costs, commissions, investments, taxes,
+            discounts, income, loans, and everyday financial planning.
+        </p>
 
-    <div class="related-grid">
+        <div class="related-grid">
 
-        <a href="markup-calculator.html">
-            Markup Calculator
-        </a>
+            <a href="markup-calculator.html">
+                Markup Calculator
+            </a>
 
-        <a href="break-even-calculator.html">
-            Break-Even Calculator
-        </a>
+            <a href="break-even-calculator.html">
+                Break-Even Calculator
+            </a>
 
-        <a href="commission-calculator.html">
-            Commission Calculator
-        </a>
+            <a href="commission-calculator.html">
+                Commission Calculator
+            </a>
 
-        <a href="roi-calculator.html">
-            ROI Calculator
-        </a>
+            <a href="roi-calculator.html">
+                ROI Calculator
+            </a>
 
-        <a href="investment-calculator.html">
-            Investment Calculator
-        </a>
+            <a href="investment-calculator.html">
+                Investment Calculator
+            </a>
 
-        <a href="sales-tax-calculator.html">
-            Sales Tax Calculator
-        </a>
+            <a href="sales-tax-calculator.html">
+                Sales Tax Calculator
+            </a>
 
-        <a href="discount-calculator.html">
-            Discount Calculator
-        </a>
+            <a href="discount-calculator.html">
+                Discount Calculator
+            </a>
 
-        <a href="percentage-calculator.html">
-            Percentage Calculator
-        </a>
+            <a href="percentage-calculator.html">
+                Percentage Calculator
+            </a>
 
-        <a href="percentage-increase-decrease.html">
-            Percentage Increase &amp; Decrease
-        </a>
+            <a href="percentage-increase-decrease.html">
+                Percentage Increase &amp; Decrease
+            </a>
 
-        <a href="salary-calculator.html">
-            Salary Calculator
-        </a>
+            <a href="salary-calculator.html">
+                Salary Calculator
+            </a>
 
-        <a href="percentage-of-salary-calculator.html">
-            Percentage of Salary Calculator
-        </a>
+            <a href="percentage-of-salary-calculator.html">
+                Percentage of Salary Calculator
+            </a>
 
-        <a href="loan-calculator.html">
-            Loan Calculator
-        </a>
+            <a href="loan-calculator.html">
+                Loan Calculator
+            </a>
 
-        <a href="mortgage-calculator.html">
-            Mortgage Calculator
-        </a>
+            <a href="mortgage-calculator.html">
+                Mortgage Calculator
+            </a>
 
-        <a href="savings-calculator.html">
-            Savings Calculator
-        </a>
+            <a href="savings-calculator.html">
+                Savings Calculator
+            </a>
 
-        <a href="compound-interest-calculator.html">
-            Compound Interest Calculator
-        </a>
+            <a href="compound-interest-calculator.html">
+                Compound Interest Calculator
+            </a>
 
-        <a href="simple-interest-calculator.html">
-            Simple Interest Calculator
-        </a>
+            <a href="simple-interest-calculator.html">
+                Simple Interest Calculator
+            </a>
 
-        <a href="tools.html#finance">
-            More Finance Calculators
-        </a>
+            <a href="tools.html#finance">
+                More Finance Calculators
+            </a>
 
-    </div>
+        </div>
 
-</section>
+    </section>
+
 </main>
 
 <footer>
+
+    <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="tools.html">Tools</a>
+        <a href="categories.html">Categories</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
     © 2026 Easy Online Tool. All rights reserved.
+
 </footer>
 
 <script>
@@ -589,13 +757,14 @@ function formatNumber(value) {
 
 function calculateMargin() {
 
-    const costPrice = parseFloat(
-        document.getElementById("costPrice").value
-    );
+    const costInput =
+        document.getElementById("costPrice").value.trim();
 
-    const sellingPrice = parseFloat(
-        document.getElementById("sellingPrice").value
-    );
+    const sellingInput =
+        document.getElementById("sellingPrice").value.trim();
+
+    const costPrice = Number(costInput);
+    const sellingPrice = Number(sellingInput);
 
     const error = document.getElementById("error");
     const results = document.getElementById("results");
@@ -604,30 +773,48 @@ function calculateMargin() {
     results.style.display = "none";
 
     if (
+        costInput === "" ||
+        sellingInput === "" ||
         !Number.isFinite(costPrice) ||
         !Number.isFinite(sellingPrice)
     ) {
+
         error.textContent =
             "Please enter both the cost price and selling price.";
+
         error.style.display = "block";
         return;
     }
 
     if (costPrice < 0 || sellingPrice < 0) {
+
         error.textContent =
             "Cost price and selling price cannot be negative.";
+
+        error.style.display = "block";
+        return;
+    }
+
+    if (costPrice > 1000000000000 || sellingPrice > 1000000000000) {
+
+        error.textContent =
+            "Please enter reasonable price values.";
+
         error.style.display = "block";
         return;
     }
 
     if (sellingPrice === 0) {
+
         error.textContent =
             "Selling price must be greater than zero to calculate profit margin.";
+
         error.style.display = "block";
         return;
     }
 
-    const profit = sellingPrice - costPrice;
+    const profit =
+        sellingPrice - costPrice;
 
     const profitMargin =
         (profit / sellingPrice) * 100;
@@ -636,6 +823,19 @@ function calculateMargin() {
 
     if (costPrice > 0) {
         markup = (profit / costPrice) * 100;
+    }
+
+    if (
+        !Number.isFinite(profit) ||
+        !Number.isFinite(profitMargin) ||
+        !Number.isFinite(markup)
+    ) {
+
+        error.textContent =
+            "The calculation could not be completed. Please check your values.";
+
+        error.style.display = "block";
+        return;
     }
 
     document.getElementById("resultCost").textContent =
@@ -651,15 +851,19 @@ function calculateMargin() {
         profitMargin.toFixed(2) + "%";
 
     document.getElementById("resultMarkup").textContent =
-        costPrice === 0 ? "N/A" : markup.toFixed(2) + "%";
+        costPrice === 0
+            ? "N/A"
+            : markup.toFixed(2) + "%";
 
     results.style.display = "block";
 
     if (window.innerWidth <= 700) {
+
         results.scrollIntoView({
             behavior: "smooth",
             block: "start"
         });
+
     }
 }
 
@@ -674,20 +878,13 @@ function resetCalculator() {
 
 document.addEventListener("keydown", function(event) {
 
-    if (event.key === "Enter") {
-
-        const active = document.activeElement;
-
-        if (
-            active &&
-            (
-                active.id === "costPrice" ||
-                active.id === "sellingPrice"
-            )
-        ) {
-            calculateMargin();
-        }
+    if (
+        event.key === "Enter" &&
+        event.target.tagName === "INPUT"
+    ) {
+        calculateMargin();
     }
+
 });
 </script>
 
