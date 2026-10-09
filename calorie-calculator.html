@@ -4,9 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Calorie Calculator – Calculate Daily Calorie Needs</title>
-<meta name="description" content="Estimate your daily calorie needs, maintenance calories and calorie targets based on your age, weight, height and activity level.">
-   <link rel="canonical" href="https://https://easyonlinetools.online/calorie-calculator.html">
+    <title>Calorie Calculator – Daily Calorie Needs | Easy Online Tool</title>
+    <meta name="description" content="Estimate daily calorie needs using age, sex, height, weight and activity level. Calculate BMR, estimated maintenance calories and illustrative calorie adjustments with this free calculator.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://easyonlinetools.online/calorie-calculator.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Calorie Calculator | Easy Online Tool">
+    <meta property="og:description" content="Estimate your daily calorie needs using body measurements and activity level.">
+    <meta property="og:url" content="https://easyonlinetools.online/calorie-calculator.html">
+    <meta property="og:site_name" content="Easy Online Tool">
+
     <style>
         * {
             box-sizing: border-box;
@@ -17,12 +25,13 @@
             font-family: Arial, sans-serif;
             background: #f5f7fb;
             color: #222;
+            line-height: 1.65;
         }
 
         header {
-            background: #ffffff;
+            background: #fff;
             padding: 18px 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
         .header-container {
@@ -31,20 +40,26 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 15px;
             flex-wrap: wrap;
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 23px;
             font-weight: bold;
             color: #2563eb;
             text-decoration: none;
         }
 
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
         nav a {
             text-decoration: none;
             color: #333;
-            margin-left: 18px;
             font-size: 15px;
         }
 
@@ -52,29 +67,44 @@
             color: #2563eb;
         }
 
-        .container {
-            max-width: 850px;
-            margin: 45px auto;
+        .page-container {
+            max-width: 900px;
+            margin: 35px auto;
             padding: 0 20px;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 18px;
+        }
+
+        .breadcrumb a,
+        .info-section a {
+            color: #2563eb;
         }
 
         h1 {
             text-align: center;
             margin-bottom: 10px;
             font-size: 34px;
+            line-height: 1.3;
         }
 
         .description {
             text-align: center;
-            color: #666;
-            margin-bottom: 30px;
+            color: #5f6673;
+            margin: 0 auto 28px;
+            max-width: 700px;
         }
 
-        .calculator-card {
-            background: white;
-            padding: 30px;
+        .calculator-card,
+        .info-section {
+            background: #fff;
+            padding: 28px;
             border-radius: 14px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
         }
 
         .input-group {
@@ -84,58 +114,98 @@
         label {
             display: block;
             font-weight: bold;
-            margin-bottom: 8px;
+            margin-bottom: 7px;
         }
 
         input,
         select {
+            display: block;
             width: 100%;
             padding: 13px;
             border: 1px solid #d1d5db;
             border-radius: 8px;
             font-size: 16px;
-            background: white;
+            background: #fff;
+            color: #222;
         }
 
         input:focus,
         select:focus {
-            outline: none;
+            outline: 2px solid #93c5fd;
             border-color: #2563eb;
         }
 
+        .field-note {
+            font-size: 13px;
+            color: #6b7280;
+            margin-top: 5px;
+        }
+
+        .button-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
         button {
-            width: 100%;
+            flex: 1;
+            min-width: 130px;
             padding: 14px;
-            background: #2563eb;
-            color: white;
             border: none;
             border-radius: 8px;
-            font-size: 17px;
+            font-size: 16px;
             font-weight: bold;
             cursor: pointer;
         }
 
-        button:hover {
+        .calculate-button {
+            background: #2563eb;
+            color: #fff;
+        }
+
+        .calculate-button:hover {
             background: #1d4ed8;
         }
 
-        .result {
-            margin-top: 25px;
-            padding: 20px;
-            background: #f0f7ff;
-            border-radius: 10px;
+        .reset-button {
+            background: #f3f4f6;
+            color: #222;
+            border: 1px solid #d1d5db;
+        }
+
+        .reset-button:hover {
+            background: #e5e7eb;
+        }
+
+        .error-box {
             display: none;
+            margin-top: 18px;
+            padding: 13px;
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            color: #991b1b;
+        }
+
+        .result {
+            display: none;
+            margin-top: 25px;
+            padding: 22px;
+            background: #eff6ff;
+            border: 1px solid #dbeafe;
+            border-radius: 10px;
         }
 
         .result h2 {
             margin-top: 0;
-            color: #2563eb;
+            color: #1d4ed8;
             font-size: 22px;
         }
 
         .result-row {
             display: flex;
             justify-content: space-between;
+            align-items: flex-start;
             gap: 15px;
             padding: 12px 0;
             border-bottom: 1px solid #dbeafe;
@@ -150,188 +220,280 @@
             text-align: right;
         }
 
+        .result-note {
+            margin-top: 16px;
+            font-size: 14px;
+            color: #4b5563;
+        }
+
         .info-section {
-            background: white;
-            margin-top: 30px;
-            padding: 25px;
-            border-radius: 14px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            margin-top: 28px;
+            line-height: 1.8;
         }
 
         .info-section h2 {
+            margin-top: 28px;
+            line-height: 1.4;
+        }
+
+        .info-section h2:first-child {
             margin-top: 0;
         }
 
         .info-section h3 {
-            margin-top: 25px;
+            margin-top: 22px;
+        }
+
+        .formula-box {
+            padding: 15px;
+            background: #f3f4f6;
+            border-radius: 8px;
+            overflow-wrap: anywhere;
+        }
+
+        .faq {
+            padding: 16px;
+            margin-top: 14px;
+            border: 1px solid #e5e7eb;
+            border-radius: 9px;
+        }
+
+        .faq h3 {
+            margin-top: 0;
+        }
+
+        .disclaimer {
+            margin-top: 22px;
+            padding: 17px;
+            background: #fff7ed;
+            border: 1px solid #fed7aa;
+            border-radius: 9px;
+            color: #7c2d12;
+            font-size: 14px;
+        }
+
+        .related-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .related-tools a {
+            display: inline-block;
+            padding: 9px 13px;
+            background: #f3f4f6;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        .related-tools a:hover {
+            background: #e5e7eb;
         }
 
         footer {
             text-align: center;
-            padding: 25px;
-            color: #777;
-            margin-top: 40px;
+            padding: 25px 20px;
+            color: #6b7280;
+            margin-top: 35px;
+            background: #fff;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px 18px;
+            margin-top: 12px;
+        }
+
+        .footer-links a {
+            color: #4b5563;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: #2563eb;
         }
 
         @media (max-width: 600px) {
-
             .header-container {
                 flex-direction: column;
-                gap: 12px;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 10px 14px;
             }
 
             nav a {
-                margin: 0 7px;
                 font-size: 14px;
+            }
+
+            .page-container {
+                margin: 25px auto;
+                padding: 0 15px;
             }
 
             h1 {
                 font-size: 28px;
             }
 
-            .calculator-card {
+            .calculator-card,
+            .info-section {
                 padding: 20px;
             }
 
             .result-row {
                 flex-direction: column;
-                gap: 5px;
+                gap: 4px;
             }
 
             .result-value {
                 text-align: left;
             }
+
+            .button-row {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
         }
     </style>
+
     <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Calorie Calculator",
-  "url": "https://easyonlinetools.online/calorie-calculator.html",
-  "description": "Estimate your daily calorie needs, maintenance calories and calorie targets with this free online Calorie Calculator.",
-  "applicationCategory": "HealthApplication",
-  "operatingSystem": "All",
-  "browserRequirements": "Requires a modern web browser",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  }
-}
-</script>
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Calorie Calculator",
+        "url": "https://easyonlinetools.online/calorie-calculator.html",
+        "description": "Estimate daily calorie needs using age, sex, height, weight and activity level with the Mifflin-St Jeor equation.",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires a modern web browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
 </head>
 
 <body>
 
 <header>
     <div class="header-container">
+        <a href="index.html" class="logo">Easy Online Tool</a>
 
-        <a href="index.html" class="logo">
-            Easy Online Tool
-        </a>
-
-        <nav>
+        <nav aria-label="Main navigation">
             <a href="index.html">Home</a>
             <a href="tools.html">Tools</a>
             <a href="categories.html">Categories</a>
             <a href="about.html">About</a>
             <a href="faq.html">FAQ</a>
         </nav>
-
     </div>
 </header>
 
-<div class="container">
+<main class="page-container">
+
+    <div class="breadcrumb">
+        <a href="index.html">Home</a> &gt;
+        <a href="tools.html#health">Health &amp; Fitness</a> &gt;
+        Calorie Calculator
+    </div>
 
     <h1>Calorie Calculator</h1>
 
     <p class="description">
-        Calculate your estimated daily calorie needs based on your body measurements and activity level.
+        Estimate your daily energy needs using your age, sex, height,
+        weight and activity level. View estimated BMR, maintenance
+        calories and illustrative calorie adjustments.
     </p>
 
-    <div class="calculator-card">
+    <section class="calculator-card" aria-label="Daily calorie calculator">
 
         <div class="input-group">
-            <label for="gender">Gender</label>
-
+            <label for="gender">Sex used by the equation</label>
             <select id="gender">
                 <option value="male">Male</option>
                 <option value="female">Female</option>
             </select>
+            <div class="field-note">
+                The Mifflin-St Jeor equation uses one of these two constants.
+            </div>
         </div>
 
         <div class="input-group">
-            <label for="age">Age (Years)</label>
-
+            <label for="age">Age (years)</label>
             <input
                 type="number"
                 id="age"
-                placeholder="e.g. 30"
-                min="1"
+                placeholder="Example: 30"
+                min="18"
                 max="120"
-            >
+                step="1"
+                inputmode="numeric">
+            <div class="field-note">
+                This calculator is intended for adults aged 18 and older.
+            </div>
         </div>
 
         <div class="input-group">
             <label for="weight">Weight (kg)</label>
-
             <input
                 type="number"
                 id="weight"
-                placeholder="e.g. 70"
+                placeholder="Example: 70"
                 min="1"
-                step="0.1"
-            >
+                max="500"
+                step="any"
+                inputmode="decimal">
         </div>
 
         <div class="input-group">
             <label for="height">Height (cm)</label>
-
             <input
                 type="number"
                 id="height"
-                placeholder="e.g. 175"
+                placeholder="Example: 175"
                 min="50"
-                max="250"
-                step="0.1"
-            >
+                max="300"
+                step="any"
+                inputmode="decimal">
         </div>
 
         <div class="input-group">
             <label for="activity">Activity Level</label>
-
             <select id="activity">
-
-                <option value="1.2">
-                    Sedentary - Little or no exercise
-                </option>
-
-                <option value="1.375">
-                    Lightly Active - Exercise 1-3 days/week
-                </option>
-
-                <option value="1.55">
-                    Moderately Active - Exercise 3-5 days/week
-                </option>
-
-                <option value="1.725">
-                    Very Active - Exercise 6-7 days/week
-                </option>
-
-                <option value="1.9">
-                    Extremely Active - Hard exercise or physical job
-                </option>
-
+                <option value="1.2">Sedentary — Little or no exercise</option>
+                <option value="1.375">Lightly active — Light exercise</option>
+                <option value="1.55">Moderately active — Regular exercise</option>
+                <option value="1.725">Very active — Frequent intense exercise</option>
+                <option value="1.9">Extremely active — Very high activity</option>
             </select>
+            <div class="field-note">
+                Activity descriptions are approximate. Choose the level that
+                most closely reflects your usual routine.
+            </div>
         </div>
 
-        <button onclick="calculateCalories()">
-            Calculate Calories
-        </button>
+        <div class="button-row">
+            <button type="button" class="calculate-button" id="calculateButton">
+                Calculate Calories
+            </button>
 
-        <div class="result" id="result">
+            <button type="button" class="reset-button" id="resetButton">
+                Reset
+            </button>
+        </div>
 
+        <div class="error-box" id="error" role="alert" aria-live="polite"></div>
+
+        <div class="result" id="result" aria-live="polite" aria-atomic="true">
             <h2>Your Estimated Daily Calories</h2>
 
             <div class="result-row">
@@ -340,281 +502,346 @@
             </div>
 
             <div class="result-row">
-                <span>Maintenance Calories</span>
+                <span>Estimated Maintenance Calories</span>
                 <span class="result-value" id="maintenance"></span>
             </div>
 
             <div class="result-row">
-                <span>Calories for Weight Loss</span>
+                <span>Illustrative 500-Calorie Reduction</span>
                 <span class="result-value" id="weightLoss"></span>
             </div>
 
             <div class="result-row">
-                <span>Calories for Weight Gain</span>
+                <span>Illustrative 500-Calorie Increase</span>
                 <span class="result-value" id="weightGain"></span>
             </div>
 
+            <p class="result-note">
+                These are mathematical estimates, not personalized
+                recommendations. A fixed 500-calorie adjustment may not be
+                suitable for everyone. The calculator does not determine
+                whether a particular intake is safe or appropriate for you.
+            </p>
         </div>
+    </section>
 
-    </div>
-
-    <div class="info-section">
+    <section class="info-section">
 
         <h2>What Is a Calorie Calculator?</h2>
 
         <p>
-            A calorie calculator estimates how many calories your body may need each day.
-            It uses information such as age, gender, weight, height, and physical activity.
+            A calorie calculator estimates how much energy your body may use
+            each day. It considers information such as age, sex, weight,
+            height and physical activity. The result can provide a general
+            starting point for understanding energy requirements.
         </p>
 
-        <h3>What Is BMR?</h3>
+        <h2>What Is Basal Metabolic Rate (BMR)?</h2>
 
         <p>
-            Basal Metabolic Rate (BMR) is an estimate of the calories your body needs
-            to perform basic functions while at rest.
+            Basal Metabolic Rate is an estimate of the energy your body needs
+            to maintain essential functions while at rest, such as breathing,
+            circulation and temperature regulation.
         </p>
 
-        <h3>What Are Maintenance Calories?</h3>
+        <h2>How Does This Calorie Calculator Work?</h2>
 
         <p>
-            Maintenance calories are an estimate of the calories needed to maintain
-            your current weight based on your activity level.
+            This calculator first estimates BMR using the Mifflin-St Jeor
+            equation. It then multiplies BMR by an activity factor to estimate
+            daily energy expenditure.
         </p>
 
-        <h3>Important Note</h3>
+        <div class="formula-box">
+            <p>
+                <strong>Male equation:</strong><br>
+                BMR = (10 × weight in kg) + (6.25 × height in cm)
+                − (5 × age) + 5
+            </p>
+
+            <p>
+                <strong>Female equation:</strong><br>
+                BMR = (10 × weight in kg) + (6.25 × height in cm)
+                − (5 × age) − 161
+            </p>
+
+            <p>
+                <strong>Estimated daily calories:</strong><br>
+                BMR × selected activity factor
+            </p>
+        </div>
+
+        <h2>What Are Maintenance Calories?</h2>
 
         <p>
-            These results are estimates and should not be considered medical advice.
-            Individual calorie requirements can vary depending on many factors.
+            Maintenance calories estimate the amount of energy you use each
+            day. Consuming approximately this amount may maintain body weight
+            over time, although real-world needs and results vary.
         </p>
 
-    </div>
+        <h2>Understanding the Calorie Adjustments</h2>
 
-</div>
-<section class="info-section">
+        <p>
+            The calculator also displays the arithmetic results of subtracting
+            or adding 500 calories to the estimated maintenance figure. These
+            are illustrative calculations only. They are not individualized
+            weight-loss or weight-gain prescriptions, and a fixed adjustment
+            is not appropriate for everyone.
+        </p>
 
-    <h2>Related Health &amp; Fitness Calculators</h2>
+        <h2>Why Do Calorie Needs Differ?</h2>
 
-    <p>
-        Explore other free health and fitness calculators for calories,
-        metabolism, BMI, weight, hydration, nutrition, body composition,
-        fitness, and pregnancy.
-    </p>
+        <p>
+            Energy requirements can vary with body composition, daily movement,
+            exercise, age, health, medications and other factors. Activity
+            multipliers are approximations, so your actual energy expenditure
+            may differ from the calculated result.
+        </p>
 
-    <div class="related-tools">
+        <h2>Frequently Asked Questions</h2>
 
-        <a href="bmi-calculator.html">
-            BMI Calculator
-        </a>
+        <div class="faq">
+            <h3>How many calories do I need each day?</h3>
+            <p>
+                Your estimated needs depend on factors including age, sex,
+                height, weight and activity level. A calculator can provide
+                an estimate, but it cannot determine your exact individual needs.
+            </p>
+        </div>
 
-        <a href="bmr-calculator.html">
-            BMR Calculator
-        </a>
+        <div class="faq">
+            <h3>What is the difference between BMR and maintenance calories?</h3>
+            <p>
+                BMR estimates energy use at rest. Maintenance calories estimate
+                total daily energy expenditure after accounting approximately
+                for activity.
+            </p>
+        </div>
 
-        <a href="ideal-weight-calculator.html">
-            Ideal Weight Calculator
-        </a>
+        <div class="faq">
+            <h3>Are calorie calculator results exact?</h3>
+            <p>
+                No. They are based on equations and activity multipliers.
+                Actual calorie requirements can be higher or lower.
+            </p>
+        </div>
 
-        <a href="water-intake-calculator.html">
-            Water Intake Calculator
-        </a>
+        <div class="faq">
+            <h3>Does this calculator provide a personalized diet plan?</h3>
+            <p>
+                No. It provides general estimates and does not account for
+                every health condition, nutritional requirement or personal
+                circumstance.
+            </p>
+        </div>
 
-        <a href="body-fat-calculator.html">
-            Body Fat Calculator
-        </a>
+        <div class="disclaimer">
+            <strong>Health disclaimer:</strong>
+            This calculator is for general educational purposes and is not
+            medical or nutritional advice. Do not use the results alone to
+            decide on a restrictive diet or weight-management plan. Consult
+            a qualified healthcare professional or registered dietitian for
+            individualized guidance, especially if you have a medical
+            condition or specific nutritional needs.
+        </div>
 
-        <a href="macro-calculator.html">
-            Macro Calculator
-        </a>
+        <h2>Related Health &amp; Fitness Calculators</h2>
 
-        <a href="protein-calculator.html">
-            Protein Calculator
-        </a>
+        <p>
+            Explore more free calculators for general health, fitness and
+            nutrition estimates.
+        </p>
 
-        <a href="pace-calculator.html">
-            Pace Calculator
-        </a>
+        <div class="related-tools">
+            <a href="bmi-calculator.html">BMI Calculator</a>
+            <a href="bmr-calculator.html">BMR Calculator</a>
+            <a href="ideal-weight-calculator.html">Ideal Weight Calculator</a>
+            <a href="water-intake-calculator.html">Water Intake Calculator</a>
+            <a href="body-fat-calculator.html">Body Fat Calculator</a>
+            <a href="macro-calculator.html">Macro Calculator</a>
+            <a href="protein-calculator.html">Protein Calculator</a>
+            <a href="pace-calculator.html">Pace Calculator</a>
+            <a href="pregnancy-calculator.html">Pregnancy Calculator</a>
+            <a href="tools.html#health">More Health &amp; Fitness Calculators</a>
+        </div>
 
-        <a href="pregnancy-calculator.html">
-            Pregnancy Calculator
-        </a>
+    </section>
+</main>
 
-        <a href="tools.html#health">
-            More Health &amp; Fitness Calculators
-        </a>
-
-    </div>
-
-</section>
-    <section class="info-section">
-  <h2>What Is a Calorie Calculator?</h2>
-
-  <p>
-    A Calorie Calculator estimates how many calories you may need each day
-    based on factors such as age, sex, height, weight and activity level.
-    It can provide a useful starting point for understanding your estimated
-    daily energy requirements.
-  </p>
-
-  <h2>How Does a Calorie Calculator Work?</h2>
-
-  <p>
-    A calorie calculator typically estimates your Basal Metabolic Rate (BMR)
-    first and then considers your activity level to estimate your daily
-    calorie needs.
-  </p>
-
-  <p>
-    Our calculator uses the Mifflin-St Jeor equation to estimate BMR and then
-    applies an activity multiplier to estimate daily calorie requirements.
-  </p>
-
-  <h2>Calories and Activity Level</h2>
-
-  <p>
-    Your estimated calorie needs can vary depending on how active you are.
-    Someone who exercises regularly may require more calories than someone
-    with a mostly sedentary lifestyle.
-  </p>
-
-  <h2>Why Use a Calorie Calculator?</h2>
-
-  <p>
-    A calorie calculator can help you understand your approximate daily
-    energy requirements when planning general nutrition or fitness goals.
-    Depending on your goal, you may use the estimate as a starting point for
-    maintaining, gaining or reducing body weight.
-  </p>
-
-  <p>
-    Calorie requirements are individual estimates and can change over time
-    because of changes in activity, body composition and other factors.
-  </p>
-
-  <h2>Calorie Calculator FAQs</h2>
-
-  <h3>How many calories do I need per day?</h3>
-
-  <p>
-    Daily calorie needs vary from person to person. Age, sex, height, weight
-    and activity level all influence estimated calorie requirements.
-  </p>
-
-  <h3>What is maintenance calorie intake?</h3>
-
-  <p>
-    Maintenance calorie intake is the estimated amount of energy needed to
-    maintain your current body weight at a particular activity level.
-  </p>
-
-  <h3>Can a calorie calculator help with weight management?</h3>
-
-  <p>
-    It can provide an estimate that may be useful as a starting point for
-    general weight-management planning. Actual results can vary between
-    individuals.
-  </p>
-
-  <h3>Are calorie calculator results exact?</h3>
-
-  <p>
-    No. Calorie calculators provide estimates based on mathematical
-    equations and the information entered. Your actual energy needs may be
-    different.
-  </p>
-
-  <p>
-    Use our free Calorie Calculator above to estimate your daily calorie
-    needs quickly and easily.
-  </p>
-</section>
 <footer>
-    © 2026 Easy Online Tool. All rights reserved.
+    <p>© 2026 Easy Online Tool. All rights reserved.</p>
+
+    <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="tools.html">Tools</a>
+        <a href="categories.html">Categories</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="contact.html">Contact</a>
+    </div>
 </footer>
 
 <script>
+(function () {
+    "use strict";
 
-function calculateCalories() {
+    const genderInput = document.getElementById("gender");
+    const ageInput = document.getElementById("age");
+    const weightInput = document.getElementById("weight");
+    const heightInput = document.getElementById("height");
+    const activityInput = document.getElementById("activity");
+    const resultBox = document.getElementById("result");
+    const errorBox = document.getElementById("error");
 
-    const gender = document.getElementById("gender").value;
-
-    const age = parseFloat(
-        document.getElementById("age").value
-    );
-
-    const weight = parseFloat(
-        document.getElementById("weight").value
-    );
-
-    const height = parseFloat(
-        document.getElementById("height").value
-    );
-
-    const activity = parseFloat(
-        document.getElementById("activity").value
-    );
-
-    if (
-        isNaN(age) ||
-        isNaN(weight) ||
-        isNaN(height) ||
-        age <= 0 ||
-        weight <= 0 ||
-        height <= 0
-    ) {
-
-        alert("Please enter valid age, weight, and height.");
-
-        return;
+    function showError(message) {
+        errorBox.textContent = message;
+        errorBox.style.display = "block";
+        resultBox.style.display = "none";
     }
 
-    let bmr;
-
-    /*
-        Mifflin-St Jeor Equation
-    */
-
-    if (gender === "male") {
-
-        bmr =
-            (10 * weight) +
-            (6.25 * height) -
-            (5 * age) +
-            5;
-
-    } else {
-
-        bmr =
-            (10 * weight) +
-            (6.25 * height) -
-            (5 * age) -
-            161;
+    function clearError() {
+        errorBox.textContent = "";
+        errorBox.style.display = "none";
     }
 
-    const maintenanceCalories =
-        bmr * activity;
+    function formatCalories(value) {
+        return Math.round(value).toLocaleString("en-US") + " calories/day";
+    }
 
-    const weightLossCalories =
-        maintenanceCalories - 500;
+    function calculateCalories() {
+        clearError();
 
-    const weightGainCalories =
-        maintenanceCalories + 500;
+        const ageText = ageInput.value.trim();
+        const weightText = weightInput.value.trim();
+        const heightText = heightInput.value.trim();
 
-    document.getElementById("bmr").textContent =
-        Math.round(bmr).toLocaleString() + " calories/day";
+        if (!ageText || !weightText || !heightText) {
+            showError("Please enter your age, weight and height.");
+            return;
+        }
 
-    document.getElementById("maintenance").textContent =
-        Math.round(maintenanceCalories).toLocaleString() + " calories/day";
+        const age = Number(ageText);
+        const weight = Number(weightText);
+        const height = Number(heightText);
+        const gender = genderInput.value;
+        const activity = Number(activityInput.value);
 
-    document.getElementById("weightLoss").textContent =
-        Math.round(weightLossCalories).toLocaleString() + " calories/day";
+        if (
+            !Number.isFinite(age) ||
+            !Number.isFinite(weight) ||
+            !Number.isFinite(height) ||
+            !Number.isFinite(activity)
+        ) {
+            showError("Please enter valid numeric values.");
+            return;
+        }
 
-    document.getElementById("weightGain").textContent =
-        Math.round(weightGainCalories).toLocaleString() + " calories/day";
+        if (!Number.isInteger(age) || age < 18 || age > 120) {
+            showError("Please enter an age in whole years between 18 and 120.");
+            return;
+        }
 
-    document.getElementById("result").style.display = "block";
-}
+        if (weight < 1 || weight > 500) {
+            showError("Please enter a weight between 1 and 500 kg.");
+            return;
+        }
 
+        if (height < 50 || height > 300) {
+            showError("Please enter a height between 50 and 300 cm.");
+            return;
+        }
+
+        const validActivityFactors = [1.2, 1.375, 1.55, 1.725, 1.9];
+
+        if (
+            gender !== "male" &&
+            gender !== "female"
+        ) {
+            showError("Please select a valid equation option.");
+            return;
+        }
+
+        if (!validActivityFactors.includes(activity)) {
+            showError("Please select a valid activity level.");
+            return;
+        }
+
+        let bmr;
+
+        if (gender === "male") {
+            bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5;
+        } else {
+            bmr = (10 * weight) + (6.25 * height) - (5 * age) - 161;
+        }
+
+        const maintenanceCalories = bmr * activity;
+        const reducedEstimate = maintenanceCalories - 500;
+        const increasedEstimate = maintenanceCalories + 500;
+
+        if (
+            !Number.isFinite(bmr) ||
+            !Number.isFinite(maintenanceCalories) ||
+            !Number.isFinite(reducedEstimate) ||
+            !Number.isFinite(increasedEstimate) ||
+            bmr <= 0 ||
+            maintenanceCalories <= 0
+        ) {
+            showError("Unable to calculate a reliable estimate. Please check your entries.");
+            return;
+        }
+
+        document.getElementById("bmr").textContent =
+            formatCalories(bmr);
+
+        document.getElementById("maintenance").textContent =
+            formatCalories(maintenanceCalories);
+
+        document.getElementById("weightLoss").textContent =
+            formatCalories(reducedEstimate);
+
+        document.getElementById("weightGain").textContent =
+            formatCalories(increasedEstimate);
+
+        resultBox.style.display = "block";
+
+        if (window.innerWidth <= 600) {
+            resultBox.scrollIntoView({
+                behavior: "smooth",
+                block: "nearest"
+            });
+        }
+    }
+
+    function resetCalculator() {
+        genderInput.value = "male";
+        ageInput.value = "";
+        weightInput.value = "";
+        heightInput.value = "";
+        activityInput.value = "1.2";
+
+        resultBox.style.display = "none";
+        clearError();
+        ageInput.focus();
+    }
+
+    document.getElementById("calculateButton")
+        .addEventListener("click", calculateCalories);
+
+    document.getElementById("resetButton")
+        .addEventListener("click", resetCalculator);
+
+    [ageInput, weightInput, heightInput].forEach(function (input) {
+        input.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                calculateCalories();
+            }
+        });
+    });
+})();
 </script>
 
 </body>
