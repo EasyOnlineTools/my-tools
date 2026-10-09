@@ -1,17 +1,29 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Pace Calculator - Calculate Running Pace & Speed | Easy Online Tool</title>
-    <meta name="description" content="Use our free Pace Calculator to calculate running pace per mile and kilometer, running speed, distance, and time. Simple and easy to use.">
+    <title>Pace Calculator - Running Pace per Mile & Kilometer | Easy Online Tool</title>
+    <meta name="description" content="Calculate running pace per kilometer and mile, total running time, and average speed with this free online pace calculator.">
     <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#007bff">
     <link rel="canonical" href="https://easyonlinetools.online/pace-calculator.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Free Running Pace Calculator">
+    <meta property="og:description" content="Calculate pace per kilometer, pace per mile, and average running speed.">
+    <meta property="og:url" content="https://easyonlinetools.online/pace-calculator.html">
+    <meta property="og:site_name" content="Easy Online Tool">
 
     <style>
         * {
             box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -20,6 +32,18 @@
             background: #f5f7fa;
             color: #333;
             line-height: 1.6;
+        }
+
+        a {
+            color: #0056b3;
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        select:focus-visible {
+            outline: 3px solid #ffbf47;
+            outline-offset: 3px;
         }
 
         header {
@@ -34,17 +58,23 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 16px;
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 23px;
             font-weight: bold;
             color: #222;
             text-decoration: none;
         }
 
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
         nav a {
-            margin-left: 20px;
             text-decoration: none;
             color: #333;
             font-size: 15px;
@@ -57,7 +87,17 @@
         .container {
             max-width: 900px;
             margin: auto;
-            padding: 30px 20px;
+            padding: 28px 20px;
+        }
+
+        .breadcrumb {
+            margin-bottom: 18px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
         }
 
         .page-title {
@@ -68,18 +108,20 @@
         .page-title h1 {
             margin-bottom: 8px;
             font-size: 32px;
+            line-height: 1.25;
         }
 
         .page-title p {
-            color: #666;
+            color: #555;
             margin-top: 0;
         }
 
-        .calculator-box {
+        .calculator-box,
+        .info-section {
             background: #fff;
-            padding: 30px;
+            padding: 26px;
             border-radius: 12px;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
         }
 
         .input-group {
@@ -94,36 +136,49 @@
 
         input,
         select {
+            display: block;
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
+            min-height: 46px;
+            padding: 11px 12px;
+            border: 1px solid #bbb;
             border-radius: 6px;
-            font-size: 16px;
+            font: inherit;
+            background: #fff;
+            color: #222;
         }
 
         .time-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 12px;
+        }
+
+        .field-hint {
+            margin: 6px 0 0;
+            color: #666;
+            font-size: 13px;
         }
 
         .button-group {
             display: flex;
+            flex-wrap: wrap;
             gap: 10px;
             margin-top: 20px;
         }
 
         button {
-            padding: 12px 22px;
+            min-height: 46px;
+            padding: 11px 22px;
             border: none;
             border-radius: 6px;
             cursor: pointer;
-            font-size: 16px;
+            font: inherit;
+            font-weight: bold;
         }
 
         .calculate-btn {
             background: #007bff;
-            color: white;
+            color: #fff;
         }
 
         .calculate-btn:hover {
@@ -131,28 +186,30 @@
         }
 
         .reset-btn {
-            background: #6c757d;
-            color: white;
+            background: #e9ecef;
+            color: #222;
         }
 
         .reset-btn:hover {
-            background: #545b62;
+            background: #d6d9dc;
         }
 
         .error {
             display: none;
-            background: #f8d7da;
-            color: #721c24;
+            background: #fff0f0;
+            color: #8b1e28;
+            border: 1px solid #e5a9ae;
             padding: 12px;
             border-radius: 6px;
-            margin-top: 15px;
+            margin-top: 16px;
         }
 
         .results {
             display: none;
             margin-top: 25px;
             padding: 20px;
-            background: #f8f9fa;
+            background: #f1f6ff;
+            border: 1px solid #d4e3ff;
             border-radius: 8px;
         }
 
@@ -164,51 +221,58 @@
         .result-row {
             display: flex;
             justify-content: space-between;
-            gap: 20px;
-            padding: 10px 0;
-            border-bottom: 1px solid #ddd;
+            align-items: flex-start;
+            gap: 18px;
+            padding: 11px 0;
+            border-bottom: 1px solid #d6deea;
         }
 
         .result-row:last-child {
             border-bottom: none;
         }
 
+        .result-row span:last-child {
+            text-align: right;
+            overflow-wrap: anywhere;
+        }
+
         .highlight {
             font-weight: bold;
-            color: #007bff;
+            color: #0056b3;
         }
 
         .info-section {
-            background: #fff;
             margin-top: 25px;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
         .info-section h2 {
+            margin-top: 22px;
+        }
+
+        .info-section h2:first-child {
             margin-top: 0;
         }
 
         .formula {
             background: #f1f3f5;
-            padding: 15px;
+            padding: 14px;
             border-radius: 6px;
-            margin: 15px 0;
+            margin: 14px 0;
             font-family: monospace;
+            overflow-wrap: anywhere;
         }
 
         .related-tools {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-top: 20px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            margin-top: 18px;
         }
 
         .related-tools a {
             display: block;
             background: #f8f9fa;
-            padding: 15px;
+            padding: 13px;
             border-radius: 7px;
             text-decoration: none;
             color: #333;
@@ -216,7 +280,7 @@
         }
 
         .related-tools a:hover {
-            color: #007bff;
+            color: #0056b3;
             border-color: #007bff;
         }
 
@@ -235,23 +299,64 @@
             margin-top: 30px;
             background: #fff;
             border-top: 1px solid #ddd;
-            color: #666;
+            color: #555;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px 18px;
+            margin-top: 10px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
         }
 
         @media (max-width: 700px) {
             .header-container {
                 flex-direction: column;
-                gap: 12px;
+                align-items: center;
             }
 
-            nav a {
-                margin: 0 7px;
+            nav {
+                justify-content: center;
+                gap: 10px 14px;
             }
 
-            .calculator-box {
-                padding: 20px;
+            .container {
+                padding: 22px 14px;
             }
 
+            .calculator-box,
+            .info-section {
+                padding: 19px;
+            }
+
+            .page-title h1 {
+                font-size: 28px;
+            }
+
+            .time-grid {
+                gap: 8px;
+            }
+
+            .time-grid input {
+                padding: 10px 7px;
+                font-size: 15px;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .button-group button {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 420px) {
             .time-grid {
                 grid-template-columns: 1fr;
             }
@@ -260,16 +365,9 @@
                 grid-template-columns: 1fr;
             }
 
-            .page-title h1 {
-                font-size: 27px;
-            }
-
-            .button-group {
-                flex-direction: column;
-            }
-
-            button {
-                width: 100%;
+            .result-row {
+                gap: 10px;
+                font-size: 14px;
             }
         }
     </style>
@@ -281,8 +379,8 @@
         "name": "Pace Calculator",
         "url": "https://easyonlinetools.online/pace-calculator.html",
         "applicationCategory": "HealthApplication",
-        "operatingSystem": "All",
-        "description": "Free online Pace Calculator for calculating running pace per mile and kilometer and running speed.",
+        "operatingSystem": "Any",
+        "description": "A free online calculator for running pace per kilometer and mile and average running speed.",
         "offers": {
             "@type": "Offer",
             "price": "0",
@@ -293,12 +391,11 @@
 </head>
 
 <body>
-
 <header>
     <div class="header-container">
         <a href="index.html" class="logo">Easy Online Tool</a>
 
-        <nav>
+        <nav aria-label="Main navigation">
             <a href="index.html">Home</a>
             <a href="tools.html">Tools</a>
             <a href="categories.html">Categories</a>
@@ -309,142 +406,125 @@
 </header>
 
 <main class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> &rsaquo;
+        <a href="tools.html#health">Health &amp; Fitness</a> &rsaquo;
+        <span aria-current="page">Pace Calculator</span>
+    </nav>
 
     <div class="page-title">
         <h1>Pace Calculator</h1>
-        <p>Calculate your running pace per mile, pace per kilometer, and running speed.</p>
+        <p>Calculate your running or walking pace per kilometer and mile, plus average speed.</p>
     </div>
 
-    <div class="calculator-box">
-
-        <div class="input-group">
-            <label for="distance">Distance</label>
-            <input type="number" id="distance" min="0" step="any" placeholder="Enter distance">
-        </div>
-
-        <div class="input-group">
-            <label for="distanceUnit">Distance Unit</label>
-            <select id="distanceUnit">
-                <option value="km">Kilometers (km)</option>
-                <option value="mi">Miles (mi)</option>
-            </select>
-        </div>
-
-        <div class="input-group">
-            <label>Time</label>
-
-            <div class="time-grid">
-                <div>
-                    <input type="number" id="hours" min="0" step="1" placeholder="Hours">
-                </div>
-
-                <div>
-                    <input type="number" id="minutes" min="0" max="59" step="1" placeholder="Minutes">
-                </div>
-
-                <div>
-                    <input type="number" id="seconds" min="0" max="59" step="1" placeholder="Seconds">
-                </div>
+    <section class="calculator-box" aria-label="Pace calculator">
+        <form id="paceForm" novalidate>
+            <div class="input-group">
+                <label for="distance">Distance</label>
+                <input
+                    type="number"
+                    id="distance"
+                    min="0.001"
+                    step="any"
+                    inputmode="decimal"
+                    placeholder="e.g. 5"
+                    required
+                    aria-describedby="distanceHint">
+                <p class="field-hint" id="distanceHint">Enter a distance greater than zero.</p>
             </div>
-        </div>
 
-        <div class="button-group">
-            <button class="calculate-btn" onclick="calculatePace()">Calculate Pace</button>
-            <button class="reset-btn" onclick="resetCalculator()">Reset</button>
-        </div>
+            <div class="input-group">
+                <label for="distanceUnit">Distance unit</label>
+                <select id="distanceUnit">
+                    <option value="km">Kilometers (km)</option>
+                    <option value="mi">Miles (mi)</option>
+                </select>
+            </div>
 
-        <div id="error" class="error"></div>
+            <fieldset style="border:0;padding:0;margin:0 0 18px;">
+                <legend style="font-weight:bold;margin-bottom:7px;">Total time</legend>
+                <div class="time-grid">
+                    <div>
+                        <label for="hours">Hours</label>
+                        <input type="number" id="hours" min="0" step="1"
+                               inputmode="numeric" placeholder="0">
+                    </div>
+                    <div>
+                        <label for="minutes">Minutes</label>
+                        <input type="number" id="minutes" min="0" max="59" step="1"
+                               inputmode="numeric" placeholder="30">
+                    </div>
+                    <div>
+                        <label for="seconds">Seconds</label>
+                        <input type="number" id="seconds" min="0" max="59" step="1"
+                               inputmode="numeric" placeholder="0">
+                    </div>
+                </div>
+                <p class="field-hint">Minutes and seconds must each be between 0 and 59.</p>
+            </fieldset>
 
-        <div id="results" class="results">
-            <h2>Your Pace Results</h2>
+            <div class="button-group">
+                <button type="submit" class="calculate-btn">Calculate Pace</button>
+                <button type="reset" class="reset-btn">Reset</button>
+            </div>
+        </form>
+
+        <div id="error" class="error" role="alert" aria-live="assertive"></div>
+
+        <section id="results" class="results" aria-labelledby="resultsHeading"
+                 aria-live="polite" aria-atomic="true" tabindex="-1">
+            <h2 id="resultsHeading">Your Pace Results</h2>
 
             <div class="result-row">
                 <span>Distance</span>
                 <span id="resultDistance" class="highlight"></span>
             </div>
-
             <div class="result-row">
-                <span>Total Time</span>
+                <span>Total time</span>
                 <span id="resultTime" class="highlight"></span>
             </div>
-
             <div class="result-row">
-                <span>Pace per Kilometer</span>
+                <span>Pace per kilometer</span>
                 <span id="paceKm" class="highlight"></span>
             </div>
-
             <div class="result-row">
-                <span>Pace per Mile</span>
+                <span>Pace per mile</span>
                 <span id="paceMile" class="highlight"></span>
             </div>
-
             <div class="result-row">
                 <span>Speed in km/h</span>
                 <span id="speedKmh" class="highlight"></span>
             </div>
-
             <div class="result-row">
                 <span>Speed in mph</span>
                 <span id="speedMph" class="highlight"></span>
             </div>
-        </div>
-
-    </div>
+        </section>
+    </section>
 
     <section class="info-section">
         <h2>What Is a Pace Calculator?</h2>
+        <p>A pace calculator helps runners, walkers, and other athletes determine how long it takes to cover one kilometer or one mile. It can also calculate average speed from a known distance and time.</p>
 
-        <p>
-            A Pace Calculator helps runners, walkers, and other athletes determine
-            how much time it takes to cover one kilometer or one mile.
-        </p>
-
-        <p>
-            Enter your distance and total running time, and the calculator will
-            automatically calculate your pace per kilometer, pace per mile, and
-            average running speed.
-        </p>
-
-        <h2>How to Calculate Running Pace</h2>
-
-        <div class="formula">
-            Pace = Total Time ÷ Distance
-        </div>
-
-        <p>
-            For example, if you run 5 kilometers in 30 minutes:
-        </p>
-
-        <div class="formula">
-            30 minutes ÷ 5 km = 6 minutes per kilometer
-        </div>
-
-        <p>
-            Your average pace is therefore approximately <strong>6:00 min/km</strong>.
-        </p>
+        <h2>How Is Running Pace Calculated?</h2>
+        <div class="formula">Pace = Total time in minutes ÷ Distance</div>
+        <p>For example, if you run 5 kilometers in 30 minutes:</p>
+        <div class="formula">30 minutes ÷ 5 km = 6 minutes per kilometer</div>
+        <p>Your average pace is <strong>6:00 min/km</strong>.</p>
 
         <h2>How to Use This Pace Calculator</h2>
-
         <ol>
             <li>Enter your running or walking distance.</li>
             <li>Select kilometers or miles.</li>
             <li>Enter your total time in hours, minutes, and seconds.</li>
-            <li>Click <strong>Calculate Pace</strong>.</li>
-            <li>View your pace and average speed.</li>
+            <li>Select Calculate Pace.</li>
+            <li>Review your pace per kilometer, pace per mile, and average speed.</li>
         </ol>
 
-        <h2>Why Calculate Your Running Pace?</h2>
+        <h2>Why Is Running Pace Useful?</h2>
+        <p>Knowing your pace can help you compare workouts, plan training sessions, monitor progress, and estimate how long a future run may take. Actual performance can vary with terrain, weather, elevation, and fitness.</p>
 
-        <p>
-            Knowing your pace can help you understand your running performance,
-            plan workouts, compare different runs, and estimate the time needed
-            to complete a particular distance.
-        </p>
-
-        <p>
-            This calculator is intended for general fitness and informational
-            purposes and is not medical advice.
-        </p>
+        <p>This tool provides general fitness information and is not medical advice.</p>
     </section>
 
     <section class="info-section">
@@ -452,224 +532,225 @@
 
         <div class="faq-item">
             <h3>What is running pace?</h3>
-            <p>
-                Running pace is the amount of time required to cover a specific
-                distance, commonly expressed as minutes per kilometer or minutes
-                per mile.
-            </p>
+            <p>Running pace is the time needed to cover a unit of distance, usually shown as minutes per kilometer or minutes per mile.</p>
         </div>
 
         <div class="faq-item">
             <h3>What is the difference between pace and speed?</h3>
-            <p>
-                Pace measures time per distance, such as minutes per kilometer.
-                Speed measures distance per unit of time, such as kilometers per hour.
-            </p>
+            <p>Pace measures time per distance, such as minutes per kilometer. Speed measures distance traveled per unit of time, such as kilometers per hour.</p>
         </div>
 
         <div class="faq-item">
             <h3>Can I use this calculator for walking?</h3>
-            <p>
-                Yes. The calculator can be used for running, walking, jogging,
-                cycling, or any activity where you know the distance and total time.
-            </p>
+            <p>Yes. You can use it for walking, jogging, running, or another activity when you know the distance and elapsed time.</p>
         </div>
 
         <div class="faq-item">
             <h3>What is a 5K pace?</h3>
-            <p>
-                A 5K pace is the average amount of time it takes to cover one
-                kilometer during a 5-kilometer run. For example, completing a
-                5K in 30 minutes gives a pace of 6:00 minutes per kilometer.
-            </p>
+            <p>A 5K pace is the average time needed to run one kilometer during a 5-kilometer event. Finishing 5K in 30 minutes gives an average pace of 6:00 min/km.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How do I convert pace per kilometer to pace per mile?</h3>
+            <p>One mile is approximately 1.609 kilometers. Multiply minutes per kilometer by 1.609 to estimate minutes per mile, keeping in mind that the seconds should be converted as part of the calculation.</p>
         </div>
     </section>
 
-   <section class="info-section">
+    <section class="info-section">
+        <h2>Related Health &amp; Fitness Calculators</h2>
+        <p>Explore more free tools for fitness, nutrition, metabolism, and general health calculations.</p>
 
-    <h2>Related Health &amp; Fitness Calculators</h2>
-
-    <p>
-        Explore other free health and fitness calculators for running,
-        calories, BMI, metabolism, nutrition, body composition, weight,
-        hydration, fitness, and pregnancy.
-    </p>
-
-    <div class="related-tools">
-
-        <a href="calorie-calculator.html">
-            Calorie Calculator
-        </a>
-
-        <a href="bmi-calculator.html">
-            BMI Calculator
-        </a>
-
-        <a href="bmr-calculator.html">
-            BMR Calculator
-        </a>
-
-        <a href="body-fat-calculator.html">
-            Body Fat Calculator
-        </a>
-
-        <a href="macro-calculator.html">
-            Macro Calculator
-        </a>
-
-        <a href="protein-calculator.html">
-            Protein Calculator
-        </a>
-
-        <a href="ideal-weight-calculator.html">
-            Ideal Weight Calculator
-        </a>
-
-        <a href="water-intake-calculator.html">
-            Water Intake Calculator
-        </a>
-
-        <a href="pregnancy-calculator.html">
-            Pregnancy Calculator
-        </a>
-
-        <a href="tools.html#health">
-            More Health &amp; Fitness Calculators
-        </a>
-
-    </div>
-
-</section>
+        <div class="related-tools">
+            <a href="calorie-calculator.html">Calorie Calculator</a>
+            <a href="bmi-calculator.html">BMI Calculator</a>
+            <a href="bmr-calculator.html">BMR Calculator</a>
+            <a href="body-fat-calculator.html">Body Fat Calculator</a>
+            <a href="macro-calculator.html">Macro Calculator</a>
+            <a href="protein-calculator.html">Protein Calculator</a>
+            <a href="ideal-weight-calculator.html">Ideal Weight Calculator</a>
+            <a href="water-intake-calculator.html">Water Intake Calculator</a>
+            <a href="pregnancy-calculator.html">Pregnancy Calculator</a>
+            <a href="tools.html#health">More Health &amp; Fitness Calculators</a>
+        </div>
+    </section>
 </main>
 
 <footer>
-    © 2026 Easy Online Tool. All rights reserved.
+    <p>&copy; 2026 Easy Online Tool. All rights reserved.</p>
+    <nav class="footer-links" aria-label="Footer navigation">
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="disclaimer.html">Disclaimer</a>
+    </nav>
 </footer>
 
 <script>
-function formatPace(minutesPerUnit) {
-    if (!isFinite(minutesPerUnit) || minutesPerUnit <= 0) {
-        return "N/A";
-    }
+(function () {
+    "use strict";
 
-    let totalSeconds = Math.round(minutesPerUnit * 60);
-    let minutes = Math.floor(totalSeconds / 60);
-    let seconds = totalSeconds % 60;
-
-    return minutes + ":" + String(seconds).padStart(2, "0") + " min";
-}
-
-function calculatePace() {
-
-    const distance = parseFloat(document.getElementById("distance").value);
-    const unit = document.getElementById("distanceUnit").value;
-
-    const hours = parseInt(document.getElementById("hours").value) || 0;
-    const minutes = parseInt(document.getElementById("minutes").value) || 0;
-    const seconds = parseInt(document.getElementById("seconds").value) || 0;
-
+    const form = document.getElementById("paceForm");
+    const distanceInput = document.getElementById("distance");
+    const unitInput = document.getElementById("distanceUnit");
+    const hoursInput = document.getElementById("hours");
+    const minutesInput = document.getElementById("minutes");
+    const secondsInput = document.getElementById("seconds");
     const error = document.getElementById("error");
     const results = document.getElementById("results");
 
-    error.style.display = "none";
-    results.style.display = "none";
-
-    if (!isFinite(distance) || distance <= 0) {
-        error.textContent = "Please enter a distance greater than 0.";
+    function showError(message) {
+        error.textContent = message;
         error.style.display = "block";
-        return;
+        results.style.display = "none";
     }
 
-    if (hours < 0 || minutes < 0 || minutes > 59 || seconds < 0 || seconds > 59) {
-        error.textContent = "Please enter a valid time.";
-        error.style.display = "block";
-        return;
+    function clearMessages() {
+        error.textContent = "";
+        error.style.display = "none";
+        results.style.display = "none";
     }
 
-    const totalSeconds = (hours * 3600) + (minutes * 60) + seconds;
+    function readWholeNumber(input, label, maximum) {
+        const raw = input.value.trim();
 
-    if (totalSeconds <= 0) {
-        error.textContent = "Please enter a total time greater than 0.";
-        error.style.display = "block";
-        return;
+        if (raw === "") {
+            return 0;
+        }
+
+        const value = Number(raw);
+
+        if (!Number.isInteger(value) || value < 0 ||
+            (maximum !== undefined && value > maximum)) {
+            throw new Error(label + " must be a whole number between 0" +
+                (maximum !== undefined ? " and " + maximum : "") + ".");
+        }
+
+        return value;
     }
 
-    let distanceKm;
-    let distanceMiles;
+    function formatPace(minutesPerUnit) {
+        if (!Number.isFinite(minutesPerUnit) || minutesPerUnit <= 0) {
+            return "N/A";
+        }
 
-    if (unit === "km") {
-        distanceKm = distance;
-        distanceMiles = distance * 0.621371;
-    } else {
-        distanceMiles = distance;
-        distanceKm = distance * 1.609344;
+        const totalSeconds = Math.round(minutesPerUnit * 60);
+        const minutes = Math.floor(totalSeconds / 60);
+        const seconds = totalSeconds % 60;
+
+        return minutes + ":" + String(seconds).padStart(2, "0") + " min";
     }
 
-    const paceKmMinutes = (totalSeconds / 60) / distanceKm;
-    const paceMileMinutes = (totalSeconds / 60) / distanceMiles;
+    function formatTime(totalSeconds) {
+        const hours = Math.floor(totalSeconds / 3600);
+        const remainingSeconds = totalSeconds % 3600;
+        const minutes = Math.floor(remainingSeconds / 60);
+        const seconds = remainingSeconds % 60;
 
-    const speedKmh = distanceKm / (totalSeconds / 3600);
-    const speedMph = distanceMiles / (totalSeconds / 3600);
+        if (hours > 0) {
+            return hours + " hr " + minutes + " min " +
+                String(seconds).padStart(2, "0") + " sec";
+        }
 
-    const formattedHours = Math.floor(totalSeconds / 3600);
-    const remainingSeconds = totalSeconds % 3600;
-    const formattedMinutes = Math.floor(remainingSeconds / 60);
-    const formattedSeconds = remainingSeconds % 60;
-
-    let timeText = "";
-
-    if (formattedHours > 0) {
-        timeText += formattedHours + " hr ";
+        return minutes + " min " +
+            String(seconds).padStart(2, "0") + " sec";
     }
 
-    timeText += formattedMinutes + " min " +
-        String(formattedSeconds).padStart(2, "0") + " sec";
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        clearMessages();
 
-    document.getElementById("resultDistance").textContent =
-        distance.toFixed(2) + " " + (unit === "km" ? "km" : "miles");
+        try {
+            const distance = Number(distanceInput.value);
 
-    document.getElementById("resultTime").textContent = timeText;
+            if (distanceInput.value.trim() === "" ||
+                !Number.isFinite(distance) || distance <= 0) {
+                throw new Error("Please enter a valid distance greater than zero.");
+            }
 
-    document.getElementById("paceKm").textContent =
-        formatPace(paceKmMinutes) + " / km";
+            const hours = readWholeNumber(hoursInput, "Hours");
+            const minutes = readWholeNumber(minutesInput, "Minutes", 59);
+            const seconds = readWholeNumber(secondsInput, "Seconds", 59);
 
-    document.getElementById("paceMile").textContent =
-        formatPace(paceMileMinutes) + " / mile";
+            const totalSeconds = hours * 3600 + minutes * 60 + seconds;
 
-    document.getElementById("speedKmh").textContent =
-        speedKmh.toFixed(2) + " km/h";
+            if (!Number.isSafeInteger(totalSeconds) || totalSeconds <= 0) {
+                throw new Error("Please enter a total time greater than zero.");
+            }
 
-    document.getElementById("speedMph").textContent =
-        speedMph.toFixed(2) + " mph";
+            const distanceKm = unitInput.value === "km"
+                ? distance
+                : distance * 1.609344;
 
-    results.style.display = "block";
+            const distanceMiles = unitInput.value === "mi"
+                ? distance
+                : distance / 1.609344;
 
-    if (window.innerWidth <= 700) {
-        results.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
+            if (!Number.isFinite(distanceKm) ||
+                !Number.isFinite(distanceMiles) ||
+                distanceKm <= 0 || distanceMiles <= 0) {
+                throw new Error("Please enter a realistic, valid distance.");
+            }
+
+            const totalMinutes = totalSeconds / 60;
+            const hoursElapsed = totalSeconds / 3600;
+            const paceKm = totalMinutes / distanceKm;
+            const paceMile = totalMinutes / distanceMiles;
+            const speedKmh = distanceKm / hoursElapsed;
+            const speedMph = distanceMiles / hoursElapsed;
+
+            if (![paceKm, paceMile, speedKmh, speedMph].every(Number.isFinite)) {
+                throw new Error("These values are outside the calculator's supported range. Please enter a smaller distance.");
+            }
+
+            document.getElementById("resultDistance").textContent =
+                distance.toLocaleString(undefined, {
+                    maximumFractionDigits: 3
+                }) + " " + (unitInput.value === "km" ? "km" : "miles");
+
+            document.getElementById("resultTime").textContent =
+                formatTime(totalSeconds);
+
+            document.getElementById("paceKm").textContent =
+                formatPace(paceKm) + " / km";
+
+            document.getElementById("paceMile").textContent =
+                formatPace(paceMile) + " / mile";
+
+            document.getElementById("speedKmh").textContent =
+                speedKmh.toFixed(2) + " km/h";
+
+            document.getElementById("speedMph").textContent =
+                speedMph.toFixed(2) + " mph";
+
+            results.style.display = "block";
+
+            if (window.innerWidth <= 700) {
+                results.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            }
+        } catch (err) {
+            showError(err instanceof Error
+                ? err.message
+                : "Please check your entries and try again.");
+        }
+    });
+
+    form.addEventListener("reset", function () {
+        window.setTimeout(function () {
+            clearMessages();
+        }, 0);
+    });
+
+    [distanceInput, unitInput, hoursInput, minutesInput, secondsInput]
+        .forEach(function (input) {
+            input.addEventListener("input", clearMessages);
+            input.addEventListener("change", clearMessages);
         });
-    }
-}
-
-function resetCalculator() {
-
-    document.getElementById("distance").value = "";
-    document.getElementById("distanceUnit").value = "km";
-    document.getElementById("hours").value = "";
-    document.getElementById("minutes").value = "";
-    document.getElementById("seconds").value = "";
-
-    document.getElementById("error").style.display = "none";
-    document.getElementById("results").style.display = "none";
-}
-
-document.addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
-        calculatePace();
-    }
-});
+})();
 </script>
-
 </body>
 </html>
+```
