@@ -1,27 +1,55 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
- <title>Water Intake Calculator – Calculate Daily Water Needs</title>
-<meta name="description" content="Estimate how much water you should drink each day based on your weight, activity level and climate with this free Water Intake Calculator.">
+    <title>Water Intake Calculator – Estimate Daily Water Needs | Easy Online Tool</title>
+    <meta name="description" content="Estimate daily water intake using body weight, activity and climate. Try this free Water Intake Calculator and learn about hydration estimates and their limitations.">
+    <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://easyonlinetools.online/water-intake-calculator.html">
-    <style>  * {
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Water Intake Calculator | Easy Online Tool">
+    <meta property="og:description" content="Estimate daily water intake using body weight, activity and climate with this free calculator.">
+    <meta property="og:url" content="https://easyonlinetools.online/water-intake-calculator.html">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Water Intake Calculator",
+      "url": "https://easyonlinetools.online/water-intake-calculator.html",
+      "description": "A free online calculator that estimates daily water intake using body weight, activity and climate adjustments.",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript enabled",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
+    <style>
+        * {
             box-sizing: border-box;
         }
 
         body {
             margin: 0;
             font-family: Arial, sans-serif;
+            line-height: 1.6;
             background: #f5f7fb;
             color: #222;
         }
 
         header {
-            background: #ffffff;
+            background: #fff;
             padding: 18px 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
         .header-container {
@@ -31,6 +59,7 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
+            gap: 12px;
         }
 
         .logo {
@@ -40,40 +69,59 @@
             text-decoration: none;
         }
 
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
         nav a {
             text-decoration: none;
             color: #333;
-            margin-left: 18px;
             font-size: 15px;
         }
 
-        nav a:hover {
+        nav a:hover,
+        nav a:focus {
             color: #2563eb;
         }
 
         .container {
             max-width: 850px;
-            margin: 45px auto;
+            margin: 35px auto;
             padding: 0 20px;
+        }
+
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #2563eb;
+            text-decoration: none;
         }
 
         h1 {
             text-align: center;
-            margin-bottom: 10px;
             font-size: 34px;
+            line-height: 1.25;
+            margin-bottom: 10px;
         }
 
         .description {
             text-align: center;
-            color: #666;
-            margin-bottom: 30px;
+            color: #555;
+            margin: 0 auto 28px;
         }
 
-        .calculator-card {
-            background: white;
-            padding: 30px;
+        .calculator-card,
+        .info-section {
+            background: #fff;
+            padding: 28px;
             border-radius: 14px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
         }
 
         .input-group {
@@ -83,33 +131,48 @@
         label {
             display: block;
             font-weight: bold;
-            margin-bottom: 8px;
+            margin-bottom: 7px;
+        }
+
+        .help-text {
+            display: block;
+            font-size: 13px;
+            color: #666;
+            margin-top: 5px;
         }
 
         input,
         select {
             width: 100%;
             padding: 13px;
-            border: 1px solid #d1d5db;
+            border: 1px solid #cbd5e1;
             border-radius: 8px;
             font-size: 16px;
-            background: white;
+            background: #fff;
+            color: #222;
         }
 
         input:focus,
         select:focus {
-            outline: none;
+            outline: 2px solid #93c5fd;
             border-color: #2563eb;
         }
 
+        .button-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
         button {
-            width: 100%;
+            flex: 1;
+            min-width: 140px;
             padding: 14px;
             background: #2563eb;
-            color: white;
+            color: #fff;
             border: none;
             border-radius: 8px;
-            font-size: 17px;
+            font-size: 16px;
             font-weight: bold;
             cursor: pointer;
         }
@@ -118,26 +181,52 @@
             background: #1d4ed8;
         }
 
+        button:focus-visible {
+            outline: 3px solid #93c5fd;
+            outline-offset: 2px;
+        }
+
+        button.secondary {
+            background: #e5e7eb;
+            color: #222;
+        }
+
+        button.secondary:hover {
+            background: #d1d5db;
+        }
+
+        .message {
+            margin-top: 18px;
+            padding: 12px 14px;
+            border-radius: 8px;
+        }
+
+        .error {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #991b1b;
+        }
+
         .result {
             margin-top: 25px;
             padding: 20px;
-            background: #f0f7ff;
+            background: #eff6ff;
+            border: 1px solid #dbeafe;
             border-radius: 10px;
-            display: none;
         }
 
         .result h2 {
             margin-top: 0;
-            color: #2563eb;
+            color: #1d4ed8;
             font-size: 22px;
         }
 
         .main-result {
             text-align: center;
-            font-size: 32px;
+            font-size: 30px;
             font-weight: bold;
-            color: #2563eb;
-            margin: 20px 0;
+            color: #1d4ed8;
+            margin: 15px 0 20px;
         }
 
         .result-row {
@@ -148,7 +237,7 @@
             border-bottom: 1px solid #dbeafe;
         }
 
-        .result-row:last-child {
+        .result-row:last-of-type {
             border-bottom: none;
         }
 
@@ -157,56 +246,98 @@
             text-align: right;
         }
 
+        .disclaimer {
+            font-size: 13px;
+            color: #555;
+            margin-top: 18px;
+        }
+
         .info-section {
-            background: white;
-            margin-top: 30px;
-            padding: 25px;
-            border-radius: 14px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            margin-top: 28px;
         }
 
         .info-section h2 {
             margin-top: 0;
+            line-height: 1.35;
         }
 
         .info-section h3 {
-            margin-top: 25px;
+            margin-top: 24px;
+        }
+
+        .related-tools {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .related-tools a {
+            display: block;
+            padding: 12px 14px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            color: #1d4ed8;
+            text-decoration: none;
+        }
+
+        .related-tools a:hover {
+            background: #eff6ff;
+            border-color: #93c5fd;
         }
 
         footer {
             text-align: center;
-            padding: 25px;
-            color: #777;
-            margin-top: 40px;
+            padding: 25px 20px;
+            color: #666;
+            margin-top: 35px;
+            background: #fff;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 10px;
+        }
+
+        .footer-links a {
+            color: #2563eb;
+            text-decoration: none;
         }
 
         @media (max-width: 600px) {
-
             .header-container {
                 flex-direction: column;
-                gap: 12px;
             }
 
-            nav a {
-                margin: 0 7px;
-                font-size: 14px;
+            nav {
+                justify-content: center;
+                gap: 12px;
             }
 
             h1 {
                 font-size: 28px;
             }
 
-            .calculator-card {
+            .container {
+                margin-top: 25px;
+            }
+
+            .calculator-card,
+            .info-section {
                 padding: 20px;
             }
 
             .main-result {
-                font-size: 27px;
+                font-size: 26px;
             }
 
             .result-row {
                 flex-direction: column;
-                gap: 5px;
+                gap: 4px;
             }
 
             .result-value {
@@ -220,352 +351,333 @@
 
 <header>
     <div class="header-container">
+        <a href="index.html" class="logo">Easy Online Tool</a>
 
-        <a href="index.html" class="logo">
-            Easy Online Tool
-        </a>
-
-        <nav>
+        <nav aria-label="Main navigation">
             <a href="index.html">Home</a>
             <a href="tools.html">Tools</a>
             <a href="categories.html">Categories</a>
             <a href="about.html">About</a>
             <a href="faq.html">FAQ</a>
         </nav>
-
     </div>
 </header>
 
-<div class="container">
+<main class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> &gt;
+        <a href="tools.html#health">Health &amp; Fitness</a> &gt;
+        <span aria-current="page">Water Intake Calculator</span>
+    </nav>
 
     <h1>Water Intake Calculator</h1>
 
     <p class="description">
-        Estimate your daily water intake based on your body weight and activity level.
+        Estimate daily water intake using body weight, activity and climate.
+        Your actual fluid needs may differ from this estimate.
     </p>
 
-    <div class="calculator-card">
+    <section class="calculator-card" aria-label="Water intake calculator">
 
         <div class="input-group">
-            <label for="weight">Weight (kg)</label>
-
+            <label for="weight">Body Weight (kg)</label>
             <input
                 type="number"
                 id="weight"
-                placeholder="e.g. 70"
                 min="1"
-                step="0.1"
+                max="300"
+                step="any"
+                inputmode="decimal"
+                placeholder="e.g. 70"
+                required
+                aria-describedby="weight-help"
             >
+            <span class="help-text" id="weight-help">
+                Enter a weight between 1 and 300 kg.
+            </span>
         </div>
 
         <div class="input-group">
             <label for="activity">Daily Activity Level</label>
-
             <select id="activity">
-                <option value="0">Low - Little exercise</option>
-                <option value="350">Moderate - Regular exercise</option>
-                <option value="700">High - Intense exercise</option>
+                <option value="0">Low — Little exercise</option>
+                <option value="350">Moderate — Regular exercise</option>
+                <option value="700">High — Intense exercise</option>
             </select>
+            <span class="help-text">
+                Activity adjustments are illustrative additions, not individual prescriptions.
+            </span>
         </div>
 
         <div class="input-group">
             <label for="climate">Climate</label>
-
             <select id="climate">
-                <option value="0">Normal / Cool</option>
+                <option value="0">Normal or cool</option>
                 <option value="300">Warm</option>
                 <option value="500">Hot</option>
             </select>
         </div>
 
-        <button onclick="calculateWater()">
-            Calculate Water Intake
-        </button>
+        <div class="button-row">
+            <button type="button" id="calculateButton">
+                Calculate Water Intake
+            </button>
+            <button type="button" class="secondary" id="resetButton">
+                Reset
+            </button>
+        </div>
 
-        <div class="result" id="result">
+        <div id="errorMessage" class="message error" role="alert" hidden></div>
 
+        <div class="result" id="result" aria-live="polite" hidden>
             <h2>Your Estimated Daily Water Intake</h2>
 
-            <div class="main-result" id="waterResult">
-                0 liters/day
-            </div>
+            <div class="main-result" id="waterResult"></div>
 
             <div class="result-row">
-                <span>Estimated Water</span>
+                <span>Estimated amount</span>
                 <span class="result-value" id="mlResult"></span>
             </div>
 
             <div class="result-row">
-                <span>Approximate Glasses</span>
+                <span>Approximate 250 ml glasses</span>
                 <span class="result-value" id="glassResult"></span>
             </div>
 
             <div class="result-row">
-                <span>Weight Used</span>
+                <span>Weight entered</span>
                 <span class="result-value" id="weightResult"></span>
             </div>
 
+            <p class="disclaimer">
+                This is a rough calculation, not a medical recommendation.
+                It estimates drinking water only and does not determine your
+                full fluid needs. Water from foods and other beverages also
+                contributes to total fluid intake. Do not force fluids to meet
+                a calculator target.
+            </p>
         </div>
+    </section>
 
-    </div>
-
-    <div class="info-section">
-
+    <section class="info-section">
         <h2>How Much Water Should You Drink?</h2>
 
         <p>
-            Water requirements vary from person to person. Body size, physical
-            activity, climate, diet, and other factors can affect how much fluid
-            a person needs.
+            Fluid needs vary with body size, activity, temperature, diet,
+            pregnancy or breastfeeding, and individual health. There is no
+            single daily water target that is right for everyone.
         </p>
 
         <h3>How This Calculator Works</h3>
-
         <p>
-            This calculator uses an approximate starting point of 35 milliliters
-            of water per kilogram of body weight. Additional water is added for
-            higher activity levels and warmer climates.
+            The calculator starts with an illustrative estimate of 35
+            milliliters per kilogram of body weight. It then adds preset
+            amounts based on the selected activity level and climate.
+            These additions are simplified assumptions, not validated
+            measurements of your personal hydration requirements.
         </p>
 
-        <h3>Example</h3>
-
+        <h3>Example Calculation</h3>
         <p>
-            A person weighing 70 kg would have a basic estimated water intake of
-            approximately 2.45 liters per day before activity and climate
-            adjustments.
+            For someone weighing 70 kg who selects low activity and a normal
+            climate, the calculator estimates 2,450 ml, or 2.45 liters per
+            day. The figure changes when different activity or climate
+            options are selected.
         </p>
 
-        <h3>Important Note</h3>
-
+        <h3>Why Is Hydration Important?</h3>
         <p>
-            This calculator provides a general estimate for informational
-            purposes. Individual hydration needs can vary. People with certain
-            medical conditions or fluid restrictions should follow advice from
-            a qualified healthcare professional.
+            Water supports normal body functions, including temperature
+            regulation and digestion. Exercise and hot weather can increase
+            fluid loss through sweating, so additional fluids may sometimes
+            be needed.
         </p>
 
-    </div>
+        <h3>Important Health Information</h3>
+        <p>
+            Use the result as a general educational estimate, not an exact
+            daily requirement. People with kidney, heart or other conditions
+            that require fluid restrictions should follow advice from their
+            healthcare professional. Seek professional guidance if you are
+            unsure how much fluid is appropriate for you.
+        </p>
+    </section>
 
-</div>
-<section class="info-section">
-
-    <h2>Related Health &amp; Fitness Calculators</h2>
-
-    <p>
-        Explore other free health and fitness calculators for hydration,
-        BMI, metabolism, calories, weight, body composition, nutrition,
-        fitness, and pregnancy.
-    </p>
-
-    <div class="related-tools">
-
-        <a href="bmi-calculator.html">
-            BMI Calculator
-        </a>
-
-        <a href="bmr-calculator.html">
-            BMR Calculator
-        </a>
-
-        <a href="calorie-calculator.html">
-            Calorie Calculator
-        </a>
-
-        <a href="ideal-weight-calculator.html">
-            Ideal Weight Calculator
-        </a>
-
-        <a href="body-fat-calculator.html">
-            Body Fat Calculator
-        </a>
-
-        <a href="macro-calculator.html">
-            Macro Calculator
-        </a>
-
-        <a href="protein-calculator.html">
-            Protein Calculator
-        </a>
-
-        <a href="pace-calculator.html">
-            Pace Calculator
-        </a>
-
-        <a href="pregnancy-calculator.html">
-            Pregnancy Calculator
-        </a>
-
-        <a href="tools.html#health">
-            More Health &amp; Fitness Calculators
-        </a>
-
-    </div>
-
-</section>
     <section class="info-section">
-  <h2>What Is a Water Intake Calculator?</h2>
+        <h2>Water Intake Calculator FAQs</h2>
 
-  <p>
-    A Water Intake Calculator estimates how much water you may need to drink
-    each day based on factors such as body weight, physical activity and
-    environmental conditions. It provides a general daily hydration estimate.
-  </p>
+        <h3>How much water should I drink each day?</h3>
+        <p>
+            The amount varies from person to person. This calculator provides
+            a rough estimate based on weight and selected adjustments; it
+            cannot determine an exact personal requirement.
+        </p>
 
-  <h2>How Is Daily Water Intake Estimated?</h2>
+        <h3>Does exercise increase water needs?</h3>
+        <p>
+            Exercise can increase fluid loss through sweating. The amount
+            needed depends on exercise duration, intensity, temperature and
+            individual sweat rate.
+        </p>
 
-  <p>
-    Daily water requirements vary from person to person. A common starting
-    point is to estimate water needs according to body weight and then
-    consider additional factors such as exercise and hot weather.
-  </p>
+        <h3>Should I drink more water in hot weather?</h3>
+        <p>
+            Hot or humid weather can increase sweating and fluid loss.
+            Drink regularly and adjust to your circumstances, while following
+            any medical fluid restrictions.
+        </p>
 
-  <p>
-    Our calculator provides an approximate estimate to help you understand
-    your daily hydration needs.
-  </p>
+        <h3>Are the results exact?</h3>
+        <p>
+            No. The calculation uses a simple weight-based estimate and
+            preset adjustments. It does not measure hydration status or
+            replace personalized medical advice.
+        </p>
 
-  <h2>Why Is Staying Hydrated Important?</h2>
+        <h3>Do tea, other drinks and food count toward fluid intake?</h3>
+        <p>
+            Yes. Fluids from many beverages and the water contained in foods
+            contribute to total fluid intake. This calculator's result is
+            a simplified drinking-water estimate, not a complete assessment
+            of total water intake.
+        </p>
+    </section>
 
-  <p>
-    Water is essential for many normal body functions. Staying adequately
-    hydrated supports normal temperature regulation, digestion and other
-    everyday physiological processes.
-  </p>
+    <section class="info-section">
+        <h2>Related Health &amp; Fitness Calculators</h2>
+        <p>
+            Explore other free tools for weight, metabolism, calories,
+            nutrition and fitness.
+        </p>
 
-  <h2>When Might You Need More Water?</h2>
+        <div class="related-tools">
+            <a href="bmi-calculator.html">BMI Calculator</a>
+            <a href="bmr-calculator.html">BMR Calculator</a>
+            <a href="calorie-calculator.html">Calorie Calculator</a>
+            <a href="ideal-weight-calculator.html">Ideal Weight Calculator</a>
+            <a href="body-fat-calculator.html">Body Fat Calculator</a>
+            <a href="macro-calculator.html">Macro Calculator</a>
+            <a href="protein-calculator.html">Protein Calculator</a>
+            <a href="pace-calculator.html">Pace Calculator</a>
+            <a href="pregnancy-calculator.html">Pregnancy Calculator</a>
+            <a href="tools.html#health">More Health &amp; Fitness Calculators</a>
+        </div>
+    </section>
 
-  <p>
-    Water requirements can increase during exercise, hot or humid weather
-    and other situations where the body loses more fluid through sweating.
-  </p>
+</main>
 
-  <p>
-    Individual hydration needs can vary, so calculator results should be
-    treated as a general guide rather than an exact requirement.
-  </p>
-
-  <h2>Water Intake Calculator FAQs</h2>
-
-  <h3>How much water should I drink each day?</h3>
-
-  <p>
-    Daily water needs vary depending on body size, activity level, climate
-    and other factors. Use the calculator above to get a personalized
-    estimate based on the information you enter.
-  </p>
-
-  <h3>Does exercise increase water requirements?</h3>
-
-  <p>
-    Yes. Physical activity can increase fluid loss through sweating, so
-    people who exercise may need additional fluids.
-  </p>
-
-  <h3>Should I drink more water in hot weather?</h3>
-
-  <p>
-    Hot weather can increase fluid loss through sweating. As a result,
-    hydration needs may be higher in hot or humid conditions.
-  </p>
-
-  <h3>Is the calculator's result exact?</h3>
-
-  <p>
-    No. The result is an estimate based on the information entered.
-    Individual water requirements can vary considerably.
-  </p>
-
-  <p>
-    Use our free Water Intake Calculator above to estimate your approximate
-    daily water needs.
-  </p>
-</section>
 <footer>
-    © 2026 Easy Online Tool. All rights reserved.
+    <p>&copy; 2026 Easy Online Tool. All rights reserved.</p>
+    <nav class="footer-links" aria-label="Footer navigation">
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="disclaimer.html">Disclaimer</a>
+    </nav>
 </footer>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-
+(function () {
     const weightInput = document.getElementById("weight");
     const activityInput = document.getElementById("activity");
     const climateInput = document.getElementById("climate");
 
     const resultBox = document.getElementById("result");
-    const waterResult = document.getElementById("waterResult");
-    const mlResult = document.getElementById("mlResult");
-    const glassResult = document.getElementById("glassResult");
-    const weightResult = document.getElementById("weightResult");
+    const errorMessage = document.getElementById("errorMessage");
 
-    const calculateButton = document.querySelector(
-        'button[onclick="calculateWater()"]'
-    );
-
-    if (!calculateButton) {
-        console.error("Calculate button not found.");
-        return;
+    function showError(message) {
+        errorMessage.textContent = message;
+        errorMessage.hidden = false;
+        resultBox.hidden = true;
     }
 
-    calculateButton.removeAttribute("onclick");
+    function formatNumber(value, decimals) {
+        return value.toLocaleString("en-US", {
+            minimumFractionDigits: decimals,
+            maximumFractionDigits: decimals
+        });
+    }
 
-    calculateButton.addEventListener("click", function () {
+    function calculateWater() {
+        errorMessage.hidden = true;
 
-        const weight = parseFloat(weightInput.value);
-        const activityExtra = parseFloat(activityInput.value) || 0;
-        const climateExtra = parseFloat(climateInput.value) || 0;
+        const weightText = weightInput.value.trim();
+        const weight = Number(weightText);
+        const activityExtra = Number(activityInput.value);
+        const climateExtra = Number(climateInput.value);
 
-        if (!Number.isFinite(weight) || weight <= 0) {
-            resultBox.style.display = "block";
-            waterResult.textContent = "Please enter a valid weight.";
-            mlResult.textContent = "";
-            glassResult.textContent = "";
-            weightResult.textContent = "";
+        if (
+            weightText === "" ||
+            !Number.isFinite(weight) ||
+            weight < 1 ||
+            weight > 300
+        ) {
+            showError("Please enter a valid weight between 1 and 300 kg.");
+            weightInput.focus();
             return;
         }
 
-        /*
-         * Basic estimate:
-         * 35 ml of water per kg of body weight
-         */
+        if (
+            !Number.isFinite(activityExtra) ||
+            !Number.isFinite(climateExtra)
+        ) {
+            showError("Please select valid activity and climate options.");
+            return;
+        }
 
+        // Simplified estimate: 35 ml per kg, plus preset adjustments.
         const basicWater = weight * 35;
-
-        /*
-         * Add adjustments for activity and climate.
-         */
-
         const totalWater = basicWater + activityExtra + climateExtra;
 
+        if (!Number.isFinite(totalWater) || totalWater <= 0) {
+            showError("Unable to calculate a result. Please check your inputs.");
+            return;
+        }
+
         const liters = totalWater / 1000;
-
-        /*
-         * Approximate glass size:
-         * 250 ml per glass
-         */
-
         const glasses = totalWater / 250;
 
-        waterResult.textContent =
-            liters.toFixed(2) + " liters/day";
+        document.getElementById("waterResult").textContent =
+            formatNumber(liters, 2) + " liters/day";
 
-        mlResult.textContent =
-            Math.round(totalWater).toLocaleString() + " ml/day";
+        document.getElementById("mlResult").textContent =
+            Math.round(totalWater).toLocaleString("en-US") + " ml/day";
 
-        glassResult.textContent =
-            Math.round(glasses) + " glasses";
+        document.getElementById("glassResult").textContent =
+            formatNumber(glasses, 1) + " glasses";
 
-        weightResult.textContent =
-            weight.toFixed(1) + " kg";
+        document.getElementById("weightResult").textContent =
+            formatNumber(weight, 1) + " kg";
 
-        resultBox.style.display = "block";
+        resultBox.hidden = false;
+    }
 
-        resultBox.scrollIntoView({
-            behavior: "smooth",
-            block: "nearest"
+    function resetCalculator() {
+        weightInput.value = "";
+        activityInput.value = "0";
+        climateInput.value = "0";
+        errorMessage.textContent = "";
+        errorMessage.hidden = true;
+        resultBox.hidden = true;
+        weightInput.focus();
+    }
+
+    document.getElementById("calculateButton")
+        .addEventListener("click", calculateWater);
+
+    document.getElementById("resetButton")
+        .addEventListener("click", resetCalculator);
+
+    [weightInput, activityInput, climateInput].forEach(function (element) {
+        element.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                calculateWater();
+            }
         });
     });
-
-});
+})();
 </script>
 
 </body>
