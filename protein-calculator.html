@@ -1,16 +1,21 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Protein Calculator - Calculate Daily Protein Needs | Easy Online Tool</title>
-
-    <meta name="description" content="Free Protein Calculator to estimate daily protein needs based on body weight, activity level, and fitness goal. Calculate your recommended daily protein intake in grams.">
-
+    <title>Protein Calculator - Daily Protein Needs in Grams | Easy Online Tool</title>
+    <meta name="description" content="Estimate your daily protein intake in grams using this free protein calculator. Explore approximate protein targets for general health, weight maintenance, muscle building, and fat loss.">
     <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#2563eb">
 
     <link rel="canonical" href="https://easyonlinetools.online/protein-calculator.html">
+
+    <meta property="og:title" content="Protein Calculator | Easy Online Tool">
+    <meta property="og:description" content="Estimate daily protein requirements based on body weight, activity level, and fitness goal.">
+    <meta property="og:url" content="https://easyonlinetools.online/protein-calculator.html">
+    <meta property="og:type" content="website">
 
     <script type="application/ld+json">
     {
@@ -20,7 +25,7 @@
         "url": "https://easyonlinetools.online/protein-calculator.html",
         "applicationCategory": "HealthApplication",
         "operatingSystem": "All",
-        "description": "Free online calculator for estimating daily protein requirements.",
+        "description": "Free online calculator for estimating daily protein intake from body weight, activity level, and fitness goal.",
         "offers": {
             "@type": "Offer",
             "price": "0",
@@ -39,11 +44,11 @@
             font-family: Arial, sans-serif;
             background: #f5f7fa;
             color: #222;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         header {
-            background: #ffffff;
+            background: #fff;
             border-bottom: 1px solid #e5e7eb;
         }
 
@@ -77,14 +82,34 @@
             font-size: 15px;
         }
 
-        nav a:hover {
+        nav a:hover,
+        footer a:hover {
             color: #2563eb;
+            text-decoration: underline;
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        select:focus-visible {
+            outline: 3px solid #93c5fd;
+            outline-offset: 3px;
         }
 
         .container {
             max-width: 900px;
             margin: auto;
-            padding: 40px 20px;
+            padding: 35px 20px 45px;
+        }
+
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #2563eb;
         }
 
         .page-title {
@@ -93,8 +118,9 @@
         }
 
         .page-title h1 {
-            margin-bottom: 10px;
+            margin: 0 0 10px;
             font-size: 34px;
+            line-height: 1.3;
         }
 
         .page-title p {
@@ -102,12 +128,20 @@
             margin: 0;
         }
 
-        .calculator-box {
-            background: #ffffff;
-            padding: 30px;
+        .calculator-box,
+        .info-section {
+            background: #fff;
+            padding: 28px;
             border-radius: 12px;
-            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
-            margin-bottom: 30px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+            margin-bottom: 28px;
+        }
+
+        .calculator-box h2,
+        .info-section h2 {
+            margin-top: 0;
+            font-size: 24px;
+            line-height: 1.4;
         }
 
         .input-group {
@@ -128,13 +162,14 @@
             border-radius: 7px;
             font-size: 16px;
             background: #fff;
+            color: #222;
         }
 
         .input-group input:focus,
         .input-group select:focus {
             outline: none;
             border-color: #2563eb;
-            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.12);
         }
 
         .unit-note {
@@ -159,7 +194,7 @@
 
         .calculate-btn {
             background: #2563eb;
-            color: white;
+            color: #fff;
         }
 
         .calculate-btn:hover {
@@ -178,7 +213,7 @@
         .error {
             display: none;
             background: #fee2e2;
-            color: #b91c1c;
+            color: #991b1b;
             padding: 12px;
             border-radius: 7px;
             margin-top: 20px;
@@ -188,15 +223,21 @@
             display: none;
             margin-top: 25px;
             background: #f8fafc;
+            border: 1px solid #e5e7eb;
             border-radius: 8px;
             padding: 20px;
+        }
+
+        .results h2 {
+            margin-top: 0;
+            font-size: 22px;
         }
 
         .result-row {
             display: flex;
             justify-content: space-between;
             gap: 20px;
-            padding: 10px 0;
+            padding: 12px 0;
             border-bottom: 1px solid #e5e7eb;
         }
 
@@ -206,25 +247,12 @@
 
         .result-row strong {
             text-align: right;
-            word-break: break-word;
+            overflow-wrap: anywhere;
         }
 
         .highlight {
             color: #2563eb;
             font-size: 20px;
-        }
-
-        .info-section {
-            background: #ffffff;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
-            margin-bottom: 25px;
-        }
-
-        .info-section h2 {
-            margin-top: 0;
-            font-size: 24px;
         }
 
         .info-section h3 {
@@ -236,22 +264,23 @@
             padding: 15px;
             border-radius: 7px;
             text-align: center;
-            font-size: 18px;
+            font-size: 17px;
             font-weight: bold;
             margin: 15px 0;
+            overflow-wrap: anywhere;
         }
 
         .related-tools {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
             margin-top: 20px;
         }
 
         .related-tools a {
             background: #f8fafc;
             border: 1px solid #e5e7eb;
-            padding: 15px;
+            padding: 14px;
             border-radius: 8px;
             text-decoration: none;
             color: #2563eb;
@@ -267,6 +296,10 @@
             margin-bottom: 20px;
         }
 
+        .faq-item:last-child {
+            margin-bottom: 0;
+        }
+
         .faq-item h3 {
             font-size: 18px;
             margin-bottom: 7px;
@@ -280,7 +313,7 @@
         }
 
         footer {
-            background: #ffffff;
+            background: #fff;
             border-top: 1px solid #e5e7eb;
             text-align: center;
             padding: 25px 20px;
@@ -288,15 +321,31 @@
             font-size: 14px;
         }
 
-        @media (max-width: 700px) {
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 12px;
+        }
 
+        .footer-links a {
+            color: #444;
+            text-decoration: none;
+        }
+
+        @media (max-width: 700px) {
             .header-container {
                 flex-direction: column;
             }
 
             nav {
                 justify-content: center;
-                gap: 14px;
+                gap: 12px 16px;
+            }
+
+            .container {
+                padding: 25px 15px 35px;
             }
 
             .page-title h1 {
@@ -318,6 +367,7 @@
 
             .related-tools {
                 grid-template-columns: 1fr;
+                gap: 10px;
             }
 
             .result-row {
@@ -336,125 +386,106 @@
 
 <header>
     <div class="header-container">
+        <a href="index.html" class="logo">Easy Online Tool</a>
 
-        <a href="index.html" class="logo">
-            Easy Online Tool
-        </a>
-
-        <nav>
+        <nav aria-label="Main navigation">
             <a href="index.html">Home</a>
             <a href="tools.html">Tools</a>
             <a href="categories.html">Categories</a>
             <a href="about.html">About</a>
             <a href="faq.html">FAQ</a>
         </nav>
-
     </div>
 </header>
 
 <main class="container">
 
-    <div class="page-title">
-        <h1>Protein Calculator</h1>
-        <p>Estimate your daily protein requirement based on your weight and activity level.</p>
+    <div class="breadcrumb">
+        <a href="index.html">Home</a> /
+        <a href="tools.html#health">Health &amp; Fitness</a> /
+        <span aria-current="page">Protein Calculator</span>
     </div>
 
-    <div class="calculator-box">
+    <div class="page-title">
+        <h1>Protein Calculator</h1>
+        <p>Estimate daily protein intake using your body weight, activity level, and fitness goal.</p>
+    </div>
 
-        <div class="input-group">
-            <label for="unit">Weight Unit</label>
+    <section class="calculator-box" aria-labelledby="calculator-heading">
+        <h2 id="calculator-heading">Calculate Your Daily Protein</h2>
 
-            <select id="unit" onchange="updateWeightLabel()">
-                <option value="kg">Kilograms (kg)</option>
-                <option value="lb">Pounds (lb)</option>
-            </select>
-        </div>
+        <p>
+            Choose your weight unit, activity level, and fitness goal to
+            estimate a daily protein target in grams.
+        </p>
 
-        <div class="input-group">
-            <label id="weightLabel" for="weight">Body Weight (kg)</label>
+        <form id="proteinForm">
 
-            <input
-                type="number"
-                id="weight"
-                placeholder="Enter your weight"
-                min="1"
-                step="any"
-            >
-        </div>
+            <div class="input-group">
+                <label for="unit">Weight Unit</label>
+                <select id="unit" name="unit">
+                    <option value="kg">Kilograms (kg)</option>
+                    <option value="lb">Pounds (lb)</option>
+                </select>
+            </div>
 
-        <div class="input-group">
-            <label for="activity">Activity Level</label>
+            <div class="input-group">
+                <label id="weightLabel" for="weight">Body Weight (kg)</label>
+                <input
+                    type="number"
+                    id="weight"
+                    name="weight"
+                    placeholder="Enter weight in kilograms"
+                    min="1"
+                    max="500"
+                    step="any"
+                    inputmode="decimal"
+                    required
+                    aria-describedby="weightNote"
+                >
+                <div class="unit-note" id="weightNote">
+                    Enter a weight between 1 and 500 kg, or between 2.2 and 1,102 lb.
+                </div>
+            </div>
 
-            <select id="activity">
+            <div class="input-group">
+                <label for="activity">Activity Level</label>
+                <select id="activity" name="activity">
+                    <option value="sedentary">Sedentary — Little regular exercise</option>
+                    <option value="light">Lightly active — Occasional exercise</option>
+                    <option value="moderate" selected>Moderately active — Regular exercise</option>
+                    <option value="high">Very active — Frequent hard training</option>
+                    <option value="veryhigh">Extremely active — Intense training</option>
+                </select>
+                <div class="unit-note">
+                    Select the level that most closely matches your usual activity.
+                </div>
+            </div>
 
-                <option value="1.2">
-                    Sedentary — Little or no exercise
-                </option>
+            <div class="input-group">
+                <label for="goal">Fitness Goal</label>
+                <select id="goal" name="goal">
+                    <option value="health">General health</option>
+                    <option value="maintain" selected>Maintain weight</option>
+                    <option value="muscle">Muscle building</option>
+                    <option value="fatloss">Fat loss / calorie deficit</option>
+                </select>
+            </div>
 
-                <option value="1.4">
-                    Lightly Active — Light exercise
-                </option>
+            <div class="button-group">
+                <button type="submit" class="calculate-btn">
+                    Calculate Protein
+                </button>
+                <button type="reset" class="reset-btn">
+                    Reset
+                </button>
+            </div>
+        </form>
 
-                <option value="1.6" selected>
-                    Moderately Active — Regular exercise
-                </option>
+        <div id="error" class="error" role="alert" aria-live="assertive"></div>
 
-                <option value="1.8">
-                    Very Active — Hard training
-                </option>
-
-                <option value="2.0">
-                    Extremely Active — Very intense training
-                </option>
-
-            </select>
-        </div>
-
-        <div class="input-group">
-            <label for="goal">Fitness Goal</label>
-
-            <select id="goal">
-
-                <option value="0.8">
-                    General Health
-                </option>
-
-                <option value="1.0" selected>
-                    Maintain Weight
-                </option>
-
-                <option value="1.2">
-                    Muscle Building
-                </option>
-
-                <option value="1.3">
-                    Fat Loss / Calorie Deficit
-                </option>
-
-            </select>
-        </div>
-
-        <div class="button-group">
-
-            <button
-                class="calculate-btn"
-                onclick="calculateProtein()"
-            >
-                Calculate
-            </button>
-
-            <button
-                class="reset-btn"
-                onclick="resetCalculator()"
-            >
-                Reset
-            </button>
-
-        </div>
-
-        <div id="error" class="error"></div>
-
-        <div id="results" class="results">
+        <div id="results" class="results" aria-live="polite" aria-atomic="true" tabindex="-1">
+            <h2>Your Estimated Protein Target</h2>
 
             <div class="result-row">
                 <span>Body Weight</span>
@@ -462,111 +493,123 @@
             </div>
 
             <div class="result-row">
-                <span>Protein Recommendation</span>
+                <span>Estimated Daily Protein</span>
                 <strong id="proteinResult" class="highlight"></strong>
             </div>
 
             <div class="result-row">
-                <span>Protein per kg</span>
+                <span>Protein Target Used</span>
                 <strong id="proteinPerKg"></strong>
             </div>
 
             <div class="result-row">
-                <span>Protein per lb</span>
+                <span>Equivalent per Pound</span>
                 <strong id="proteinPerLb"></strong>
             </div>
 
+            <p class="unit-note">
+                This estimate uses a general weight-based target. It does not
+                establish an individualized dietary requirement.
+            </p>
         </div>
-
-    </div>
+    </section>
 
     <section class="info-section">
-
-        <h2>How Much Protein Do You Need?</h2>
+        <h2>How Much Protein Do You Need Daily?</h2>
 
         <p>
-            Protein needs vary depending on factors such as body weight,
-            activity level, training, and individual goals. This calculator
-            provides an estimate using a weight-based approach.
+            Protein is an essential nutrient used to maintain body tissues,
+            build and repair muscle, and support many normal body functions.
+            Daily requirements vary with body weight, age, health, activity,
+            and training goals.
         </p>
 
         <p>
-            The calculator uses different protein targets according to the
-            selected activity level and fitness goal. The result is intended
-            as a general estimate rather than an individualized medical
-            recommendation.
+            For many healthy adults, 0.8 grams of protein per kilogram of
+            body weight per day is a commonly used reference intake. People
+            who train regularly or have specific fitness goals may use
+            different targets based on their circumstances.
         </p>
 
         <div class="note">
-            <strong>Important:</strong> This calculator is for general
-            informational purposes. Individual protein needs can vary,
-            particularly for people with medical conditions or special
-            dietary requirements.
+            <strong>Important:</strong> The targets used by this calculator
+            are general estimates for adults, not universal recommendations.
+            People with kidney disease or other medical conditions, pregnant
+            individuals, and people with special dietary needs should seek
+            advice from a qualified healthcare professional.
         </div>
-
     </section>
 
     <section class="info-section">
-
         <h2>How the Protein Calculator Works</h2>
 
         <p>
-            Your body weight is converted to kilograms if necessary. The
-            calculator then applies a protein factor based on the selected
-            activity level and fitness goal.
+            Your weight is converted into kilograms when you enter pounds.
+            The calculator then selects an approximate protein target based
+            on your activity and goal.
         </p>
 
         <div class="formula">
-            Daily Protein = Body Weight (kg) × Protein Target (g/kg)
+            Daily Protein (g) = Weight (kg) × Protein Target (g/kg)
         </div>
 
         <p>
-            The estimated target is displayed in grams of protein per day.
+            The target is expressed in grams of protein per kilogram of body
+            weight. The calculator uses one target for the selected
+            combination, rather than multiplying activity and goal
+            multipliers together.
         </p>
 
+        <p>
+            The result is rounded to the nearest gram for easier reading.
+            It is a planning estimate, not a precise measurement of your
+            body's needs.
+        </p>
     </section>
 
     <section class="info-section">
-
-        <h2>Protein and Fitness Goals</h2>
+        <h2>Protein and Different Fitness Goals</h2>
 
         <h3>General Health</h3>
-
         <p>
-            A moderate protein intake can contribute to maintaining normal
-            body tissues and overall nutrition.
+            A balanced diet with adequate protein helps meet the body's
+            everyday nutritional needs. A commonly used reference for
+            healthy adults is 0.8 g/kg/day.
         </p>
 
         <h3>Weight Maintenance</h3>
-
         <p>
-            People who exercise regularly may choose a higher protein
-            intake than someone who is mostly sedentary.
+            Protein needs depend on body weight, dietary intake, and activity.
+            The appropriate amount is part of an overall balanced diet.
         </p>
 
         <h3>Muscle Building</h3>
-
         <p>
-            Resistance training and adequate nutrition work together to
-            support muscle development. Protein requirements can be higher
-            for people engaged in regular strength training.
+            Resistance training combined with adequate nutrition can support
+            muscle growth. People who train consistently may benefit from
+            protein intakes above the basic adult reference intake.
         </p>
 
         <h3>Fat Loss</h3>
-
         <p>
-            During a calorie deficit, maintaining adequate protein intake
-            can be part of a balanced nutrition plan.
+            During a calorie deficit, adequate protein can help support the
+            maintenance of lean body tissue. The best target depends on
+            factors such as body composition, training, and the size of the
+            calorie deficit.
         </p>
 
+        <p>
+            The options in this calculator provide broad estimates. They do
+            not guarantee muscle gain, fat loss, or any other outcome.
+        </p>
     </section>
 
     <section class="info-section">
-
         <h2>Protein-Rich Foods</h2>
 
         <p>
-            Common sources of dietary protein include:
+            You can obtain protein from a variety of animal-based and
+            plant-based foods, including:
         </p>
 
         <ul>
@@ -574,305 +617,291 @@
             <li>Chicken and other poultry</li>
             <li>Fish and seafood</li>
             <li>Lean meat</li>
-            <li>Milk and yogurt</li>
-            <li>Cottage cheese</li>
+            <li>Milk, yogurt, and cottage cheese</li>
             <li>Beans and lentils</li>
             <li>Chickpeas</li>
             <li>Tofu and other soy foods</li>
             <li>Nuts and seeds</li>
         </ul>
 
+        <p>
+            A varied diet can provide protein alongside other nutrients.
+            Choose foods that fit your dietary preferences, budget, and
+            individual health needs.
+        </p>
     </section>
 
-  <section class="info-section">
+    <section class="info-section">
+        <h2>Related Health &amp; Fitness Calculators</h2>
 
-    <h2>Related Health &amp; Fitness Calculators</h2>
+        <p>
+            Explore other free calculators for nutrition, calories,
+            metabolism, body composition, weight, and hydration.
+        </p>
 
-    <p>
-        Explore other free health and fitness calculators for protein,
-        nutrition, calories, body composition, BMI, metabolism, weight,
-        hydration, fitness, and pregnancy.
-    </p>
-
-    <div class="related-tools">
-
-        <a href="macro-calculator.html">
-            Macro Calculator
-        </a>
-
-        <a href="calorie-calculator.html">
-            Calorie Calculator
-        </a>
-
-        <a href="bmr-calculator.html">
-            BMR Calculator
-        </a>
-
-        <a href="bmi-calculator.html">
-            BMI Calculator
-        </a>
-
-        <a href="body-fat-calculator.html">
-            Body Fat Calculator
-        </a>
-
-        <a href="ideal-weight-calculator.html">
-            Ideal Weight Calculator
-        </a>
-
-        <a href="water-intake-calculator.html">
-            Water Intake Calculator
-        </a>
-
-        <a href="pace-calculator.html">
-            Pace Calculator
-        </a>
-
-        <a href="pregnancy-calculator.html">
-            Pregnancy Calculator
-        </a>
-
-        <a href="tools.html#health">
-            More Health &amp; Fitness Calculators
-        </a>
-
-    </div>
-
-</section>
+        <div class="related-tools">
+            <a href="macro-calculator.html">Macro Calculator</a>
+            <a href="calorie-calculator.html">Calorie Calculator</a>
+            <a href="bmr-calculator.html">BMR Calculator</a>
+            <a href="bmi-calculator.html">BMI Calculator</a>
+            <a href="body-fat-calculator.html">Body Fat Calculator</a>
+            <a href="ideal-weight-calculator.html">Ideal Weight Calculator</a>
+            <a href="water-intake-calculator.html">Water Intake Calculator</a>
+            <a href="pace-calculator.html">Pace Calculator</a>
+            <a href="pregnancy-calculator.html">Pregnancy Calculator</a>
+            <a href="tools.html#health">More Health &amp; Fitness Tools</a>
+        </div>
+    </section>
 
     <section class="info-section">
-
         <h2>Frequently Asked Questions</h2>
 
         <div class="faq-item">
-
             <h3>What is a protein calculator?</h3>
-
             <p>
-                A protein calculator estimates a person's daily protein
-                requirement based on body weight and selected activity and
-                fitness factors.
+                A protein calculator estimates daily protein intake in grams
+                using body weight and selected activity or fitness factors.
             </p>
-
         </div>
 
         <div class="faq-item">
-
-            <h3>Why is protein important?</h3>
-
+            <h3>How much protein is recommended for a healthy adult?</h3>
             <p>
-                Protein supplies amino acids that the body uses for many
-                functions, including maintaining and building body tissues.
+                A commonly used reference intake for healthy adults is
+                approximately 0.8 grams per kilogram of body weight per day.
+                Individual needs may be different.
             </p>
-
         </div>
 
         <div class="faq-item">
-
             <h3>Can I enter my weight in pounds?</h3>
-
             <p>
-                Yes. Select Pounds (lb) from the weight unit menu and enter
-                your weight in pounds.
+                Yes. Select Pounds (lb) in the weight unit menu. The
+                calculator converts the entered weight to kilograms before
+                estimating daily protein.
             </p>
-
         </div>
 
         <div class="faq-item">
-
-            <h3>Do active people need more protein?</h3>
-
+            <h3>Do people who exercise need more protein?</h3>
             <p>
-                Protein needs can vary with physical activity and training.
-                People who exercise regularly may require more protein than
-                people with low activity levels.
+                Some people who exercise regularly, especially those doing
+                resistance training, may need more protein than the basic
+                adult reference intake. Requirements depend on individual
+                circumstances.
             </p>
-
         </div>
 
         <div class="faq-item">
+            <h3>Can this calculator help with muscle building?</h3>
+            <p>
+                It can estimate a protein target for planning purposes.
+                Muscle growth also depends on appropriate training,
+                sufficient energy, recovery, and other nutritional factors.
+            </p>
+        </div>
 
+        <div class="faq-item">
             <h3>Is this calculator medical advice?</h3>
-
             <p>
-                No. It provides a general estimate. If you have a medical
-                condition, are pregnant, or have specific dietary needs,
-                consult an appropriately qualified healthcare professional.
+                No. It provides general estimates only. Consult a qualified
+                healthcare professional or registered dietitian if you
+                need a target tailored to a medical condition or specific
+                nutritional requirements.
             </p>
-
         </div>
-
     </section>
 
 </main>
 
 <footer>
-    © 2026 Easy Online Tool. All rights reserved.
+    <p>© 2026 Easy Online Tool. All rights reserved.</p>
+
+    <nav class="footer-links" aria-label="Footer navigation">
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="disclaimer.html">Disclaimer</a>
+    </nav>
 </footer>
 
 <script>
+(function () {
+    "use strict";
 
-function updateWeightLabel() {
+    const form = document.getElementById("proteinForm");
+    const unitInput = document.getElementById("unit");
+    const weightInput = document.getElementById("weight");
+    const activityInput = document.getElementById("activity");
+    const goalInput = document.getElementById("goal");
 
-    const unit = document.getElementById("unit").value;
-    const label = document.getElementById("weightLabel");
-    const input = document.getElementById("weight");
-
-    if (unit === "kg") {
-
-        label.textContent = "Body Weight (kg)";
-        input.placeholder = "Enter weight in kilograms";
-
-    } else {
-
-        label.textContent = "Body Weight (lb)";
-        input.placeholder = "Enter weight in pounds";
-
-    }
-}
-
-function formatNumber(number, decimals = 1) {
-
-    if (!Number.isFinite(number)) {
-        return "Undefined";
-    }
-
-    return Number(number.toFixed(decimals)).toLocaleString();
-}
-
-function calculateProtein() {
-
-    const unit = document.getElementById("unit").value;
-
-    const weight = Number(
-        document.getElementById("weight").value
-    );
-
-    const activity = Number(
-        document.getElementById("activity").value
-    );
-
-    const goal = Number(
-        document.getElementById("goal").value
-    );
-
-    const error = document.getElementById("error");
-    const results = document.getElementById("results");
-
-    error.style.display = "none";
-    results.style.display = "none";
-
-    if (
-        !Number.isFinite(weight) ||
-        !Number.isFinite(activity) ||
-        !Number.isFinite(goal)
-    ) {
-
-        error.textContent = "Please enter a valid body weight.";
-        error.style.display = "block";
-
-        return;
-    }
-
-    if (weight <= 0) {
-
-        error.textContent = "Body weight must be greater than zero.";
-        error.style.display = "block";
-
-        return;
-    }
-
-    let weightKg;
-
-    if (unit === "kg") {
-
-        weightKg = weight;
-
-    } else {
-
-        weightKg = weight * 0.45359237;
-
-    }
+    const weightLabel = document.getElementById("weightLabel");
+    const errorBox = document.getElementById("error");
+    const resultsBox = document.getElementById("results");
 
     /*
-     * Base protein targets:
-     * Sedentary: 0.8 g/kg
-     * Lightly active: 1.0 g/kg
-     * Moderately active: 1.2 g/kg
-     * Very active: 1.4 g/kg
-     * Extremely active: 1.6 g/kg
+     * Illustrative protein targets in grams per kilogram per day.
+     * These are broad estimates for adults, not clinical prescriptions.
      *
-     * Goal values adjust the estimate:
-     * General health: 0.8
-     * Maintain weight: 1.0
-     * Muscle building: 1.2
-     * Fat loss: 1.3
+     * Columns: sedentary, light, moderate, high, very high activity.
      */
+    const targets = {
+        health:   [0.8, 0.8, 0.8, 0.8, 0.8],
+        maintain: [0.8, 1.0, 1.2, 1.4, 1.6],
+        muscle:   [1.2, 1.4, 1.6, 1.8, 2.0],
+        fatloss:  [1.0, 1.2, 1.4, 1.6, 1.8]
+    };
 
-    const baseProtein = activity;
+    const activityIndexes = {
+        sedentary: 0,
+        light: 1,
+        moderate: 2,
+        high: 3,
+        veryhigh: 4
+    };
 
-    const proteinTarget =
-        baseProtein * goal;
-
-    const dailyProtein =
-        weightKg * proteinTarget;
-
-    const proteinPerLb =
-        proteinTarget / 2.2046226218;
-
-    document.getElementById("resultWeight").textContent =
-        formatNumber(weightKg) + " kg";
-
-    document.getElementById("proteinResult").textContent =
-        formatNumber(dailyProtein) + " g/day";
-
-    document.getElementById("proteinPerKg").textContent =
-        formatNumber(proteinTarget) + " g/kg";
-
-    document.getElementById("proteinPerLb").textContent =
-        formatNumber(proteinPerLb) + " g/lb";
-
-    results.style.display = "block";
-
-    if (window.innerWidth <= 700) {
-
-        results.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-
-    }
-}
-
-function resetCalculator() {
-
-    document.getElementById("unit").value = "kg";
-
-    document.getElementById("weight").value = "";
-
-    document.getElementById("activity").value = "1.6";
-
-    document.getElementById("goal").value = "1.0";
-
-    document.getElementById("error").style.display = "none";
-
-    document.getElementById("results").style.display = "none";
-
-    updateWeightLabel();
-}
-
-document.getElementById("weight").addEventListener(
-    "keydown",
-    function(event) {
-
-        if (event.key === "Enter") {
-            calculateProtein();
+    function formatNumber(value, decimals = 1) {
+        if (!Number.isFinite(value)) {
+            return "—";
         }
 
+        return value.toLocaleString("en-US", {
+            maximumFractionDigits: decimals
+        });
     }
-);
 
+    function clearMessages() {
+        errorBox.textContent = "";
+        errorBox.style.display = "none";
+        resultsBox.style.display = "none";
+    }
+
+    function showError(message) {
+        errorBox.textContent = message;
+        errorBox.style.display = "block";
+        resultsBox.style.display = "none";
+    }
+
+    function updateWeightLabel() {
+        const isPounds = unitInput.value === "lb";
+
+        weightLabel.textContent = isPounds
+            ? "Body Weight (lb)"
+            : "Body Weight (kg)";
+
+        weightInput.placeholder = isPounds
+            ? "Enter weight in pounds"
+            : "Enter weight in kilograms";
+
+        weightInput.max = isPounds ? "1102.3" : "500";
+        weightInput.min = isPounds ? "2.2046" : "1";
+
+        document.getElementById("weightNote").textContent = isPounds
+            ? "Enter a weight between approximately 2.2 and 1,102 lb."
+            : "Enter a weight between 1 and 500 kg.";
+    }
+
+    unitInput.addEventListener("change", function () {
+        updateWeightLabel();
+        clearMessages();
+    });
+
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        clearMessages();
+
+        const rawWeight = weightInput.value.trim();
+
+        if (rawWeight === "") {
+            showError("Please enter your body weight.");
+            weightInput.focus();
+            return;
+        }
+
+        const weight = Number(rawWeight);
+
+        if (!Number.isFinite(weight) || weight <= 0) {
+            showError("Please enter a valid weight greater than zero.");
+            weightInput.focus();
+            return;
+        }
+
+        const unit = unitInput.value;
+        const maxWeight = unit === "lb" ? 1102.3 : 500;
+        const minWeight = unit === "lb" ? 2.2046 : 1;
+
+        if (weight < minWeight || weight > maxWeight) {
+            showError(
+                unit === "lb"
+                    ? "Enter a weight between approximately 2.2 and 1,102 lb."
+                    : "Enter a weight between 1 and 500 kg."
+            );
+            weightInput.focus();
+            return;
+        }
+
+        const weightKg = unit === "lb"
+            ? weight * 0.45359237
+            : weight;
+
+        const goal = goalInput.value;
+        const activity = activityInput.value;
+
+        if (
+            !Object.prototype.hasOwnProperty.call(targets, goal) ||
+            !Object.prototype.hasOwnProperty.call(activityIndexes, activity)
+        ) {
+            showError("Please select a valid activity level and fitness goal.");
+            return;
+        }
+
+        const activityIndex = activityIndexes[activity];
+        const proteinTarget = targets[goal][activityIndex];
+        const dailyProtein = weightKg * proteinTarget;
+        const proteinPerLb = proteinTarget / 2.2046226218;
+
+        if (
+            !Number.isFinite(dailyProtein) ||
+            dailyProtein <= 0
+        ) {
+            showError("Unable to calculate a result. Please check your entries.");
+            return;
+        }
+
+        document.getElementById("resultWeight").textContent =
+            formatNumber(weightKg, 2) + " kg";
+
+        document.getElementById("proteinResult").textContent =
+            formatNumber(dailyProtein, 0) + " g/day";
+
+        document.getElementById("proteinPerKg").textContent =
+            formatNumber(proteinTarget, 2) + " g/kg/day";
+
+        document.getElementById("proteinPerLb").textContent =
+            formatNumber(proteinPerLb, 3) + " g/lb/day";
+
+        resultsBox.style.display = "block";
+
+        if (window.innerWidth <= 700) {
+            resultsBox.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
+    });
+
+    form.addEventListener("reset", function () {
+        window.setTimeout(function () {
+            updateWeightLabel();
+            clearMessages();
+        }, 0);
+    });
+
+    updateWeightLabel();
+})();
 </script>
 
 </body>
 </html>
+```
