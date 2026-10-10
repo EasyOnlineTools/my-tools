@@ -1,28 +1,30 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Time Calculator – Add, Subtract, Multiply & Divide Time | Easy Online Tool</title>
-
-    <meta name="description" content="Free Time Calculator to add, subtract, multiply, and divide hours, minutes, and seconds. Quickly calculate time durations and convert time values online.">
-
-    <meta name="keywords" content="time calculator, time duration calculator, add time calculator, subtract time calculator, hours minutes seconds calculator, time calculator online">
-
+    <title>Time Calculator – Add, Subtract, Multiply & Divide | Easy Online Tool</title>
+    <meta name="description" content="Use this free time calculator to add and subtract hours, minutes, and seconds, or multiply and divide a time duration by a number. Get instant results online.">
     <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#2563eb">
+    <link rel="canonical" href="https://easyonlinetools.online/time-calculator.html">
 
-  <link rel="canonical" href="https://easyonlinetools.online/time-calculator.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Free Time Calculator | Easy Online Tool">
+    <meta property="og:description" content="Calculate time durations by adding, subtracting, multiplying, or dividing hours, minutes, and seconds.">
+    <meta property="og:url" content="https://easyonlinetools.online/time-calculator.html">
 
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebApplication",
         "name": "Time Calculator",
-       "url": "https://easyonlinetools.online/time-calculator.html",
+        "url": "https://easyonlinetools.online/time-calculator.html",
         "applicationCategory": "CalculatorApplication",
-        "operatingSystem": "All",
-        "description": "Free online calculator for adding, subtracting, multiplying, and dividing hours, minutes, and seconds.",
+        "operatingSystem": "Any",
+        "description": "Free online calculator for adding and subtracting time durations and multiplying or dividing a duration by a number.",
         "offers": {
             "@type": "Offer",
             "price": "0",
@@ -38,164 +40,224 @@
 
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             background: #f5f7fb;
             color: #222;
+            line-height: 1.6;
+        }
+
+        a {
+            color: #2563eb;
         }
 
         header {
-            background: #ffffff;
+            background: #fff;
             padding: 18px 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
         .header-container {
             max-width: 1100px;
-            margin: auto;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
+            gap: 12px;
         }
 
         .logo {
-            font-size: 24px;
-            font-weight: bold;
+            font-size: 23px;
+            font-weight: 700;
             color: #2563eb;
             text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
         }
 
         nav a {
-            text-decoration: none;
             color: #333;
-            margin-left: 18px;
+            text-decoration: none;
             font-size: 15px;
         }
 
-        nav a:hover {
+        nav a:hover,
+        nav a:focus {
             color: #2563eb;
+            text-decoration: underline;
         }
 
         .container {
             max-width: 850px;
-            margin: 45px auto;
+            margin: 35px auto;
             padding: 0 20px;
+        }
+
+        .breadcrumb {
+            margin-bottom: 18px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
         }
 
         h1 {
             text-align: center;
-            margin-bottom: 10px;
             font-size: 34px;
+            line-height: 1.25;
+            margin: 0 0 12px;
         }
 
         .description {
             text-align: center;
-            color: #666;
-            margin-bottom: 30px;
+            color: #555;
+            margin: 0 auto 28px;
+            max-width: 650px;
         }
 
-        .calculator-card {
-            background: white;
-            padding: 30px;
+        .calculator-card,
+        .info-section {
+            background: #fff;
+            padding: 28px;
             border-radius: 14px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
         }
 
         .time-section {
             margin-bottom: 25px;
         }
 
-        .time-section h3 {
-            margin-bottom: 12px;
+        .time-section h2 {
+            margin: 0 0 12px;
             color: #2563eb;
+            font-size: 20px;
         }
 
         .time-inputs {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 12px;
         }
 
-        .input-group label {
+        .input-group label,
+        .operation-group label,
+        .factor-group label {
             display: block;
-            font-weight: bold;
+            font-weight: 700;
             margin-bottom: 7px;
         }
 
         input,
         select {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #d1d5db;
+            min-height: 46px;
+            padding: 11px 12px;
+            border: 1px solid #cbd5e1;
             border-radius: 8px;
+            background: #fff;
+            color: #222;
             font-size: 16px;
-            background: white;
         }
 
         input:focus,
-        select:focus {
-            outline: none;
-            border-color: #2563eb;
+        select:focus,
+        button:focus-visible,
+        a:focus-visible {
+            outline: 3px solid #93c5fd;
+            outline-offset: 2px;
         }
 
-        .operation-group {
+        .operation-group,
+        .factor-group {
             margin-bottom: 25px;
         }
 
-        .operation-group label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 8px;
+        .helper-text {
+            margin: 8px 0 0;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .button-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 12px;
         }
 
         button {
-            width: 100%;
-            padding: 14px;
-            background: #2563eb;
-            color: white;
+            min-height: 48px;
+            padding: 12px 16px;
             border: none;
             border-radius: 8px;
-            font-size: 17px;
-            font-weight: bold;
+            font-size: 16px;
+            font-weight: 700;
             cursor: pointer;
         }
 
-        button:hover {
+        .calculate-button {
+            background: #2563eb;
+            color: #fff;
+        }
+
+        .calculate-button:hover {
             background: #1d4ed8;
         }
 
-        .result {
-            margin-top: 25px;
-            padding: 20px;
-            background: #f0f7ff;
-            border-radius: 10px;
+        .reset-button {
+            background: #e5e7eb;
+            color: #222;
+        }
+
+        .reset-button:hover {
+            background: #d1d5db;
+        }
+
+        .error-message {
             display: none;
+            margin-top: 18px;
+            padding: 12px 14px;
+            border-radius: 8px;
+            background: #fef2f2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
+        }
+
+        .result {
+            display: none;
+            margin-top: 24px;
+            padding: 20px;
+            background: #eff6ff;
+            border-radius: 10px;
             text-align: center;
         }
 
         .result h2 {
-            margin-top: 0;
-            color: #2563eb;
+            margin: 0 0 8px;
+            color: #1d4ed8;
             font-size: 22px;
         }
 
         .result-time {
+            margin: 12px 0;
+            color: #1d4ed8;
             font-size: 30px;
-            font-weight: bold;
-            color: #2563eb;
-            margin: 15px 0;
+            font-weight: 700;
+            overflow-wrap: anywhere;
         }
 
         .result-decimal {
-            color: #555;
+            color: #444;
+            overflow-wrap: anywhere;
         }
 
         .info-section {
-            background: white;
-            margin-top: 30px;
-            padding: 25px;
-            border-radius: 14px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            margin-top: 28px;
         }
 
         .info-section h2 {
@@ -203,24 +265,23 @@
         }
 
         .info-section h3 {
-            margin-top: 25px;
+            margin-top: 24px;
         }
 
         .related-tools {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-top: 20px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            margin-top: 18px;
         }
 
         .related-tools a {
-            background: #f8fafc;
+            display: block;
+            padding: 13px;
             border: 1px solid #e5e7eb;
-            padding: 15px;
             border-radius: 8px;
+            background: #f8fafc;
             text-decoration: none;
-            color: #2563eb;
-            text-align: center;
             font-weight: 600;
         }
 
@@ -230,38 +291,29 @@
 
         .internal-navigation {
             text-align: center;
-            margin: 30px 0;
-            font-size: 15px;
-        }
-
-        .internal-navigation a {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .internal-navigation a:hover {
-            text-decoration: underline;
+            margin: 28px 0;
         }
 
         footer {
-            background: #ffffff;
-            border-top: 1px solid #e5e7eb;
-            text-align: center;
-            padding: 25px 20px;
-            color: #777;
             margin-top: 40px;
+            padding: 25px 20px;
+            border-top: 1px solid #e5e7eb;
+            background: #fff;
+            color: #555;
+            text-align: center;
             font-size: 14px;
         }
 
         .footer-links {
-            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px 18px;
+            margin-top: 12px;
         }
 
         .footer-links a {
-            color: #2563eb;
             text-decoration: none;
-            margin: 0 7px;
         }
 
         .footer-links a:hover {
@@ -269,30 +321,30 @@
         }
 
         @media (max-width: 600px) {
-
             .header-container {
                 flex-direction: column;
-                gap: 12px;
             }
 
             nav {
-                text-align: center;
+                justify-content: center;
+                gap: 10px 14px;
             }
 
-            nav a {
-                margin: 0 7px;
-                font-size: 14px;
+            .container {
+                margin-top: 25px;
             }
 
             h1 {
                 font-size: 28px;
             }
 
-            .calculator-card {
+            .calculator-card,
+            .info-section {
                 padding: 20px;
             }
 
-            .time-inputs {
+            .time-inputs,
+            .related-tools {
                 grid-template-columns: 1fr;
             }
 
@@ -300,7 +352,7 @@
                 font-size: 25px;
             }
 
-            .related-tools {
+            .button-row {
                 grid-template-columns: 1fr;
             }
         }
@@ -308,512 +360,415 @@
 </head>
 
 <body>
-
 <header>
     <div class="header-container">
+        <a href="index.html" class="logo">Easy Online Tool</a>
 
-        <a href="index.html" class="logo">
-            Easy Online Tool
-        </a>
-
-        <nav>
+        <nav aria-label="Main navigation">
             <a href="index.html">Home</a>
             <a href="tools.html">Tools</a>
-            <a href="index.html#categories">Categories</a>
-            <a href="index.html#about">About</a>
-            <a href="index.html#faq">FAQ</a>
+            <a href="tools.html#date-time">Date &amp; Time</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
         </nav>
-
     </div>
 </header>
 
 <main class="container">
+    <div class="breadcrumb">
+        <a href="index.html">Home</a> /
+        <a href="tools.html">Tools</a> /
+        <span aria-current="page">Time Calculator</span>
+    </div>
 
     <h1>Time Calculator</h1>
-
     <p class="description">
-        Add, subtract, multiply, or divide hours, minutes, and seconds.
+        Add or subtract time durations, or multiply and divide a duration
+        by a number. Calculate hours, minutes, and seconds instantly.
     </p>
 
-    <div class="calculator-card">
+    <section class="calculator-card" aria-label="Time calculator">
+        <form id="timeForm" novalidate>
+            <div class="time-section">
+                <h2>First Time Duration</h2>
 
-        <div class="time-section">
+                <div class="time-inputs">
+                    <div class="input-group">
+                        <label for="hours1">Hours</label>
+                        <input type="number" id="hours1" min="0" step="any"
+                               value="0" inputmode="decimal" required>
+                    </div>
 
-            <h3>First Time</h3>
+                    <div class="input-group">
+                        <label for="minutes1">Minutes</label>
+                        <input type="number" id="minutes1" min="0" step="any"
+                               value="0" inputmode="decimal" required>
+                    </div>
 
-            <div class="time-inputs">
-
-                <div class="input-group">
-                    <label for="hours1">Hours</label>
-                    <input
-                        type="number"
-                        id="hours1"
-                        value="0"
-                        min="0"
-                        step="any"
-                    >
+                    <div class="input-group">
+                        <label for="seconds1">Seconds</label>
+                        <input type="number" id="seconds1" min="0" step="any"
+                               value="0" inputmode="decimal" required>
+                    </div>
                 </div>
-
-                <div class="input-group">
-                    <label for="minutes1">Minutes</label>
-                    <input
-                        type="number"
-                        id="minutes1"
-                        value="0"
-                        min="0"
-                        step="any"
-                    >
-                </div>
-
-                <div class="input-group">
-                    <label for="seconds1">Seconds</label>
-                    <input
-                        type="number"
-                        id="seconds1"
-                        value="0"
-                        min="0"
-                        step="any"
-                    >
-                </div>
-
             </div>
 
-        </div>
+            <div class="operation-group">
+                <label for="operation">Operation</label>
+                <select id="operation">
+                    <option value="add">Add (+)</option>
+                    <option value="subtract">Subtract (−)</option>
+                    <option value="multiply">Multiply by a number (×)</option>
+                    <option value="divide">Divide by a number (÷)</option>
+                </select>
 
-        <div class="operation-group">
-
-            <label for="operation">
-                Operation
-            </label>
-
-            <select id="operation">
-
-                <option value="add">
-                    Add (+)
-                </option>
-
-                <option value="subtract">
-                    Subtract (-)
-                </option>
-
-                <option value="multiply">
-                    Multiply (×)
-                </option>
-
-                <option value="divide">
-                    Divide (÷)
-                </option>
-
-            </select>
-
-        </div>
-
-        <div class="time-section">
-
-            <h3>Second Time</h3>
-
-            <div class="time-inputs">
-
-                <div class="input-group">
-                    <label for="hours2">Hours</label>
-                    <input
-                        type="number"
-                        id="hours2"
-                        value="0"
-                        min="0"
-                        step="any"
-                    >
-                </div>
-
-                <div class="input-group">
-                    <label for="minutes2">Minutes</label>
-                    <input
-                        type="number"
-                        id="minutes2"
-                        value="0"
-                        min="0"
-                        step="any"
-                    >
-                </div>
-
-                <div class="input-group">
-                    <label for="seconds2">Seconds</label>
-                    <input
-                        type="number"
-                        id="seconds2"
-                        value="0"
-                        min="0"
-                        step="any"
-                    >
-                </div>
-
+                <p class="helper-text" id="operationHelp">
+                    Add the second time duration to the first duration.
+                </p>
             </div>
 
-        </div>
+            <div class="time-section" id="secondTimeSection">
+                <h2>Second Time Duration</h2>
 
-        <button onclick="calculateTime()">
-            Calculate Time
-        </button>
+                <div class="time-inputs">
+                    <div class="input-group">
+                        <label for="hours2">Hours</label>
+                        <input type="number" id="hours2" min="0" step="any"
+                               value="0" inputmode="decimal" required>
+                    </div>
 
-        <div class="result" id="result">
+                    <div class="input-group">
+                        <label for="minutes2">Minutes</label>
+                        <input type="number" id="minutes2" min="0" step="any"
+                               value="0" inputmode="decimal" required>
+                    </div>
 
-            <h2>Result</h2>
-
-            <div class="result-time" id="resultTime">
-                0h 0m 0s
+                    <div class="input-group">
+                        <label for="seconds2">Seconds</label>
+                        <input type="number" id="seconds2" min="0" step="any"
+                               value="0" inputmode="decimal" required>
+                    </div>
+                </div>
             </div>
 
-            <div class="result-decimal" id="decimalResult">
-                Total seconds: 0
+            <div class="factor-group" id="factorSection" hidden>
+                <label for="factor">Multiplier or divisor</label>
+                <input type="number" id="factor" min="0" step="any"
+                       value="2" inputmode="decimal">
+                <p class="helper-text">
+                    Enter a number, such as 2. For division, the number
+                    must be greater than zero.
+                </p>
             </div>
 
-        </div>
+            <div class="button-row">
+                <button type="submit" class="calculate-button">
+                    Calculate Time
+                </button>
+                <button type="reset" class="reset-button">
+                    Reset
+                </button>
+            </div>
 
-    </div>
+            <div id="errorMessage" class="error-message"
+                 role="alert" aria-live="assertive"></div>
+
+            <div class="result" id="result" aria-live="polite"
+                 aria-atomic="true">
+                <h2>Result</h2>
+                <div class="result-time" id="resultTime"></div>
+                <div class="result-decimal" id="decimalResult"></div>
+            </div>
+        </form>
+    </section>
 
     <section class="info-section">
-
         <h2>What Is a Time Calculator?</h2>
-
         <p>
-            A Time Calculator helps you perform calculations involving hours,
-            minutes, and seconds. You can add or subtract two time periods,
-            or multiply and divide a time duration.
+            A time calculator helps you work with time durations expressed
+            in hours, minutes, and seconds. Use it to combine durations,
+            find a difference, or calculate a duration multiplied or divided
+            by a number.
         </p>
 
-        <h3>Examples</h3>
+        <h3>How to Use This Calculator</h3>
+        <ol>
+            <li>Enter the first duration in hours, minutes, and seconds.</li>
+            <li>Select addition, subtraction, multiplication, or division.</li>
+            <li>For addition or subtraction, enter the second duration.</li>
+            <li>For multiplication or division, enter a numeric factor.</li>
+            <li>Select Calculate Time to see the result.</li>
+        </ol>
 
+        <h3>Examples of Time Calculations</h3>
+        <ul>
+            <li><strong>Add:</strong> 2 hours 30 minutes + 1 hour 45 minutes = 4 hours 15 minutes.</li>
+            <li><strong>Subtract:</strong> 5 hours 20 minutes − 2 hours 10 minutes = 3 hours 10 minutes.</li>
+            <li><strong>Multiply:</strong> 1 hour 30 minutes × 2 = 3 hours.</li>
+            <li><strong>Divide:</strong> 4 hours ÷ 2 = 2 hours.</li>
+        </ul>
+
+        <h3>How Are Results Calculated?</h3>
         <p>
-            <strong>Add:</strong>
-            2 hours 30 minutes + 1 hour 45 minutes
-            = 4 hours 15 minutes.
+            The calculator converts each duration to total seconds before
+            performing the calculation. It then converts the result back
+            into hours, minutes, and seconds. The total seconds value is
+            also displayed, rounded to two decimal places.
         </p>
 
+        <h3>Can a Subtraction Result Be Negative?</h3>
         <p>
-            <strong>Subtract:</strong>
-            5 hours 20 minutes − 2 hours 10 minutes
-            = 3 hours 10 minutes.
+            Yes. If the first duration is smaller than the second duration,
+            subtraction produces a negative result. The minus sign is
+            displayed so you can identify the direction of the difference.
         </p>
-
-        <p>
-            <strong>Multiply:</strong>
-            1 hour 30 minutes × 2
-            = 3 hours.
-        </p>
-
-        <p>
-            <strong>Divide:</strong>
-            4 hours ÷ 2
-            = 2 hours.
-        </p>
-
     </section>
 
     <section class="info-section">
-
-        <h2>How Does a Time Calculator Work?</h2>
-
-        <p>
-            Enter the hours, minutes, and seconds you want to calculate.
-            Select an operation and click the Calculate Time button.
-            The calculator converts the entered values into seconds,
-            performs the selected calculation, and displays the result
-            as hours, minutes, and seconds.
-        </p>
-
-        <h3>Adding Time</h3>
-
-        <p>
-            Adding time is useful when combining multiple durations.
-            For example, 2 hours plus 1 hour and 30 minutes equals
-            3 hours and 30 minutes.
-        </p>
-
-        <h3>Subtracting Time</h3>
-
-        <p>
-            Subtracting time can help you find the difference between
-            two durations. It can be useful for schedules, working hours,
-            study sessions, and other time-based activities.
-        </p>
-
-        <h3>Multiplying Time</h3>
-
-        <p>
-            Multiplication can be used when the same time duration occurs
-            several times. For example, 1 hour and 30 minutes multiplied
-            by 2 equals 3 hours.
-        </p>
-
-        <h3>Dividing Time</h3>
-
-        <p>
-            Division can be useful when splitting a time duration into
-            equal parts. For example, 4 hours divided by 2 equals 2 hours.
-        </p>
-
-    </section>
-
-    <section class="info-section">
-
-        <h2>Why Use an Online Time Calculator?</h2>
-
-        <p>
-            Time uses different units, with 60 minutes in an hour and
-            60 seconds in a minute. Calculating these values manually can
-            sometimes lead to mistakes. An online Time Calculator provides
-            a quick and convenient way to perform time calculations.
-        </p>
-
-        <p>
-            Students, teachers, employees, freelancers, and anyone who
-            needs to calculate time durations can use this free online tool.
-        </p>
-
-    </section>
-
- <section class="info-section">
-
-    <h2>Related Date &amp; Time Calculators</h2>
-
-    <p>
-        Explore other free date and time calculators for calculating dates,
-        finding the difference between dates, adding or subtracting dates,
-        calculating age, and converting time zones.
-    </p>
-
-    <div class="related-tools">
-
-        <a href="age-calculator.html">
-            Age Calculator
-        </a>
-
-        <a href="date-calculator.html">
-            Date Calculator
-        </a>
-
-        <a href="days-between-dates-calculator.html">
-            Days Between Dates Calculator
-        </a>
-
-        <a href="date-add-subtract-calculator.html">
-            Date Add &amp; Subtract Calculator
-        </a>
-
-        <a href="time-zone-converter.html">
-            Time Zone Converter
-        </a>
-
-        <a href="tools.html#date-time">
-            More Date &amp; Time Calculators
-        </a>
-
-    </div>
-
-</section>
-
-    <section class="info-section">
-
         <h2>Time Calculator FAQs</h2>
 
-        <h3>What can a Time Calculator calculate?</h3>
-
-        <p>
-            A Time Calculator can add, subtract, multiply, and divide
-            hours, minutes, and seconds.
-        </p>
-
         <h3>Can I add hours and minutes together?</h3>
-
         <p>
-            Yes. Enter the hours, minutes, and seconds for each time period
-            and select the Add operation.
+            Yes. Enter each duration in its hours, minutes, and seconds
+            fields, select Add, and calculate the result.
         </p>
 
-        <h3>Why is calculating time manually difficult?</h3>
-
+        <h3>Can I subtract a larger duration from a smaller one?</h3>
         <p>
-            Time uses different units, with 60 minutes in an hour and
-            60 seconds in a minute. Converting between these units manually
-            can sometimes result in calculation errors.
+            Yes. The calculator supports negative results and displays
+            the minus sign before the formatted duration.
         </p>
 
-        <h3>Can the calculator subtract a larger time from a smaller time?</h3>
-
+        <h3>How do I multiply a time duration?</h3>
         <p>
-            Yes. The calculator displays negative results when the second
-            time is greater than the first time during subtraction.
+            Select Multiply by a number, enter a factor such as 2, and
+            calculate. For example, 90 minutes multiplied by 2 equals
+            3 hours.
         </p>
 
-        <h3>Can I divide time by another time?</h3>
-
+        <h3>How do I divide a time duration?</h3>
         <p>
-            Yes. The calculator divides the first time duration by the
-            second time duration. The second time cannot be zero.
+            Select Divide by a number and enter a positive divisor.
+            For example, 4 hours divided by 2 equals 2 hours. Division
+            by zero is not allowed.
         </p>
 
+        <h3>Can I enter decimal values?</h3>
+        <p>
+            Yes. The duration fields and numeric factor accept decimal
+            values. The formatted hours, minutes, and seconds result is
+            rounded to the nearest whole second.
+        </p>
+
+        <h3>Is this calculator free?</h3>
+        <p>
+            Yes. You can use this online time calculator for free in a
+            modern browser without installing software.
+        </p>
+    </section>
+
+    <section class="info-section">
+        <h2>Related Date and Time Calculators</h2>
+        <p>
+            Explore more free calculators for working with dates, durations,
+            ages, and time zones.
+        </p>
+
+        <div class="related-tools">
+            <a href="age-calculator.html">Age Calculator</a>
+            <a href="date-calculator.html">Date Calculator</a>
+            <a href="days-between-dates-calculator.html">Days Between Dates Calculator</a>
+            <a href="date-add-subtract-calculator.html">Date Add &amp; Subtract Calculator</a>
+            <a href="time-zone-converter.html">Time Zone Converter</a>
+            <a href="tools.html#date-time">More Date &amp; Time Calculators</a>
+        </div>
     </section>
 
     <div class="internal-navigation">
-
-        <a href="tools.html">
-            ← All Tools
-        </a>
-
+        <a href="tools.html">← All Tools</a>
         &nbsp; | &nbsp;
-
-        <a href="tools.html#date-time">
-            Date &amp; Time Calculators
-        </a>
-
+        <a href="tools.html#date-time">Date &amp; Time Calculators</a>
     </div>
-
 </main>
 
 <footer>
-
-    © 2026 Easy Online Tool. All rights reserved.
-
-    <div class="footer-links">
-
+    <div>© 2026 Easy Online Tool. All rights reserved.</div>
+    <nav class="footer-links" aria-label="Footer navigation">
         <a href="index.html">Home</a>
-
         <a href="tools.html">All Tools</a>
-
-        <a href="index.html#categories">Categories</a>
-
-        <a href="index.html#about">About</a>
-
-        <a href="index.html#faq">FAQ</a>
-
-        <a href="privacy-policy.html">Privacy Policy</a>
-
-        <a href="terms.html">Terms</a>
-
+        <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-
-    </div>
-
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+        <a href="disclaimer.html">Disclaimer</a>
+    </nav>
 </footer>
 
 <script>
+(function () {
+    "use strict";
 
-function getTimeInSeconds(hoursId, minutesId, secondsId) {
+    const form = document.getElementById("timeForm");
+    const operation = document.getElementById("operation");
+    const secondTimeSection = document.getElementById("secondTimeSection");
+    const factorSection = document.getElementById("factorSection");
+    const factorInput = document.getElementById("factor");
+    const operationHelp = document.getElementById("operationHelp");
+    const errorMessage = document.getElementById("errorMessage");
+    const resultBox = document.getElementById("result");
+    const resultTime = document.getElementById("resultTime");
+    const decimalResult = document.getElementById("decimalResult");
 
-    const hours = parseFloat(
-        document.getElementById(hoursId).value
-    ) || 0;
+    const MAX_INPUT = 1000000000;
 
-    const minutes = parseFloat(
-        document.getElementById(minutesId).value
-    ) || 0;
-
-    const seconds = parseFloat(
-        document.getElementById(secondsId).value
-    ) || 0;
-
-    return (hours * 3600) +
-           (minutes * 60) +
-           seconds;
-}
-
-
-function formatTime(totalSeconds) {
-
-    const sign = totalSeconds < 0 ? "-" : "";
-
-    totalSeconds = Math.abs(totalSeconds);
-
-    let hours = Math.floor(totalSeconds / 3600);
-
-    let minutes = Math.floor(
-        (totalSeconds % 3600) / 60
-    );
-
-    let seconds = Math.round(
-        totalSeconds % 60
-    );
-
-    if (seconds === 60) {
-        seconds = 0;
-        minutes++;
+    function showError(message) {
+        errorMessage.textContent = message;
+        errorMessage.style.display = "block";
+        resultBox.style.display = "none";
     }
 
-    if (minutes === 60) {
-        minutes = 0;
-        hours++;
+    function clearError() {
+        errorMessage.textContent = "";
+        errorMessage.style.display = "none";
     }
 
-    return sign +
-        hours + "h " +
-        minutes + "m " +
-        seconds + "s";
-}
+    function readNumber(id, label) {
+        const input = document.getElementById(id);
+        const raw = input.value.trim();
 
-
-function calculateTime() {
-
-    const time1 = getTimeInSeconds(
-        "hours1",
-        "minutes1",
-        "seconds1"
-    );
-
-    const time2 = getTimeInSeconds(
-        "hours2",
-        "minutes2",
-        "seconds2"
-    );
-
-    const operation =
-        document.getElementById("operation").value;
-
-    let result;
-
-    if (operation === "add") {
-
-        result = time1 + time2;
-
-    } else if (operation === "subtract") {
-
-        result = time1 - time2;
-
-    } else if (operation === "multiply") {
-
-        result = time1 * time2;
-
-    } else if (operation === "divide") {
-
-        if (time2 === 0) {
-
-            alert("You cannot divide by zero.");
-
-            return;
+        if (raw === "") {
+            throw new Error("Please enter a value for " + label + ".");
         }
 
-        result = time1 / time2;
+        const value = Number(raw);
+
+        if (!Number.isFinite(value) || value < 0 || value > MAX_INPUT) {
+            throw new Error(
+                label + " must be a number between 0 and " +
+                MAX_INPUT.toLocaleString("en-US") + "."
+            );
+        }
+
+        return value;
     }
 
-    document.getElementById("resultTime").textContent =
-        formatTime(result);
+    function readDuration(suffix) {
+        const hours = readNumber("hours" + suffix, "hours");
+        const minutes = readNumber("minutes" + suffix, "minutes");
+        const seconds = readNumber("seconds" + suffix, "seconds");
 
-    document.getElementById("decimalResult").textContent =
-        "Total seconds: " + result.toFixed(2);
+        const total = hours * 3600 + minutes * 60 + seconds;
 
-    document.getElementById("result").style.display =
-        "block";
+        if (!Number.isFinite(total)) {
+            throw new Error("The entered duration is too large to calculate.");
+        }
 
-    if (window.innerWidth <= 600) {
+        return total;
+    }
 
-        document.getElementById("result").scrollIntoView({
-            behavior: "smooth",
-            block: "start"
+    function formatTime(totalSeconds) {
+        const rounded = Math.round(Math.abs(totalSeconds));
+        const hours = Math.floor(rounded / 3600);
+        const minutes = Math.floor((rounded % 3600) / 60);
+        const seconds = rounded % 60;
+        const sign = totalSeconds < 0 && rounded !== 0 ? "−" : "";
+
+        return sign + hours + "h " + minutes + "m " + seconds + "s";
+    }
+
+    function updateOperationFields() {
+        const usesFactor =
+            operation.value === "multiply" ||
+            operation.value === "divide";
+
+        secondTimeSection.hidden = usesFactor;
+        factorSection.hidden = !usesFactor;
+
+        document.querySelectorAll(
+            "#secondTimeSection input"
+        ).forEach(function (input) {
+            input.required = !usesFactor;
         });
 
+        factorInput.required = usesFactor;
+
+        if (operation.value === "add") {
+            operationHelp.textContent =
+                "Add the second time duration to the first duration.";
+        } else if (operation.value === "subtract") {
+            operationHelp.textContent =
+                "Subtract the second time duration from the first. The result can be negative.";
+        } else if (operation.value === "multiply") {
+            operationHelp.textContent =
+                "Multiply the first duration by a numeric factor.";
+        } else {
+            operationHelp.textContent =
+                "Divide the first duration by a positive numeric divisor.";
+        }
+
+        clearError();
+        resultBox.style.display = "none";
     }
-}
 
+    operation.addEventListener("change", updateOperationFields);
+
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        clearError();
+
+        try {
+            const firstDuration = readDuration("1");
+            let result;
+
+            if (operation.value === "add") {
+                result = firstDuration + readDuration("2");
+            } else if (operation.value === "subtract") {
+                result = firstDuration - readDuration("2");
+            } else {
+                const factor = readNumber(
+                    "factor",
+                    operation.value === "divide" ? "divisor" : "multiplier"
+                );
+
+                if (operation.value === "divide" && factor === 0) {
+                    throw new Error("The divisor must be greater than zero.");
+                }
+
+                result = operation.value === "multiply"
+                    ? firstDuration * factor
+                    : firstDuration / factor;
+            }
+
+            if (!Number.isFinite(result)) {
+                throw new Error(
+                    "The result is too large to display. Please use smaller values."
+                );
+            }
+
+            resultTime.textContent = formatTime(result);
+            decimalResult.textContent =
+                "Total seconds: " + result.toFixed(2);
+
+            resultBox.style.display = "block";
+        } catch (error) {
+            showError(error.message || "Please check your entries and try again.");
+        }
+    });
+
+    form.addEventListener("reset", function () {
+        window.setTimeout(function () {
+            operation.value = "add";
+            updateOperationFields();
+            clearError();
+            resultBox.style.display = "none";
+            resultTime.textContent = "";
+            decimalResult.textContent = "";
+        }, 0);
+    });
+
+    updateOperationFields();
+})();
 </script>
-
 </body>
 </html>
+```
