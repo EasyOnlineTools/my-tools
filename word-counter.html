@@ -4,12 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Word Counter – Count Words, Characters & More | Easy Online Tool</title>
-<meta name="description" content="Count words, characters and sentences instantly with this free online Word Counter. Useful for students, writers, bloggers and content creators.">
-
-    <meta name="keywords" content="word counter, character counter, online word counter, word count tool, character count">
+    <title>Free Word Counter – Words, Characters & Sentences | Easy Online Tool</title>
+    <meta name="description" content="Use our free online word counter to count words, characters, sentences and paragraphs instantly. Check essays, articles and other text in your browser.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#2563eb">
 
     <link rel="canonical" href="https://easyonlinetools.online/word-counter.html">
+
+    <meta property="og:title" content="Free Online Word Counter | Easy Online Tool">
+    <meta property="og:description" content="Count words, characters, sentences and paragraphs with our free online word counter.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://easyonlinetools.online/word-counter.html">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Word Counter",
+      "url": "https://easyonlinetools.online/word-counter.html",
+      "description": "A free online tool for counting words, characters, sentences and paragraphs.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
 
     <style>
         * {
@@ -18,37 +40,65 @@
             padding: 0;
         }
 
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e3a8a;
+            --text: #222;
+            --muted: #5b6472;
+            --background: #f5f7fb;
+            --border: #d8dee8;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background: #f5f7fb;
-            color: #222;
-            line-height: 1.6;
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            color: var(--primary-dark);
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        textarea:focus-visible {
+            outline: 3px solid #f59e0b;
+            outline-offset: 3px;
         }
 
         header {
-            background: #2563eb;
-            color: white;
+            background: var(--primary);
+            color: #fff;
             padding: 18px 20px;
         }
 
         .header-container {
             max-width: 1100px;
-            margin: auto;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 20px;
+            flex-wrap: wrap;
+            gap: 16px;
         }
 
         .logo {
-            font-size: 24px;
-            font-weight: bold;
+            color: #fff;
+            font-size: 23px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
         }
 
         nav a {
-            color: white;
+            color: #fff;
             text-decoration: none;
-            margin-left: 18px;
             font-size: 15px;
         }
 
@@ -57,143 +107,244 @@
         }
 
         .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
+            width: min(900px, 100%);
+            margin: 35px auto;
+            padding: 0 18px;
         }
 
-        .tool-box {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        .tool-box,
+        .content-section {
+            background: #fff;
+            padding: 28px;
+            border-radius: 14px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
         }
 
         h1 {
+            color: var(--primary-dark);
             text-align: center;
-            color: #1e3a8a;
+            line-height: 1.3;
             margin-bottom: 10px;
+            font-size: clamp(26px, 4vw, 34px);
         }
 
         .intro {
+            color: var(--muted);
             text-align: center;
-            color: #666;
-            margin-bottom: 25px;
+            margin-bottom: 24px;
+        }
+
+        .field-label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 8px;
         }
 
         textarea {
+            display: block;
             width: 100%;
-            min-height: 300px;
-            padding: 18px;
-            border: 2px solid #ddd;
+            min-height: 280px;
+            padding: 16px;
+            border: 2px solid var(--border);
             border-radius: 10px;
             resize: vertical;
+            font: inherit;
             font-size: 16px;
-            font-family: Arial, sans-serif;
-            outline: none;
+            line-height: 1.6;
+            color: var(--text);
+            background: #fff;
         }
 
         textarea:focus {
-            border-color: #2563eb;
+            border-color: var(--primary);
+        }
+
+        .helper-text {
+            color: var(--muted);
+            font-size: 14px;
+            margin-top: 8px;
         }
 
         .buttons {
             display: flex;
+            flex-wrap: wrap;
             gap: 10px;
-            margin-top: 15px;
+            margin-top: 16px;
         }
 
         button {
+            min-height: 44px;
             border: none;
-            padding: 12px 22px;
+            padding: 11px 20px;
             border-radius: 8px;
             cursor: pointer;
             font-size: 15px;
-            font-weight: bold;
+            font-weight: 700;
+        }
+
+        button:hover {
+            filter: brightness(0.94);
+        }
+
+        .copy-btn {
+            background: var(--primary);
+            color: #fff;
         }
 
         .clear-btn {
             background: #dc2626;
-            color: white;
-        }
-
-        .copy-btn {
-            background: #2563eb;
-            color: white;
-        }
-
-        button:hover {
-            opacity: 0.9;
+            color: #fff;
         }
 
         .results {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            margin-top: 25px;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 12px;
+            margin-top: 24px;
         }
 
         .result-card {
             background: #f1f5f9;
-            padding: 20px;
+            padding: 17px 8px;
             border-radius: 10px;
             text-align: center;
+            min-width: 0;
         }
 
         .result-card strong {
             display: block;
-            font-size: 28px;
-            color: #2563eb;
+            font-size: clamp(23px, 3vw, 30px);
+            color: var(--primary-dark);
+            overflow-wrap: anywhere;
         }
 
         .result-card span {
-            color: #555;
+            display: block;
+            color: #4b5563;
             font-size: 14px;
         }
 
-        .info {
-            margin-top: 30px;
+        .status {
+            min-height: 28px;
+            margin-top: 12px;
+            color: #166534;
+            font-size: 14px;
         }
 
-        .info h2 {
-            color: #1e3a8a;
-            margin-bottom: 10px;
+        .content-section {
+            margin-top: 24px;
         }
 
-        .info p {
-            color: #555;
+        .content-section h2 {
+            color: var(--primary-dark);
+            font-size: 22px;
+            line-height: 1.4;
+            margin: 22px 0 8px;
+        }
+
+        .content-section h2:first-child {
+            margin-top: 0;
+        }
+
+        .content-section h3 {
+            font-size: 17px;
+            margin: 16px 0 6px;
+        }
+
+        .content-section p {
             margin-bottom: 12px;
+            color: #4b5563;
+        }
+
+        .content-section ul {
+            margin: 8px 0 14px 22px;
+            color: #4b5563;
+        }
+
+        .related-tools {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .related-tools a {
+            display: block;
+            padding: 12px 14px;
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            text-decoration: none;
+            overflow-wrap: anywhere;
+        }
+
+        .related-tools a:hover {
+            background: #e8efff;
+            text-decoration: underline;
         }
 
         footer {
             background: #111827;
-            color: white;
+            color: #fff;
             text-align: center;
             padding: 25px 15px;
-            margin-top: 50px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 6px 0;
         }
 
         footer a {
-            color: white;
+            color: #fff;
             text-decoration: none;
-            margin: 0 8px;
+            margin: 0 5px;
         }
 
-        @media (max-width: 700px) {
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 650px) {
             .header-container {
                 flex-direction: column;
+                align-items: flex-start;
             }
 
-            nav a {
-                margin: 0 7px;
+            nav {
+                gap: 12px;
+            }
+
+            .container {
+                margin: 22px auto;
+                padding: 0 12px;
+            }
+
+            .tool-box,
+            .content-section {
+                padding: 19px;
             }
 
             .results {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
-            .tool-box {
-                padding: 20px;
+            textarea {
+                min-height: 230px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .related-tools {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                gap: 9px;
+            }
+
+            nav a {
+                font-size: 14px;
             }
         }
     </style>
@@ -203,38 +354,54 @@
 
 <header>
     <div class="header-container">
-        <div class="logo">Easy Online Tool</div>
+        <a class="logo" href="index.html">Easy Online Tool</a>
 
-        <nav>
+        <nav aria-label="Main navigation">
             <a href="index.html">Home</a>
-            <a href="index.html#tools">Tools</a>
-            <a href="index.html#categories">Categories</a>
-            <a href="index.html#faq">FAQ</a>
+            <a href="tools.html">Tools</a>
+            <a href="categories.html">Categories</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
         </nav>
     </div>
 </header>
 
 <main class="container">
 
-    <div class="tool-box">
-
-        <h1>Free Word Counter</h1>
+    <section class="tool-box" aria-labelledby="page-title">
+        <h1 id="page-title">Free Online Word Counter</h1>
 
         <p class="intro">
-            Count words, characters, sentences and paragraphs instantly.
+            Count words, characters, sentences and paragraphs instantly
+            while you write or edit your text.
         </p>
 
-        <textarea id="textInput" placeholder="Type or paste your text here..."></textarea>
+        <label class="field-label" for="textInput">Enter or paste your text</label>
+
+        <textarea
+            id="textInput"
+            placeholder="Start typing or paste your text here..."
+            spellcheck="true"
+            aria-describedby="inputHelp"
+        ></textarea>
+
+        <p class="helper-text" id="inputHelp">
+            Your text is analyzed in this browser. This page's counting
+            code does not send your text to a server.
+        </p>
 
         <div class="buttons">
-            <button class="copy-btn" onclick="copyText()">Copy Text</button>
-            <button class="clear-btn" onclick="clearText()">Clear</button>
+            <button class="copy-btn" id="copyButton" type="button">
+                Copy Text
+            </button>
+            <button class="clear-btn" id="clearButton" type="button">
+                Clear Text
+            </button>
         </div>
 
-        <div class="results">
-
+        <div class="results" aria-label="Text statistics">
             <div class="result-card">
-                <strong id="wordCount">0</strong>
+                <strong id="wordCount" aria-live="polite">0</strong>
                 <span>Words</span>
             </div>
 
@@ -252,234 +419,249 @@
                 <strong id="paragraphCount">0</strong>
                 <span>Paragraphs</span>
             </div>
-
         </div>
 
-        <div class="info">
+        <p class="status" id="statusMessage" role="status" aria-live="polite"></p>
+    </section>
 
-            <h2>What is a Word Counter?</h2>
+    <section class="content-section" aria-labelledby="about-counter">
+        <h2 id="about-counter">What Is a Word Counter?</h2>
 
-            <p>
-                A word counter is a free online tool that helps you quickly
-                determine the number of words and characters in your text.
-                It is useful for students, writers, bloggers, teachers and
-                social media creators.
-            </p>
+        <p>
+            A word counter is an online writing tool that measures the length
+            of a piece of text. It can help you check word totals, character
+            totals, sentences and paragraphs without manually counting them.
+        </p>
 
-            <h2>How to Use the Word Counter</h2>
+        <p>
+            Students can use a word counter for essays and assignments.
+            Writers, teachers, bloggers and content creators can use it to
+            check article length, prepare drafts and meet writing requirements.
+        </p>
 
-            <p>
-                Simply type or paste your text into the box above. The tool
-                automatically calculates your word count, character count,
-                sentence count and paragraph count.
-            </p>
+        <h2>How to Use This Word Counter</h2>
 
-            <h2>Why Use Our Word Counter?</h2>
+        <ol>
+            <li>Type your text or paste it into the text box.</li>
+            <li>View the word, character, sentence and paragraph totals.</li>
+            <li>Edit your text and watch the totals update automatically.</li>
+            <li>Choose <strong>Copy Text</strong> to copy your text, or
+                <strong>Clear Text</strong> to start again.</li>
+        </ol>
 
-            <p>
-                Easy Online Tool provides a fast and simple way to analyze
-                your text directly in your browser. No registration or
-                software installation is required.
-            </p>
+        <h2>How Are Words and Characters Counted?</h2>
 
+        <p>
+            <strong>Words:</strong> The tool treats groups of non-whitespace
+            characters as words. A group separated by spaces or line breaks
+            is counted as a separate word.
+        </p>
+
+        <p>
+            <strong>Characters:</strong> The character total includes spaces,
+            punctuation and line breaks. Unicode characters represented by
+            multiple UTF-16 code units may count as more than one character
+            in this total.
+        </p>
+
+        <p>
+            <strong>Sentences:</strong> Sentence totals are estimated using
+            common sentence-ending punctuation marks such as periods,
+            question marks and exclamation marks. Abbreviations and unusual
+            punctuation can affect the estimate.
+        </p>
+
+        <p>
+            <strong>Paragraphs:</strong> A paragraph is counted as a
+            non-empty block of text separated from another block by one or
+            more blank lines.
+        </p>
+
+        <h2>Why Use an Online Word Counter?</h2>
+
+        <ul>
+            <li>Check essay and assignment word limits.</li>
+            <li>Measure the length of blog posts and articles.</li>
+            <li>Review text before publishing or sharing it.</li>
+            <li>Count characters, including spaces and punctuation.</li>
+            <li>Copy or clear your text using simple controls.</li>
+        </ul>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>Is this word counter free?</h3>
+        <p>
+            Yes. You can use this word counter without paying or creating
+            an account.
+        </p>
+
+        <h3>Does the word count update automatically?</h3>
+        <p>
+            Yes. The totals update as you type, paste, edit or remove text.
+        </p>
+
+        <h3>Are spaces included in the character count?</h3>
+        <p>
+            Yes. Spaces, punctuation and line breaks are included in the
+            character total.
+        </p>
+
+        <h3>Can I use this tool for essays and blog posts?</h3>
+        <p>
+            Yes. It is useful for essays, assignments, articles, blog posts
+            and many other kinds of writing. If a school, publisher or
+            platform uses a specific counting method, compare its result
+            with that requirement.
+        </p>
+
+        <h3>Is my text uploaded when I count words?</h3>
+        <p>
+            The word-counting JavaScript on this page processes your text
+            locally in your browser and does not submit it to a server.
+            Avoid entering sensitive information on shared or untrusted
+            devices.
+        </p>
+    </section>
+
+    <section class="content-section" aria-labelledby="related-title">
+        <h2 id="related-title">Related Online Tools</h2>
+
+        <p>
+            Explore more free tools for text, numbers and everyday calculations.
+        </p>
+
+        <div class="related-tools">
+            <a href="password-generator.html">Password Generator</a>
+            <a href="number-to-words.html">Number to Words</a>
+            <a href="random-number-generator.html">Random Number Generator</a>
+            <a href="percentage-calculator.html">Percentage Calculator</a>
+            <a href="average-calculator.html">Average Calculator</a>
+            <a href="fraction-calculator.html">Fraction Calculator</a>
+            <a href="date-calculator.html">Date Calculator</a>
+            <a href="tools.html">Explore All Tools</a>
         </div>
+    </section>
 
-    </div>
-<section class="info-section">
-  <h2>What Is a Word Counter?</h2>
-
-  <p>
-    A Word Counter is a free online tool that counts the number of words and
-    characters in a piece of text. It can also provide useful information
-    such as sentence and character counts.
-  </p>
-
-  <h2>How Does a Word Counter Work?</h2>
-
-  <p>
-    Enter or paste your text into the calculator above. The tool analyzes the
-    text and automatically calculates the number of words, characters and
-    other available text statistics.
-  </p>
-
-  <h2>Why Use a Word Counter?</h2>
-
-  <p>
-    Word counts are important for essays, articles, assignments, blog posts,
-    social media content and other types of writing. A Word Counter makes it
-    easy to check the length of your text quickly.
-  </p>
-
-  <h2>Who Can Use a Word Counter?</h2>
-
-  <p>
-    Students, teachers, writers, bloggers, journalists and content creators
-    can use a Word Counter to check the length of their writing.
-  </p>
-
-  <h2>Word Count and Character Count</h2>
-
-  <p>
-    Word count tells you approximately how many individual words are in your
-    text, while character count measures the individual characters. Character
-    counts may include letters, numbers, spaces and punctuation depending on
-    how the tool calculates them.
-  </p>
-
-  <h2>Word Counter FAQs</h2>
-
-  <h3>What is a Word Counter used for?</h3>
-
-  <p>
-    A Word Counter is used to count words, characters and other basic text
-    statistics in a written document.
-  </p>
-
-  <h3>Who needs a word count?</h3>
-
-  <p>
-    Students, writers, bloggers and content creators often use word counts to
-    meet writing requirements or keep their content within a desired length.
-  </p>
-
-  <h3>Does a Word Counter count characters?</h3>
-
-  <p>
-    Yes. Many Word Counter tools provide both word and character counts,
-    allowing you to quickly check different aspects of your text.
-  </p>
-
-  <h3>Can I use a Word Counter for essays?</h3>
-
-  <p>
-    Yes. Students can use a Word Counter to check whether an essay or
-    assignment meets a required word limit.
-  </p>
-
-  <p>
-    Use our free Word Counter above to count words, characters and other text
-    statistics quickly and easily.
-  </p>
-</section>
 </main>
-<section class="info-section">
 
-    <h2>Related Other Tools</h2>
-
-    <p>
-        Explore other useful online tools for writing, text analysis,
-        number generation, password creation, and everyday calculations.
-    </p>
-
-    <div class="related-tools">
-
-        <a href="password-generator.html">
-            Password Generator
-        </a>
-
-        <a href="number-to-words.html">
-            Number to Words
-        </a>
-
-        <a href="random-number-generator.html">
-            Random Number Generator
-        </a>
-
-        <a href="percentage-calculator.html">
-            Percentage Calculator
-        </a>
-
-        <a href="average-calculator.html">
-            Average Calculator
-        </a>
-
-        <a href="fraction-calculator.html">
-            Fraction Calculator
-        </a>
-
-        <a href="date-calculator.html">
-            Date Calculator
-        </a>
-
-        <a href="tools.html#other">
-            More Other Tools
-        </a>
-
-    </div>
-
-</section>
 <footer>
-
-    <p>© 2026 Easy Online Tool. All Rights Reserved.</p>
-
+    <p>© 2026 Easy Online Tool. All rights reserved.</p>
     <p>
         <a href="index.html">Home</a> |
         <a href="about.html">About</a> |
         <a href="privacy-policy.html">Privacy Policy</a> |
+        <a href="terms.html">Terms</a> |
+        <a href="disclaimer.html">Disclaimer</a> |
         <a href="contact.html">Contact</a>
     </p>
-
 </footer>
 
 <script>
+(function () {
+    "use strict";
 
-const textInput = document.getElementById("textInput");
+    const textInput = document.getElementById("textInput");
+    const wordCount = document.getElementById("wordCount");
+    const charCount = document.getElementById("charCount");
+    const sentenceCount = document.getElementById("sentenceCount");
+    const paragraphCount = document.getElementById("paragraphCount");
+    const statusMessage = document.getElementById("statusMessage");
+    const copyButton = document.getElementById("copyButton");
+    const clearButton = document.getElementById("clearButton");
 
-textInput.addEventListener("input", countText);
+    function countText() {
+        const text = textInput.value;
 
-function countText() {
+        // Count non-whitespace groups as words.
+        const trimmed = text.trim();
+        const words = trimmed === ""
+            ? 0
+            : (trimmed.match(/\S+/gu) || []).length;
 
-    const text = textInput.value;
+        // JavaScript string length counts UTF-16 code units.
+        const characters = text.length;
 
-    // Word count
-    const words = text.trim() === ""
-        ? 0
-        : text.trim().split(/\s+/).length;
+        // Estimate sentences from common sentence-ending punctuation.
+        const sentences = trimmed === ""
+            ? 0
+            : (trimmed.match(/[^.!?]+(?:[.!?]+|$)/gu) || [])
+                .filter(function (sentence) {
+                    return sentence.trim().length > 0;
+                }).length;
 
-    // Character count
-    const characters = text.length;
+        // Count non-empty blocks separated by one or more blank lines.
+        const paragraphs = trimmed === ""
+            ? 0
+            : trimmed.split(/\n(?:[ \t]*\n)+/u)
+                .filter(function (paragraph) {
+                    return paragraph.trim().length > 0;
+                }).length;
 
-    // Sentence count
-    const sentences = text.trim() === ""
-        ? 0
-        : text.split(/[.!?]+/).filter(sentence => sentence.trim().length > 0).length;
-
-    // Paragraph count
-    const paragraphs = text.trim() === ""
-        ? 0
-        : text.split(/\n\s*\n/).filter(paragraph => paragraph.trim().length > 0).length;
-
-    document.getElementById("wordCount").textContent = words;
-    document.getElementById("charCount").textContent = characters;
-    document.getElementById("sentenceCount").textContent = sentences;
-    document.getElementById("paragraphCount").textContent = paragraphs;
-}
-
-function clearText() {
-
-    textInput.value = "";
-
-    countText();
-
-    textInput.focus();
-}
-
-function copyText() {
-
-    if (textInput.value.trim() === "") {
-        alert("There is no text to copy.");
-        return;
+        wordCount.textContent = words.toLocaleString();
+        charCount.textContent = characters.toLocaleString();
+        sentenceCount.textContent = sentences.toLocaleString();
+        paragraphCount.textContent = paragraphs.toLocaleString();
     }
 
-    navigator.clipboard.writeText(textInput.value)
-        .then(() => {
-            alert("Text copied successfully!");
-        })
-        .catch(() => {
-            alert("Unable to copy the text.");
-        });
-}
+    function showStatus(message, isError) {
+        statusMessage.textContent = message;
+        statusMessage.style.color = isError ? "#b91c1c" : "#166534";
+    }
 
+    async function copyText() {
+        if (textInput.value.length === 0) {
+            showStatus("There is no text to copy.", true);
+            return;
+        }
+
+        try {
+            if (navigator.clipboard && window.isSecureContext) {
+                await navigator.clipboard.writeText(textInput.value);
+            } else {
+                // Fallback for browsers without Clipboard API support.
+                textInput.focus();
+                textInput.select();
+
+                const copied = document.execCommand("copy");
+
+                if (!copied) {
+                    throw new Error("Copy command was not successful.");
+                }
+
+                textInput.setSelectionRange(
+                    textInput.value.length,
+                    textInput.value.length
+                );
+            }
+
+            showStatus("Text copied successfully.", false);
+        } catch (error) {
+            showStatus(
+                "Automatic copying was unavailable. Select the text and copy it manually.",
+                true
+            );
+            textInput.focus();
+            textInput.select();
+        }
+    }
+
+    function clearText() {
+        textInput.value = "";
+        countText();
+        showStatus("Text cleared.", false);
+        textInput.focus();
+    }
+
+    textInput.addEventListener("input", function () {
+        countText();
+        statusMessage.textContent = "";
+    });
+
+    copyButton.addEventListener("click", copyText);
+    clearButton.addEventListener("click", clearText);
+
+    countText();
+})();
 </script>
 
 </body>
