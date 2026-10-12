@@ -2,12 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Pressure Converter - Free Online Pressure Conversion Tool</title>
-    <meta name="description" content="Convert pressure units instantly with our free online Pressure Converter. Convert Pa, kPa, MPa, bar, psi, atm, mmHg, Torr and more.">
+    <title>Pressure Converter – Pa, kPa, PSI, Bar & More | Easy Online Tool</title>
+    <meta name="description" content="Convert pressure units online for free. Convert Pa, kPa, MPa, GPa, bar, mbar, PSI, atm, mmHg, Torr, inHg and inches of water.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://easyonlinetools.online/pressure-converter.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Free Pressure Converter | Easy Online Tool">
+    <meta property="og:description" content="Convert Pascals, kilopascals, bar, PSI, atmospheres, mmHg and more with this free online pressure converter.">
+    <meta property="og:url" content="https://easyonlinetools.online/pressure-converter.html">
+    <meta property="og:site_name" content="Easy Online Tool">
 
     <style>
         * {
@@ -16,10 +22,10 @@
 
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             background: #f5f7fa;
             color: #333;
-            line-height: 1.6;
+            line-height: 1.65;
         }
 
         header {
@@ -34,20 +40,21 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 20px;
+            gap: 18px;
         }
 
         .logo {
-            font-size: 24px;
-            font-weight: bold;
+            font-size: 22px;
+            font-weight: 700;
             color: #2563eb;
             text-decoration: none;
+            white-space: nowrap;
         }
 
         nav {
             display: flex;
-            gap: 20px;
             flex-wrap: wrap;
+            gap: 10px 18px;
         }
 
         nav a {
@@ -56,37 +63,55 @@
             font-size: 15px;
         }
 
-        nav a:hover {
+        nav a:hover,
+        nav a:focus-visible,
+        footer a:hover {
             color: #2563eb;
+            text-decoration: underline;
+        }
+
+        a:focus-visible,
+        input:focus-visible,
+        select:focus-visible,
+        button:focus-visible {
+            outline: 3px solid #93c5fd;
+            outline-offset: 3px;
         }
 
         .container {
             max-width: 900px;
             margin: auto;
-            padding: 40px 20px;
+            padding: 36px 20px;
         }
 
         .page-title {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 28px;
         }
 
         .page-title h1 {
-            margin-bottom: 10px;
+            margin: 0 0 12px;
             font-size: 32px;
+            line-height: 1.25;
             color: #222;
         }
 
         .page-title p {
-            color: #666;
-            margin: 0;
+            max-width: 700px;
+            margin: auto;
+            color: #555;
+        }
+
+        .calculator-box,
+        .info-section {
+            background: #fff;
+            padding: 26px;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
         }
 
         .calculator-box {
-            background: #fff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
         }
 
         .input-group {
@@ -95,44 +120,49 @@
 
         label {
             display: block;
-            font-weight: bold;
+            font-weight: 700;
             margin-bottom: 8px;
         }
 
         input,
         select {
+            display: block;
             width: 100%;
-            padding: 13px;
-            border: 1px solid #d1d5db;
+            min-height: 48px;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
             border-radius: 7px;
-            font-size: 16px;
             background: #fff;
+            color: #222;
+            font-size: 16px;
         }
 
         input:focus,
         select:focus {
-            outline: none;
             border-color: #2563eb;
         }
 
         .button-group {
             display: flex;
-            gap: 10px;
-            margin-top: 10px;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 8px;
         }
 
         button {
             flex: 1;
-            padding: 13px 20px;
+            min-height: 48px;
+            padding: 12px 18px;
             border: none;
             border-radius: 7px;
             font-size: 16px;
+            font-weight: 700;
             cursor: pointer;
         }
 
         .convert-btn {
             background: #2563eb;
-            color: white;
+            color: #fff;
         }
 
         .convert-btn:hover {
@@ -141,7 +171,7 @@
 
         .reset-btn {
             background: #e5e7eb;
-            color: #333;
+            color: #222;
         }
 
         .reset-btn:hover {
@@ -149,24 +179,30 @@
         }
 
         .error {
-            display: none;
-            margin-top: 15px;
+            margin-top: 18px;
             padding: 12px;
-            background: #fee2e2;
-            color: #b91c1c;
+            color: #991b1b;
+            background: #fef2f2;
+            border: 1px solid #fecaca;
             border-radius: 7px;
         }
 
-        .results {
+        .error[hidden],
+        .results[hidden] {
             display: none;
-            margin-top: 25px;
+        }
+
+        .results {
+            margin-top: 24px;
             padding: 20px;
-            background: #f8fafc;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
             border-radius: 8px;
+            overflow-wrap: anywhere;
         }
 
         .results h2 {
-            margin-top: 0;
+            margin: 0 0 12px;
             font-size: 22px;
             color: #222;
         }
@@ -174,9 +210,10 @@
         .result-row {
             display: flex;
             justify-content: space-between;
-            gap: 15px;
-            padding: 10px 0;
-            border-bottom: 1px solid #e5e7eb;
+            align-items: flex-start;
+            gap: 18px;
+            padding: 12px 0;
+            border-bottom: 1px solid #dbeafe;
         }
 
         .result-row:last-child {
@@ -184,114 +221,148 @@
         }
 
         .result-value {
-            font-weight: bold;
-            color: #2563eb;
+            font-weight: 700;
+            color: #1d4ed8;
             text-align: right;
-            word-break: break-word;
+            overflow-wrap: anywhere;
         }
 
         .highlight {
             margin-top: 15px;
             padding: 15px;
-            background: #eff6ff;
+            background: #dbeafe;
             border-radius: 7px;
-            font-weight: bold;
+            color: #1e40af;
+            font-weight: 700;
             text-align: center;
-            color: #1d4ed8;
+            overflow-wrap: anywhere;
+        }
+
+        .small-note {
+            margin: 12px 0 0;
+            color: #555;
+            font-size: 14px;
         }
 
         .info-section {
-            margin-top: 35px;
-            background: #fff;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+            margin-top: 28px;
         }
 
         .info-section h2 {
+            margin: 0 0 12px;
             color: #222;
-            margin-top: 0;
+            font-size: 23px;
         }
 
         .info-section h3 {
+            margin: 24px 0 8px;
             color: #333;
-            margin-top: 25px;
+            font-size: 18px;
+        }
+
+        .info-section p,
+        .info-section li {
+            color: #4b5563;
+        }
+
+        .info-section li {
+            margin-bottom: 8px;
         }
 
         .formula {
+            margin: 14px 0;
+            padding: 14px 16px;
             background: #f3f4f6;
-            padding: 15px;
             border-left: 4px solid #2563eb;
-            margin: 15px 0;
             border-radius: 4px;
-            overflow-x: auto;
+            overflow-wrap: anywhere;
         }
 
         .related-tools {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-top: 20px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 18px;
         }
 
         .related-tools a {
             display: block;
-            padding: 15px;
-            background: #f8fafc;
+            padding: 15px 12px;
+            background: #fff;
             border: 1px solid #e5e7eb;
             border-radius: 8px;
             color: #2563eb;
             text-decoration: none;
             text-align: center;
-            font-weight: bold;
+            font-weight: 700;
         }
 
         .related-tools a:hover {
             background: #eff6ff;
+            text-decoration: underline;
         }
 
         .faq-item {
-            margin-bottom: 20px;
+            margin-bottom: 22px;
+        }
+
+        .faq-item:last-child {
+            margin-bottom: 0;
         }
 
         .faq-item h3 {
-            margin-bottom: 7px;
-            font-size: 18px;
+            margin: 0 0 6px;
         }
 
         footer {
             margin-top: 40px;
-            padding: 25px 20px;
+            padding: 26px 20px;
             background: #fff;
             border-top: 1px solid #e5e7eb;
             text-align: center;
-            color: #666;
+            color: #555;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px 18px;
+            margin-top: 12px;
+        }
+
+        footer a {
+            color: #2563eb;
+            text-decoration: none;
         }
 
         @media (max-width: 700px) {
             .header-container {
                 flex-direction: column;
                 text-align: center;
+                padding: 16px;
             }
 
             nav {
                 justify-content: center;
+                gap: 10px 14px;
+            }
+
+            .container {
+                padding: 28px 15px;
             }
 
             .page-title h1 {
-                font-size: 27px;
+                font-size: 28px;
             }
 
-            .calculator-box {
+            .calculator-box,
+            .info-section {
                 padding: 20px;
             }
 
-            .button-group {
-                flex-direction: column;
-            }
-
             .related-tools {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
             .result-row {
@@ -301,6 +372,16 @@
 
             .result-value {
                 text-align: left;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .related-tools {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
             }
         }
     </style>
@@ -313,7 +394,7 @@
         "url": "https://easyonlinetools.online/pressure-converter.html",
         "applicationCategory": "UtilitiesApplication",
         "operatingSystem": "All",
-        "description": "Free online pressure converter for converting Pa, kPa, MPa, bar, psi, atm, mmHg, Torr and other pressure units.",
+        "description": "A free online tool for converting pressure units including Pa, kPa, MPa, GPa, bar, mbar, psi, atm, mmHg, Torr and inches of mercury and water.",
         "offers": {
             "@type": "Offer",
             "price": "0",
@@ -324,12 +405,11 @@
 </head>
 
 <body>
-
 <header>
     <div class="header-container">
         <a href="index.html" class="logo">Easy Online Tool</a>
 
-        <nav>
+        <nav aria-label="Main navigation">
             <a href="index.html">Home</a>
             <a href="tools.html">Tools</a>
             <a href="categories.html">Categories</a>
@@ -340,150 +420,203 @@
 </header>
 
 <main class="container">
-
-    <div class="page-title">
+    <section class="page-title">
         <h1>Pressure Converter</h1>
-        <p>Convert pressure units quickly and accurately with this free online tool.</p>
-    </div>
+        <p>
+            Convert pressure measurements between Pascals, kilopascals,
+            megapascals, bar, PSI, atmospheres, mmHg, Torr and more with
+            this free online pressure conversion tool.
+        </p>
+    </section>
 
-    <div class="calculator-box">
+    <section class="calculator-box" aria-label="Pressure conversion calculator">
+        <form id="pressureForm">
+            <div class="input-group">
+                <label for="value">Enter pressure value</label>
+                <input
+                    type="number"
+                    id="value"
+                    name="value"
+                    step="any"
+                    inputmode="decimal"
+                    placeholder="e.g. 101.325"
+                    required
+                    aria-describedby="inputHelp"
+                >
+                <p class="small-note" id="inputHelp">
+                    Enter a numeric value. Negative values are accepted for
+                    signed or gauge-pressure conversions; use appropriate
+                    context when interpreting physical pressure.
+                </p>
+            </div>
 
-        <div class="input-group">
-            <label for="value">Enter Pressure Value</label>
-            <input type="number" id="value" placeholder="Enter a value" step="any">
-        </div>
+            <div class="input-group">
+                <label for="fromUnit">Convert from</label>
+                <select id="fromUnit" name="fromUnit">
+                    <option value="pa">Pascal (Pa)</option>
+                    <option value="kpa">Kilopascal (kPa)</option>
+                    <option value="mpa">Megapascal (MPa)</option>
+                    <option value="gpa">Gigapascal (GPa)</option>
+                    <option value="bar">Bar</option>
+                    <option value="mbar">Millibar (mbar)</option>
+                    <option value="psi">Pounds per square inch (psi)</option>
+                    <option value="atm">Standard atmosphere (atm)</option>
+                    <option value="mmhg">Millimeters of mercury (mmHg)</option>
+                    <option value="torr">Torr</option>
+                    <option value="inhg">Inches of mercury (inHg)</option>
+                    <option value="inh2o">Inches of water (inH₂O)</option>
+                </select>
+            </div>
 
-        <div class="input-group">
-            <label for="fromUnit">From Unit</label>
-            <select id="fromUnit">
-                <option value="pa">Pascal (Pa)</option>
-                <option value="kpa">Kilopascal (kPa)</option>
-                <option value="mpa">Megapascal (MPa)</option>
-                <option value="gpa">Gigapascal (GPa)</option>
-                <option value="bar">Bar</option>
-                <option value="mbar">Millibar (mbar)</option>
-                <option value="psi">Pounds per Square Inch (psi)</option>
-                <option value="atm">Standard Atmosphere (atm)</option>
-                <option value="mmhg">Millimeters of Mercury (mmHg)</option>
-                <option value="torr">Torr</option>
-                <option value="inhg">Inches of Mercury (inHg)</option>
-                <option value="inh2o">Inches of Water (inH₂O)</option>
-            </select>
-        </div>
+            <div class="input-group">
+                <label for="toUnit">Convert to</label>
+                <select id="toUnit" name="toUnit">
+                    <option value="pa">Pascal (Pa)</option>
+                    <option value="kpa" selected>Kilopascal (kPa)</option>
+                    <option value="mpa">Megapascal (MPa)</option>
+                    <option value="gpa">Gigapascal (GPa)</option>
+                    <option value="bar">Bar</option>
+                    <option value="mbar">Millibar (mbar)</option>
+                    <option value="psi">Pounds per square inch (psi)</option>
+                    <option value="atm">Standard atmosphere (atm)</option>
+                    <option value="mmhg">Millimeters of mercury (mmHg)</option>
+                    <option value="torr">Torr</option>
+                    <option value="inhg">Inches of mercury (inHg)</option>
+                    <option value="inh2o">Inches of water (inH₂O)</option>
+                </select>
+            </div>
 
-        <div class="input-group">
-            <label for="toUnit">To Unit</label>
-            <select id="toUnit">
-                <option value="pa">Pascal (Pa)</option>
-                <option value="kpa" selected>Kilopascal (kPa)</option>
-                <option value="mpa">Megapascal (MPa)</option>
-                <option value="gpa">Gigapascal (GPa)</option>
-                <option value="bar">Bar</option>
-                <option value="mbar">Millibar (mbar)</option>
-                <option value="psi">Pounds per Square Inch (psi)</option>
-                <option value="atm">Standard Atmosphere (atm)</option>
-                <option value="mmhg">Millimeters of Mercury (mmHg)</option>
-                <option value="torr">Torr</option>
-                <option value="inhg">Inches of Mercury (inHg)</option>
-                <option value="inh2o">Inches of Water (inH₂O)</option>
-            </select>
-        </div>
+            <div class="button-group">
+                <button type="submit" class="convert-btn">Convert Pressure</button>
+                <button type="reset" class="reset-btn">Reset</button>
+            </div>
+        </form>
 
-        <div class="button-group">
-            <button class="convert-btn" onclick="convertPressure()">Convert</button>
-            <button class="reset-btn" onclick="resetCalculator()">Reset</button>
-        </div>
+        <p id="error" class="error" role="alert" hidden></p>
 
-        <div id="error" class="error"></div>
-
-        <div id="results" class="results">
+        <div id="results" class="results" aria-live="polite" hidden>
             <h2>Conversion Result</h2>
 
             <div class="result-row">
-                <span>Original Value</span>
+                <span>Original value</span>
                 <span class="result-value" id="originalResult"></span>
             </div>
 
             <div class="result-row">
-                <span>Converted Value</span>
+                <span>Converted value</span>
                 <span class="result-value" id="convertedResult"></span>
             </div>
 
             <div class="highlight" id="summary"></div>
         </div>
-
-    </div>
+    </section>
 
     <section class="info-section">
-        <h2>Pressure Converter</h2>
+        <h2>How to Use the Pressure Converter</h2>
+        <ol>
+            <li>Enter the pressure value you want to convert.</li>
+            <li>Select the original pressure unit.</li>
+            <li>Select the unit you want to convert to.</li>
+            <li>Click Convert Pressure to display the result.</li>
+            <li>Use Reset to clear the value and restore the default units.</li>
+        </ol>
 
+        <h2>What Is Pressure?</h2>
         <p>
-            The Pressure Converter makes it easy to convert between commonly used
-            pressure units. It can convert Pascals, kilopascals, megapascals, bar,
-            psi, atmospheres, mmHg, Torr and other pressure measurements.
+            Pressure describes the force applied per unit area. It is measured
+            in different units across science, engineering, weather reporting,
+            industry and everyday applications. This converter uses Pascals
+            as its common calculation base to convert between the listed units.
+        </p>
+    </section>
+
+    <section class="info-section">
+        <h2>Common Pressure Units</h2>
+
+        <h3>Pascal (Pa)</h3>
+        <p>
+            The Pascal is the SI unit of pressure. One Pascal equals one
+            newton per square meter.
         </p>
 
-        <h3>Common Pressure Units</h3>
-
+        <h3>Kilopascal (kPa) and Megapascal (MPa)</h3>
         <p>
-            <strong>Pascal (Pa):</strong> The SI unit of pressure.
+            One kilopascal equals 1,000 Pascals, while one megapascal equals
+            1,000,000 Pascals. These units are useful in engineering and
+            technical pressure measurements.
         </p>
 
+        <h3>Bar and Millibar</h3>
         <p>
-            <strong>Kilopascal (kPa):</strong> Equal to 1,000 Pascals and commonly
-            used in engineering, weather and pressure measurements.
+            One bar equals 100,000 Pascals. Millibars are commonly encountered
+            in weather reporting; one millibar equals 100 Pascals.
         </p>
 
+        <h3>Pounds per Square Inch (PSI)</h3>
         <p>
-            <strong>Bar:</strong> A commonly used metric pressure unit.
+            PSI is widely used for tire pressure, hydraulic systems,
+            compressors and other mechanical applications.
         </p>
 
+        <h3>Atmosphere (atm)</h3>
         <p>
-            <strong>PSI:</strong> Pounds per square inch, widely used for tire,
-            hydraulic and mechanical pressure.
+            The standard atmosphere is a reference unit equal to exactly
+            101,325 Pascals.
         </p>
 
+        <h3>Millimeters of Mercury (mmHg) and Torr</h3>
         <p>
-            <strong>Atmosphere (atm):</strong> A standard reference unit based on
-            average atmospheric pressure at sea level.
+            These units are used in several pressure-measurement settings.
+            They are very close in size but are not exactly identical under
+            the conventional definitions used by this calculator.
         </p>
 
+        <h3>Inches of Mercury and Inches of Water</h3>
         <p>
-            <strong>mmHg:</strong> Millimeters of mercury, commonly used for
-            measuring blood pressure and other pressure values.
+            Inches of mercury (inHg) and inches of water (inH₂O) are used
+            in selected atmospheric, ventilation and pressure applications.
+            Their conversion values depend on the adopted conventional
+            reference definitions.
+        </p>
+    </section>
+
+    <section class="info-section">
+        <h2>Pressure Conversion Formulas</h2>
+        <p>
+            The calculator first converts the entered value to Pascals and
+            then divides by the conversion factor for the destination unit.
         </p>
 
-        <h3>Pressure Conversion Formula</h3>
+        <div class="formula"><strong>kPa to Pa:</strong> kPa × 1,000</div>
+        <div class="formula"><strong>MPa to Pa:</strong> MPa × 1,000,000</div>
+        <div class="formula"><strong>bar to Pa:</strong> bar × 100,000</div>
+        <div class="formula"><strong>atm to Pa:</strong> atm × 101,325</div>
+        <div class="formula"><strong>psi to Pa:</strong> psi × 6,894.757293168</div>
+        <div class="formula"><strong>Pa to kPa:</strong> Pa ÷ 1,000</div>
+    </section>
 
-        <div class="formula">
-            All conversions are performed by first converting the entered value
-            to Pascals (Pa), then converting from Pascals to the selected target unit.
-        </div>
-
-        <h3>Examples</h3>
-
-        <p>
-            1 bar = 100,000 Pa
-        </p>
-
-        <p>
-            1 atm = 101,325 Pa
-        </p>
-
-        <p>
-            1 psi ≈ 6,894.757 Pa
-        </p>
-
-        <p>
-            1 kPa = 1,000 Pa
+    <section class="info-section">
+        <h2>Common Pressure Conversion Examples</h2>
+        <ul>
+            <li>1 kPa = 1,000 Pa</li>
+            <li>1 MPa = 1,000,000 Pa</li>
+            <li>1 bar = 100,000 Pa</li>
+            <li>1 standard atmosphere = 101,325 Pa</li>
+            <li>1 psi ≈ 6,894.7573 Pa</li>
+            <li>1 bar = 100 kPa</li>
+            <li>1 atmosphere ≈ 1.01325 bar</li>
+            <li>1 atmosphere = 760 Torr</li>
+        </ul>
+        <p class="small-note">
+            Values shown with an approximation symbol are rounded for
+            convenient reference.
         </p>
     </section>
 
     <section class="info-section">
         <h2>Related Tools</h2>
-
         <div class="related-tools">
-            <a href="unit-calculator.html">Unit Converter</a>
+            <a href="unit-converter.html">Unit Converter</a>
             <a href="length-converter.html">Length Converter</a>
             <a href="weight-converter.html">Weight Converter</a>
             <a href="temperature-converter.html">Temperature Converter</a>
@@ -499,42 +632,82 @@
         <div class="faq-item">
             <h3>What is the SI unit of pressure?</h3>
             <p>
-                The Pascal (Pa) is the SI unit of pressure.
+                The Pascal (Pa) is the SI unit of pressure. One Pascal is
+                equal to one newton per square meter.
             </p>
         </div>
 
         <div class="faq-item">
             <h3>How many Pascals are in one bar?</h3>
             <p>
-                One bar is equal to 100,000 Pascals.
+                One bar equals exactly 100,000 Pascals, or 100 kilopascals.
             </p>
         </div>
 
         <div class="faq-item">
-            <h3>How many Pascals are in one atmosphere?</h3>
+            <h3>How many Pascals are in one standard atmosphere?</h3>
             <p>
-                One standard atmosphere is equal to 101,325 Pascals.
+                One standard atmosphere equals exactly 101,325 Pascals.
             </p>
         </div>
 
         <div class="faq-item">
             <h3>Can I convert PSI to kPa?</h3>
             <p>
-                Yes. Select PSI as the source unit and kPa as the target unit,
-                enter your value and click Convert.
+                Yes. Choose PSI as the source unit and kPa as the destination
+                unit, enter your value and select Convert Pressure.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Can pressure be negative?</h3>
+            <p>
+                Negative values can be meaningful for gauge pressure or
+                pressure differences relative to a reference. Negative
+                absolute pressure is not physically valid, so interpret
+                signed results according to the measurement context.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Is this pressure converter free?</h3>
+            <p>
+                Yes. This browser-based conversion tool is free to use.
             </p>
         </div>
     </section>
-
 </main>
 
 <footer>
-    © 2026 Easy Online Tool. All rights reserved.
+    <p>© 2026 Easy Online Tool. All rights reserved.</p>
+    <nav class="footer-links" aria-label="Footer navigation">
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="disclaimer.html">Disclaimer</a>
+    </nav>
 </footer>
 
 <script>
+(function () {
+    "use strict";
 
-    const conversionFactors = {
+    const form = document.getElementById("pressureForm");
+    const valueInput = document.getElementById("value");
+    const fromSelect = document.getElementById("fromUnit");
+    const toSelect = document.getElementById("toUnit");
+    const error = document.getElementById("error");
+    const results = document.getElementById("results");
+    const originalResult = document.getElementById("originalResult");
+    const convertedResult = document.getElementById("convertedResult");
+    const summary = document.getElementById("summary");
+
+    /*
+      Factors are expressed in Pascals per unit.
+      mmHg, Torr, inHg and inH2O use conventional reference factors.
+    */
+    const pascalsPerUnit = Object.freeze({
         pa: 1,
         kpa: 1000,
         mpa: 1000000,
@@ -544,12 +717,12 @@
         psi: 6894.757293168,
         atm: 101325,
         mmhg: 133.322387415,
-        torr: 133.322368421,
+        torr: 101325 / 760,
         inhg: 3386.389,
         inh2o: 249.08891
-    };
+    });
 
-    const unitNames = {
+    const unitNames = Object.freeze({
         pa: "Pa",
         kpa: "kPa",
         mpa: "MPa",
@@ -562,87 +735,108 @@
         torr: "Torr",
         inhg: "inHg",
         inh2o: "inH₂O"
-    };
+    });
 
-    function formatNumber(number) {
-        if (!Number.isFinite(number)) {
-            return "Invalid";
-        }
-
-        if (number === 0) {
+    function formatNumber(value) {
+        if (value === 0 || Object.is(value, -0)) {
             return "0";
         }
 
-        if (Math.abs(number) >= 0.000001 && Math.abs(number) < 1000000000) {
-            return Number(number.toFixed(10)).toLocaleString("en-US");
+        const absolute = Math.abs(value);
+
+        if (absolute >= 1e12 || absolute < 1e-7) {
+            return value.toExponential(6);
         }
 
-        return number.toExponential(6);
+        return new Intl.NumberFormat("en-US", {
+            maximumSignificantDigits: 10,
+            useGrouping: true
+        }).format(value);
     }
 
-    function convertPressure() {
+    function showError(message) {
+        error.textContent = message;
+        error.hidden = false;
+        results.hidden = true;
+    }
 
-        const valueInput = document.getElementById("value");
-        const fromUnit = document.getElementById("fromUnit").value;
-        const toUnit = document.getElementById("toUnit").value;
+    function clearError() {
+        error.textContent = "";
+        error.hidden = true;
+    }
 
-        const error = document.getElementById("error");
-        const results = document.getElementById("results");
+    function convertPressure(event) {
+        event.preventDefault();
+        clearError();
 
-        const value = parseFloat(valueInput.value);
+        const rawValue = valueInput.value.trim();
+        const value = Number(rawValue);
+        const fromUnit = fromSelect.value;
+        const toUnit = toSelect.value;
 
-        error.style.display = "none";
-        results.style.display = "none";
-
-        if (valueInput.value.trim() === "" || !Number.isFinite(value)) {
-            error.textContent = "Please enter a valid pressure value.";
-            error.style.display = "block";
+        if (rawValue === "" || !Number.isFinite(value)) {
+            showError("Please enter a valid numeric pressure value.");
+            valueInput.focus();
             return;
         }
 
-        const pascals = value * conversionFactors[fromUnit];
-        const converted = pascals / conversionFactors[toUnit];
+        if (
+            !Object.prototype.hasOwnProperty.call(pascalsPerUnit, fromUnit) ||
+            !Object.prototype.hasOwnProperty.call(pascalsPerUnit, toUnit)
+        ) {
+            showError("Please select valid source and destination units.");
+            return;
+        }
 
-        document.getElementById("originalResult").textContent =
+        const valueInPascals = value * pascalsPerUnit[fromUnit];
+
+        if (!Number.isFinite(valueInPascals)) {
+            showError("This value is too large to convert safely. Please enter a smaller number.");
+            return;
+        }
+
+        const convertedValue = valueInPascals / pascalsPerUnit[toUnit];
+
+        if (!Number.isFinite(convertedValue)) {
+            showError("The converted result is outside the supported numeric range.");
+            return;
+        }
+
+        originalResult.textContent =
             formatNumber(value) + " " + unitNames[fromUnit];
 
-        document.getElementById("convertedResult").textContent =
-            formatNumber(converted) + " " + unitNames[toUnit];
+        convertedResult.textContent =
+            formatNumber(convertedValue) + " " + unitNames[toUnit];
 
-        document.getElementById("summary").textContent =
+        summary.textContent =
             formatNumber(value) + " " + unitNames[fromUnit] +
             " = " +
-            formatNumber(converted) + " " + unitNames[toUnit];
+            formatNumber(convertedValue) + " " + unitNames[toUnit];
 
-        results.style.display = "block";
+        results.hidden = false;
 
-        if (window.innerWidth <= 700) {
+        if (window.matchMedia("(max-width: 700px)").matches) {
             results.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
+                behavior: "auto",
+                block: "nearest"
             });
         }
     }
 
     function resetCalculator() {
-
-        document.getElementById("value").value = "";
-        document.getElementById("fromUnit").value = "pa";
-        document.getElementById("toUnit").value = "kpa";
-
-        document.getElementById("error").style.display = "none";
-        document.getElementById("results").style.display = "none";
-
-        document.getElementById("value").focus();
+        clearError();
+        results.hidden = true;
+        originalResult.textContent = "";
+        convertedResult.textContent = "";
+        summary.textContent = "";
     }
 
-    document.getElementById("value").addEventListener("keydown", function(event) {
-        if (event.key === "Enter") {
-            convertPressure();
-        }
+    form.addEventListener("submit", convertPressure);
+
+    form.addEventListener("reset", function () {
+        resetCalculator();
     });
-
+})();
 </script>
-
 </body>
 </html>
