@@ -1,283 +1,85 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="google-site-verification" content="QTobd5-rn-EDN3LuXkFw3vsvIHtDyteOa8UE9v_1z_s" />
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-   
+    <meta name="google-site-verification" content="QTobd5-rn-EDN3LuXkFw3vsvIHtDyteOa8UE9v_1z_s">
 
-    <title>Easy Online Tool – Free Online Calculators & Tools</title>
-
-<meta name="description" content="Use free online calculators and tools for math, finance, health, fitness, dates, conversions and more. Fast, simple and easy-to-use online tools.">
-<meta property="og:title" content="Easy Online Tool – Free Online Calculators & Tools">
-<meta property="og:site_name" content="Easy Online Tool">
-<meta property="og:description" content="Free online calculators and useful tools for math, finance, health, fitness, dates, conversions and everyday tasks.">
-<meta property="og:url" content="https://easyonlinetools.online/">
-<meta property="og:type" content="website">
+    <title>Easy Online Tool – Free Online Calculators &amp; Tools</title>
+    <meta name="description" content="Use free online calculators and tools for math, finance, health, fitness, dates, conversions and everyday tasks. Fast, simple and easy to use.">
     <meta name="robots" content="index, follow">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="canonical" href="https://easyonlinetools.online/">
-    <meta name="keywords" content="free online tools, online calculators, age calculator, percentage calculator, BMI calculator, discount calculator, word counter, password generator">
-<!-- Website & Organization Structured Data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
+    <meta name="theme-color" content="#1976d2">
+
+    <link rel="canonical" href="https://easyonlinetools.online/">
+
+    <meta property="og:title" content="Easy Online Tool – Free Online Calculators &amp; Tools">
+    <meta property="og:site_name" content="Easy Online Tool">
+    <meta property="og:description" content="Free online calculators and useful tools for math, finance, health, fitness, dates, conversions and everyday tasks.">
+    <meta property="og:url" content="https://easyonlinetools.online/">
+    <meta property="og:type" content="website">
+
+    <script type="application/ld+json">
     {
-      "@type": "WebSite",
-     "@id": "https://easyonlinetools.online/#website",
-"url": "https://easyonlinetools.online/",
-      "name": "Easy Online Tool",
-      "description": "Free online calculators and useful tools for math, finance, health, fitness, dates, conversions and everyday tasks."
-    },
-    {
-      "@type": "Organization",
-      "@id": "https://easyonlinetools.online/#organization",
-      "name": "Easy Online Tool",
-      "url": "https://easyonlinetools.online/"
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://easyonlinetools.online/#website",
+          "url": "https://easyonlinetools.online/",
+          "name": "Easy Online Tool",
+          "description": "Free online calculators and useful tools for everyday tasks."
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://easyonlinetools.online/#organization",
+          "name": "Easy Online Tool",
+          "url": "https://easyonlinetools.online/"
+        }
+      ]
     }
-  ]
-}
-</script>
-    <link rel="stylesheet" href="style.css">
+    </script>
 
     <style>
-        /* =================================
-   POPULAR TOOLS
-================================= */
-
-.popular-tools-section {
-    padding: 60px 20px;
-    background: #f8fafc;
-}
-
-.popular-tools-section .container {
-    max-width: 1100px;
-    margin: auto;
-}
-
-
-/* Section Heading */
-
-.popular-tools-section .section-title {
-    text-align: center;
-    margin-bottom: 35px;
-}
-
-.popular-tools-section .section-title h2 {
-    font-size: 32px;
-    color: #111827;
-    margin-bottom: 10px;
-}
-
-.popular-tools-section .section-title p {
-    color: #6b7280;
-    font-size: 16px;
-}
-
-
-/* Tool Grid */
-
-.popular-tools-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
-}
-
-
-/* Tool Card */
-
-.popular-tool-card {
-    display: block;
-    text-decoration: none;
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 16px;
-    padding: 28px 22px;
-    text-align: center;
-    color: #1f2937;
-
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-
-    transition: all 0.25s ease;
-}
-
-
-/* Hover */
-
-.popular-tool-card:hover {
-    transform: translateY(-6px);
-
-    border-color: #2563eb;
-
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.10);
-}
-
-
-/* Icon */
-
-.popular-tool-icon {
-    width: 60px;
-    height: 60px;
-
-    margin: 0 auto 15px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-
-    background: #eff6ff;
-
-    font-size: 30px;
-
-    color: #2563eb;
-}
-
-
-/* Title */
-
-.popular-tool-card h3 {
-    margin: 8px 0 10px;
-
-    font-size: 20px;
-
-    color: #1671d9;
-}
-
-
-/* Description */
-
-.popular-tool-card p {
-    margin: 0;
-
-    color: #6b7280;
-
-    font-size: 14px;
-
-    line-height: 1.6;
-
-    min-height: 45px;
-}
-
-
-/* Link */
-
-.popular-tool-card span {
-    display: inline-block;
-
-    margin-top: 18px;
-
-    color: #2563eb;
-
-    font-size: 14px;
-
-    font-weight: bold;
-}
-
-
-/* View All */
-
-.view-all-tools {
-    text-align: center;
-
-    margin-top: 35px;
-}
-
-.view-all-tools a {
-    display: inline-block;
-
-    padding: 12px 24px;
-
-    border-radius: 8px;
-
-    background: #2563eb;
-
-    color: white;
-
-    text-decoration: none;
-
-    font-weight: bold;
-
-    transition: 0.2s;
-}
-
-.view-all-tools a:hover {
-    background: #1d4ed8;
-}
-
-
-/* Tablet */
-
-@media (max-width: 850px) {
-
-    .popular-tools-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-}
-
-
-/* Mobile */
-
-@media (max-width: 550px) {
-
-    .popular-tools-section {
-        padding: 45px 15px;
-    }
-
-    .popular-tools-section .section-title h2 {
-        font-size: 28px;
-    }
-
-    .popular-tools-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .popular-tool-card {
-        padding: 25px 20px;
-    }
-
-}
-
-        /* =========================
-           GENERAL
-        ========================= */
+        * {
+            box-sizing: border-box;
+        }
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 95px;
         }
 
         body {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
-            background: #f7f9fc;
             color: #222;
-            line-height: 1.6;
+            background: #f7f9fc;
+            line-height: 1.65;
         }
 
         a {
-            text-decoration: none;
+            color: #1976d2;
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible {
+            outline: 3px solid #f59e0b;
+            outline-offset: 3px;
         }
 
         .container {
-            width: 90%;
-            max-width: 1150px;
-            margin: auto;
+            width: min(1100px, 92%);
+            margin: 0 auto;
         }
 
-
-        /* =========================
-           HEADER
-        ========================= */
-
         header {
-            background: #ffffff;
-            border-bottom: 1px solid #e5e7eb;
             position: sticky;
             top: 0;
             z-index: 1000;
+            background: #fff;
+            border-bottom: 1px solid #e5e7eb;
         }
 
         .header-inner {
@@ -289,46 +91,49 @@
         }
 
         .logo {
-            font-size: 25px;
+            font-size: 23px;
             font-weight: 800;
             color: #1976d2;
+            text-decoration: none;
+            white-space: nowrap;
         }
 
-        .logo span {
-            color: #222;
+        .logo-mark {
+            display: inline-block;
+            margin-right: 5px;
+            color: #111827;
         }
 
         nav {
             display: flex;
-            gap: 24px;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
         nav a {
             color: #333;
             font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
         }
 
         nav a:hover {
             color: #1976d2;
+            text-decoration: underline;
         }
 
-
-        /* =========================
-           HERO
-        ========================= */
-
         .hero {
-            background: linear-gradient(135deg, #eaf4ff, #ffffff);
-            padding: 75px 20px;
+            padding: 70px 15px 65px;
             text-align: center;
+            background: linear-gradient(135deg, #eaf4ff, #fff);
         }
 
         .hero h1 {
-            font-size: 46px;
-            line-height: 1.15;
-            margin: 0 auto 20px;
             max-width: 850px;
+            margin: 0 auto 18px;
+            font-size: clamp(32px, 5vw, 46px);
+            line-height: 1.2;
             color: #111827;
         }
 
@@ -337,404 +142,398 @@
         }
 
         .hero p {
-            max-width: 720px;
-            margin: 0 auto 30px;
-            font-size: 18px;
+            max-width: 760px;
+            margin: 0 auto 25px;
             color: #5f6368;
+            font-size: 18px;
         }
 
         .hero-buttons {
             display: flex;
             justify-content: center;
-            gap: 15px;
             flex-wrap: wrap;
+            gap: 12px;
         }
 
-        .primary-btn,
-        .secondary-btn {
+        .btn {
             display: inline-block;
-            padding: 13px 25px;
+            padding: 12px 22px;
+            border: 1px solid #1976d2;
             border-radius: 8px;
             font-weight: 700;
-            transition: 0.2s;
+            text-decoration: none;
         }
 
-        .primary-btn {
+        .btn-primary {
             background: #1976d2;
-            color: white;
+            color: #fff;
         }
 
-        .primary-btn:hover {
+        .btn-primary:hover {
             background: #125ca1;
         }
 
-        .secondary-btn {
-            background: white;
+        .btn-secondary {
+            background: #fff;
             color: #1976d2;
-            border: 1px solid #1976d2;
         }
 
-        .secondary-btn:hover {
+        .btn-secondary:hover {
             background: #eef6ff;
         }
 
-
-        /* =========================
-           SEARCH
-        ========================= */
-
         .search-area {
-            margin-top: -30px;
             position: relative;
-            z-index: 5;
+            z-index: 2;
+            margin: -25px auto 0;
+            padding: 0 15px;
         }
 
         .search-box {
-            max-width: 700px;
-            margin: auto;
-            background: white;
-            padding: 12px;
-            border-radius: 12px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.10);
             display: flex;
             gap: 10px;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 10px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.09);
         }
 
         .search-box input {
+            min-width: 0;
             flex: 1;
-            border: none;
-            outline: none;
-            padding: 13px;
-            font-size: 16px;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 7px;
+            font: inherit;
         }
 
         .search-box button {
-            border: none;
+            min-height: 44px;
+            padding: 10px 20px;
+            border: 0;
+            border-radius: 7px;
             background: #1976d2;
-            color: white;
-            padding: 12px 22px;
-            border-radius: 8px;
+            color: #fff;
             font-weight: 700;
             cursor: pointer;
         }
 
-
-        /* =========================
-           SECTIONS
-        ========================= */
+        .search-status {
+            max-width: 700px;
+            margin: 10px auto 0;
+            color: #4b5563;
+            font-size: 14px;
+        }
 
         section {
-            padding: 70px 0;
+            padding: 55px 0;
         }
 
         .section-title {
+            margin-bottom: 32px;
             text-align: center;
-            margin-bottom: 40px;
         }
 
         .section-title h2 {
-            font-size: 32px;
-            margin-bottom: 10px;
+            margin: 0 0 10px;
             color: #111827;
+            font-size: clamp(26px, 4vw, 32px);
+            line-height: 1.3;
         }
 
         .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
             color: #666;
-            max-width: 650px;
-            margin: auto;
         }
 
+        .popular-section {
+            padding-top: 55px;
+        }
 
-        /* =========================
-           TOOL CARDS
-        ========================= */
-
-        .tools-grid {
+        .popular-grid,
+        .tools-grid,
+        .category-grid,
+        .why-grid,
+        .steps {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
         }
 
         .tool-card {
-            background: white;
-            padding: 25px;
-            border-radius: 14px;
-            border: 1px solid #e6e9ee;
-            transition: 0.25s;
+            display: block;
+            min-width: 0;
+            padding: 24px;
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 13px;
+            color: #222;
+            text-decoration: none;
+            transition: transform .2s, box-shadow .2s, border-color .2s;
         }
 
         .tool-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transform: translateY(-3px);
+            border-color: #1976d2;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, .07);
         }
 
         .tool-icon {
-            width: 52px;
-            height: 52px;
-            background: #eaf4ff;
-            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 25px;
-            margin-bottom: 15px;
+            width: 52px;
+            height: 52px;
+            margin-bottom: 13px;
+            border-radius: 12px;
+            background: #eaf4ff;
+            font-size: 26px;
         }
 
         .tool-card h3 {
             margin: 0 0 8px;
-            font-size: 20px;
+            color: #1671d9;
+            font-size: 19px;
         }
 
         .tool-card p {
-            color: #666;
-            margin-bottom: 18px;
-        }
-
-        .tool-link {
-            color: #1976d2;
-            font-weight: 700;
-        }
-
-
-        /* =========================
-           CATEGORIES
-        ========================= */
-
-        .categories-section {
-            background: white;
-        }
-
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 18px;
-        }
-
-        .category-card {
-            border: 1px solid #e4e7eb;
-            border-radius: 12px;
-            padding: 22px;
-            background: #fff;
-            transition: 0.2s;
-        }
-
-        .category-card:hover {
-            border-color: #1976d2;
-            transform: translateY(-3px);
-        }
-
-        .category-card h3 {
-            margin-top: 0;
-            color: #1976d2;
-        }
-
-        .category-card p {
+            margin: 0;
             color: #666;
             font-size: 14px;
         }
 
-
-        /* =========================
-           WHY US
-        ========================= */
-
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
+        .tool-action {
+            display: inline-block;
+            margin-top: 15px;
+            color: #1976d2;
+            font-weight: 700;
+            font-size: 14px;
         }
 
-        .why-card {
+        .view-all {
+            margin-top: 28px;
             text-align: center;
-            padding: 25px;
+        }
+
+        .info-section {
+            background: #fff;
+        }
+
+        .info-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .info-content h2,
+        .info-content h3 {
+            color: #1e3a8a;
+        }
+
+        .info-content h2 {
+            margin-top: 0;
+        }
+
+        .info-content p,
+        .info-content li {
+            color: #555;
+        }
+
+        .info-content a {
+            text-decoration: underline;
+        }
+
+        .category-card {
+            display: block;
+            padding: 22px;
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            text-decoration: none;
+        }
+
+        .category-card:hover {
+            border-color: #1976d2;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, .05);
+        }
+
+        .category-card h3 {
+            margin: 8px 0;
+            color: #1976d2;
+            font-size: 19px;
+        }
+
+        .category-card p {
+            margin: 0;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .category-icon {
+            font-size: 28px;
+        }
+
+        .why-card,
+        .step {
+            padding: 23px;
+            text-align: center;
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
         }
 
         .why-icon {
-            font-size: 35px;
-            margin-bottom: 10px;
+            font-size: 32px;
         }
 
-        .why-card h3 {
-            margin-bottom: 8px;
+        .why-card h3,
+        .step h3 {
+            margin: 10px 0;
         }
 
-        .why-card p {
+        .why-card p,
+        .step p {
+            margin-bottom: 0;
             color: #666;
         }
 
-
-        /* =========================
-           HOW IT WORKS
-        ========================= */
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .step {
-            background: white;
-            padding: 28px;
-            border-radius: 12px;
-            border: 1px solid #e5e7eb;
-            text-align: center;
-        }
-
         .step-number {
-            width: 45px;
-            height: 45px;
-            margin: 0 auto 15px;
-            border-radius: 50%;
-            background: #1976d2;
-            color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            font-size: 18px;
+            width: 42px;
+            height: 42px;
+            margin: 0 auto;
+            border-radius: 50%;
+            background: #1976d2;
+            color: #fff;
+            font-weight: 700;
         }
-
-
-        /* =========================
-           FAQ
-        ========================= */
 
         .faq-container {
             max-width: 850px;
-            margin: auto;
+            margin: 0 auto;
         }
 
         .faq-item {
-            background: white;
-            padding: 22px;
-            margin-bottom: 15px;
-            border-radius: 10px;
+            margin-bottom: 14px;
+            padding: 20px;
+            background: #fff;
             border: 1px solid #e5e7eb;
+            border-radius: 10px;
         }
 
         .faq-item h3 {
-            margin-top: 0;
+            margin: 0 0 8px;
             font-size: 18px;
         }
 
         .faq-item p {
-            color: #666;
-            margin-bottom: 0;
+            margin: 0;
+            color: #555;
         }
 
-
-        /* =========================
-           CTA
-        ========================= */
-
         .cta {
+            padding: 55px 15px;
             background: #1976d2;
-            color: white;
+            color: #fff;
             text-align: center;
-            padding: 60px 20px;
         }
 
         .cta h2 {
-            font-size: 32px;
-            margin-bottom: 12px;
+            margin: 0 0 10px;
+            font-size: 30px;
         }
 
         .cta p {
+            margin: 0 auto 22px;
             max-width: 650px;
-            margin: 0 auto 25px;
         }
 
-        .cta a {
-            display: inline-block;
-            background: white;
+        .cta .btn {
+            background: #fff;
             color: #1976d2;
-            padding: 13px 25px;
-            border-radius: 8px;
-            font-weight: 700;
         }
-
-
-        /* =========================
-           FOOTER
-        ========================= */
 
         footer {
+            padding: 38px 0 20px;
             background: #111827;
             color: #d1d5db;
-            padding: 40px 0 20px;
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr;
-            gap: 40px;
+            gap: 30px;
         }
 
+        footer h2,
         footer h3 {
-            color: white;
             margin-top: 0;
+            color: #fff;
+            font-size: 18px;
+        }
+
+        footer p {
+            color: #d1d5db;
         }
 
         footer a {
+            display: inline-block;
+            margin: 0 10px 8px 0;
             color: #d1d5db;
-            display: block;
-            margin-bottom: 8px;
+            text-decoration: none;
         }
 
         footer a:hover {
-            color: white;
+            color: #fff;
+            text-decoration: underline;
         }
 
         .copyright {
-            text-align: center;
+            margin-top: 25px;
+            padding-top: 18px;
             border-top: 1px solid #374151;
-            margin-top: 30px;
-            padding-top: 20px;
+            text-align: center;
             font-size: 14px;
         }
 
+        .no-results {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            text-align: center;
+        }
 
-        /* =========================
-           MOBILE
-        ========================= */
-
-        @media (max-width: 900px) {
-
-            .tools-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .category-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
+        @media (max-width: 850px) {
+            .popular-grid,
+            .tools-grid,
+            .category-grid,
             .why-grid,
             .steps {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
             .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .hero h1 {
-                font-size: 38px;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
         }
 
-
         @media (max-width: 600px) {
-
             .header-inner {
                 flex-direction: column;
-                padding: 15px 0;
+                justify-content: center;
+                padding: 14px 0;
             }
 
             nav {
-                gap: 12px;
-                flex-wrap: wrap;
                 justify-content: center;
+                gap: 12px;
             }
 
             nav a {
@@ -742,867 +541,461 @@
             }
 
             .hero {
-                padding: 55px 15px;
-            }
-
-            .hero h1 {
-                font-size: 32px;
+                padding: 48px 12px;
             }
 
             .hero p {
                 font-size: 16px;
             }
 
-            .search-box {
-                margin: 0 15px;
-            }
-
-            .search-box button {
-                padding: 10px 15px;
-            }
-
+            .popular-grid,
             .tools-grid,
             .category-grid,
+            .why-grid,
+            .steps,
             .footer-grid {
                 grid-template-columns: 1fr;
             }
 
-            section {
-                padding: 50px 0;
+            .search-box {
+                align-items: stretch;
             }
 
-            .section-title h2 {
-                font-size: 28px;
+            .search-box button {
+                padding: 10px 13px;
+            }
+
+            section {
+                padding: 42px 0;
             }
         }
 
-    </style>
- <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Easy Online Tool",
-  "alternateName": "Easy Online Tool – Free Online Calculators & Tools",
-  "url": "https://easyonlinetools.github.io/my-tools/",
-  "description": "Free online calculators and useful tools for math, finance, health, fitness, dates, conversions and everyday tasks."
-}
-</script>
-</head>
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
 
+            *,
+            *::before,
+            *::after {
+                transition-duration: .01ms !important;
+                animation-duration: .01ms !important;
+            }
+        }
+    </style>
+</head>
 
 <body>
 
-
-<!-- HEADER -->
-
 <header>
-
     <div class="container header-inner">
+        <a href="/" class="logo" aria-label="Easy Online Tool homepage">
+            <span class="logo-mark">EO</span> Easy Online Tool
+        </a>
 
-       <a href="index.html" class="logo">
-    <span class="logo-icon">EO</span>
-    Easy Online Tool
-</a>
-        <nav>
-           <a href="https://easyonlinetools.online/">Home</a>
-            <a href="tools.html">Tools</a>
+        <nav aria-label="Main navigation">
+            <a href="/">Home</a>
+            <a href="/tools.html">Tools</a>
             <a href="#categories">Categories</a>
             <a href="#about">About</a>
             <a href="#faq">FAQ</a>
         </nav>
-
     </div>
-
 </header>
 
+<main>
+    <section class="hero">
+        <div class="container">
+            <h1>Free Online <span>Tools &amp; Calculators</span></h1>
 
+            <p>
+                Easy Online Tool provides free online calculators and useful
+                tools for everyday calculations. Calculate age, percentages,
+                discounts, interest, dates, measurements and more. Our tools
+                are designed to be simple, fast and mobile-friendly.
+            </p>
 
-<!-- HERO -->
+            <div class="hero-buttons">
+                <a href="/tools.html" class="btn btn-primary">Explore Tools</a>
+                <a href="#categories" class="btn btn-secondary">Browse Categories</a>
+            </div>
+        </div>
+    </section>
 
-<section class="hero">
+    <div class="search-area">
+        <div class="search-box" role="search">
+            <input
+                type="search"
+                id="toolSearch"
+                placeholder="Search popular tools..."
+                aria-label="Search popular tools">
 
-    <div class="container">
-
-        <h1>
-            Free Online <span>Tools & Calculators</span>
-        </h1>
-
-      
-        
- <p>
-  <strong>Easy Online Tool</strong> provides free online calculators and
-  useful tools for everyday calculations. Quickly calculate age, BMI,
-  percentages, discounts, interest, mortgage payments, calories, dates,
-  conversions and more. Our calculators are simple, fast, mobile-friendly
-  and easy to use.
-</p>
-
-      
-
-        <div class="hero-buttons">
-
-            <a href="tools.html" class="primary-btn">
-                Explore Tools
-            </a>
-
-            <a href="#categories" class="secondary-btn">
-                Browse Categories
-            </a>
-
+            <button type="button" id="searchButton">Search</button>
         </div>
 
+        <p class="search-status" id="searchStatus" role="status" aria-live="polite"></p>
     </div>
 
-</section>
+    <section id="popular-tools" class="popular-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Popular Online Calculators &amp; Tools</h2>
+                <p>Quickly access useful free calculators for everyday tasks.</p>
+            </div>
 
+            <div class="popular-grid" id="popularGrid">
+                <a href="/age-calculator.html" class="tool-card">
+                    <div class="tool-icon" aria-hidden="true">🎂</div>
+                    <h3>Age Calculator</h3>
+                    <p>Calculate your age in years, months and days.</p>
+                    <span class="tool-action">Use Tool →</span>
+                </a>
 
+                <a href="/percentage-calculator.html" class="tool-card">
+                    <div class="tool-icon" aria-hidden="true">%</div>
+                    <h3>Percentage Calculator</h3>
+                    <p>Calculate percentages, increases, decreases and differences.</p>
+                    <span class="tool-action">Use Tool →</span>
+                </a>
 
-<!-- SEARCH -->
+                <a href="/bmi-calculator.html" class="tool-card">
+                    <div class="tool-icon" aria-hidden="true">⚖️</div>
+                    <h3>BMI Calculator</h3>
+                    <p>Calculate Body Mass Index using height and weight.</p>
+                    <span class="tool-action">Use Tool →</span>
+                </a>
 
-<div class="search-area">
+                <a href="/discount-calculator.html" class="tool-card">
+                    <div class="tool-icon" aria-hidden="true">🏷️</div>
+                    <h3>Discount Calculator</h3>
+                    <p>Calculate discounts, savings and final prices.</p>
+                    <span class="tool-action">Use Tool →</span>
+                </a>
 
-    <div class="search-box">
+                <a href="/password-generator.html" class="tool-card">
+                    <div class="tool-icon" aria-hidden="true">🔐</div>
+                    <h3>Password Generator</h3>
+                    <p>Generate random passwords using your chosen options.</p>
+                    <span class="tool-action">Use Tool →</span>
+                </a>
 
-        <input
-            type="text"
-            id="toolSearch"
-            placeholder="Search for a tool...">
+                <a href="/word-counter.html" class="tool-card">
+                    <div class="tool-icon" aria-hidden="true">📝</div>
+                    <h3>Word Counter</h3>
+                    <p>Count words, characters, sentences and paragraphs.</p>
+                    <span class="tool-action">Use Tool →</span>
+                </a>
+            </div>
 
-        <button onclick="searchTools()">
-            Search
-        </button>
+            <div class="no-results" id="noResults">
+                No matching popular tool was found.
+                <a href="/tools.html">Browse all tools here</a>.
+            </div>
 
-    </div>
-
-</div>
-
-
-
-<!-- POPULAR TOOLS -->
-
-<section id="popular-tools" class="popular-tools-section">
-
-    <div class="container">
-
-        <div class="section-title">
-
-            <h2>Popular Online Calculators & Tools</h2>
-
-<p>
-  Quickly access our most useful free calculators for everyday math,
-  health, finance, dates and other common tasks.
-</p>
-
+            <div class="view-all">
+                <a href="/tools.html" class="btn btn-primary">View All Tools →</a>
+            </div>
         </div>
+    </section>
 
-
-        <div class="popular-tools-grid">
-
-
-            <!-- AGE CALCULATOR -->
-
-            <a href="age-calculator.html" class="popular-tool-card">
-
-                <div class="popular-tool-icon">
-                    🎂
-                </div>
-
-                <h3>Age Calculator</h3>
-
-                <p>
-                    Calculate your exact age in years, months and days.
-                </p>
-
-                <span>
-                    Use Tool →
-                </span>
-
-            </a>
-
-
-            <!-- PERCENTAGE CALCULATOR -->
-
-            <a href="percentage-calculator.html" class="popular-tool-card">
-
-                <div class="popular-tool-icon">
-                    %
-                </div>
-
-                <h3>Percentage Calculator</h3>
-
-                <p>
-                    Calculate percentages, increases, decreases and differences.
-                </p>
-
-                <span>
-                    Use Tool →
-                </span>
-
-            </a>
-
-
-            <!-- BMI CALCULATOR -->
-
-            <a href="bmi-calculator.html" class="popular-tool-card">
-
-                <div class="popular-tool-icon">
-                    ⚖️
-                </div>
-
-                <h3>BMI Calculator</h3>
-
-                <p>
-                    Calculate your Body Mass Index using height and weight.
-                </p>
-
-                <span>
-                    Use Tool →
-                </span>
-
-            </a>
-
-
-            <!-- DISCOUNT CALCULATOR -->
-
-            <a href="discount-calculator.html" class="popular-tool-card">
-
-                <div class="popular-tool-icon">
-                    🏷️
-                </div>
-
-                <h3>Discount Calculator</h3>
-
-                <p>
-                    Calculate discounts, savings and final sale prices.
-                </p>
-
-                <span>
-                    Use Tool →
-                </span>
-
-            </a>
-            
-
-
-            <!-- PASSWORD GENERATOR -->
-
-            <a href="password-generator.html" class="popular-tool-card">
-
-                <div class="popular-tool-icon">
-                    🔐
-                </div>
-
-                <h3>Password Generator</h3>
-
-                <p>
-                    Generate strong and secure passwords for your accounts.
-                </p>
-
-                <span>
-                    Use Tool →
-                </span>
-
-            </a>
-
-
-            <!-- WORD COUNTER -->
-
-            <a href="word-counter.html" class="popular-tool-card">
-
-                <div class="popular-tool-icon">
-                    📝
-                </div>
-
-                <h3>Word Counter</h3>
-
-                <p>
-                    Count words, characters, sentences and paragraphs.
-                </p>
-
-                <span>
-                    Use Tool →
-                </span>
-
-            </a>
-
-
-        </div>
-
-
-        <div class="view-all-tools">
-
-            <a href="tools.html">
-                View All Tools →
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
     <section class="info-section">
-  <h2>Free Online Calculators for Everyday Use</h2>
-
-  <p>
-    Easy Online Tool offers a growing collection of free online calculators
-    and tools designed for students, professionals, families and everyday
-    users. You can perform common calculations directly in your browser
-    without installing software.
-  </p>
-
-  <p>
-    Our calculators cover several categories including math, finance, health,
-    fitness, dates, conversions and other useful online tools. Whether you
-    need to calculate a percentage, check your BMI, estimate mortgage
-    payments, calculate your age or convert measurements, you can find a
-    simple tool here.
-  </p>
-
-  <h3>Why Use Easy Online Tool?</h3>
-
-  <ul>
-    <li>Free online calculators and tools</li>
-    <li>Simple and easy-to-use interfaces</li>
-    <li>Works on computers, tablets and smartphones</li>
-    <li>No software installation required</li>
-    <li>Useful tools for everyday calculations</li>
-  </ul>
-
-<p>
-    Explore our
-    <a href="tools.html">free online tools</a>
-    or browse our
-    <a href="tools.html#math">math calculators</a>,
-    <a href="tools.html#finance">finance calculators</a>,
-    <a href="tools.html#health">health and fitness calculators</a>,
-    <a href="tools.html#date-time">date and time calculators</a>,
-    <a href="tools.html#converters">conversion tools</a>,
-    and <a href="tools.html#other">other useful tools</a>.
-</p>
-</section>
-
-
-<!-- CATEGORIES -->
-
-<section id="categories" class="categories-section">
-
-    <div class="container">
-
-        <div class="section-title">
-
-            <h2>Explore Tool Categories</h2>
+        <div class="container info-content">
+            <h2>Free Online Calculators for Everyday Use</h2>
 
             <p>
-                Find the right free online tool for your needs.
+                Easy Online Tool offers calculators and utilities for students,
+                professionals, families and everyday users. You can perform
+                common calculations directly in your browser without installing
+                additional software.
             </p>
-
-        </div>
-
-
-        <div class="category-grid">
-
-
-            <!-- MATH -->
-
-            <a href="tools.html#math" class="category-card">
-
-                <div class="category-icon">➗</div>
-
-                <h3>Math & Advanced Calculators</h3>
-
-                <p>
-                    Percentage, fractions, averages, ratios, powers,
-                    square roots, scientific calculations and more.
-                </p>
-
-                <span>Explore Math Tools →</span>
-
-            </a>
-
-
-            <!-- FINANCE -->
-
-            <a href="tools.html#finance" class="category-card">
-
-                <div class="category-icon">💰</div>
-
-                <h3>Finance Calculators</h3>
-
-                <p>
-                    Loans, mortgages, interest, savings, investments,
-                    taxes, salary, profit and personal finance calculations.
-                </p>
-
-                <span>Explore Finance Tools →</span>
-
-            </a>
-
-
-            <!-- HEALTH -->
-
-            <a href="tools.html#health" class="category-card">
-
-                <div class="category-icon">❤️</div>
-
-                <h3>Health & Fitness</h3>
-
-                <p>
-                    BMI, BMR, calories, body fat, macros, protein,
-                    ideal weight, water intake and fitness calculations.
-                </p>
-
-                <span>Explore Health Tools →</span>
-
-            </a>
-
-
-            <!-- DATE & TIME -->
-
-            <a href="tools.html#date-time" class="category-card">
-
-                <div class="category-icon">📅</div>
-
-                <h3>Date & Time</h3>
-
-                <p>
-                    Age, dates, days between dates, date calculations,
-                    time calculations and time zone conversion.
-                </p>
-
-                <span>Explore Date & Time Tools →</span>
-
-            </a>
-
-
-            <!-- CONVERTERS -->
-
-            <a href="tools.html#converters" class="category-card">
-
-                <div class="category-icon">🔄</div>
-
-                <h3>Unit & Conversion Tools</h3>
-
-                <p>
-                    Length, weight, temperature, area, volume, speed,
-                    pressure, energy and data storage converters.
-                </p>
-
-                <span>Explore Conversion Tools →</span>
-
-            </a>
-
-
-            <!-- OTHER -->
-
-            <a href="tools.html#other" class="category-card">
-
-                <div class="category-icon">🛠️</div>
-
-                <h3>Other Useful Tools</h3>
-
-                <p>
-                    Password generators, word counters and other
-                    practical online utilities.
-                </p>
-
-                <span>Explore Other Tools →</span>
-
-            </a>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- WHY  Easy Online Tool -->
-
-<section id="about">
-
-    <div class="container">
-
-        <div class="section-title">
-
-            <h2>Why Use  Easy Online Tool?</h2>
 
             <p>
-                We focus on making online tools simple, fast and accessible.
+                Our tools cover mathematics, finance, health and fitness,
+                dates and time, unit conversions and other useful tasks.
+                Choose the calculator you need, enter the requested values
+                and review the result.
             </p>
 
-        </div>
-
-
-        <div class="why-grid">
-
-
-            <div class="why-card">
-
-                <div class="why-icon">⚡</div>
-
-                <h3>Fast & Easy</h3>
-
-                <p>
-                    Get results instantly without complicated forms
-                    or unnecessary steps.
-                </p>
-
-            </div>
-
-
-            <div class="why-card">
-
-                <div class="why-icon">📱</div>
-
-                <h3>Mobile Friendly</h3>
-
-                <p>
-                    Our tools are designed to work smoothly on
-                    phones, tablets and computers.
-                </p>
-
-            </div>
-
-
-            <div class="why-card">
-
-                <div class="why-icon">🆓</div>
-
-                <h3>Free to Use</h3>
-
-                <p>
-                    Use our online calculators and utilities without
-                    complicated software installation.
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- HOW IT WORKS -->
-
-<section>
-
-    <div class="container">
-
-        <div class="section-title">
-
-            <h2>How  Easy Online Tool Works</h2>
+            <h3>How to Use Our Online Tools</h3>
+            <ol>
+                <li>Open the calculator or converter you need.</li>
+                <li>Enter the required values in its input fields.</li>
+                <li>Use the calculator's controls to calculate or convert.</li>
+                <li>Review the result and any explanation provided on the page.</li>
+            </ol>
 
             <p>
-                Using our tools takes just a few simple steps.
+                Explore our <a href="/tools.html">complete tools directory</a>,
+                including
+                <a href="/tools.html#math">math calculators</a>,
+                <a href="/tools.html#finance">finance calculators</a>,
+                <a href="/tools.html#health">health and fitness calculators</a>,
+                <a href="/tools.html#date-time">date and time calculators</a>,
+                <a href="/tools.html#converters">conversion tools</a> and
+                <a href="/tools.html#other">other useful tools</a>.
             </p>
-
         </div>
+    </section>
 
-
-        <div class="steps">
-
-
-            <div class="step">
-
-                <div class="step-number">1</div>
-
-                <h3>Choose a Tool</h3>
-
-                <p>
-                    Select the calculator or online utility you need.
-                </p>
-
+    <section id="categories">
+        <div class="container">
+            <div class="section-title">
+                <h2>Explore Tool Categories</h2>
+                <p>Find a useful calculator or online tool for your needs.</p>
             </div>
 
+            <div class="category-grid">
+                <a href="/tools.html#math" class="category-card">
+                    <div class="category-icon" aria-hidden="true">➗</div>
+                    <h3>Math &amp; Advanced</h3>
+                    <p>Percentages, fractions, averages, ratios and other math tools.</p>
+                </a>
 
-            <div class="step">
+                <a href="/tools.html#finance" class="category-card">
+                    <div class="category-icon" aria-hidden="true">💰</div>
+                    <h3>Finance</h3>
+                    <p>Interest, loans, savings, taxes, salary and investment calculations.</p>
+                </a>
 
-                <div class="step-number">2</div>
+                <a href="/tools.html#health" class="category-card">
+                    <div class="category-icon" aria-hidden="true">❤️</div>
+                    <h3>Health &amp; Fitness</h3>
+                    <p>BMI, BMR, calories, water intake and fitness estimates.</p>
+                </a>
 
-                <h3>Enter Your Data</h3>
+                <a href="/tools.html#date-time" class="category-card">
+                    <div class="category-icon" aria-hidden="true">📅</div>
+                    <h3>Date &amp; Time</h3>
+                    <p>Age, date differences, time calculations and time zones.</p>
+                </a>
 
-                <p>
-                    Enter the required information into the calculator.
-                </p>
+                <a href="/tools.html#converters" class="category-card">
+                    <div class="category-icon" aria-hidden="true">🔄</div>
+                    <h3>Unit Converters</h3>
+                    <p>Length, weight, temperature, area, volume and speed conversions.</p>
+                </a>
 
+                <a href="/tools.html#other" class="category-card">
+                    <div class="category-icon" aria-hidden="true">🛠️</div>
+                    <h3>Other Useful Tools</h3>
+                    <p>Password generation, word counting and practical utilities.</p>
+                </a>
             </div>
-
-
-            <div class="step">
-
-                <div class="step-number">3</div>
-
-                <h3>Get Your Result</h3>
-
-                <p>
-                    Click calculate and receive your result instantly.
-                </p>
-
-            </div>
-
-
         </div>
+    </section>
 
-    </div>
+    <section id="about" class="info-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Use Easy Online Tool?</h2>
+                <p>We aim to make everyday calculations easier to complete.</p>
+            </div>
 
-</section>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon" aria-hidden="true">⚡</div>
+                    <h3>Simple to Use</h3>
+                    <p>Clear input fields and straightforward calculator controls.</p>
+                </div>
 
+                <div class="why-card">
+                    <div class="why-icon" aria-hidden="true">📱</div>
+                    <h3>Mobile Friendly</h3>
+                    <p>Responsive layouts for phones, tablets and computers.</p>
+                </div>
 
-
-<!-- FAQ -->
-
-<section id="faq" class="categories-section">
-
-    <div class="container">
-
-        <div class="section-title">
-
-            <h2>Frequently Asked Questions</h2>
-
-            <p>
-                Learn more about  Easy Online Tool and our online tools.
-            </p>
-
+                <div class="why-card">
+                    <div class="why-icon" aria-hidden="true">🆓</div>
+                    <h3>Free Tools</h3>
+                    <p>Use our calculators without installing a separate application.</p>
+                </div>
+            </div>
         </div>
+    </section>
 
-
-        <div class="faq-container">
-
-
-            <div class="faq-item">
-
-                <h3>What is  Easy Online Tool?</h3>
-
-                <p>
-                     Easy Online Tool is a collection of free online calculators
-                    and useful web tools designed to make everyday tasks faster
-                    and easier.
-                </p>
-
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>How Our Tools Work</h2>
+                <p>Follow these simple steps to use a calculator.</p>
             </div>
 
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Choose a Tool</h3>
+                    <p>Find the calculator or converter that fits your task.</p>
+                </div>
 
-            <div class="faq-item">
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Enter Your Values</h3>
+                    <p>Provide the information requested by the tool.</p>
+                </div>
 
-                <h3>Are the tools free?</h3>
-
-                <p>
-                    Yes. Our online calculators and tools are designed to be
-                    free and easy to use.
-                </p>
-
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Review Your Result</h3>
+                    <p>Calculate, check the output and read any available explanation.</p>
+                </div>
             </div>
-
-
-            <div class="faq-item">
-
-                <h3>Can I use  Easy Online Tool on my phone?</h3>
-
-                <p>
-                    Yes. The website is designed to work on smartphones,
-                    tablets, laptops and desktop computers.
-                </p>
-
-            </div>
-
-
-            <div class="faq-item">
-
-                <h3>Do I need to install an app?</h3>
-
-                <p>
-                    No. Easy Online Tool tools work directly in your web browser.
-                    There is no software installation required.
-                </p>
-
-            </div>
-
-
         </div>
+    </section>
 
-    </div>
+    <section id="faq" class="info-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Learn more about Easy Online Tool.</p>
+            </div>
 
-</section>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <h3>What is Easy Online Tool?</h3>
+                    <p>
+                        Easy Online Tool is a website offering online calculators,
+                        converters and utilities for common tasks.
+                    </p>
+                </div>
 
+                <div class="faq-item">
+                    <h3>Are the calculators free?</h3>
+                    <p>
+                        The calculators and tools are provided for free use.
+                    </p>
+                </div>
 
+                <div class="faq-item">
+                    <h3>Can I use the website on my phone?</h3>
+                    <p>
+                        Yes. The website uses a responsive layout for mobile
+                        phones, tablets and desktop computers.
+                    </p>
+                </div>
 
-<!-- CALL TO ACTION -->
+                <div class="faq-item">
+                    <h3>Do I need to install an application?</h3>
+                    <p>
+                        No separate installation is required. Open the tool in
+                        a compatible web browser.
+                    </p>
+                </div>
 
-<section class="cta">
+                <div class="faq-item">
+                    <h3>Are calculator results professional advice?</h3>
+                    <p>
+                        No. Results are intended for general informational use.
+                        Verify important financial, health or other decisions
+                        with an appropriately qualified professional.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="container">
-
-        <h2>Find the Tool You Need</h2>
-
-        <p>
-            Explore our growing collection of free calculators and
-            useful online tools.
-        </p>
-
-        <a href="tools.html">
-            Explore Free Tools
-        </a>
-
-    </div>
-
-</section>
-
-
-
-<!-- FOOTER -->
+    <section class="cta">
+        <div class="container">
+            <h2>Find the Tool You Need</h2>
+            <p>Explore our collection of free online calculators and utilities.</p>
+            <a href="/tools.html" class="btn">Explore All Tools</a>
+        </div>
+    </section>
+</main>
 
 <footer>
-
     <div class="container">
-
         <div class="footer-grid">
-
-
             <div>
-
-                <h3> Easy Online Tool</h3>
-
+                <h2>Easy Online Tool</h2>
                 <p>
-                    Free Online Tools & Calculators for everyday needs.
-                    Simple, fast and easy to use.
+                    Free online calculators and tools for everyday tasks,
+                    including math, finance, health, dates and conversions.
                 </p>
-
             </div>
 
-
             <div>
-
                 <h3>Popular Tools</h3>
-
-                <a href="age-calculator.html">
-                    Age Calculator
-                </a>
-
-                <a href="percentage-calculator.html">
-                    Percentage Calculator
-                </a>
-
-                <a href="bmi-calculator.html">
-                    BMI Calculator
-                </a>
-
-                <a href="discount-calculator.html">
-                    Discount Calculator
-                </a>
-
+                <a href="/age-calculator.html">Age Calculator</a>
+                <a href="/percentage-calculator.html">Percentage Calculator</a>
+                <a href="/bmi-calculator.html">BMI Calculator</a>
+                <a href="/discount-calculator.html">Discount Calculator</a>
+                <a href="/password-generator.html">Password Generator</a>
+                <a href="/word-counter.html">Word Counter</a>
             </div>
-
 
             <div>
-
-                <h3>Useful Links</h3>
-
-                <a href="index.html">
-                    Home
-                </a>
-
-                <a href="tools.html">
-                    Tools
-                </a>
-
-                <a href="#categories">
-                    Categories
-                </a>  
-
-                <a href="#about">
-                    About
-                </a>
-
-                <a href="privacy-policy.html">
-                    Privacy Policy
-                </a>
-
-                <a href="terms.html">
-                    Terms
-                </a>
-
-                <a href="contact.html">
-                    Contact
-                </a>
-
+                <h3>Website Information</h3>
+                <a href="/">Home</a>
+                <a href="/tools.html">All Tools</a>
+                <a href="#categories">Categories</a>
+                <a href="#about">About</a>
+                <a href="/privacy-policy.html">Privacy Policy</a>
+                <a href="/terms.html">Terms</a>
+                <a href="/contact.html">Contact</a>
             </div>
-
-
         </div>
-
 
         <div class="copyright">
-
-            © 2026  Easy Online Tool. All rights reserved.
-
+            &copy; 2026 Easy Online Tool. All rights reserved.
         </div>
-
     </div>
-
 </footer>
 
-
-
-<!-- SEARCH SCRIPT -->
-
 <script>
+(function () {
+    "use strict";
 
-function searchTools() {
+    const searchInput = document.getElementById("toolSearch");
+    const searchButton = document.getElementById("searchButton");
+    const cards = Array.from(document.querySelectorAll("#popularGrid .tool-card"));
+    const noResults = document.getElementById("noResults");
+    const status = document.getElementById("searchStatus");
 
-    const searchInput =
-        document.getElementById("toolSearch").value.toLowerCase().trim();
+    function searchTools() {
+        const query = searchInput.value.trim().toLowerCase();
+        let visibleCount = 0;
 
-   const cards =
-    document.querySelectorAll(".popular-tool-card");
+        cards.forEach(function (card) {
+            const matches = query === "" ||
+                card.textContent.toLowerCase().includes(query);
 
-    let found = false;
+            card.hidden = !matches;
 
-    cards.forEach(function(card) {
+            if (matches) {
+                visibleCount++;
+            }
+        });
 
-        const text =
-            card.textContent.toLowerCase();
+        noResults.style.display =
+            visibleCount === 0 ? "block" : "none";
 
-        if (searchInput === "" || text.includes(searchInput)) {
-
-            card.style.display = "block";
-            found = true;
-
+        if (query === "") {
+            status.textContent = "Showing all popular tools.";
+        } else if (visibleCount > 0) {
+            status.textContent =
+                visibleCount + " matching popular tool(s) found.";
         } else {
-
-            card.style.display = "none";
-
+            status.textContent =
+                "No matching popular tools found. You can browse the complete tools directory below.";
         }
-
-    });
-
-    if (!found && searchInput !== "") {
-
-       alert("No matching popular tool found. Please visit the Tools page to see all available tools.");
-
     }
 
-}
+    searchButton.addEventListener("click", searchTools);
 
-
-document
-    .getElementById("toolSearch")
-    .addEventListener("keyup", function(event) {
-
+    searchInput.addEventListener("keydown", function (event) {
         if (event.key === "Enter") {
-
+            event.preventDefault();
             searchTools();
-
         }
-
     });
 
+    searchInput.addEventListener("input", function () {
+        if (searchInput.value.trim() === "") {
+            searchTools();
+        }
+    });
+})();
 </script>
-
 
 </body>
 </html>
-```
