@@ -653,15 +653,32 @@
 
                     </div>
 
-                    <div class="bmi-scale">
-                        <h3>Adult BMI Category Scale</h3>
+                  <div class="bmi-scale">
+    <h3>Your BMI on the Adult Category Scale</h3>
 
-                        <div class="scale-track" aria-hidden="true">
-                            <div class="scale-segment scale-underweight"></div>
-                            <div class="scale-segment scale-healthy"></div>
-                            <div class="scale-segment scale-overweight"></div>
-                            <div class="scale-segment scale-obesity"></div>
-                        </div>
+    <div class="scale-track" aria-hidden="true">
+        <div class="scale-segment scale-underweight"></div>
+        <div class="scale-segment scale-healthy"></div>
+        <div class="scale-segment scale-overweight"></div>
+        <div class="scale-segment scale-obesity"></div>
+    </div>
+
+    <div class="scale-indicator">
+        <div class="scale-marker" id="scaleMarker"></div>
+    </div>
+
+    <div class="scale-labels">
+        <span>Underweight</span>
+        <span>Healthy</span>
+        <span>Overweight</span>
+        <span>Obesity</span>
+    </div>
+
+    <p class="unit-note">
+        The marker shows your BMI on a scale from 10 to 40.
+        Values outside this range are shown at the nearest end.
+    </p>
+</div>
 
                         <div class="scale-indicator">
                             <div class="scale-marker" id="scaleMarker"></div>
@@ -751,7 +768,65 @@
                 </tr>
             </tbody>
         </table>
+        </table>
 
+        <div class="bmi-chart-section">
+            <h3>Adult BMI Categories – Visual Chart</h3>
+
+            <p class="bmi-chart-description">
+                This chart illustrates the commonly used BMI categories
+                for adults aged 20 years and older. The colored sections
+                represent BMI ranges on a scale from 10 to 40.
+            </p>
+
+            <div
+                class="educational-chart"
+                role="img"
+                aria-label="Adult BMI chart: underweight below 18.5, healthy weight 18.5 to 24.9, overweight 25 to 29.9, and obesity 30 or above.">
+
+                <div class="chart-segment underweight"></div>
+                <div class="chart-segment healthy"></div>
+                <div class="chart-segment overweight"></div>
+                <div class="chart-segment obesity"></div>
+            </div>
+
+            <div class="chart-axis" aria-hidden="true">
+                <span>10</span>
+                <span>18.5</span>
+                <span>25</span>
+                <span>30</span>
+                <span>40+</span>
+            </div>
+
+            <div class="chart-legend">
+                <div class="chart-legend-item">
+                    <span class="chart-color underweight"></span>
+                    <span><strong>Underweight:</strong> Below 18.5</span>
+                </div>
+
+                <div class="chart-legend-item">
+                    <span class="chart-color healthy"></span>
+                    <span><strong>Healthy:</strong> 18.5–24.9</span>
+                </div>
+
+                <div class="chart-legend-item">
+                    <span class="chart-color overweight"></span>
+                    <span><strong>Overweight:</strong> 25–29.9</span>
+                </div>
+
+                <div class="chart-legend-item">
+                    <span class="chart-color obesity"></span>
+                    <span><strong>Obesity:</strong> 30 or above</span>
+                </div>
+            </div>
+
+            <p class="bmi-chart-description">
+                BMI is a screening measure, not a diagnosis. Individual
+                health assessment may require additional information.
+            </p>
+        </div>
+
+        <h2>How to Use This BMI Calculator</h2>
         <h2>How to Use This BMI Calculator</h2>
 
         <ol>
