@@ -267,26 +267,138 @@
             height: 100%;
         }
 
-        .scale-underweight {
-            width: 25%;
+               .scale-underweight {
+            width: 28.333%;
             background: #60a5fa;
         }
 
         .scale-healthy {
-            width: 25%;
+            width: 21.667%;
             background: #22c55e;
         }
 
         .scale-overweight {
-            width: 25%;
+            width: 16.667%;
             background: #f59e0b;
         }
 
         .scale-obesity {
-            width: 25%;
+            width: 33.333%;
             background: #ef4444;
         }
 
+        /* Educational BMI chart */
+        .bmi-chart-section {
+            margin: 25px 0;
+            padding: 22px;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+        }
+
+        .bmi-chart-section h3 {
+            margin-top: 0;
+            color: #1f2937;
+        }
+
+        .bmi-chart-description {
+            color: #6b7280;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .educational-chart {
+            display: flex;
+            width: 100%;
+            height: 30px;
+            overflow: hidden;
+            border-radius: 7px;
+            margin: 22px 0 10px;
+        }
+
+        .educational-chart .chart-segment {
+            height: 100%;
+        }
+
+        .educational-chart .underweight {
+            width: 28.333%;
+            background: #60a5fa;
+        }
+
+        .educational-chart .healthy {
+            width: 21.667%;
+            background: #22c55e;
+        }
+
+        .educational-chart .overweight {
+            width: 16.667%;
+            background: #f59e0b;
+        }
+
+        .educational-chart .obesity {
+            width: 33.333%;
+            background: #ef4444;
+        }
+
+        .chart-axis {
+            display: flex;
+            justify-content: space-between;
+            gap: 5px;
+            color: #6b7280;
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
+
+        .chart-legend {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .chart-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            font-size: 14px;
+            color: #374151;
+        }
+
+        .chart-color {
+            width: 13px;
+            height: 13px;
+            flex: 0 0 13px;
+            border-radius: 3px;
+        }
+
+        .chart-color.underweight {
+            background: #60a5fa;
+        }
+
+        .chart-color.healthy {
+            background: #22c55e;
+        }
+
+        .chart-color.overweight {
+            background: #f59e0b;
+        }
+
+        .chart-color.obesity {
+            background: #ef4444;
+        }
+
+        @media (max-width: 600px) {
+            .bmi-chart-section {
+                padding: 16px;
+            }
+
+            .chart-legend {
+                grid-template-columns: 1fr;
+            }
+
+            .chart-axis {
+                font-size: 10px;
+            }
+        }
         .scale-labels {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
