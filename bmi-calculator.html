@@ -1,19 +1,19 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>BMI Calculator – Body Mass Index Calculator | Easy Online Tool</title>
-    <meta name="description" content="Calculate your Body Mass Index (BMI) using weight in kilograms and height in centimeters. View your BMI result, adult BMI category, formula and examples with this free calculator.">
+    <title>BMI Calculator – Metric and US Units | Easy Online Tool</title>
+    <meta name="description" content="Calculate your Body Mass Index (BMI) using metric or US units. Enter your age, sex, height and weight to view your BMI, adult weight category and healthy weight range.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://easyonlinetools.online/bmi-calculator.html">
-
-    <meta name="keywords" content="BMI calculator, body mass index calculator, calculate BMI, adult BMI calculator, BMI formula, free BMI calculator">
+    <meta name="keywords" content="BMI calculator, body mass index calculator, BMI calculator metric, BMI calculator US units, calculate BMI, adult BMI calculator">
 
     <meta property="og:type" content="website">
     <meta property="og:title" content="BMI Calculator – Easy Online Tool">
-    <meta property="og:description" content="Calculate your BMI using your height and weight and learn how adult BMI categories are interpreted.">
+    <meta property="og:description" content="Calculate BMI using metric or US units. View your BMI result, adult category and healthy weight range.">
     <meta property="og:url" content="https://easyonlinetools.online/bmi-calculator.html">
     <meta property="og:site_name" content="Easy Online Tool">
 
@@ -62,29 +62,76 @@
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
         }
 
+        .calculator-card h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 23px;
+        }
+
+        .unit-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .unit-tab {
+            flex: 1;
+            padding: 13px 10px;
+            background: #f3f4f6;
+            border: 1px solid #e5e7eb;
+            border-bottom: none;
+            border-radius: 8px 8px 0 0;
+            font-size: 15px;
+            font-weight: 700;
+            color: #374151;
+            cursor: pointer;
+        }
+
+        .unit-tab.active {
+            background: #2563eb;
+            color: white;
+            border-color: #2563eb;
+        }
+
         .input-group {
             margin-bottom: 20px;
         }
 
-        .input-group label {
+        .input-group label,
+        .field-label {
             display: block;
             font-weight: 700;
             margin-bottom: 8px;
+            color: #1f2937;
         }
 
-        .input-group input {
+        .input-group input,
+        .input-group select {
             box-sizing: border-box;
             width: 100%;
             padding: 13px;
             border: 1px solid #d1d5db;
             border-radius: 8px;
             font-size: 16px;
-            background: #ffffff;
+            background: white;
+            color: #111827;
         }
 
-        .input-group input:focus {
+        .input-group input:focus,
+        .input-group select:focus {
             outline: 2px solid #93c5fd;
             border-color: #2563eb;
+        }
+
+        .input-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .input-row.three-columns {
+            grid-template-columns: repeat(3, 1fr);
         }
 
         .unit-note {
@@ -107,7 +154,7 @@
         .calculate-button {
             border: none;
             background: #2563eb;
-            color: #ffffff;
+            color: white;
             font-weight: 700;
         }
 
@@ -118,7 +165,7 @@
         .reset-button {
             margin-top: 10px;
             border: 1px solid #d1d5db;
-            background: #ffffff;
+            background: white;
             color: #111827;
         }
 
@@ -147,11 +194,12 @@
         }
 
         .result-label {
-            font-weight: 600;
+            font-weight: 700;
+            color: #374151;
         }
 
         .bmi-number {
-            font-size: 42px;
+            font-size: 48px;
             font-weight: 700;
             color: #2563eb;
             margin: 10px 0;
@@ -167,6 +215,103 @@
         .bmi-message {
             color: #4b5563;
             line-height: 1.7;
+        }
+
+        .result-details {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            text-align: left;
+        }
+
+        .result-detail {
+            padding: 14px;
+            background: white;
+            border: 1px solid #dbeafe;
+            border-radius: 8px;
+        }
+
+        .result-detail span {
+            display: block;
+            font-size: 13px;
+            color: #6b7280;
+            margin-bottom: 5px;
+        }
+
+        .result-detail strong {
+            font-size: 17px;
+            color: #1f2937;
+        }
+
+        .bmi-scale {
+            margin-top: 25px;
+            text-align: left;
+        }
+
+        .bmi-scale h3 {
+            font-size: 17px;
+            margin-bottom: 12px;
+        }
+
+        .scale-track {
+            display: flex;
+            width: 100%;
+            height: 16px;
+            overflow: hidden;
+            border-radius: 20px;
+            background: #e5e7eb;
+        }
+
+        .scale-segment {
+            height: 100%;
+        }
+
+        .scale-underweight {
+            width: 25%;
+            background: #60a5fa;
+        }
+
+        .scale-healthy {
+            width: 25%;
+            background: #22c55e;
+        }
+
+        .scale-overweight {
+            width: 25%;
+            background: #f59e0b;
+        }
+
+        .scale-obesity {
+            width: 25%;
+            background: #ef4444;
+        }
+
+        .scale-labels {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 4px;
+            margin-top: 8px;
+            font-size: 11px;
+            color: #4b5563;
+            text-align: center;
+        }
+
+        .scale-indicator {
+            position: relative;
+            height: 12px;
+            margin-top: 5px;
+        }
+
+        .scale-marker {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 12px;
+            background: #111827;
+            transform: translateX(-50%);
+            border-radius: 2px;
         }
 
         .bmi-table {
@@ -209,7 +354,7 @@
         }
 
         .faq {
-            background: #ffffff;
+            background: white;
             border: 1px solid #e5e7eb;
             border-radius: 10px;
             padding: 18px;
@@ -260,7 +405,25 @@
             }
 
             .bmi-number {
-                font-size: 36px;
+                font-size: 40px;
+            }
+
+            .input-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .input-row.three-columns {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+            }
+
+            .input-row.three-columns input {
+                padding: 11px 7px;
+            }
+
+            .result-details {
+                grid-template-columns: 1fr;
             }
 
             .bmi-table th,
@@ -272,6 +435,10 @@
             .info-section {
                 padding: 0 15px;
             }
+
+            .scale-labels {
+                font-size: 9px;
+            }
         }
     </style>
 
@@ -281,7 +448,7 @@
         "@type": "WebApplication",
         "name": "BMI Calculator",
         "url": "https://easyonlinetools.online/bmi-calculator.html",
-        "description": "Calculate Body Mass Index using weight in kilograms and height in centimeters, and view general adult BMI categories.",
+        "description": "Calculate Body Mass Index using metric or US customary measurements and view general adult BMI categories.",
         "applicationCategory": "HealthApplication",
         "operatingSystem": "All",
         "browserRequirements": "Requires a modern web browser",
@@ -323,81 +490,203 @@
             <h1 class="page-title">BMI Calculator</h1>
 
             <p class="page-intro">
-                Calculate your Body Mass Index using your weight in kilograms
-                and height in centimeters. View your BMI and a general adult
-                BMI category instantly.
+                Calculate your Body Mass Index (BMI) using metric or US
+                customary units. Enter your age, sex, height and weight
+                to view your BMI result and general adult weight category.
             </p>
 
             <div class="calculator-card">
-                <div class="input-group">
-                    <label for="weight">Weight (kg)</label>
-                    <input
-                        type="number"
-                        id="weight"
-                        placeholder="Example: 70"
-                        min="1"
-                        max="500"
-                        step="any"
-                        inputmode="decimal"
-                        aria-describedby="weight-note">
-                    <div class="unit-note" id="weight-note">
-                        Enter your current weight in kilograms.
-                    </div>
+
+                <h2>Enter Your Information</h2>
+
+                <div class="unit-tabs" role="group" aria-label="Measurement units">
+                    <button type="button" class="unit-tab active" id="metricTab" aria-pressed="true">
+                        Metric Units
+                    </button>
+
+                    <button type="button" class="unit-tab" id="usTab" aria-pressed="false">
+                        US Units
+                    </button>
                 </div>
 
-                <div class="input-group">
-                    <label for="height">Height (cm)</label>
-                    <input
-                        type="number"
-                        id="height"
-                        placeholder="Example: 175"
-                        min="50"
-                        max="300"
-                        step="any"
-                        inputmode="decimal"
-                        aria-describedby="height-note">
-                    <div class="unit-note" id="height-note">
-                        Enter your height in centimeters.
+                <div class="input-row">
+
+                    <div class="input-group">
+                        <label for="age">Age (years)</label>
+                        <input
+                            type="number"
+                            id="age"
+                            min="2"
+                            max="120"
+                            placeholder="Example: 25"
+                            inputmode="numeric">
                     </div>
+
+                    <div class="input-group">
+                        <label for="sex">Sex</label>
+                        <select id="sex">
+                            <option value="">Select sex</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+
                 </div>
 
-                <button
-                    type="button"
-                    class="calculate-button"
-                    id="calculateButton">
+                <div id="metricFields">
+
+                    <div class="input-group">
+                        <label for="weightKg">Weight (kg)</label>
+                        <input
+                            type="number"
+                            id="weightKg"
+                            min="1"
+                            max="500"
+                            step="any"
+                            placeholder="Example: 70"
+                            inputmode="decimal">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="heightCm">Height (cm)</label>
+                        <input
+                            type="number"
+                            id="heightCm"
+                            min="50"
+                            max="300"
+                            step="any"
+                            placeholder="Example: 175"
+                            inputmode="decimal">
+                    </div>
+
+                </div>
+
+                <div id="usFields" hidden>
+
+                    <div class="input-group">
+                        <label for="weightLb">Weight (pounds)</label>
+                        <input
+                            type="number"
+                            id="weightLb"
+                            min="2.2"
+                            max="1102"
+                            step="any"
+                            placeholder="Example: 160"
+                            inputmode="decimal">
+                    </div>
+
+                    <div class="input-group">
+                        <span class="field-label">Height</span>
+
+                        <div class="input-row three-columns">
+
+                            <div>
+                                <label for="heightFeet">Feet</label>
+                                <input
+                                    type="number"
+                                    id="heightFeet"
+                                    min="0"
+                                    max="8"
+                                    step="1"
+                                    placeholder="5"
+                                    inputmode="numeric">
+                            </div>
+
+                            <div>
+                                <label for="heightInches">Inches</label>
+                                <input
+                                    type="number"
+                                    id="heightInches"
+                                    min="0"
+                                    max="11.99"
+                                    step="any"
+                                    placeholder="10"
+                                    inputmode="decimal">
+                            </div>
+
+                            <div>
+                                <label for="extraNote"> </label>
+                                <div class="unit-note">Feet + inches</div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <p class="unit-note">
+                    Age and sex are collected as reference information.
+                    Standard adult BMI is calculated using height and weight.
+                </p>
+
+                <button type="button" class="calculate-button" id="calculateButton">
                     Calculate BMI
                 </button>
 
-                <button
-                    type="button"
-                    class="reset-button"
-                    id="resetButton">
+                <button type="button" class="reset-button" id="resetButton">
                     Reset
                 </button>
 
-                <div
-                    class="error-box"
-                    id="error"
-                    role="alert"
-                    aria-live="polite">
-                </div>
+                <div class="error-box" id="error" role="alert" aria-live="polite"></div>
 
-                <div
-                    class="result-box"
-                    id="result"
-                    aria-live="polite"
-                    aria-atomic="true">
+                <div class="result-box" id="result" aria-live="polite" aria-atomic="true">
 
-                    <div class="result-label">Your BMI</div>
+                    <div class="result-label">Your Body Mass Index (BMI)</div>
+
                     <div class="bmi-number" id="bmiValue"></div>
+
                     <div class="bmi-category" id="bmiCategory"></div>
+
                     <div class="bmi-message" id="bmiMessage"></div>
+
+                    <div class="result-details">
+
+                        <div class="result-detail">
+                            <span>Healthy weight range at your height</span>
+                            <strong id="healthyRange"></strong>
+                        </div>
+
+                        <div class="result-detail">
+                            <span>Your entered measurements</span>
+                            <strong id="measurementSummary"></strong>
+                        </div>
+
+                    </div>
+
+                    <div class="bmi-scale">
+                        <h3>Adult BMI Category Scale</h3>
+
+                        <div class="scale-track" aria-hidden="true">
+                            <div class="scale-segment scale-underweight"></div>
+                            <div class="scale-segment scale-healthy"></div>
+                            <div class="scale-segment scale-overweight"></div>
+                            <div class="scale-segment scale-obesity"></div>
+                        </div>
+
+                        <div class="scale-indicator">
+                            <div class="scale-marker" id="scaleMarker"></div>
+                        </div>
+
+                        <div class="scale-labels">
+                            <span>Underweight</span>
+                            <span>Healthy</span>
+                            <span>Overweight</span>
+                            <span>Obesity</span>
+                        </div>
+                    </div>
+
+                    <p class="unit-note">
+                        BMI is a screening measure, not a medical diagnosis.
+                    </p>
+
                 </div>
+
             </div>
         </div>
     </section>
 
     <section class="info-section">
+
         <h2>What Is Body Mass Index (BMI)?</h2>
 
         <p>
@@ -411,12 +700,17 @@
         <h2>BMI Formula</h2>
 
         <p>
-            To calculate BMI using metric measurements, divide weight in
-            kilograms by height in meters squared.
+            BMI can be calculated using metric or US customary measurements.
         </p>
 
         <p>
-            <strong>BMI = Weight (kg) ÷ [Height (m) × Height (m)]</strong>
+            <strong>Metric formula:</strong>
+            BMI = Weight (kg) ÷ Height (m)²
+        </p>
+
+        <p>
+            <strong>US formula:</strong>
+            BMI = 703 × Weight (lb) ÷ Height (in)²
         </p>
 
         <p>
@@ -427,8 +721,8 @@
         <h2>Adult BMI Categories</h2>
 
         <p>
-            The following are commonly used BMI categories for adults.
-            These ranges are general screening guidelines.
+            The following categories are commonly used for adults aged
+            20 years and older.
         </p>
 
         <table class="bmi-table">
@@ -461,11 +755,22 @@
         <h2>How to Use This BMI Calculator</h2>
 
         <ol>
-            <li>Enter your weight in kilograms.</li>
-            <li>Enter your height in centimeters.</li>
+            <li>Choose Metric Units or US Units.</li>
+            <li>Enter your age and select your sex.</li>
+            <li>Enter your weight and height in the selected units.</li>
             <li>Select Calculate BMI.</li>
-            <li>Review your BMI result and its general adult category.</li>
+            <li>Review your BMI result and general adult category.</li>
         </ol>
+
+        <h2>What Is a Healthy Weight Range?</h2>
+
+        <p>
+            For adults, a BMI between 18.5 and 24.9 is commonly classified
+            as the healthy-weight range. The calculator estimates the
+            corresponding weight range for your entered height.
+            This is a general screening reference, not an individual
+            health recommendation.
+        </p>
 
         <h2>Why Can BMI Be Limited?</h2>
 
@@ -483,17 +788,25 @@
             <h3>What is a healthy BMI for adults?</h3>
             <p>
                 A BMI from 18.5 to 24.9 is commonly classified as the
-                healthy-weight range for adults. This is a screening range,
-                not a guarantee of good health.
+                healthy-weight range for adults aged 20 and older.
+                This is a screening range, not a guarantee of good health.
             </p>
         </div>
 
         <div class="faq">
-            <h3>How is BMI calculated from height and weight?</h3>
+            <h3>Can I calculate BMI in pounds and feet?</h3>
             <p>
-                Convert height in centimeters to meters, multiply the height
-                by itself, and divide weight in kilograms by that result.
-                For example, 70 ÷ (1.75 × 1.75) is approximately 22.9.
+                Yes. Select US Units, enter your weight in pounds and
+                your height in feet and inches, then select Calculate BMI.
+            </p>
+        </div>
+
+        <div class="faq">
+            <h3>Does age affect BMI?</h3>
+            <p>
+                Standard adult BMI categories are generally used for
+                adults aged 20 and older. Children and teenagers need
+                age- and sex-specific BMI interpretation.
             </p>
         </div>
 
@@ -562,6 +875,7 @@
             <a href="pregnancy-calculator.html">Pregnancy Calculator</a>
             <a href="tools.html#health">More Health &amp; Fitness Tools</a>
         </div>
+
     </section>
 </main>
 
@@ -587,10 +901,25 @@
 (function () {
     "use strict";
 
-    const weightInput = document.getElementById("weight");
-    const heightInput = document.getElementById("height");
+    const metricTab = document.getElementById("metricTab");
+    const usTab = document.getElementById("usTab");
+    const metricFields = document.getElementById("metricFields");
+    const usFields = document.getElementById("usFields");
+
+    const ageInput = document.getElementById("age");
+    const sexInput = document.getElementById("sex");
+
+    const weightKgInput = document.getElementById("weightKg");
+    const heightCmInput = document.getElementById("heightCm");
+
+    const weightLbInput = document.getElementById("weightLb");
+    const heightFeetInput = document.getElementById("heightFeet");
+    const heightInchesInput = document.getElementById("heightInches");
+
     const resultBox = document.getElementById("result");
     const errorBox = document.getElementById("error");
+
+    let currentUnit = "metric";
 
     function showError(message) {
         errorBox.textContent = message;
@@ -603,82 +932,267 @@
         errorBox.style.display = "none";
     }
 
+    function clearResult() {
+        resultBox.style.display = "none";
+    }
+
+    function selectUnit(unit) {
+        currentUnit = unit;
+
+        const isMetric = unit === "metric";
+
+        metricFields.hidden = !isMetric;
+        usFields.hidden = isMetric;
+
+        metricTab.classList.toggle("active", isMetric);
+        usTab.classList.toggle("active", !isMetric);
+
+        metricTab.setAttribute("aria-pressed", String(isMetric));
+        usTab.setAttribute("aria-pressed", String(!isMetric));
+
+        clearError();
+        clearResult();
+    }
+
+    function getMeasurements() {
+        let weightKg;
+        let heightMeters;
+        let measurementSummary;
+
+        if (currentUnit === "metric") {
+            const weightText = weightKgInput.value.trim();
+            const heightText = heightCmInput.value.trim();
+
+            if (!weightText || !heightText) {
+                throw new Error("Please enter both your weight and height.");
+            }
+
+            weightKg = Number(weightText);
+            const heightCm = Number(heightText);
+
+            if (!Number.isFinite(weightKg) || !Number.isFinite(heightCm)) {
+                throw new Error("Please enter valid numeric measurements.");
+            }
+
+            if (weightKg < 1 || weightKg > 500) {
+                throw new Error("Please enter a weight between 1 and 500 kg.");
+            }
+
+            if (heightCm < 50 || heightCm > 300) {
+                throw new Error("Please enter a height between 50 and 300 cm.");
+            }
+
+            heightMeters = heightCm / 100;
+
+            measurementSummary =
+                weightKg.toFixed(1) + " kg / " +
+                heightCm.toFixed(1) + " cm";
+
+        } else {
+            const weightText = weightLbInput.value.trim();
+            const feetText = heightFeetInput.value.trim();
+            const inchesText = heightInchesInput.value.trim();
+
+            if (!weightText || (!feetText && !inchesText)) {
+                throw new Error("Please enter your weight and height.");
+            }
+
+            const weightLb = Number(weightText);
+            const feet = feetText === "" ? 0 : Number(feetText);
+            const inches = inchesText === "" ? 0 : Number(inchesText);
+
+            if (
+                !Number.isFinite(weightLb) ||
+                !Number.isFinite(feet) ||
+                !Number.isFinite(inches)
+            ) {
+                throw new Error("Please enter valid numeric measurements.");
+            }
+
+            if (weightLb < 2.2 || weightLb > 1102) {
+                throw new Error("Please enter a weight between 2.2 and 1102 pounds.");
+            }
+
+            if (
+                feet < 0 ||
+                feet > 8 ||
+                !Number.isInteger(feet) ||
+                inches < 0 ||
+                inches >= 12
+            ) {
+                throw new Error("Please enter valid height in feet and inches.");
+            }
+
+            const totalInches = feet * 12 + inches;
+
+            if (totalInches < 19.7 || totalInches > 118.1) {
+                throw new Error("Please enter a height between 50 and 300 cm.");
+            }
+
+            weightKg = weightLb / 2.2046226218;
+            heightMeters = totalInches * 0.0254;
+
+            measurementSummary =
+                weightLb.toFixed(1) + " lb / " +
+                feet + " ft " + inches + " in";
+        }
+
+        return {
+            weightKg,
+            heightMeters,
+            measurementSummary
+        };
+    }
+
+    function getCategory(bmi) {
+        if (bmi < 18.5) {
+            return {
+                name: "Underweight",
+                message: "Your BMI is below the commonly used adult healthy-weight range."
+            };
+        }
+
+        if (bmi < 25) {
+            return {
+                name: "Healthy weight range",
+                message: "Your BMI falls within the commonly used adult healthy-weight range."
+            };
+        }
+
+        if (bmi < 30) {
+            return {
+                name: "Overweight",
+                message: "Your BMI falls within the commonly used adult overweight range."
+            };
+        }
+
+        return {
+            name: "Obesity range",
+            message: "Your BMI falls within the commonly used adult obesity range."
+        };
+    }
+
+    function updateScale(bmi) {
+        // The scale is a visual guide. Values above 40 remain at its end.
+        const position = Math.min(Math.max((bmi / 40) * 100, 0), 100);
+
+        document.getElementById("scaleMarker").style.left =
+            position + "%";
+    }
+
     function calculateBMI() {
         clearError();
 
-        const weightText = weightInput.value.trim();
-        const heightText = heightInput.value.trim();
+        try {
+            const ageText = ageInput.value.trim();
 
-        if (weightText === "" || heightText === "") {
-            showError("Please enter both your weight and height.");
-            return;
-        }
+            if (!ageText) {
+                throw new Error("Please enter your age.");
+            }
 
-        const weight = Number(weightText);
-        const heightCm = Number(heightText);
+            const age = Number(ageText);
 
-        if (!Number.isFinite(weight) || !Number.isFinite(heightCm)) {
-            showError("Please enter valid numeric values.");
-            return;
-        }
+            if (!Number.isInteger(age) || age < 2 || age > 120) {
+                throw new Error("Please enter an age between 2 and 120 years.");
+            }
 
-        if (weight < 1 || weight > 500) {
-            showError("Please enter a weight between 1 and 500 kg.");
-            return;
-        }
+            if (!sexInput.value) {
+                throw new Error("Please select your sex.");
+            }
 
-        if (heightCm < 50 || heightCm > 300) {
-            showError("Please enter a height between 50 and 300 cm.");
-            return;
-        }
+            const measurements = getMeasurements();
 
-        const heightMeters = heightCm / 100;
-        const bmi = weight / (heightMeters * heightMeters);
+            const weightKg = measurements.weightKg;
+            const heightMeters = measurements.heightMeters;
 
-        if (!Number.isFinite(bmi)) {
-            showError("The BMI could not be calculated. Please check your entries.");
-            return;
-        }
+            const bmi = weightKg / (heightMeters * heightMeters);
 
-        let category;
-        let message;
+            if (!Number.isFinite(bmi)) {
+                throw new Error("BMI could not be calculated. Please check your measurements.");
+            }
 
-        if (bmi < 18.5) {
-            category = "Underweight";
-            message = "Your result is below the commonly used adult healthy-weight range.";
-        } else if (bmi < 25) {
-            category = "Healthy weight range";
-            message = "Your result falls within the commonly used adult healthy-weight range.";
-        } else if (bmi < 30) {
-            category = "Overweight";
-            message = "Your result falls within the commonly used adult overweight range.";
-        } else {
-            category = "Obesity range";
-            message = "Your result falls within the commonly used adult obesity range.";
-        }
+            const category = getCategory(bmi);
 
-        document.getElementById("bmiValue").textContent = bmi.toFixed(1);
-        document.getElementById("bmiCategory").textContent = category;
-        document.getElementById("bmiMessage").textContent =
-            message + " BMI is a screening measure and is not a diagnosis.";
+            document.getElementById("bmiValue").textContent =
+                bmi.toFixed(1);
 
-        resultBox.style.display = "block";
+            document.getElementById("bmiCategory").textContent =
+                category.name;
 
-        if (window.innerWidth <= 600) {
-            resultBox.scrollIntoView({
-                behavior: "smooth",
-                block: "nearest"
-            });
+            let message = category.message;
+
+            if (age < 20) {
+                message =
+                    "Standard adult BMI categories are not appropriate for people under 20. " +
+                    "A BMI-for-age assessment using age and sex is needed. " +
+                    "Your calculated BMI is shown for reference only.";
+            } else {
+                message += " BMI is a screening measure and is not a medical diagnosis.";
+            }
+
+            document.getElementById("bmiMessage").textContent = message;
+
+            const minimumHealthyWeight = 18.5 * heightMeters * heightMeters;
+            const maximumHealthyWeight = 24.9 * heightMeters * heightMeters;
+
+            let rangeText;
+
+            if (currentUnit === "metric") {
+                rangeText =
+                    minimumHealthyWeight.toFixed(1) + "–" +
+                    maximumHealthyWeight.toFixed(1) + " kg";
+            } else {
+                rangeText =
+                    (minimumHealthyWeight * 2.2046226218).toFixed(1) + "–" +
+                    (maximumHealthyWeight * 2.2046226218).toFixed(1) + " lb";
+            }
+
+            document.getElementById("healthyRange").textContent =
+                age < 20 ? "Adult range not applicable" : rangeText;
+
+            document.getElementById("measurementSummary").textContent =
+                measurements.measurementSummary;
+
+            updateScale(bmi);
+
+            resultBox.style.display = "block";
+
+            if (window.innerWidth <= 600) {
+                resultBox.scrollIntoView({
+                    behavior: "smooth",
+                    block: "nearest"
+                });
+            }
+
+        } catch (error) {
+            showError(error.message);
         }
     }
 
     function resetBMI() {
-        weightInput.value = "";
-        heightInput.value = "";
-        resultBox.style.display = "none";
+        ageInput.value = "";
+        sexInput.value = "";
+
+        weightKgInput.value = "";
+        heightCmInput.value = "";
+
+        weightLbInput.value = "";
+        heightFeetInput.value = "";
+        heightInchesInput.value = "";
+
         clearError();
-        weightInput.focus();
+        clearResult();
+
+        ageInput.focus();
     }
+
+    metricTab.addEventListener("click", function () {
+        selectUnit("metric");
+    });
+
+    usTab.addEventListener("click", function () {
+        selectUnit("us");
+    });
 
     document.getElementById("calculateButton")
         .addEventListener("click", calculateBMI);
@@ -686,7 +1200,9 @@
     document.getElementById("resetButton")
         .addEventListener("click", resetBMI);
 
-    [weightInput, heightInput].forEach(function (input) {
+    document.querySelectorAll(
+        "#age, #weightKg, #heightCm, #weightLb, #heightFeet, #heightInches"
+    ).forEach(function (input) {
         input.addEventListener("keydown", function (event) {
             if (event.key === "Enter") {
                 event.preventDefault();
@@ -694,6 +1210,7 @@
             }
         });
     });
+
 })();
 </script>
 
