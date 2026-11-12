@@ -4,38 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Average Calculator – Calculate Mean, Sum & More | Easy Online Tool</title>
+    <title>Free Average Calculator – Mean, Median, Sum & Range | Easy Online Tool</title>
 
-    <meta name="description" content="Calculate the average or mean of numbers quickly with this free Average Calculator. Also find the sum, minimum and maximum values.">
+    <meta name="description" content="Use our free Average Calculator to find the mean, median, sum, minimum, maximum and range of numbers. Get sorted values and step-by-step calculations.">
 
-    <meta name="keywords" content="average calculator, mean calculator, arithmetic mean calculator, calculate average, free average calculator">
-<link rel="canonical" href="https://easyonlinetools.online/average-calculator.html">
+    <meta name="keywords" content="average calculator, mean calculator, median calculator, arithmetic mean, calculate average, average of numbers, range calculator">
+
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://easyonlinetools.online/average-calculator.html">
+
+    <meta property="og:title" content="Free Average Calculator – Mean, Median & More | Easy Online Tool">
+    <meta property="og:description" content="Calculate mean, median, sum, minimum, maximum and range with our free online Average Calculator.">
+    <meta property="og:url" content="https://easyonlinetools.online/average-calculator.html">
+    <meta property="og:type" content="website">
+
     <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Average Calculator",
-    "url": "https://easyonlinetools.online/average-calculator.html",
-    "description": "Calculate the average or arithmetic mean of numbers and find the sum, minimum and maximum values with this free online calculator.",
-    "applicationCategory": "CalculatorApplication",
-    "operatingSystem": "All",
-    "browserRequirements": "Requires a modern web browser",
-    "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Average Calculator",
+        "url": "https://easyonlinetools.online/average-calculator.html",
+        "description": "A free online calculator for finding the arithmetic mean, median, sum, minimum, maximum and range of a list of numbers.",
+        "applicationCategory": "CalculatorApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires a modern web browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Calculate arithmetic mean",
+            "Calculate median",
+            "Find sum and count",
+            "Find minimum and maximum",
+            "Calculate range",
+            "Display sorted values",
+            "Show calculation steps"
+        ]
     }
-}
-</script>
+    </script>
 
     <style>
         * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
         }
 
         body {
+            margin: 0;
             font-family: Arial, Helvetica, sans-serif;
             background: #f5f7fb;
             color: #222;
@@ -66,6 +82,7 @@
         nav {
             display: flex;
             gap: 20px;
+            flex-wrap: wrap;
         }
 
         nav a {
@@ -79,32 +96,34 @@
         }
 
         .container {
-            max-width: 850px;
-            margin: 45px auto;
+            max-width: 900px;
+            margin: 40px auto;
             padding: 0 20px;
         }
 
         .tool-header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 28px;
         }
 
         .tool-header h1 {
             font-size: 36px;
-            margin-bottom: 10px;
+            margin: 0 0 10px;
             color: #111827;
         }
 
         .tool-header p {
             color: #6b7280;
             font-size: 17px;
+            margin: 0;
         }
 
-        .calculator {
+        .calculator,
+        .info-section {
             background: #ffffff;
-            padding: 30px;
+            padding: 28px;
             border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 18px rgba(0,0,0,0.06);
         }
 
         label {
@@ -116,11 +135,11 @@
 
         textarea {
             width: 100%;
-            min-height: 150px;
+            min-height: 160px;
             padding: 15px;
             border: 1px solid #d1d5db;
             border-radius: 8px;
-            font-size: 17px;
+            font-size: 16px;
             resize: vertical;
             font-family: Arial, Helvetica, sans-serif;
         }
@@ -128,6 +147,7 @@
         textarea:focus {
             outline: none;
             border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
         }
 
         .hint {
@@ -136,17 +156,25 @@
             font-size: 14px;
         }
 
-        .calculate-btn {
-            width: 100%;
+        .button-group {
+            display: flex;
+            gap: 12px;
             margin-top: 20px;
-            padding: 14px;
-            border: none;
-            border-radius: 7px;
-            background: #2563eb;
-            color: white;
-            font-size: 17px;
+        }
+
+        button {
+            padding: 14px 20px;
+            border-radius: 8px;
+            font-size: 16px;
             font-weight: bold;
             cursor: pointer;
+        }
+
+        .calculate-btn {
+            flex: 1;
+            border: none;
+            background: #2563eb;
+            color: white;
         }
 
         .calculate-btn:hover {
@@ -154,53 +182,74 @@
         }
 
         .clear-btn {
-            width: 100%;
-            margin-top: 10px;
-            padding: 12px;
             border: 1px solid #d1d5db;
-            border-radius: 7px;
-            background: #ffffff;
+            background: white;
             color: #374151;
-            font-size: 16px;
-            cursor: pointer;
         }
 
         .clear-btn:hover {
             background: #f3f4f6;
         }
 
-        .result {
-            margin-top: 25px;
-            padding: 20px;
-            background: #f0f7ff;
-            border-radius: 8px;
+        .message {
             display: none;
+            margin-top: 18px;
+            padding: 12px 15px;
+            border-radius: 8px;
+            font-size: 14px;
         }
 
-        .result h2 {
+        .error {
+            display: block;
+            color: #991b1b;
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+        }
+
+        .result {
+            display: none;
+            margin-top: 25px;
+        }
+
+        .result-heading {
             text-align: center;
-            font-size: 20px;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             color: #111827;
         }
 
-        .average-value {
+        .primary-result {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            padding: 22px;
+            border-radius: 10px;
             text-align: center;
-            font-size: 34px;
-            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .primary-result span {
+            display: block;
+            color: #4b5563;
+            font-weight: 600;
+        }
+
+        .average-value {
+            display: block;
             color: #2563eb;
-            margin-bottom: 20px;
+            font-size: 38px;
+            font-weight: bold;
+            overflow-wrap: anywhere;
         }
 
         .result-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 12px;
         }
 
         .result-box {
-            background: white;
-            padding: 15px;
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            padding: 16px 10px;
             border-radius: 8px;
             text-align: center;
         }
@@ -213,79 +262,97 @@
         }
 
         .result-box strong {
-            font-size: 18px;
+            font-size: 20px;
             color: #111827;
+            overflow-wrap: anywhere;
         }
 
-        .info {
-            background: white;
-            margin-top: 30px;
-            padding: 25px;
-            border-radius: 10px;
+        .detail-box {
+            margin-top: 20px;
+            padding: 18px;
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
         }
 
-        .info h2 {
-            margin-bottom: 10px;
+        .detail-box h3 {
+            margin: 0 0 10px;
             color: #111827;
+            font-size: 17px;
         }
 
-        .info p {
-            margin-bottom: 12px;
+        .detail-box p {
+            margin: 7px 0;
             color: #4b5563;
+            overflow-wrap: anywhere;
+        }
+
+        .sorted-values {
+            word-break: break-word;
         }
 
         .info-section {
-            max-width: 850px;
-            margin: 30px auto;
-            padding: 25px 20px;
-            background: white;
-            border-radius: 10px;
+            margin-top: 28px;
         }
 
         .info-section h2 {
-            margin-bottom: 12px;
+            margin: 0 0 12px;
             color: #111827;
+            font-size: 23px;
         }
 
         .info-section h3 {
-            margin-top: 20px;
-            margin-bottom: 8px;
+            margin: 22px 0 8px;
             color: #111827;
+            font-size: 18px;
         }
 
         .info-section p {
-            margin-bottom: 12px;
+            margin: 0 0 14px;
             color: #4b5563;
         }
 
-        .info-section a {
-            color: #2563eb;
-            text-decoration: none;
-        }
-
-        .info-section a:hover {
-            text-decoration: underline;
-        }
-
-        .page-navigation {
-            max-width: 850px;
-            margin: 25px auto;
-            padding: 0 20px;
+        .formula {
+            background: #eff6ff;
+            padding: 16px;
+            border-radius: 8px;
+            color: #1e40af;
+            font-weight: bold;
             text-align: center;
+            margin: 15px 0;
+            overflow-wrap: anywhere;
         }
 
+        .info-section a,
         .page-navigation a {
             color: #2563eb;
             text-decoration: none;
-            font-weight: 600;
         }
 
+        .info-section a:hover,
         .page-navigation a:hover {
             text-decoration: underline;
         }
 
         .related-links {
-            line-height: 2;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .related-links a {
+            display: block;
+            padding: 10px 12px;
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 7px;
+        }
+
+        .page-navigation {
+            max-width: 900px;
+            margin: 25px auto;
+            padding: 0 20px;
+            text-align: center;
         }
 
         footer {
@@ -297,17 +364,16 @@
             color: #6b7280;
         }
 
+        footer p {
+            margin: 6px 0;
+        }
+
         footer a {
             color: #2563eb;
             text-decoration: none;
         }
 
-        footer a:hover {
-            text-decoration: underline;
-        }
-
         @media (max-width: 700px) {
-
             .nav-container {
                 flex-direction: column;
                 gap: 12px;
@@ -315,27 +381,43 @@
 
             nav {
                 gap: 12px;
-                flex-wrap: wrap;
                 justify-content: center;
             }
 
             .tool-header h1 {
-                font-size: 28px;
+                font-size: 29px;
             }
 
-            .calculator {
+            .calculator,
+            .info-section {
                 padding: 20px;
             }
 
             .result-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+
+            .related-links {
+                grid-template-columns: 1fr;
+            }
         }
 
-        @media (max-width: 400px) {
+        @media (max-width: 420px) {
+            .button-group {
+                flex-direction: column;
+            }
+
+            .calculate-btn,
+            .clear-btn {
+                width: 100%;
+            }
 
             .result-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .average-value {
+                font-size: 32px;
             }
         }
     </style>
@@ -344,12 +426,8 @@
 <body>
 
 <header>
-
     <div class="nav-container">
-
-        <a href="index.html" class="logo">
-            Easy Online Tool
-        </a>
+        <a href="index.html" class="logo">Easy Online Tool</a>
 
         <nav>
             <a href="index.html">Home</a>
@@ -358,57 +436,50 @@
             <a href="index.html#about">About</a>
             <a href="index.html#faq">FAQ</a>
         </nav>
-
     </div>
-
 </header>
-
 
 <main class="container">
 
     <div class="tool-header">
-
         <h1>Average Calculator</h1>
-
-        <p>
-            Calculate the average of numbers quickly and easily.
-        </p>
-
+        <p>Calculate the mean, median, sum, minimum, maximum and range of your numbers.</p>
     </div>
 
+    <section class="calculator" aria-label="Average calculator">
 
-    <div class="calculator">
-
-        <label for="numbers">
-            Enter your numbers
-        </label>
+        <label for="numbers">Enter your numbers</label>
 
         <textarea
             id="numbers"
-            placeholder="Example: 10, 20, 30, 40, 50"></textarea>
+            placeholder="Example: 10, 20, 30, 40, 50"
+            aria-describedby="input-hint"
+        ></textarea>
 
-        <div class="hint">
-            Separate numbers with commas, spaces, or new lines.
+        <div class="hint" id="input-hint">
+            Separate numbers with commas, spaces or new lines. Negative and decimal numbers are supported.
         </div>
 
+        <div class="button-group">
+            <button type="button" class="calculate-btn" id="calculateBtn">
+                Calculate Average
+            </button>
 
-        <button class="calculate-btn" onclick="calculateAverage()">
-            Calculate Average
-        </button>
+            <button type="button" class="clear-btn" id="clearBtn">
+                Clear
+            </button>
+        </div>
 
-        <button class="clear-btn" onclick="clearCalculator()">
-            Clear
-        </button>
+        <div class="message" id="message" role="alert"></div>
 
+        <div class="result" id="result" aria-live="polite">
 
-        <div class="result" id="result">
+            <h2 class="result-heading">Your Results</h2>
 
-            <h2>Average Result</h2>
-
-            <div class="average-value" id="average">
-                0
+            <div class="primary-result">
+                <span>Arithmetic Mean (Average)</span>
+                <strong class="average-value" id="average">0</strong>
             </div>
-
 
             <div class="result-grid">
 
@@ -423,6 +494,11 @@
                 </div>
 
                 <div class="result-box">
+                    <span>Median</span>
+                    <strong id="median">0</strong>
+                </div>
+
+                <div class="result-box">
                     <span>Minimum</span>
                     <strong id="minimum">0</strong>
                 </div>
@@ -432,321 +508,445 @@
                     <strong id="maximum">0</strong>
                 </div>
 
+                <div class="result-box">
+                    <span>Range</span>
+                    <strong id="range">0</strong>
+                </div>
+
+            </div>
+
+            <div class="detail-box">
+                <h3>Sorted Numbers (Smallest to Largest)</h3>
+                <p class="sorted-values" id="sortedValues"></p>
+            </div>
+
+            <div class="detail-box">
+                <h3>Calculation Steps</h3>
+                <p id="sumCalculation"></p>
+                <p id="meanCalculation"></p>
+                <p id="medianCalculation"></p>
+                <p id="rangeCalculation"></p>
             </div>
 
         </div>
 
-    </div>
+    </section>
 
+    <section class="info-section">
 
-    <div class="info">
-
-        <h2>What is an Average?</h2>
+        <h2>What Is an Average?</h2>
 
         <p>
-            The average, also called the arithmetic mean, is calculated by
-            adding all numbers together and dividing the total by the number
-            of values.
+            An average is a single value used to represent a group of numbers.
+            The arithmetic mean is the most common type of average. It is
+            calculated by adding all the values and dividing the total by
+            the number of values.
         </p>
 
         <p>
-            For example, the average of 10, 20 and 30 is 20.
+            For example, the average of 10, 20 and 30 is 20 because their
+            total is 60 and there are three numbers.
         </p>
 
-        <h2>How to Use the Average Calculator</h2>
+        <h2>Average Formula</h2>
+
+        <div class="formula">
+            Average = Sum of All Values ÷ Number of Values
+        </div>
 
         <p>
-            Enter your numbers in the box. You can separate numbers with
-            commas, spaces, or new lines. Click the Calculate Average button
-            to instantly see the result.
+            Suppose you have the numbers 10, 20, 30, 40 and 50.
         </p>
 
-    </div>
+        <p>
+            Their sum is 150 and the total number of values is 5.
+        </p>
+
+        <div class="formula">
+            Average = 150 ÷ 5 = 30
+        </div>
+
+        <h2>How to Use This Average Calculator</h2>
+
+        <p>
+            Enter your numbers in the input box. You can separate them with
+            commas, spaces or new lines. Select Calculate Average to see
+            the mean, median, sum, count, minimum, maximum and range.
+        </p>
+
+        <p>
+            The calculator also sorts your numbers and displays the main
+            calculation steps so you can understand how the results were found.
+        </p>
+
+    </section>
+
+    <section class="info-section">
+
+        <h2>Understanding the Results</h2>
+
+        <h3>Mean (Arithmetic Average)</h3>
+        <p>
+            The mean is the sum of all numbers divided by their count. It is
+            useful for finding the typical value of a numerical data set.
+        </p>
+
+        <h3>Median</h3>
+        <p>
+            The median is the middle value after the numbers are arranged
+            from smallest to largest. If there is an even number of values,
+            the median is the average of the two middle values.
+        </p>
+
+        <h3>Minimum and Maximum</h3>
+        <p>
+            The minimum is the smallest number in the data set. The maximum
+            is the largest number.
+        </p>
+
+        <h3>Range</h3>
+        <p>
+            The range measures the spread between the largest and smallest
+            values. It is calculated by subtracting the minimum from the maximum.
+        </p>
+
+        <div class="formula">
+            Range = Maximum − Minimum
+        </div>
+
+    </section>
+
+    <section class="info-section">
+
+        <h2>Examples of Average Calculations</h2>
+
+        <h3>Example 1: Average of 5, 10 and 15</h3>
+        <p>
+            Sum = 5 + 10 + 15 = 30. Count = 3.
+            Average = 30 ÷ 3 = 10.
+        </p>
+
+        <h3>Example 2: Average of 12, 18, 20 and 30</h3>
+        <p>
+            Sum = 80. Count = 4.
+            Average = 80 ÷ 4 = 20.
+        </p>
+
+        <h3>Example 3: Average of Negative and Positive Numbers</h3>
+        <p>
+            Consider -10, 0 and 20. Their sum is 10 and their count is 3.
+            The average is 10 ÷ 3, or approximately 3.333333.
+        </p>
+
+    </section>
+
+    <section class="info-section">
+
+        <h2>Mean vs Median: What Is the Difference?</h2>
+
+        <p>
+            The mean uses every number in the calculation, so unusually high
+            or low values can affect it. The median is the middle value and
+            is less affected by extreme values.
+        </p>
+
+        <p>
+            For example, in the data set 10, 12, 13, 15 and 100, the mean is
+            30 while the median is 13. Both describe the data in different ways.
+        </p>
+
+    </section>
+
+    <section class="info-section">
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>How do I calculate an average?</h3>
+        <p>
+            Add all the numbers together and divide their sum by the total
+            number of values.
+        </p>
+
+        <h3>Is average the same as mean?</h3>
+        <p>
+            In common everyday use, average usually refers to the arithmetic
+            mean. There are other types of averages, including the median and mode.
+        </p>
+
+        <h3>Can I enter negative numbers?</h3>
+        <p>
+            Yes. This calculator supports negative numbers, positive numbers
+            and decimal values.
+        </p>
+
+        <h3>Can I calculate the average of many numbers?</h3>
+        <p>
+            Yes. You can enter up to 10,000 numbers separated by commas,
+            spaces or new lines.
+        </p>
+
+        <h3>What happens if I enter invalid text?</h3>
+        <p>
+            The calculator will show an error instead of silently ignoring
+            invalid entries.
+        </p>
+
+        <h3>What is the difference between mean and median?</h3>
+        <p>
+            The mean is the sum divided by the number of values. The median
+            is the middle value after sorting the numbers.
+        </p>
+
+        <h3>What is the range of a data set?</h3>
+        <p>
+            The range is the difference between the largest and smallest
+            numbers in a data set.
+        </p>
+
+    </section>
+
+    <section class="info-section">
+
+        <h2>Learn More About Averages</h2>
+
+        <p>
+            Read our detailed guide to understand average formulas, examples,
+            weighted averages and common calculation methods.
+        </p>
+
+        <p>
+            <a href="how-to-calculate-average.html">
+                How to Calculate Average: Formula, Examples &amp; Easy Guide
+            </a>
+        </p>
+
+    </section>
+
+    <section class="info-section">
+
+        <h2>Related Math &amp; Advanced Calculators</h2>
+
+        <p>
+            Explore more free online calculators for everyday mathematics.
+        </p>
+
+        <div class="related-links">
+
+            <a href="percentage-calculator.html">Percentage Calculator</a>
+
+            <a href="percentage-increase-decrease.html">Percentage Increase &amp; Decrease</a>
+
+            <a href="fraction-calculator.html">Fraction Calculator</a>
+
+            <a href="ratio-calculator.html">Ratio Calculator</a>
+
+            <a href="proportion-calculator.html">Proportion Calculator</a>
+
+            <a href="scientific-calculator.html">Scientific Calculator</a>
+
+            <a href="exponent-calculator.html">Exponent Calculator</a>
+
+            <a href="square-root-calculator.html">Square Root Calculator</a>
+
+            <a href="gcd-lcm-calculator.html">GCD &amp; LCM Calculator</a>
+
+            <a href="prime-number-checker.html">Prime Number Checker</a>
+
+            <a href="number-to-words.html">Number to Words</a>
+
+            <a href="random-number-generator.html">Random Number Generator</a>
+
+            <a href="tools.html#math">More Math &amp; Advanced Calculators</a>
+
+        </div>
+
+    </section>
 
 </main>
 
-
-<!-- Internal Navigation -->
-
 <div class="page-navigation">
-
     <a href="tools.html">← All Tools</a>
-
     &nbsp; | &nbsp;
-
-    <a href="tools.html#math">Math & Advanced Calculators</a>
-
+    <a href="tools.html#math">Math &amp; Advanced Calculators</a>
 </div>
-
-
-<!-- Average Guide -->
-
-<section class="info-section">
-
-    <h2>Learn More About Averages</h2>
-
-    <p>
-        Want to learn how an average is calculated? Read our detailed guide
-        covering the average formula, examples, weighted averages, common
-        mistakes and easy calculation methods:
-    </p>
-
-    <p>
-        <a href="how-to-calculate-average.html">
-            How to Calculate Average: Formula, Examples & Easy Guide
-        </a>
-    </p>
-
-</section>
-
-
-<!-- Related Math Calculators -->
-
-<section class="info-section">
-
-    <h2>Related Math &amp; Advanced Calculators</h2>
-
-    <p>
-        Explore other free math and advanced calculators for percentages,
-        fractions, ratios, proportions, powers, square roots, scientific
-        calculations, and other mathematical operations.
-    </p>
-
-    <div class="related-tools">
-
-        <a href="percentage-calculator.html">
-            Percentage Calculator
-        </a>
-
-        <a href="percentage-increase-decrease.html">
-            Percentage Increase &amp; Decrease
-        </a>
-
-        <a href="fraction-calculator.html">
-            Fraction Calculator
-        </a>
-
-        <a href="ratio-calculator.html">
-            Ratio Calculator
-        </a>
-
-        <a href="proportion-calculator.html">
-            Proportion Calculator
-        </a>
-
-        <a href="scientific-calculator.html">
-            Scientific Calculator
-        </a>
-
-        <a href="exponent-calculator.html">
-            Exponent Calculator
-        </a>
-
-        <a href="square-root-calculator.html">
-            Square Root Calculator
-        </a>
-
-        <a href="gcd-lcm-calculator.html">
-            GCD &amp; LCM Calculator
-        </a>
-
-        <a href="prime-number-checker.html">
-            Prime Number Checker
-        </a>
-
-        <a href="number-to-words.html">
-            Number to Words
-        </a>
-
-        <a href="random-number-generator.html">
-            Random Number Generator
-        </a>
-
-        <a href="tools.html#math">
-            More Math &amp; Advanced Calculators
-        </a>
-
-    </div>
-
-</section>
-
-
-<!-- Additional SEO Content -->
-
-<section class="info-section">
-
-    <h2>Using the Average Calculator</h2>
-
-    <p>
-        This Average Calculator calculates the arithmetic mean of a set of
-        numbers. It also provides the total sum, number of values, smallest
-        value and largest value.
-    </p>
-
-    <h2>Average Formula</h2>
-
-    <p>
-        The arithmetic mean is calculated by adding all values together and
-        dividing the sum by the number of values.
-    </p>
-
-    <p>
-        <strong>Average = Sum of Values ÷ Number of Values</strong>
-    </p>
-
-    <p>
-        For example, if the numbers are 10, 20 and 30, the sum is 60 and
-        there are 3 values. Therefore, the average is 60 ÷ 3 = 20.
-    </p>
-
-    <h2>Mean, Minimum and Maximum</h2>
-
-    <p>
-        The mean is the arithmetic average of the values. The minimum is the
-        smallest value in the data set, while the maximum is the largest value.
-    </p>
-
-    <h2>Common Uses of an Average</h2>
-
-    <p>
-        Averages are commonly used in education, statistics, business,
-        measurements and everyday calculations to summarize a group of numbers
-        with a single representative value.
-    </p>
-
-    <h2>Average Calculator FAQs</h2>
-
-
-    <h3>How do you calculate an average?</h3>
-
-    <p>
-        Add all the values together and divide the sum by the total number of
-        values.
-    </p>
-
-
-    <h3>What is the difference between average and mean?</h3>
-
-    <p>
-        In everyday mathematical use, the terms average and arithmetic mean are
-        commonly used to describe the same calculation.
-    </p>
-
-
-    <h3>Can I calculate the average of many numbers?</h3>
-
-    <p>
-        Yes. Enter the numbers into the calculator to quickly calculate their
-        average.
-    </p>
-
-
-    <h3>What else can an average calculator find?</h3>
-
-    <p>
-        This calculator can also find the sum, minimum and maximum values
-        of the numbers entered.
-    </p>
-
-
-    <p>
-        Use our free Average Calculator above to calculate the mean of your
-        numbers quickly and easily.
-    </p>
-
-</section>
-
 
 <footer>
 
-    <p>
-        © 2026 Easy Online Tool. All rights reserved.
-    </p>
+    <p>© 2026 Easy Online Tool. All rights reserved.</p>
 
     <p>
         <a href="index.html">Home</a> |
         <a href="tools.html">All Tools</a> |
-        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="privacy-policy.html">Privacy Policy</a> |
         <a href="terms.html">Terms</a> |
         <a href="contact.html">Contact</a>
     </p>
 
 </footer>
 
-
 <script>
+(function () {
 
-function calculateAverage() {
+    const numbersInput = document.getElementById("numbers");
+    const resultBox = document.getElementById("result");
+    const messageBox = document.getElementById("message");
 
-    const input = document.getElementById("numbers").value.trim();
+    const calculateButton = document.getElementById("calculateBtn");
+    const clearButton = document.getElementById("clearBtn");
 
-    if (input === "") {
-        alert("Please enter some numbers.");
-        return;
+    function formatNumber(value) {
+        if (Object.is(value, -0)) {
+            value = 0;
+        }
+
+        const rounded = Number(value.toFixed(6));
+
+        return rounded.toLocaleString("en-US", {
+            maximumFractionDigits: 6
+        });
     }
 
-
-    const values = input
-        .split(/[\s,]+/)
-        .map(Number)
-        .filter(value => !isNaN(value));
-
-
-    if (values.length === 0) {
-        alert("Please enter valid numbers.");
-        return;
+    function showError(message) {
+        messageBox.textContent = message;
+        messageBox.className = "message error";
+        resultBox.style.display = "none";
     }
 
+    function clearMessage() {
+        messageBox.textContent = "";
+        messageBox.className = "message";
+    }
 
-    const sum = values.reduce(
-        (total, value) => total + value,
-        0
-    );
+    function calculateAverage() {
 
+        clearMessage();
 
-    const average = sum / values.length;
+        const input = numbersInput.value.trim();
 
-    const minimum = Math.min(...values);
+        if (input === "") {
+            showError("Please enter some numbers before calculating.");
+            return;
+        }
 
-    const maximum = Math.max(...values);
+        const tokens = input.split(/[\s,]+/).filter(Boolean);
 
+        if (tokens.length > 10000) {
+            showError("Please enter no more than 10,000 numbers.");
+            return;
+        }
 
-    document.getElementById("average").textContent =
-        formatNumber(average);
+        const values = [];
 
-    document.getElementById("sum").textContent =
-        formatNumber(sum);
+        for (let i = 0; i < tokens.length; i++) {
 
-    document.getElementById("count").textContent =
-        values.length;
+            const token = tokens[i];
 
-    document.getElementById("minimum").textContent =
-        formatNumber(minimum);
+            if (token === "" || !/^[+-]?(?:\d+\.?\d*|\.\d+)(?:e[+-]?\d+)?$/i.test(token)) {
+                showError("Invalid entry: \"" + token + "\". Please enter numbers only, separated by commas, spaces or new lines.");
+                return;
+            }
 
-    document.getElementById("maximum").textContent =
-        formatNumber(maximum);
+            const number = Number(token);
 
+            if (!Number.isFinite(number)) {
+                showError("One or more numbers are too large to calculate. Please enter smaller values.");
+                return;
+            }
 
-    document.getElementById("result").style.display = "block";
-}
+            values.push(number);
+        }
 
+        if (values.length === 0) {
+            showError("Please enter at least one valid number.");
+            return;
+        }
 
-function formatNumber(number) {
+        const sum = values.reduce(function (total, value) {
+            return total + value;
+        }, 0);
 
-    return Number(
-        number.toFixed(6)
-    ).toLocaleString();
-}
+        if (!Number.isFinite(sum)) {
+            showError("The total is too large to calculate safely. Please enter smaller values.");
+            return;
+        }
 
+        const average = sum / values.length;
 
-function clearCalculator() {
+        const sorted = values.slice().sort(function (a, b) {
+            return a - b;
+        });
 
-    document.getElementById("numbers").value = "";
+        const minimum = sorted[0];
+        const maximum = sorted[sorted.length - 1];
+        const range = maximum - minimum;
 
-    document.getElementById("result").style.display = "none";
+        let median;
 
-}
+        const middle = Math.floor(sorted.length / 2);
 
+        if (sorted.length % 2 === 0) {
+            median = sorted[middle - 1] / 2 + sorted[middle] / 2;
+        } else {
+            median = sorted[middle];
+        }
+
+        if (!Number.isFinite(average) || !Number.isFinite(range) || !Number.isFinite(median)) {
+            showError("The calculation produced a value that is too large. Please enter smaller numbers.");
+            return;
+        }
+
+        document.getElementById("average").textContent = formatNumber(average);
+        document.getElementById("sum").textContent = formatNumber(sum);
+        document.getElementById("count").textContent = values.length.toLocaleString("en-US");
+        document.getElementById("median").textContent = formatNumber(median);
+        document.getElementById("minimum").textContent = formatNumber(minimum);
+        document.getElementById("maximum").textContent = formatNumber(maximum);
+        document.getElementById("range").textContent = formatNumber(range);
+
+        document.getElementById("sortedValues").textContent =
+            sorted.map(formatNumber).join(", ");
+
+        document.getElementById("sumCalculation").textContent =
+            "Sum = " + values.map(formatNumber).join(" + ") +
+            " = " + formatNumber(sum);
+
+        document.getElementById("meanCalculation").textContent =
+            "Mean = Sum ÷ Count = " + formatNumber(sum) +
+            " ÷ " + values.length + " = " + formatNumber(average);
+
+        if (sorted.length % 2 === 0) {
+            document.getElementById("medianCalculation").textContent =
+                "Median = (" + formatNumber(sorted[middle - 1]) +
+                " + " + formatNumber(sorted[middle]) +
+                ") ÷ 2 = " + formatNumber(median);
+        } else {
+            document.getElementById("medianCalculation").textContent =
+                "Median = Middle value = " + formatNumber(median);
+        }
+
+        document.getElementById("rangeCalculation").textContent =
+            "Range = Maximum − Minimum = " +
+            formatNumber(maximum) + " − " +
+            formatNumber(minimum) + " = " + formatNumber(range);
+
+        resultBox.style.display = "block";
+
+    }
+
+    function clearCalculator() {
+
+        numbersInput.value = "";
+        resultBox.style.display = "none";
+        clearMessage();
+
+        numbersInput.focus();
+
+    }
+
+    calculateButton.addEventListener("click", calculateAverage);
+    clearButton.addEventListener("click", clearCalculator);
+
+})();
 </script>
 
 </body>
