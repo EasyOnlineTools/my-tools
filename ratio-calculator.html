@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Ratio Calculator – Simplify Ratios & Find Equivalent Ratios | Easy Online Tool</title>
+    <title>Ratio Calculator – Solve Proportions & Scale Ratios | Easy Online Tool</title>
 
-    <meta name="description" content="Use this free Ratio Calculator to simplify whole-number and decimal ratios, calculate equivalent ratios, and understand each step with examples.">
+    <meta name="description" content="Free Ratio Calculator to solve proportions by finding a missing value in A:B = C:D. Scale ratios by multiplying or dividing both parts.">
 
-    <meta name="keywords" content="ratio calculator, simplify ratios, ratio simplifier, equivalent ratios, decimal ratio calculator, calculate ratio">
+    <meta name="keywords" content="ratio calculator, ratio proportion calculator, solve proportions, missing ratio value, ratio scaling calculator, equivalent ratios">
 
     <meta name="robots" content="index, follow">
 
     <link rel="canonical" href="https://easyonlinetools.online/ratio-calculator.html">
 
-    <meta property="og:title" content="Ratio Calculator – Simplify Ratios | Easy Online Tool">
-    <meta property="og:description" content="Simplify ratios, calculate equivalent ratios and learn how ratios work with this free online calculator.">
+    <meta property="og:title" content="Ratio Calculator – Easy Online Tool">
+    <meta property="og:description" content="Find missing values in proportions and scale ratios with this free online calculator.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://easyonlinetools.online/ratio-calculator.html">
 
@@ -30,7 +30,7 @@
             font-family: Arial, Helvetica, sans-serif;
             background: #f5f7fb;
             color: #222;
-            line-height: 1.65;
+            line-height: 1.6;
         }
 
         header {
@@ -72,7 +72,7 @@
         }
 
         .container {
-            max-width: 850px;
+            max-width: 900px;
             margin: 40px auto;
             padding: 0 20px;
         }
@@ -84,8 +84,8 @@
 
         .tool-header h1 {
             font-size: clamp(28px, 5vw, 36px);
-            margin-bottom: 10px;
             color: #111827;
+            margin-bottom: 8px;
         }
 
         .tool-header p {
@@ -93,173 +93,176 @@
             font-size: 17px;
         }
 
-        .calculator {
+        .calculator-card {
             background: #fff;
-            padding: 30px;
+            padding: 28px;
             border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+            box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+            margin-bottom: 28px;
         }
 
-        .calculator h2 {
+        .calculator-card h2 {
+            font-size: 23px;
             color: #111827;
             margin-bottom: 8px;
-            font-size: 23px;
         }
 
-        .calculator-intro {
+        .description {
             color: #6b7280;
-            margin-bottom: 24px;
+            margin-bottom: 23px;
         }
 
-        .input-labels,
-        .ratio-inputs {
+        .proportion-equation {
             display: grid;
-            grid-template-columns: 1fr 50px 1fr;
-            gap: 12px;
+            grid-template-columns: 1fr 28px 1fr 35px 1fr 28px 1fr;
+            gap: 7px;
             align-items: center;
-        }
-
-        .input-labels {
-            margin-bottom: 7px;
-        }
-
-        .input-labels label {
-            font-weight: 600;
-            color: #374151;
-        }
-
-        .ratio-inputs input {
-            width: 100%;
-            min-width: 0;
-            padding: 14px;
-            border: 1px solid #d1d5db;
-            border-radius: 7px;
-            font-size: 18px;
             text-align: center;
         }
 
-        .ratio-inputs input:focus {
+        .proportion-equation input,
+        .scaling-inputs input,
+        .scaling-inputs select {
+            width: 100%;
+            min-width: 0;
+            height: 52px;
+            padding: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+        }
+
+        input:focus,
+        select:focus {
             outline: 2px solid #bfdbfe;
             border-color: #2563eb;
         }
 
-        .colon {
-            text-align: center;
-            font-size: 28px;
+        .equation-symbol {
+            font-size: 23px;
             font-weight: bold;
-        }
-
-        .input-help {
-            margin-top: 10px;
-            font-size: 13px;
-            color: #6b7280;
-        }
-
-        .calculate-btn,
-        .clear-btn {
-            width: 100%;
-            border-radius: 7px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-        }
-
-        .calculate-btn {
-            margin-top: 24px;
-            padding: 15px;
-            border: none;
-            background: #2563eb;
-            color: white;
-        }
-
-        .calculate-btn:hover {
-            background: #1d4ed8;
-        }
-
-        .clear-btn {
-            margin-top: 10px;
-            padding: 13px;
-            border: 1px solid #d1d5db;
-            background: #fff;
             color: #374151;
         }
 
-        .clear-btn:hover {
+        .field-labels {
+            display: grid;
+            grid-template-columns: 1fr 28px 1fr 35px 1fr 28px 1fr;
+            gap: 7px;
+            text-align: center;
+            margin-bottom: 7px;
+        }
+
+        .field-labels label {
+            font-weight: bold;
+            color: #374151;
+        }
+
+        .field-labels label:nth-child(1) {
+            grid-column: 1;
+        }
+
+        .field-labels label:nth-child(2) {
+            grid-column: 3;
+        }
+
+        .field-labels label:nth-child(3) {
+            grid-column: 5;
+        }
+
+        .field-labels label:nth-child(4) {
+            grid-column: 7;
+        }
+
+        .help-text {
+            font-size: 13px;
+            color: #6b7280;
+            margin-top: 12px;
+        }
+
+        .button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 7px;
+            background: #2563eb;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 22px;
+        }
+
+        .button:hover {
+            background: #1d4ed8;
+        }
+
+        .secondary-button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 7px;
+            background: #fff;
+            color: #374151;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .secondary-button:hover {
             background: #f3f4f6;
         }
 
         .error {
             display: none;
-            margin-top: 18px;
-            padding: 12px 15px;
-            border-radius: 7px;
+            margin-top: 16px;
+            padding: 12px;
+            color: #b91c1c;
             background: #fef2f2;
             border: 1px solid #fecaca;
-            color: #b91c1c;
+            border-radius: 6px;
         }
 
         .result {
             display: none;
-            margin-top: 25px;
-            padding: 24px;
+            margin-top: 22px;
+            padding: 20px;
             background: #eff6ff;
             border: 1px solid #dbeafe;
-            border-radius: 9px;
+            border-radius: 8px;
         }
 
-        .result h2 {
+        .result h3 {
             text-align: center;
-            margin-bottom: 15px;
+            color: #111827;
+            margin-bottom: 12px;
         }
 
-        .result-ratio {
+        .result-main {
+            font-size: clamp(23px, 5vw, 34px);
             text-align: center;
-            font-size: clamp(30px, 6vw, 40px);
             font-weight: bold;
             color: #2563eb;
-            margin-bottom: 18px;
             overflow-wrap: anywhere;
+            margin-bottom: 12px;
         }
 
-        .result-details {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
-
-        .result-item {
-            background: #fff;
-            border-radius: 8px;
-            padding: 14px;
-        }
-
-        .result-item span {
-            display: block;
-            font-size: 13px;
-            color: #6b7280;
-            margin-bottom: 4px;
-        }
-
-        .result-item strong {
-            color: #111827;
+        .result p {
+            color: #374151;
+            margin-top: 7px;
             overflow-wrap: anywhere;
-        }
-
-        .result-note {
-            margin-top: 14px;
-            color: #4b5563;
-            font-size: 14px;
         }
 
         .steps {
-            margin-top: 20px;
-            padding: 18px;
+            margin-top: 16px;
+            padding: 15px;
             background: #fff;
-            border-radius: 8px;
+            border-radius: 7px;
         }
 
-        .steps h3 {
-            margin-bottom: 10px;
+        .steps h4 {
+            margin-bottom: 8px;
             color: #111827;
         }
 
@@ -273,65 +276,83 @@
             overflow-wrap: anywhere;
         }
 
-        .equivalent {
-            margin-top: 20px;
-            background: #fff;
-            border-radius: 8px;
-            padding: 18px;
-        }
-
-        .equivalent h3 {
-            margin-bottom: 12px;
-            color: #111827;
-        }
-
-        .equivalent-grid {
+        .scaling-inputs {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 8px;
+            grid-template-columns: 1fr 30px 1fr;
+            gap: 10px;
+            align-items: center;
         }
 
-        .equivalent-item {
-            padding: 10px 5px;
-            text-align: center;
-            background: #f3f4f6;
-            border-radius: 6px;
+        .scaling-second-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .scaling-second-row label {
+            display: block;
             font-weight: bold;
+            margin-bottom: 6px;
             color: #374151;
-            overflow-wrap: anywhere;
         }
 
-        .info,
+        .scaling-second-row input,
+        .scaling-second-row select {
+            width: 100%;
+            height: 48px;
+            padding: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 16px;
+            background: white;
+        }
+
+        .scaling-symbol {
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
         .info-section {
             background: #fff;
-            margin-top: 28px;
             padding: 25px;
             border-radius: 10px;
+            margin: 28px auto;
         }
 
-        .info h2,
         .info-section h2 {
-            margin-bottom: 12px;
-            color: #111827;
             font-size: 23px;
+            color: #111827;
+            margin-bottom: 12px;
         }
 
-        .info h2:not(:first-child),
         .info-section h2:not(:first-child) {
-            margin-top: 24px;
-        }
-
-        .info p,
-        .info-section p {
-            margin-bottom: 13px;
-            color: #4b5563;
+            margin-top: 25px;
         }
 
         .info-section h3 {
+            font-size: 18px;
+            color: #111827;
             margin-top: 20px;
             margin-bottom: 7px;
-            color: #111827;
-            font-size: 18px;
+        }
+
+        .info-section p {
+            color: #4b5563;
+            margin-bottom: 13px;
+        }
+
+        .example {
+            background: #f3f6fb;
+            padding: 15px;
+            border-left: 4px solid #2563eb;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+
+        .example p {
+            margin: 5px 0;
         }
 
         .info-section a {
@@ -341,31 +362,6 @@
 
         .info-section a:hover {
             text-decoration: underline;
-        }
-
-        .example-box {
-            margin: 15px 0;
-            padding: 15px;
-            background: #f3f6fb;
-            border-left: 4px solid #2563eb;
-            border-radius: 5px;
-        }
-
-        .example-box p {
-            margin: 4px 0;
-        }
-
-        .page-navigation {
-            max-width: 850px;
-            margin: 25px auto;
-            padding: 0 20px;
-            text-align: center;
-        }
-
-        .page-navigation a {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: 600;
         }
 
         .related-tools {
@@ -382,12 +378,19 @@
             border-radius: 6px;
         }
 
-        .related-tools a:hover {
-            background: #e8efff;
+        .page-navigation {
+            text-align: center;
+            margin: 25px auto;
+        }
+
+        .page-navigation a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: bold;
         }
 
         footer {
-            margin-top: 50px;
+            margin-top: 45px;
             padding: 25px 20px;
             text-align: center;
             background: #fff;
@@ -404,47 +407,43 @@
             text-decoration: none;
         }
 
-        footer a:hover {
-            text-decoration: underline;
-        }
-
         @media (max-width: 650px) {
             .nav-container {
                 flex-direction: column;
-                gap: 12px;
             }
 
             nav {
-                gap: 12px;
                 justify-content: center;
+                gap: 12px;
             }
 
-            .calculator {
-                padding: 20px;
-            }
-
-            .input-labels,
-            .ratio-inputs {
-                grid-template-columns: 1fr 35px 1fr;
-                gap: 7px;
-            }
-
-            .ratio-inputs input {
-                padding: 12px 7px;
-                font-size: 16px;
-            }
-
-            .result-details {
-                grid-template-columns: 1fr;
-            }
-
-            .equivalent-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            .info,
+            .calculator-card,
             .info-section {
                 padding: 20px;
+            }
+
+            .proportion-equation {
+                grid-template-columns: 1fr 18px 1fr 22px 1fr 18px 1fr;
+                gap: 4px;
+            }
+
+            .field-labels {
+                grid-template-columns: 1fr 18px 1fr 22px 1fr 18px 1fr;
+                gap: 4px;
+            }
+
+            .proportion-equation input {
+                height: 45px;
+                padding: 5px 2px;
+                font-size: 15px;
+            }
+
+            .equation-symbol {
+                font-size: 18px;
+            }
+
+            .scaling-inputs {
+                gap: 6px;
             }
 
             .related-tools {
@@ -453,19 +452,24 @@
         }
 
         @media (max-width: 360px) {
-            .input-labels,
-            .ratio-inputs {
-                grid-template-columns: 1fr 25px 1fr;
-                gap: 4px;
+            .proportion-equation {
+                grid-template-columns: 1fr 14px 1fr 18px 1fr 14px 1fr;
+                gap: 2px;
             }
 
-            .ratio-inputs input {
-                font-size: 14px;
-                padding: 11px 4px;
+            .field-labels {
+                grid-template-columns: 1fr 14px 1fr 18px 1fr 14px 1fr;
+                gap: 2px;
+                font-size: 13px;
             }
 
-            .equivalent-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .proportion-equation input {
+                font-size: 13px;
+                padding: 3px 1px;
+            }
+
+            .scaling-second-row {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -476,7 +480,7 @@
         "@type": "WebApplication",
         "name": "Ratio Calculator",
         "url": "https://easyonlinetools.online/ratio-calculator.html",
-        "description": "A free online calculator for simplifying whole-number and decimal ratios and finding equivalent ratios.",
+        "description": "Free online calculator for solving proportions and scaling ratios.",
         "applicationCategory": "CalculatorApplication",
         "operatingSystem": "All",
         "browserRequirements": "Requires a modern web browser",
@@ -486,20 +490,22 @@
             "priceCurrency": "USD"
         },
         "featureList": [
-            "Simplify whole-number ratios",
-            "Simplify decimal ratios",
-            "Calculate equivalent ratios",
-            "Show decimal and percentage comparisons",
-            "Display calculation steps"
+            "Solve proportions with one missing value",
+            "Calculate A:B = C:D",
+            "Scale ratios by multiplication",
+            "Scale ratios by division",
+            "Show calculation steps"
         ]
     }
     </script>
+
 </head>
 
 <body>
 
 <header>
     <div class="nav-container">
+
         <a href="index.html" class="logo">Easy Online Tool</a>
 
         <nav>
@@ -509,6 +515,7 @@
             <a href="index.html#about">About</a>
             <a href="index.html#faq">FAQ</a>
         </nav>
+
     </div>
 </header>
 
@@ -516,341 +523,328 @@
 
     <div class="tool-header">
         <h1>Ratio Calculator</h1>
-        <p>Simplify ratios, find equivalent ratios and compare two quantities instantly.</p>
+        <p>Solve proportions, find missing values and scale ratios instantly.</p>
     </div>
 
-    <section class="calculator" aria-labelledby="calculator-heading">
+    <!-- Proportion Calculator -->
 
-        <h2 id="calculator-heading">Calculate and Simplify a Ratio</h2>
+    <section class="calculator-card">
 
-        <p class="calculator-intro">
-            Enter two non-negative numbers. You can use whole numbers or decimals.
+        <h2>Ratio Calculator</h2>
+
+        <p class="description">
+            Enter any three values to calculate the missing fourth value
+            in the proportion A:B = C:D.
         </p>
 
-        <div class="input-labels">
-            <label for="number1">First number (A)</label>
-            <span></span>
-            <label for="number2">Second number (B)</label>
+        <div class="field-labels">
+            <label for="valueA">A</label>
+            <label for="valueB">B</label>
+            <label for="valueC">C</label>
+            <label for="valueD">D</label>
         </div>
 
-        <div class="ratio-inputs">
-            <input
-                type="text"
-                id="number1"
-                inputmode="decimal"
-                placeholder="e.g. 10"
-                aria-label="First number"
-                autocomplete="off"
-            >
+        <div class="proportion-equation">
 
-            <div class="colon" aria-hidden="true">:</div>
+            <input type="text" id="valueA" inputmode="decimal" placeholder="A" aria-label="Value A">
 
-            <input
-                type="text"
-                id="number2"
-                inputmode="decimal"
-                placeholder="e.g. 15"
-                aria-label="Second number"
-                autocomplete="off"
-            >
+            <span class="equation-symbol">:</span>
+
+            <input type="text" id="valueB" inputmode="decimal" placeholder="B" aria-label="Value B">
+
+            <span class="equation-symbol">=</span>
+
+            <input type="text" id="valueC" inputmode="decimal" placeholder="C" aria-label="Value C">
+
+            <span class="equation-symbol">:</span>
+
+            <input type="text" id="valueD" inputmode="decimal" placeholder="D" aria-label="Value D">
+
         </div>
 
-        <p class="input-help">
-            Enter values such as 10 and 15, or decimal values such as 2.5 and 5.
-            Use up to 10 decimal places.
+        <p class="help-text">
+            Leave exactly one field empty. Enter the other three values.
+            Use non-negative numbers.
         </p>
 
-        <button type="button" class="calculate-btn" id="calculateButton">
-            Calculate Ratio
+        <button type="button" class="button" id="solveButton">
+            Calculate Missing Value
         </button>
 
-        <button type="button" class="clear-btn" id="clearButton">
+        <button type="button" class="secondary-button" id="clearProportion">
             Clear
         </button>
 
-        <div class="error" id="errorMessage" role="alert"></div>
+        <div class="error" id="proportionError" role="alert"></div>
 
-        <div class="result" id="result" aria-live="polite">
+        <div class="result" id="proportionResult" aria-live="polite">
 
-            <h2>Simplified Ratio</h2>
+            <h3>Proportion Result</h3>
 
-            <div class="result-ratio" id="simplifiedRatio"></div>
+            <div class="result-main" id="proportionAnswer"></div>
 
-            <div class="result-details">
-
-                <div class="result-item">
-                    <span>Original ratio</span>
-                    <strong id="originalRatio"></strong>
-                </div>
-
-                <div class="result-item">
-                    <span>Decimal comparison (A ÷ B)</span>
-                    <strong id="ratioDecimal"></strong>
-                </div>
-
-                <div class="result-item">
-                    <span>A as a percentage of B</span>
-                    <strong id="ratioPercentage"></strong>
-                </div>
-
-                <div class="result-item">
-                    <span>Common factor removed</span>
-                    <strong id="commonFactor"></strong>
-                </div>
-
-            </div>
-
-            <p class="result-note" id="resultNote"></p>
+            <p id="proportionExplanation"></p>
 
             <div class="steps">
-                <h3>Calculation Steps</h3>
-                <ol id="calculationSteps"></ol>
-            </div>
-
-            <div class="equivalent">
-                <h3>Equivalent Ratios</h3>
-                <p>
-                    Multiply both parts of the simplified ratio by the same number
-                    to create equivalent ratios.
-                </p>
-                <div class="equivalent-grid" id="equivalentRatios"></div>
+                <h4>Calculation Steps</h4>
+                <ol id="proportionSteps"></ol>
             </div>
 
         </div>
 
     </section>
 
-    <section class="info">
+    <!-- Ratio Scaling Calculator -->
+
+    <section class="calculator-card">
+
+        <h2>Ratio Scaling Calculator</h2>
+
+        <p class="description">
+            Multiply or divide both parts of a ratio by the same number
+            to create an equivalent ratio.
+        </p>
+
+        <div class="scaling-inputs">
+
+            <input type="text" id="scaleA" inputmode="decimal" placeholder="First number" aria-label="First ratio number">
+
+            <span class="scaling-symbol">:</span>
+
+            <input type="text" id="scaleB" inputmode="decimal" placeholder="Second number" aria-label="Second ratio number">
+
+        </div>
+
+        <div class="scaling-second-row">
+
+            <div>
+                <label for="scaleOperation">Operation</label>
+                <select id="scaleOperation">
+                    <option value="multiply">Multiply by</option>
+                    <option value="divide">Divide by</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="scaleFactor">Scaling factor</label>
+                <input type="text" id="scaleFactor" inputmode="decimal" placeholder="e.g. 2">
+            </div>
+
+        </div>
+
+        <button type="button" class="button" id="scaleButton">
+            Calculate Scaled Ratio
+        </button>
+
+        <button type="button" class="secondary-button" id="clearScaling">
+            Clear
+        </button>
+
+        <div class="error" id="scaleError" role="alert"></div>
+
+        <div class="result" id="scaleResult" aria-live="polite">
+
+            <h3>Scaled Ratio</h3>
+
+            <div class="result-main" id="scaleAnswer"></div>
+
+            <p id="scaleExplanation"></p>
+
+            <div class="steps">
+                <h4>Calculation Steps</h4>
+                <ol id="scaleSteps"></ol>
+            </div>
+
+        </div>
+
+    </section>
+
+    <div class="page-navigation">
+        <a href="tools.html">← All Tools</a>
+        &nbsp; | &nbsp;
+        <a href="tools.html#math">Math &amp; Advanced Calculators</a>
+    </div>
+
+    <!-- Educational Content -->
+
+    <section class="info-section">
 
         <h2>What Is a Ratio?</h2>
 
         <p>
-            A ratio compares two quantities and shows the relationship between them.
-            It is commonly written using a colon, such as 2:3. The first number
-            represents one quantity and the second number represents the other.
+            A ratio is a mathematical comparison between two or more quantities.
+            It shows how much of one quantity exists compared with another.
+            Ratios are commonly written using a colon, such as 2:3.
         </p>
 
         <p>
-            For example, if a basket contains 10 apples and 15 oranges, the ratio
-            of apples to oranges is 10:15. Dividing both numbers by 5 gives the
-            simplified ratio 2:3.
+            For example, if a group has 10 boys and 15 girls, the ratio of
+            boys to girls is 10:15. This ratio can be simplified to 2:3.
         </p>
 
-        <h2>How to Use This Ratio Calculator</h2>
+        <h2>How to Use the Ratio Calculator</h2>
 
         <p>
-            Enter the first and second numbers in the fields above. Select
-            Calculate Ratio to see the simplified result, decimal comparison,
-            percentage comparison, calculation steps and equivalent ratios.
+            The first calculator solves a proportion. Enter any three known
+            values in A:B = C:D and leave the missing value blank. The
+            calculator finds the fourth value.
+        </p>
+
+        <p>
+            The Ratio Scaling Calculator takes an existing ratio and multiplies
+            or divides both parts by the same scaling factor. This creates
+            an equivalent ratio.
+        </p>
+
+        <h2>Ratio Formula</h2>
+
+        <p>
+            A proportion is an equation that states that two ratios are equal:
+        </p>
+
+        <div class="example">
+            <p><strong>A:B = C:D</strong></p>
+            <p>Cross multiplication gives:</p>
+            <p><strong>A × D = B × C</strong></p>
+        </div>
+
+        <p>
+            This formula can be rearranged to find any one missing value,
+            provided the required divisor is not zero.
+        </p>
+
+        <h2>Example: Find a Missing Value</h2>
+
+        <div class="example">
+            <p><strong>2:3 = 8:D</strong></p>
+            <p>Cross multiply: 2 × D = 3 × 8</p>
+            <p>2D = 24</p>
+            <p>D = 24 ÷ 2</p>
+            <p><strong>Answer: D = 12</strong></p>
+        </div>
+
+        <h2>What Is Ratio Scaling?</h2>
+
+        <p>
+            Ratio scaling means multiplying or dividing both parts of a ratio
+            by the same positive number. The relationship between the two
+            quantities stays the same.
+        </p>
+
+        <div class="example">
+            <p><strong>Example: Multiply 2:3 by 4</strong></p>
+            <p>2 × 4 = 8</p>
+            <p>3 × 4 = 12</p>
+            <p><strong>New ratio: 8:12</strong></p>
+        </div>
+
+        <h2>Equivalent Ratios</h2>
+
+        <p>
+            Equivalent ratios describe the same relationship between quantities.
+            For example, 2:3, 4:6, 6:9 and 8:12 are equivalent ratios.
+        </p>
+
+        <h2>Common Uses of Ratios</h2>
+
+        <p>
+            Ratios are used in cooking, maps, scale drawings, measurements,
+            finance, statistics, recipes and everyday comparisons. They
+            help people understand relationships between quantities.
+        </p>
+
+        <h2>Ratio Calculator FAQs</h2>
+
+        <h3>How do I find a missing value in a ratio?</h3>
+
+        <p>
+            Enter the three known values in A:B = C:D and leave the missing
+            field empty. The calculator uses cross multiplication to find
+            the missing value.
+        </p>
+
+        <h3>What does A:B = C:D mean?</h3>
+
+        <p>
+            It means that the ratio of A to B is equal to the ratio of C
+            to D. This relationship is called a proportion.
+        </p>
+
+        <h3>What is cross multiplication?</h3>
+
+        <p>
+            Cross multiplication is a method used to solve proportions.
+            For A:B = C:D, multiply A by D and B by C. The two products
+            are equal when the proportion is correct.
+        </p>
+
+        <h3>What is a ratio scaling calculator?</h3>
+
+        <p>
+            It creates an equivalent ratio by multiplying or dividing
+            both parts of an original ratio by the same positive number.
+        </p>
+
+        <h3>Can I use decimal values?</h3>
+
+        <p>
+            Yes. Both calculators accept decimal values. Use up to
+            10 decimal places for accurate calculations.
+        </p>
+
+        <h3>Can I enter zero?</h3>
+
+        <p>
+            Zero can be used in some ratio calculations, but a proportion
+            cannot be solved when its required divisor is zero. The
+            calculator displays an error if the calculation is undefined.
         </p>
 
     </section>
 
+    <!-- Related Calculators -->
+
+    <section class="info-section">
+
+        <h2>Related Math &amp; Advanced Calculators</h2>
+
+        <p>
+            Explore more free online math calculators.
+        </p>
+
+        <div class="related-tools">
+
+            <a href="percentage-calculator.html">Percentage Calculator</a>
+
+            <a href="percentage-increase-decrease.html">Percentage Increase &amp; Decrease</a>
+
+            <a href="fraction-calculator.html">Fraction Calculator</a>
+
+            <a href="proportion-calculator.html">Proportion Calculator</a>
+
+            <a href="average-calculator.html">Average Calculator</a>
+
+            <a href="scientific-calculator.html">Scientific Calculator</a>
+
+            <a href="exponent-calculator.html">Exponent Calculator</a>
+
+            <a href="square-root-calculator.html">Square Root Calculator</a>
+
+            <a href="gcd-lcm-calculator.html">GCD &amp; LCM Calculator</a>
+
+            <a href="prime-number-checker.html">Prime Number Checker</a>
+
+            <a href="number-to-words.html">Number to Words</a>
+
+            <a href="random-number-generator.html">Random Number Generator</a>
+
+            <a href="tools.html#math">More Math &amp; Advanced Calculators</a>
+
+        </div>
+
+    </section>
+
 </main>
-
-<div class="page-navigation">
-    <a href="tools.html">← All Tools</a>
-    &nbsp; | &nbsp;
-    <a href="tools.html#math">Math &amp; Advanced Calculators</a>
-</div>
-
-<section class="info-section">
-
-    <h2>Learn More About Ratios</h2>
-
-    <p>
-        Learn how to calculate ratios, simplify them, find equivalent ratios
-        and solve everyday ratio problems with our detailed guide.
-    </p>
-
-    <p>
-        <a href="how-to-calculate-ratio.html">
-            How to Calculate Ratio: Formula, Examples &amp; Easy Guide
-        </a>
-    </p>
-
-</section>
-
-<section class="info-section">
-
-    <h2>How to Simplify a Ratio</h2>
-
-    <p>
-        To simplify a ratio, divide both numbers by their greatest common
-        factor (GCF). The greatest common factor is the largest positive
-        whole number that divides both numbers without a remainder.
-    </p>
-
-    <div class="example-box">
-        <p><strong>Example: Simplify 12:18</strong></p>
-        <p>Step 1: Find the greatest common factor of 12 and 18.</p>
-        <p>Step 2: The GCF is 6.</p>
-        <p>Step 3: Divide both numbers by 6.</p>
-        <p><strong>12 ÷ 6 : 18 ÷ 6 = 2:3</strong></p>
-    </div>
-
-    <h2>Ratio Formula</h2>
-
-    <p>
-        A ratio is written in the form A:B, where A and B represent two
-        quantities being compared. To simplify a ratio of whole numbers,
-        divide both parts by their greatest common factor.
-    </p>
-
-    <p>
-        Simplified ratio = (A ÷ GCF) : (B ÷ GCF)
-    </p>
-
-    <h2>Equivalent Ratios</h2>
-
-    <p>
-        Equivalent ratios represent the same relationship between two
-        quantities. You can create an equivalent ratio by multiplying
-        or dividing both parts by the same non-zero number.
-    </p>
-
-    <div class="example-box">
-        <p><strong>Examples of equivalent ratios:</strong></p>
-        <p>2:3</p>
-        <p>4:6</p>
-        <p>6:9</p>
-        <p>8:12</p>
-        <p>All these ratios represent the same relationship.</p>
-    </div>
-
-    <h2>Ratios with Decimal Numbers</h2>
-
-    <p>
-        Ratios can also contain decimal values. For example, the ratio
-        2.5:5 can be converted into 25:50 by multiplying both numbers
-        by 10. Dividing both numbers by 25 gives the simplified ratio 1:2.
-    </p>
-
-    <h2>Ratio, Decimal and Percentage</h2>
-
-    <p>
-        When the second number is greater than zero, the relationship
-        between two quantities can also be expressed as a decimal or
-        percentage. Divide the first number by the second number to
-        calculate the decimal comparison. Multiply the result by 100
-        to express it as a percentage.
-    </p>
-
-    <div class="example-box">
-        <p><strong>Example: 2:5</strong></p>
-        <p>Decimal comparison: 2 ÷ 5 = 0.4</p>
-        <p>Percentage comparison: 0.4 × 100 = 40%</p>
-    </div>
-
-    <h2>Common Uses of Ratios</h2>
-
-    <p>
-        Ratios are useful in mathematics, cooking, recipes, maps,
-        scale drawings, measurements, business, statistics and everyday
-        comparisons. They help explain how one quantity relates to another.
-    </p>
-
-    <h2>Ratio Calculator FAQs</h2>
-
-    <h3>What does a ratio such as 2:3 mean?</h3>
-
-    <p>
-        A ratio of 2:3 means that for every 2 units of the first quantity,
-        there are 3 units of the second quantity.
-    </p>
-
-    <h3>How do I simplify a ratio?</h3>
-
-    <p>
-        Divide both numbers by their greatest common factor. For example,
-        12:18 becomes 2:3 after dividing both numbers by 6.
-    </p>
-
-    <h3>Can this calculator simplify decimal ratios?</h3>
-
-    <p>
-        Yes. You can enter decimal numbers with up to 10 decimal places.
-        The calculator converts them into exact whole-number values
-        before simplifying the ratio.
-    </p>
-
-    <h3>Can I enter zero in a ratio?</h3>
-
-    <p>
-        Yes. One number can be zero, but both numbers cannot be zero.
-        When the second number is zero, the decimal and percentage
-        comparisons are not available because division by zero is undefined.
-    </p>
-
-    <h3>Can I enter negative numbers?</h3>
-
-    <p>
-        This calculator is designed for non-negative quantities, so
-        negative values are not accepted.
-    </p>
-
-    <h3>What are equivalent ratios?</h3>
-
-    <p>
-        Equivalent ratios are different ratios that describe the same
-        relationship. For example, 2:3, 4:6 and 6:9 are equivalent.
-    </p>
-
-    <h3>What is the difference between a ratio and a fraction?</h3>
-
-    <p>
-        A ratio compares two quantities, while a fraction represents
-        part of a whole or a division. Both can be written using two
-        numbers, but their meanings depend on the context.
-    </p>
-
-    <p>
-        Use the free Ratio Calculator above to simplify ratios and
-        compare two quantities quickly.
-    </p>
-
-</section>
-
-<section class="info-section">
-
-    <h2>Related Math &amp; Advanced Calculators</h2>
-
-    <p>
-        Explore more free online calculators for mathematical operations,
-        fractions, percentages, proportions and number calculations.
-    </p>
-
-    <div class="related-tools">
-
-        <a href="percentage-calculator.html">Percentage Calculator</a>
-
-        <a href="percentage-increase-decrease.html">Percentage Increase &amp; Decrease</a>
-
-        <a href="fraction-calculator.html">Fraction Calculator</a>
-
-        <a href="proportion-calculator.html">Proportion Calculator</a>
-
-        <a href="average-calculator.html">Average Calculator</a>
-
-        <a href="scientific-calculator.html">Scientific Calculator</a>
-
-        <a href="exponent-calculator.html">Exponent Calculator</a>
-
-        <a href="square-root-calculator.html">Square Root Calculator</a>
-
-        <a href="gcd-lcm-calculator.html">GCD &amp; LCM Calculator</a>
-
-        <a href="prime-number-checker.html">Prime Number Checker</a>
-
-        <a href="number-to-words.html">Number to Words</a>
-
-        <a href="random-number-generator.html">Random Number Generator</a>
-
-        <a href="tools.html#math">More Math &amp; Advanced Calculators</a>
-
-    </div>
-
-</section>
 
 <footer>
 
@@ -869,245 +863,331 @@
 <script>
 "use strict";
 
-const number1Input = document.getElementById("number1");
-const number2Input = document.getElementById("number2");
-const resultBox = document.getElementById("result");
-const errorBox = document.getElementById("errorMessage");
+/* Common number validation */
 
-function showError(message) {
-    errorBox.textContent = message;
-    errorBox.style.display = "block";
-    resultBox.style.display = "none";
-}
+function readNumber(id, label) {
+    const value = document.getElementById(id).value.trim();
 
-function clearError() {
-    errorBox.textContent = "";
-    errorBox.style.display = "none";
-}
-
-function gcd(a, b) {
-    a = a < 0n ? -a : a;
-    b = b < 0n ? -b : b;
-
-    while (b !== 0n) {
-        const remainder = a % b;
-        a = b;
-        b = remainder;
+    if (value === "") {
+        throw new Error("Please enter " + label + ".");
     }
 
-    return a;
-}
-
-function parseDecimal(value, label) {
-    const input = value.trim();
-
-    if (input === "") {
-        throw new Error("Please enter both numbers.");
+    if (!/^(?:\d+(?:\.\d*)?|\.\d+)$/.test(value)) {
+        throw new Error("Please enter a valid non-negative number for " + label + ".");
     }
 
-    if (!/^(?:\d+(?:\.\d*)?|\.\d+)$/.test(input)) {
-        throw new Error(
-            "Please enter valid non-negative numbers without commas or special characters."
-        );
-    }
-
-    const parts = input.split(".");
-    const wholePart = parts[0] || "0";
+    const parts = value.split(".");
     const decimalPart = parts[1] || "";
 
-    if (wholePart.length > 15) {
-        throw new Error(label + " is too large. Please enter a smaller number.");
+    if ((parts[0] || "0").length > 15) {
+        throw new Error(label + " is too large.");
     }
 
     if (decimalPart.length > 10) {
         throw new Error("Please use no more than 10 decimal places.");
     }
 
-    return {
-        wholePart: wholePart,
-        decimalPart: decimalPart
-    };
-}
+    const number = Number(value);
 
-function makeScaledInteger(parsed, scale) {
-    const paddedDecimal = parsed.decimalPart.padEnd(scale, "0");
-    const combined = parsed.wholePart + paddedDecimal;
-
-    return BigInt(combined || "0");
-}
-
-function formatInput(parsed) {
-    let value = parsed.wholePart;
-
-    if (parsed.decimalPart !== "") {
-        value += "." + parsed.decimalPart;
+    if (!Number.isFinite(number)) {
+        throw new Error(label + " is outside the supported range.");
     }
 
-    return value;
+    return number;
 }
 
-function formatBigInt(value) {
-    return value.toString();
-}
-
-function formatNumber(value, decimals) {
+function formatNumber(value) {
     if (!Number.isFinite(value)) {
-        return "Too large to display";
+        return "Result too large to display";
     }
 
-    return new Intl.NumberFormat("en-US", {
-        maximumFractionDigits: decimals,
-        useGrouping: false
-    }).format(value);
+    return Number(value.toPrecision(12)).toString();
 }
 
-function appendStep(text) {
+function showError(id, message) {
+    const box = document.getElementById(id);
+    box.textContent = message;
+    box.style.display = "block";
+}
+
+function clearError(id) {
+    const box = document.getElementById(id);
+    box.textContent = "";
+    box.style.display = "none";
+}
+
+function addStep(listId, text) {
     const item = document.createElement("li");
     item.textContent = text;
-    document.getElementById("calculationSteps").appendChild(item);
+    document.getElementById(listId).appendChild(item);
 }
 
-function calculateRatio() {
-    clearError();
+/* Proportion calculator */
+
+function calculateProportion() {
+    clearError("proportionError");
+
+    const ids = ["valueA", "valueB", "valueC", "valueD"];
+    const labels = ["A", "B", "C", "D"];
 
     try {
-        const parsedA = parseDecimal(number1Input.value, "First number");
-        const parsedB = parseDecimal(number2Input.value, "Second number");
+        const values = ids.map(function(id) {
+            const value = document.getElementById(id).value.trim();
 
-        const scale = Math.max(
-            parsedA.decimalPart.length,
-            parsedB.decimalPart.length
-        );
+            if (value === "") {
+                return null;
+            }
 
-        const originalA = makeScaledInteger(parsedA, scale);
-        const originalB = makeScaledInteger(parsedB, scale);
-
-        if (originalA === 0n && originalB === 0n) {
-            throw new Error("Both numbers cannot be zero.");
-        }
-
-        const divisor = gcd(originalA, originalB);
-
-        const simplifiedA = originalA / divisor;
-        const simplifiedB = originalB / divisor;
-
-        const originalText =
-            formatInput(parsedA) + " : " + formatInput(parsedB);
-
-        document.getElementById("originalRatio").textContent = originalText;
-
-        document.getElementById("simplifiedRatio").textContent =
-            formatBigInt(simplifiedA) + " : " + formatBigInt(simplifiedB);
-
-        document.getElementById("commonFactor").textContent =
-            formatBigInt(divisor) +
-            (scale > 0 ? " (scaled units)" : "");
-
-        document.getElementById("calculationSteps").replaceChildren();
-
-        appendStep("Start with the original ratio: " + originalText + ".");
-
-        if (scale > 0) {
-            appendStep(
-                "Convert both decimal values to whole numbers using a common decimal scale of 10^" +
-                scale + "."
-            );
-
-            appendStep(
-                "The equivalent whole-number ratio is " +
-                formatBigInt(originalA) + " : " +
-                formatBigInt(originalB) + "."
-            );
-        }
-
-        appendStep(
-            "Find the greatest common factor of " +
-            formatBigInt(originalA) + " and " +
-            formatBigInt(originalB) + ": " +
-            formatBigInt(divisor) + "."
-        );
-
-        appendStep(
-            "Divide both parts by " + formatBigInt(divisor) + "."
-        );
-
-        appendStep(
-            "The simplified ratio is " +
-            formatBigInt(simplifiedA) + " : " +
-            formatBigInt(simplifiedB) + "."
-        );
-
-        const decimalElement = document.getElementById("ratioDecimal");
-        const percentageElement = document.getElementById("ratioPercentage");
-        const noteElement = document.getElementById("resultNote");
-
-        if (originalB === 0n) {
-            decimalElement.textContent = "Not defined";
-            percentageElement.textContent = "Not defined";
-
-            noteElement.textContent =
-                "The second number is zero, so decimal and percentage comparisons cannot be calculated.";
-        } else {
-            const a = Number(formatInput(parsedA));
-            const b = Number(formatInput(parsedB));
-
-            const decimal = a / b;
-            const percentage = decimal * 100;
-
-            decimalElement.textContent = formatNumber(decimal, 8);
-            percentageElement.textContent = formatNumber(percentage, 6) + "%";
-
-            noteElement.textContent =
-                "The decimal and percentage values compare the first number with the second number.";
-        }
-
-        const equivalentContainer = document.getElementById("equivalentRatios");
-        equivalentContainer.replaceChildren();
-
-        [2n, 3n, 4n, 5n, 10n].forEach(function(multiplier) {
-            const item = document.createElement("div");
-            item.className = "equivalent-item";
-
-            item.textContent =
-                formatBigInt(simplifiedA * multiplier) +
-                " : " +
-                formatBigInt(simplifiedB * multiplier);
-
-            equivalentContainer.appendChild(item);
+            return readNumber(id, "value " + id.replace("value", ""));
         });
 
-        resultBox.style.display = "block";
+        const missing = values
+            .map(function(value, index) {
+                return value === null ? index : -1;
+            })
+            .filter(function(index) {
+                return index !== -1;
+            });
+
+        if (missing.length !== 1) {
+            throw new Error("Please enter exactly three values and leave one field empty.");
+        }
+
+        const missingIndex = missing[0];
+
+        const A = values[0];
+        const B = values[1];
+        const C = values[2];
+        const D = values[3];
+
+        let answer;
+        let steps = [];
+
+        if (missingIndex === 0) {
+            if (D === 0) {
+                throw new Error("Cannot calculate A because D is zero.");
+            }
+
+            answer = (B * C) / D;
+
+            steps.push("Start with A:B = C:D.");
+            steps.push("Cross multiply: A × D = B × C.");
+            steps.push("A = (B × C) ÷ D.");
+            steps.push("A = (" + formatNumber(B) + " × " + formatNumber(C) + ") ÷ " + formatNumber(D) + ".");
+
+        } else if (missingIndex === 1) {
+            if (C === 0) {
+                throw new Error("Cannot calculate B because C is zero.");
+            }
+
+            answer = (A * D) / C;
+
+            steps.push("Start with A:B = C:D.");
+            steps.push("Cross multiply: A × D = B × C.");
+            steps.push("B = (A × D) ÷ C.");
+            steps.push("B = (" + formatNumber(A) + " × " + formatNumber(D) + ") ÷ " + formatNumber(C) + ".");
+
+        } else if (missingIndex === 2) {
+            if (B === 0) {
+                throw new Error("Cannot calculate C because B is zero.");
+            }
+
+            answer = (A * D) / B;
+
+            steps.push("Start with A:B = C:D.");
+            steps.push("Cross multiply: A × D = B × C.");
+            steps.push("C = (A × D) ÷ B.");
+            steps.push("C = (" + formatNumber(A) + " × " + formatNumber(D) + ") ÷ " + formatNumber(B) + ".");
+
+        } else {
+            if (A === 0) {
+                throw new Error("Cannot calculate D because A is zero.");
+            }
+
+            answer = (B * C) / A;
+
+            steps.push("Start with A:B = C:D.");
+            steps.push("Cross multiply: A × D = B × C.");
+            steps.push("D = (B × C) ÷ A.");
+            steps.push("D = (" + formatNumber(B) + " × " + formatNumber(C) + ") ÷ " + formatNumber(A) + ".");
+        }
+
+        if (!Number.isFinite(answer)) {
+            throw new Error("The result is outside the supported calculation range.");
+        }
+
+        if (answer > 1e15) {
+            throw new Error("The calculated value is too large to display accurately.");
+        }
+
+        const finalValues = values.slice();
+        finalValues[missingIndex] = answer;
+
+        steps.push("The missing value is " + labels[missingIndex] + " = " + formatNumber(answer) + ".");
+
+        document.getElementById("proportionAnswer").textContent =
+            labels[missingIndex] + " = " + formatNumber(answer);
+
+        document.getElementById("proportionExplanation").textContent =
+            "Completed proportion: " +
+            formatNumber(finalValues[0]) + " : " +
+            formatNumber(finalValues[1]) + " = " +
+            formatNumber(finalValues[2]) + " : " +
+            formatNumber(finalValues[3]);
+
+        const stepsList = document.getElementById("proportionSteps");
+        stepsList.replaceChildren();
+
+        steps.forEach(function(step) {
+            addStep("proportionSteps", step);
+        });
+
+        document.getElementById("proportionResult").style.display = "block";
 
     } catch (error) {
-        showError(error.message);
+        document.getElementById("proportionResult").style.display = "none";
+        showError("proportionError", error.message);
     }
 }
 
-function clearCalculator() {
-    number1Input.value = "";
-    number2Input.value = "";
+function clearProportion() {
+    ["valueA", "valueB", "valueC", "valueD"].forEach(function(id) {
+        document.getElementById(id).value = "";
+    });
 
-    clearError();
-
-    resultBox.style.display = "none";
-
-    number1Input.focus();
+    document.getElementById("proportionResult").style.display = "none";
+    clearError("proportionError");
 }
 
-document.getElementById("calculateButton").addEventListener(
+/* Ratio scaling calculator */
+
+function calculateScaling() {
+    clearError("scaleError");
+
+    try {
+        const A = readNumber("scaleA", "the first ratio number");
+        const B = readNumber("scaleB", "the second ratio number");
+        const factor = readNumber("scaleFactor", "the scaling factor");
+
+        if (A === 0 && B === 0) {
+            throw new Error("Both ratio numbers cannot be zero.");
+        }
+
+        if (factor <= 0) {
+            throw new Error("The scaling factor must be greater than zero.");
+        }
+
+        const operation = document.getElementById("scaleOperation").value;
+
+        let resultA;
+        let resultB;
+        let operationText;
+
+        if (operation === "multiply") {
+            resultA = A * factor;
+            resultB = B * factor;
+            operationText = "Multiply both numbers by " + formatNumber(factor) + ".";
+
+        } else {
+            resultA = A / factor;
+            resultB = B / factor;
+            operationText = "Divide both numbers by " + formatNumber(factor) + ".";
+        }
+
+        if (!Number.isFinite(resultA) || !Number.isFinite(resultB)) {
+            throw new Error("The result is outside the supported calculation range.");
+        }
+
+        if (Math.abs(resultA) > 1e15 || Math.abs(resultB) > 1e15) {
+            throw new Error("The scaled result is too large to display accurately.");
+        }
+
+        document.getElementById("scaleAnswer").textContent =
+            formatNumber(resultA) + " : " + formatNumber(resultB);
+
+        document.getElementById("scaleExplanation").textContent =
+            "Original ratio: " + formatNumber(A) + " : " + formatNumber(B) +
+            ". New ratio: " + formatNumber(resultA) + " : " + formatNumber(resultB) + ".";
+
+        const stepsList = document.getElementById("scaleSteps");
+        stepsList.replaceChildren();
+
+        addStep(
+            "Start with the original ratio: " +
+            formatNumber(A) + " : " + formatNumber(B) + "."
+        );
+
+        addStep(operationText);
+
+        addStep(
+            "First number: " + formatNumber(A) +
+            " becomes " + formatNumber(resultA) + "."
+        );
+
+        addStep(
+            "Second number: " + formatNumber(B) +
+            " becomes " + formatNumber(resultB) + "."
+        );
+
+        addStep(
+            "The equivalent scaled ratio is " +
+            formatNumber(resultA) + " : " + formatNumber(resultB) + "."
+        );
+
+        document.getElementById("scaleResult").style.display = "block";
+
+    } catch (error) {
+        document.getElementById("scaleResult").style.display = "none";
+        showError("scaleError", error.message);
+    }
+}
+
+function clearScaling() {
+    document.getElementById("scaleA").value = "";
+    document.getElementById("scaleB").value = "";
+    document.getElementById("scaleFactor").value = "";
+    document.getElementById("scaleOperation").value = "multiply";
+
+    document.getElementById("scaleResult").style.display = "none";
+    clearError("scaleError");
+}
+
+/* Button events */
+
+document.getElementById("solveButton").addEventListener(
     "click",
-    calculateRatio
+    calculateProportion
 );
 
-document.getElementById("clearButton").addEventListener(
+document.getElementById("clearProportion").addEventListener(
     "click",
-    clearCalculator
+    clearProportion
 );
 
-[number1Input, number2Input].forEach(function(input) {
-    input.addEventListener("keydown", function(event) {
+document.getElementById("scaleButton").addEventListener(
+    "click",
+    calculateScaling
+);
+
+document.getElementById("clearScaling").addEventListener(
+    "click",
+    clearScaling
+);
+
+/* Enter key support */
+
+["valueA", "valueB", "valueC", "valueD"].forEach(function(id) {
+    document.getElementById(id).addEventListener("keydown", function(event) {
         if (event.key === "Enter") {
-            calculateRatio();
+            calculateProportion();
+        }
+    });
+});
+
+["scaleA", "scaleB", "scaleFactor"].forEach(function(id) {
+    document.getElementById(id).addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            calculateScaling();
         }
     });
 });
