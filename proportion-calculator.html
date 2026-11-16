@@ -1,1212 +1,1081 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proportion Calculator – Solve Proportions & Find Missing Values | Easy Online Tool</title>
+<meta name="description" content="Solve proportions online with our free Proportion Calculator. Find any missing value in A/B = C/D using cross multiplication, with formulas and step-by-step solutions.">
+<meta name="keywords" content="proportion calculator, solve proportions, proportion solver, missing value calculator, cross multiplication calculator, ratio calculator">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://easyonlinetools.online/proportion-calculator.html">
 
-    <title>Proportion Calculator - Solve Proportions Online | Easy Online Tool</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Proportion Calculator | Easy Online Tool">
+<meta property="og:description" content="Find missing values in proportions using our free online calculator.">
+<meta property="og:url" content="https://easyonlinetools.online/proportion-calculator.html">
+<meta property="og:site_name" content="Easy Online Tool">
 
-    <meta name="description" content="Use our free Proportion Calculator to solve proportions and find the missing value quickly. Enter three known values and calculate the fourth value instantly.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Proportion Calculator",
+  "url": "https://easyonlinetools.online/proportion-calculator.html",
+  "description": "Free online calculator for solving proportions and finding missing values using cross multiplication.",
+  "applicationCategory": "CalculatorApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires a modern web browser with JavaScript support",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": [
+    "Solve proportions with one missing value",
+    "Calculate A, B, C or D",
+    "Support decimal and negative values",
+    "Show cross multiplication steps"
+  ]
+}
+</script>
 
-    <meta name="keywords" content="proportion calculator, solve proportions, ratio calculator, missing value calculator, proportion solver, free online calculator">
+<style>
+* {
+    box-sizing: border-box;
+}
 
-    <meta name="robots" content="index, follow">
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fb;
+    color: #1f2937;
+    line-height: 1.65;
+}
 
-    <link rel="canonical" href="https://easyonlinetools.online/proportion-calculator.html">
+header {
+    background: #fff;
+    border-bottom: 1px solid #e5e7eb;
+}
 
-    <!-- WebApplication Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "Proportion Calculator",
-        "url": "https://easyonlinetools.online/proportion-calculator.html",
-        "applicationCategory": "CalculatorApplication",
-        "operatingSystem": "All",
-        "description": "Free online calculator for solving proportions and finding missing values using cross multiplication.",
-        "browserRequirements": "Requires a modern web browser",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-        }
+.header-container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #2563eb;
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: #374151;
+    font-size: 15px;
+}
+
+nav a:hover {
+    color: #2563eb;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+.page-title {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.page-title h1 {
+    margin: 0 0 10px;
+    font-size: 32px;
+    color: #111827;
+    line-height: 1.3;
+}
+
+.page-title p {
+    color: #6b7280;
+    margin: 0;
+}
+
+.calculator-box,
+.info-section {
+    background: #fff;
+    border-radius: 13px;
+    box-shadow: 0 3px 15px rgba(0,0,0,.05);
+}
+
+.calculator-box {
+    padding: 30px;
+}
+
+.calculator-intro {
+    margin-top: 0;
+    color: #4b5563;
+}
+
+.proportion-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin: 25px 0;
+    align-items: center;
+}
+
+.fraction-box {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 14px;
+}
+
+.input-group {
+    min-width: 0;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 17px;
+}
+
+.input-group input:focus {
+    outline: 2px solid #bfdbfe;
+    border-color: #2563eb;
+}
+
+.fraction-line {
+    height: 2px;
+    background: #374151;
+    margin: -7px 4px 0;
+}
+
+.input-note {
+    color: #6b7280;
+    font-size: 14px;
+    margin: 16px 0;
+}
+
+.examples {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin: 18px 0 22px;
+}
+
+.example-btn {
+    background: #eff6ff;
+    color: #1d4ed8;
+    border: 1px solid #bfdbfe;
+    border-radius: 7px;
+    padding: 9px 12px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.example-btn:hover {
+    background: #dbeafe;
+}
+
+.button-row {
+    display: flex;
+    gap: 12px;
+}
+
+button {
+    border: none;
+    border-radius: 8px;
+    padding: 13px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.calculate-btn {
+    background: #2563eb;
+    color: white;
+    flex: 1;
+}
+
+.calculate-btn:hover {
+    background: #1d4ed8;
+}
+
+.reset-btn {
+    background: #e5e7eb;
+    color: #374151;
+}
+
+.reset-btn:hover {
+    background: #d1d5db;
+}
+
+.error {
+    display: none;
+    background: #fef2f2;
+    color: #b91c1c;
+    padding: 13px;
+    border-radius: 8px;
+    margin-top: 18px;
+    line-height: 1.6;
+}
+
+.results {
+    display: none;
+    margin-top: 25px;
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 22px;
+}
+
+.results h2 {
+    margin: 0 0 18px;
+    font-size: 22px;
+    color: #111827;
+}
+
+.result-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 11px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.result-row:last-of-type {
+    border-bottom: none;
+}
+
+.result-label {
+    font-weight: 600;
+    color: #374151;
+}
+
+.result-value {
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+.highlight {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2563eb;
+}
+
+.steps {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    padding: 16px;
+    border-radius: 8px;
+    margin-top: 18px;
+}
+
+.steps h3 {
+    margin: 0 0 10px;
+    font-size: 17px;
+}
+
+.steps p {
+    margin: 7px 0;
+    overflow-wrap: anywhere;
+}
+
+.info-section {
+    margin-top: 28px;
+    padding: 25px;
+}
+
+.info-section h2 {
+    margin-top: 0;
+    color: #111827;
+    font-size: 22px;
+}
+
+.info-section h3 {
+    margin-top: 22px;
+    color: #111827;
+    font-size: 17px;
+}
+
+.info-section p,
+.info-section li {
+    color: #4b5563;
+    line-height: 1.8;
+}
+
+.info-section ul,
+.info-section ol {
+    padding-left: 22px;
+}
+
+.formula {
+    background: #f1f5f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+    font-weight: 600;
+    color: #1f2937;
+    overflow-wrap: anywhere;
+}
+
+.example {
+    background: #f8fafc;
+    border-left: 4px solid #2563eb;
+    padding: 16px;
+    margin: 15px 0;
+    line-height: 1.9;
+}
+
+.related-tools {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.related-tools a {
+    display: block;
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    padding: 13px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #374151;
+    text-align: center;
+}
+
+.related-tools a:hover {
+    border-color: #2563eb;
+    color: #2563eb;
+}
+
+.faq-item {
+    margin-bottom: 20px;
+}
+
+.faq-item h3 {
+    margin-bottom: 5px;
+}
+
+.internal-navigation {
+    text-align: center;
+    margin-top: 28px;
+    padding: 15px;
+}
+
+.internal-navigation a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.internal-navigation a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    padding: 25px 20px;
+    margin-top: 30px;
+    background: #fff;
+    border-top: 1px solid #e5e7eb;
+    color: #6b7280;
+}
+
+.footer-links {
+    margin-top: 10px;
+    line-height: 2;
+}
+
+.footer-links a {
+    color: #6b7280;
+    text-decoration: none;
+    margin: 0 8px;
+}
+
+.footer-links a:hover {
+    color: #2563eb;
+}
+
+@media (max-width: 700px) {
+    .header-container {
+        flex-direction: column;
     }
-    </script>
 
-    <style>
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f5f7fa;
-            color: #222;
-            line-height: 1.6;
-        }
-
-        header {
-            background: #ffffff;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .header-container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 18px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        .logo {
-            font-size: 22px;
-            font-weight: bold;
-            color: #222;
-            text-decoration: none;
-        }
-
-        nav {
-            display: flex;
-            gap: 18px;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #444;
-            font-size: 15px;
-        }
-
-        nav a:hover {
-            color: #007bff;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: auto;
-            padding: 40px 20px;
-        }
-
-        .page-title {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .page-title h1 {
-            margin-bottom: 10px;
-            font-size: 34px;
-        }
-
-        .page-title p {
-            color: #666;
-            margin: 0;
-        }
-
-        .calculator-box {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
-        }
-
-        .proportion-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-
-        .fraction-box {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 10px;
-        }
-
-        .fraction-line {
-            height: 2px;
-            background: #333;
-            margin: 0 5px;
-        }
-
-        .input-group {
-            margin-bottom: 20px;
-        }
-
-        .input-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #d1d5db;
-            border-radius: 7px;
-            font-size: 16px;
-        }
-
-        .input-group input:focus {
-            outline: none;
-            border-color: #007bff;
-        }
-
-        .input-note {
-            color: #666;
-            font-size: 14px;
-            margin-top: 5px;
-        }
-
-        .button-row {
-            display: flex;
-            gap: 12px;
-            margin-top: 10px;
-        }
-
-        button {
-            border: none;
-            border-radius: 7px;
-            padding: 12px 22px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .calculate-btn {
-            background: #007bff;
-            color: #ffffff;
-        }
-
-        .calculate-btn:hover {
-            background: #0069d9;
-        }
-
-        .reset-btn {
-            background: #e5e7eb;
-            color: #333;
-        }
-
-        .reset-btn:hover {
-            background: #d1d5db;
-        }
-
-        .error {
-            display: none;
-            background: #fee2e2;
-            color: #b91c1c;
-            padding: 12px;
-            border-radius: 7px;
-            margin-top: 20px;
-        }
-
-        .results {
-            display: none;
-            margin-top: 25px;
-            background: #f8fafc;
-            border-radius: 8px;
-            padding: 20px;
-        }
-
-        .results h2 {
-            margin-top: 0;
-            font-size: 22px;
-        }
-
-        .result-row {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            padding: 10px 0;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .result-row:last-child {
-            border-bottom: none;
-        }
-
-        .result-label {
-            font-weight: bold;
-        }
-
-        .highlight {
-            font-size: 24px;
-            font-weight: bold;
-            color: #007bff;
-        }
-
-        .info-section {
-            background: #ffffff;
-            margin-top: 30px;
-            padding: 25px;
-            border-radius: 10px;
-        }
-
-        .info-section h2 {
-            margin-top: 0;
-        }
-
-        .info-section h3 {
-            margin-top: 22px;
-        }
-
-        .info-section p {
-            color: #4b5563;
-        }
-
-        .formula {
-            background: #f1f5f9;
-            padding: 15px;
-            border-radius: 7px;
-            margin: 15px 0;
-            font-weight: bold;
-            overflow-x: auto;
-        }
-
-        .example {
-            background: #f8fafc;
-            border-left: 4px solid #007bff;
-            padding: 15px;
-            margin: 15px 0;
-        }
-
-        .related-tools {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .related-tools a {
-            display: block;
-            background: #f8fafc;
-            border: 1px solid #e5e7eb;
-            padding: 14px;
-            border-radius: 7px;
-            text-decoration: none;
-            color: #333;
-            text-align: center;
-        }
-
-        .related-tools a:hover {
-            border-color: #007bff;
-            color: #007bff;
-        }
-
-        .internal-navigation {
-            text-align: center;
-            margin-top: 30px;
-            padding: 15px;
-        }
-
-        .internal-navigation a {
-            color: #007bff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .internal-navigation a:hover {
-            text-decoration: underline;
-        }
-
-        .faq-item {
-            margin-bottom: 20px;
-        }
-
-        .faq-item h3 {
-            margin-bottom: 6px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 25px 20px;
-            margin-top: 30px;
-            background: #ffffff;
-            border-top: 1px solid #e5e7eb;
-            color: #666;
-        }
-
-        .footer-links {
-            margin-top: 10px;
-        }
-
-        .footer-links a {
-            color: #666;
-            text-decoration: none;
-            margin: 0 8px;
-        }
-
-        .footer-links a:hover {
-            color: #007bff;
-        }
-
-        @media (max-width: 700px) {
-
-            .header-container {
-                flex-direction: column;
-            }
-
-            nav {
-                justify-content: center;
-            }
-
-            .page-title h1 {
-                font-size: 28px;
-            }
-
-            .calculator-box {
-                padding: 20px;
-            }
-
-            .proportion-layout {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .button-row {
-                flex-direction: column;
-            }
-
-            button {
-                width: 100%;
-            }
-
-            .related-tools {
-                grid-template-columns: 1fr;
-            }
-
-            .result-row {
-                flex-direction: column;
-                gap: 4px;
-            }
-
-        }
-
-    </style>
-
+    nav {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .container {
+        padding-top: 25px;
+    }
+
+    .page-title h1 {
+        font-size: 27px;
+    }
+
+    .calculator-box {
+        padding: 20px;
+    }
+
+    .proportion-layout {
+        gap: 18px;
+    }
+
+    .button-row {
+        flex-direction: column;
+    }
+
+    .button-row button {
+        width: 100%;
+    }
+
+    .related-tools {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .result-row {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .result-value {
+        text-align: left;
+    }
+
+    .info-section {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 420px) {
+    .related-tools {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
 </head>
 
 <body>
 
 <header>
-
     <div class="header-container">
+        <a href="index.html" class="logo">Easy Online Tool</a>
 
-        <a href="index.html" class="logo">
-            Easy Online Tool
-        </a>
-
-        <nav>
-
+        <nav aria-label="Main navigation">
             <a href="index.html">Home</a>
-
             <a href="tools.html">Tools</a>
-
             <a href="index.html#categories">Categories</a>
-
             <a href="index.html#about">About</a>
-
             <a href="index.html#faq">FAQ</a>
-
         </nav>
-
     </div>
-
 </header>
-
 
 <main class="container">
 
     <section class="page-title">
-
         <h1>Proportion Calculator</h1>
-
         <p>
-            Solve proportions and find the missing value quickly and accurately.
+            Solve proportions and find any missing value using
+            cross multiplication. Enter three known values to calculate
+            the fourth value.
         </p>
-
     </section>
 
+    <section class="calculator-box" aria-label="Proportion calculator">
 
-    <section class="calculator-box">
+        <p class="calculator-intro">
+            Enter exactly three values and leave one field empty.
+            The calculator solves the proportion A ÷ B = C ÷ D.
+        </p>
 
         <div class="proportion-layout">
 
             <div class="fraction-box">
-
                 <div class="input-group">
-
-                    <label for="a">
-                        First Value (A)
-                    </label>
-
-                    <input
-                        type="number"
-                        id="a"
-                        step="any"
-                        placeholder="Example: 2"
-                    >
-
+                    <label for="a">First Value (A)</label>
+                    <input type="number" id="a" step="any"
+                           inputmode="decimal" placeholder="Example: 2">
                 </div>
 
                 <div class="fraction-line"></div>
 
                 <div class="input-group">
-
-                    <label for="b">
-                        Second Value (B)
-                    </label>
-
-                    <input
-                        type="number"
-                        id="b"
-                        step="any"
-                        placeholder="Example: 4"
-                    >
-
+                    <label for="b">Second Value (B)</label>
+                    <input type="number" id="b" step="any"
+                           inputmode="decimal" placeholder="Example: 4">
                 </div>
-
             </div>
-
 
             <div class="fraction-box">
-
                 <div class="input-group">
-
-                    <label for="c">
-                        Third Value (C)
-                    </label>
-
-                    <input
-                        type="number"
-                        id="c"
-                        step="any"
-                        placeholder="Example: 6"
-                    >
-
+                    <label for="c">Third Value (C)</label>
+                    <input type="number" id="c" step="any"
+                           inputmode="decimal" placeholder="Example: 6">
                 </div>
 
                 <div class="fraction-line"></div>
 
                 <div class="input-group">
-
-                    <label for="d">
-                        Fourth Value (D)
-                    </label>
-
-                    <input
-                        type="number"
-                        id="d"
-                        step="any"
-                        placeholder="Leave empty to calculate"
-                    >
-
+                    <label for="d">Fourth Value (D)</label>
+                    <input type="number" id="d" step="any"
+                           inputmode="decimal" placeholder="Leave empty to calculate">
                 </div>
-
             </div>
 
         </div>
-
 
         <p class="input-note">
-            Enter any three values. Leave exactly one field empty to calculate
-            the missing value. The proportion is written as A ÷ B = C ÷ D.
+            The proportion is A/B = C/D. Enter positive, negative or decimal
+            values where appropriate. The denominators B and D must not be zero.
         </p>
 
+        <div class="examples">
+            <button type="button" class="example-btn" data-values="2,4,6,">
+                Example: Find D
+            </button>
+            <button type="button" class="example-btn" data-values=",4,6,12">
+                Example: Find A
+            </button>
+            <button type="button" class="example-btn" data-values="2,,6,12">
+                Example: Find B
+            </button>
+            <button type="button" class="example-btn" data-values="3,6,,18">
+                Example: Find C
+            </button>
+        </div>
 
         <div class="button-row">
-
-            <button
-                type="button"
-                class="calculate-btn"
-                onclick="calculateProportion()"
-            >
+            <button type="button" class="calculate-btn" id="calculateBtn">
                 Calculate Proportion
             </button>
-
-            <button
-                type="button"
-                class="reset-btn"
-                onclick="resetCalculator()"
-            >
+            <button type="button" class="reset-btn" id="resetBtn">
                 Reset
             </button>
-
         </div>
 
+        <div id="error" class="error" role="alert" aria-live="polite"></div>
 
-        <div
-            id="error"
-            class="error"
-            role="alert"
-        ></div>
-
-
-        <div
-            id="results"
-            class="results"
-            aria-live="polite"
-        >
-
-            <h2>
-                Proportion Result
-            </h2>
+        <div id="results" class="results" aria-live="polite">
+            <h2>Proportion Result</h2>
 
             <div class="result-row">
-
-                <span class="result-label">
-                    Proportion
-                </span>
-
-                <span id="proportionDisplay"></span>
-
+                <span class="result-label">Completed Proportion</span>
+                <span id="proportionDisplay" class="result-value"></span>
             </div>
-
 
             <div class="result-row">
-
-                <span class="result-label">
-                    Missing Value
-                </span>
-
-                <span id="missingLabel"></span>
-
+                <span class="result-label">Missing Value</span>
+                <span id="missingLabel" class="result-value"></span>
             </div>
-
 
             <div class="result-row">
-
-                <span class="result-label">
-                    Answer
-                </span>
-
-                <span
-                    id="answer"
-                    class="highlight"
-                ></span>
-
+                <span class="result-label">Answer</span>
+                <span id="answer" class="result-value highlight"></span>
             </div>
 
+            <div class="steps">
+                <h3>Calculation Steps</h3>
+                <div id="stepsContent"></div>
+            </div>
         </div>
 
     </section>
 
-
     <section class="info-section">
 
-        <h2>
-            What Is a Proportion?
-        </h2>
-
+        <h2>What Is a Proportion?</h2>
         <p>
-            A proportion is an equation showing that two ratios are equal.
-            It can be written in the following form:
+            A proportion is an equation that states that two ratios
+            are equal. It compares two quantities and shows that they
+            have the same relationship.
         </p>
 
         <div class="formula">
-            A ÷ B = C ÷ D
+            A / B = C / D
         </div>
 
         <p>
-            When three values are known, the Proportion Calculator can find
-            the fourth missing value using cross multiplication.
+            For example, 2/4 and 6/12 are equal ratios. Both simplify
+            to 1/2, so they form a valid proportion.
         </p>
 
-
-        <h2>
-            How to Solve a Proportion
-        </h2>
-
+        <h2>How to Solve a Proportion</h2>
         <p>
-            Suppose you have the following proportion:
+            One common method for solving a proportion is cross
+            multiplication. Multiply the numerator of each fraction
+            by the denominator of the other fraction.
         </p>
 
         <div class="formula">
-            2 ÷ 4 = 6 ÷ D
+            A / B = C / D
+            <br>
+            A × D = B × C
         </div>
 
         <p>
-            Cross multiplication gives:
+            If D is missing, rearrange the equation:
         </p>
 
         <div class="formula">
-            2 × D = 4 × 6
-            <br>
-            2D = 24
-            <br>
-            D = 12
+            D = (B × C) / A
         </div>
 
-        <p>
-            Therefore, the missing value is <strong>12</strong>.
-        </p>
+        <h2>Proportion Formulas for Each Missing Value</h2>
 
-
-        <h2>
-            Proportion Formula
-        </h2>
-
-        <p>
-            For the proportion A ÷ B = C ÷ D, the missing value can be found
-            using cross multiplication:
-        </p>
+        <p>For the proportion A/B = C/D, use these formulas:</p>
 
         <div class="formula">
-            A = (B × C) ÷ D
-            <br>
-            B = (A × D) ÷ C
-            <br>
-            C = (A × D) ÷ B
-            <br>
-            D = (B × C) ÷ A
+            Missing A = (B × C) / D
+            <br><br>
+            Missing B = (A × D) / C
+            <br><br>
+            Missing C = (A × D) / B
+            <br><br>
+            Missing D = (B × C) / A
         </div>
 
+        <p>
+            The required division must be mathematically valid.
+            In the original proportion, B and D are denominators,
+            so neither can be zero.
+        </p>
 
-        <h2>
-            Example of a Proportion
-        </h2>
+        <h2>Worked Example: Find the Missing Fourth Value</h2>
 
         <div class="example">
-
-            <strong>Example:</strong>
-
-            <br><br>
-
-            3 ÷ 6 = 9 ÷ D
-
-            <br><br>
-
-            3 × D = 6 × 9
-
+            <strong>Given:</strong>
             <br>
-
-            3D = 54
-
-            <br>
-
-            D = 18
-
+            2 / 4 = 6 / D
             <br><br>
 
-            Therefore, the missing value is
-            <strong>18</strong>.
+            <strong>Step 1: Cross multiply</strong>
+            <br>
+            2 × D = 4 × 6
+            <br><br>
 
+            <strong>Step 2: Multiply</strong>
+            <br>
+            2D = 24
+            <br><br>
+
+            <strong>Step 3: Divide both sides by 2</strong>
+            <br>
+            D = 24 / 2
+            <br><br>
+
+            <strong>Answer: D = 12</strong>
         </div>
 
+        <h2>Where Are Proportions Used?</h2>
+        <ul>
+            <li><strong>Cooking:</strong> Adjusting recipe quantities for more or fewer people.</li>
+            <li><strong>Maps:</strong> Calculating actual distances from map scales.</li>
+            <li><strong>Construction:</strong> Working with measurements and scale drawings.</li>
+            <li><strong>Education:</strong> Solving ratio and proportion problems in mathematics.</li>
+            <li><strong>Science:</strong> Comparing quantities and scaling measurements.</li>
+            <li><strong>Everyday life:</strong> Comparing prices, quantities and measurements.</li>
+        </ul>
 
-        <h2>
-            Where Are Proportions Used?
-        </h2>
-
+        <h2>Proportion vs. Ratio</h2>
         <p>
-            Proportions are commonly used in mathematics, cooking, recipes,
-            measurements, maps, scale drawings, construction, science,
-            finance and many everyday calculations.
+            A ratio compares two quantities, while a proportion states
+            that two ratios are equal. For example, 2:4 is a ratio,
+            and 2:4 = 6:12 is a proportion.
         </p>
 
     </section>
 
-
     <section class="info-section">
-
-        <h2>
-            Related Math &amp; Advanced Tools
-        </h2>
+        <h2>Related Math &amp; Advanced Tools</h2>
+        <p>Explore these other free calculators:</p>
 
         <div class="related-tools">
-
-            <a href="percentage-calculator.html">
-                Percentage Calculator
-            </a>
-
-            <a href="average-calculator.html">
-                Average Calculator
-            </a>
-
-            <a href="fraction-calculator.html">
-                Fraction Calculator
-            </a>
-
-            <a href="ratio-calculator.html">
-                Ratio Calculator
-            </a>
-
-            <a href="gcd-lcm-calculator.html">
-                GCD &amp; LCM Calculator
-            </a>
-
-            <a href="percentage-increase-decrease.html">
-                Percentage Increase &amp; Decrease
-            </a>
-
-            <a href="number-to-words.html">
-                Number to Words
-            </a>
-
-            <a href="prime-number-checker.html">
-                Prime Number Checker
-            </a>
-
-            <a href="number-calculator.html">
-                Number Calculator
-            </a>
-
+            <a href="percentage-calculator.html">Percentage Calculator</a>
+            <a href="average-calculator.html">Average Calculator</a>
+            <a href="fraction-calculator.html">Fraction Calculator</a>
+            <a href="ratio-calculator.html">Ratio Calculator</a>
+            <a href="gcd-lcm-calculator.html">GCD &amp; LCM Calculator</a>
+            <a href="percentage-increase-decrease.html">Percentage Increase &amp; Decrease</a>
+            <a href="number-to-words.html">Number to Words</a>
+            <a href="prime-number-checker.html">Prime Number Checker</a>
+            <a href="number-calculator.html">Number Calculator</a>
         </div>
-
     </section>
-
-
-    <div class="internal-navigation">
-
-        <a href="tools.html">
-            ← All Tools
-        </a>
-
-        &nbsp; | &nbsp;
-
-        <a href="tools.html#math">
-            Math &amp; Advanced Calculators
-        </a>
-
-    </div>
-
 
     <section class="info-section">
-
-        <h2>
-            Frequently Asked Questions
-        </h2>
-
+        <h2>Frequently Asked Questions</h2>
 
         <div class="faq-item">
-
-            <h3>
-                What is a proportion calculator?
-            </h3>
-
+            <h3>1. What is a Proportion Calculator?</h3>
             <p>
-                A proportion calculator finds an unknown value when two ratios
-                are equal and three of the four values are known.
+                It solves an equation involving two equal ratios.
+                Enter three known values to find the fourth missing value.
             </p>
-
         </div>
-
 
         <div class="faq-item">
-
-            <h3>
-                How many values do I need?
-            </h3>
-
+            <h3>2. How many values do I need to enter?</h3>
             <p>
-                Enter three known values and leave exactly one value empty.
-                The calculator will find the missing value.
+                Enter exactly three known values and leave one field empty.
+                The calculator will solve for the missing value.
             </p>
-
         </div>
-
 
         <div class="faq-item">
-
-            <h3>
-                Can I use decimal values?
-            </h3>
-
+            <h3>3. What formula does this calculator use?</h3>
             <p>
-                Yes. Decimal numbers such as 2.5, 4.75 and 10.25 are supported.
+                It uses cross multiplication. For A/B = C/D,
+                the equivalent equation is A × D = B × C.
             </p>
-
         </div>
-
 
         <div class="faq-item">
-
-            <h3>
-                What formula is used?
-            </h3>
-
+            <h3>4. Can I use decimal values?</h3>
             <p>
-                The calculator uses cross multiplication to solve
-                A ÷ B = C ÷ D.
+                Yes. Decimal values such as 2.5, 4.75 and 10.25
+                are supported.
             </p>
-
         </div>
-
 
         <div class="faq-item">
-
-            <h3>
-                Can I use zero in a proportion?
-            </h3>
-
+            <h3>5. Can I use negative values?</h3>
             <p>
-                A denominator in a proportion cannot be zero. The calculator
-                checks the values to prevent invalid division by zero.
+                Yes. Negative values are supported when the resulting
+                proportion is mathematically valid.
             </p>
-
         </div>
-
 
         <div class="faq-item">
-
-            <h3>
-                Is this Proportion Calculator free?
-            </h3>
-
+            <h3>6. Can a denominator be zero?</h3>
             <p>
-                Yes. The calculator is free to use directly in your web browser
-                without installing additional software.
+                No. In A/B = C/D, both B and D are denominators.
+                Neither can be zero because division by zero is undefined.
             </p>
-
         </div>
 
+        <div class="faq-item">
+            <h3>7. Is this Proportion Calculator free?</h3>
+            <p>
+                Yes. It is free to use in your browser without
+                installing additional software.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>8. Does the calculator show the working steps?</h3>
+            <p>
+                Yes. After calculating, it displays the formula
+                and cross multiplication steps used to find the missing value.
+            </p>
+        </div>
     </section>
+
+    <div class="internal-navigation">
+        <a href="tools.html">← All Tools</a>
+        &nbsp; | &nbsp;
+        <a href="tools.html#math">Math &amp; Advanced Calculators</a>
+    </div>
 
 </main>
 
-
 <footer>
-
     © 2026 Easy Online Tool. All rights reserved.
 
     <div class="footer-links">
-
-        <a href="index.html">
-            Home
-        </a>
-
-        <a href="tools.html">
-            All Tools
-        </a>
-
-        <a href="index.html#categories">
-            Categories
-        </a>
-
-        <a href="index.html#about">
-            About
-        </a>
-
-        <a href="index.html#faq">
-            FAQ
-        </a>
-
-        <a href="privacy-policy.html">
-            Privacy
-        </a>
-
-        <a href="terms.html">
-            Terms
-        </a>
-
-        <a href="contact.html">
-            Contact
-        </a>
-
+        <a href="index.html">Home</a>
+        <a href="tools.html">All Tools</a>
+        <a href="index.html#categories">Categories</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="privacy-policy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
     </div>
-
 </footer>
 
-
 <script>
+"use strict";
+
+const inputIds = ["a", "b", "c", "d"];
 
 function formatNumber(value) {
+    if (Object.is(value, -0)) {
+        value = 0;
+    }
 
-    return value.toLocaleString("en-US", {
-        minimumFractionDigits: 0,
+    return Number(value.toPrecision(12)).toLocaleString("en-US", {
         maximumFractionDigits: 10
     });
-
 }
 
-
 function showError(message) {
-
     const error = document.getElementById("error");
     const results = document.getElementById("results");
 
     error.textContent = message;
     error.style.display = "block";
     results.style.display = "none";
-
 }
 
-
 function calculateProportion() {
-
-    const aInput = document.getElementById("a");
-    const bInput = document.getElementById("b");
-    const cInput = document.getElementById("c");
-    const dInput = document.getElementById("d");
-
     const error = document.getElementById("error");
     const results = document.getElementById("results");
 
+    error.textContent = "";
     error.style.display = "none";
     results.style.display = "none";
 
+    const values = {};
+    const emptyFields = [];
 
-    const fields = [
-        {
-            input: aInput,
-            name: "A"
-        },
-        {
-            input: bInput,
-            name: "B"
-        },
-        {
-            input: cInput,
-            name: "C"
-        },
-        {
-            input: dInput,
-            name: "D"
+    for (const id of inputIds) {
+        const raw = document.getElementById(id).value.trim();
+
+        if (raw === "") {
+            emptyFields.push(id.toUpperCase());
+            continue;
         }
-    ];
 
+        const value = Number(raw);
 
-    const emptyFields = fields.filter(function(field) {
+        if (!Number.isFinite(value)) {
+            showError("Please enter valid finite numbers in all completed fields.");
+            document.getElementById(id).focus();
+            return;
+        }
 
-        return field.input.value.trim() === "";
-
-    });
-
+        values[id.toUpperCase()] = value;
+    }
 
     if (emptyFields.length !== 1) {
-
-        showError(
-            "Please enter exactly three values and leave exactly one value empty."
-        );
-
+        showError("Please enter exactly three values and leave exactly one field empty.");
         return;
     }
 
-
-    const values = {};
-
-
-    for (const field of fields) {
-
-        if (field.input.value.trim() !== "") {
-
-            const value = Number(field.input.value);
-
-            if (!Number.isFinite(value)) {
-
-                showError(
-                    "Please enter valid numbers."
-                );
-
-                return;
-            }
-
-            values[field.name] = value;
-
-        }
-
-    }
-
-
-    let missing;
+    const missing = emptyFields[0];
     let answer;
+    let steps = [];
 
+    const A = values.A;
+    const B = values.B;
+    const C = values.C;
+    const D = values.D;
 
-    /*
-     * Proportion:
-     *
-     * A / B = C / D
-     *
-     * Both B and D are denominators and therefore
-     * cannot be zero in a valid proportion.
-     */
-
-
-    if (!("A" in values)) {
-
-        if (values.B === 0 || values.D === 0) {
-
-            showError(
-                "The second and fourth values cannot be zero because they are denominators."
-            );
-
+    if (missing === "A") {
+        // A / B = C / D, so A = (B × C) / D
+        if (D === 0) {
+            showError("D cannot be zero because it is a denominator in the proportion.");
             return;
         }
 
-        answer =
-            (values.B * values.C) / values.D;
+        answer = (B * C) / D;
 
-        missing = "A";
-
+        steps = [
+            "Start with A / B = C / D",
+            "Cross multiply: A × D = B × C",
+            "Substitute the known values: A × " + formatNumber(D) +
+                " = " + formatNumber(B) + " × " + formatNumber(C),
+            "A = (" + formatNumber(B) + " × " + formatNumber(C) +
+                ") / " + formatNumber(D),
+            "A = " + formatNumber(answer)
+        ];
     }
 
-
-    else if (!("B" in values)) {
-
-        if (values.C === 0 || values.A === 0 || values.D === 0) {
-
-            showError(
-                "This proportion cannot be solved because a required denominator would be zero."
-            );
-
+    else if (missing === "B") {
+        // A / B = C / D, so B = (A × D) / C
+        if (C === 0) {
+            showError("C cannot be zero when calculating B because it would require division by zero.");
             return;
         }
 
-        answer =
-            (values.A * values.D) / values.C;
+        answer = (A * D) / C;
 
-        missing = "B";
-
+        steps = [
+            "Start with A / B = C / D",
+            "Cross multiply: A × D = B × C",
+            "Substitute the known values: " + formatNumber(A) +
+                " × " + formatNumber(D) + " = B × " + formatNumber(C),
+            "B = (" + formatNumber(A) + " × " + formatNumber(D) +
+                ") / " + formatNumber(C),
+            "B = " + formatNumber(answer)
+        ];
     }
 
-
-    else if (!("C" in values)) {
-
-        if (values.B === 0 || values.A === 0 || values.D === 0) {
-
-            showError(
-                "This proportion cannot be solved because a required denominator would be zero."
-            );
-
+    else if (missing === "C") {
+        // A / B = C / D, so C = (A × D) / B
+        if (B === 0) {
+            showError("B cannot be zero because it is a denominator in the proportion.");
             return;
         }
 
-        answer =
-            (values.A * values.D) / values.B;
+        answer = (A * D) / B;
 
-        missing = "C";
-
+        steps = [
+            "Start with A / B = C / D",
+            "Cross multiply: A × D = B × C",
+            "Substitute the known values: " + formatNumber(A) +
+                " × " + formatNumber(D) + " = " + formatNumber(B) + " × C",
+            "C = (" + formatNumber(A) + " × " + formatNumber(D) +
+                ") / " + formatNumber(B),
+            "C = " + formatNumber(answer)
+        ];
     }
-
 
     else {
-
-        if (values.A === 0 || values.B === 0) {
-
-            showError(
-                "The first and second values cannot be zero when calculating the fourth value."
-            );
-
+        // A / B = C / D, so D = (B × C) / A
+        if (A === 0) {
+            showError("A cannot be zero when calculating D because it would require division by zero.");
             return;
         }
 
-        answer =
-            (values.B * values.C) / values.A;
+        answer = (B * C) / A;
 
-        missing = "D";
-
+        steps = [
+            "Start with A / B = C / D",
+            "Cross multiply: A × D = B × C",
+            "Substitute the known values: " + formatNumber(A) +
+                " × D = " + formatNumber(B) + " × " + formatNumber(C),
+            "D = (" + formatNumber(B) + " × " + formatNumber(C) +
+                ") / " + formatNumber(A),
+            "D = " + formatNumber(answer)
+        ];
     }
 
-
     if (!Number.isFinite(answer)) {
-
-        showError(
-            "The calculation could not be completed. Please check your values."
-        );
-
+        showError("The result is outside the supported calculation range. Please use smaller values.");
         return;
     }
 
-
-    /*
-     * The final proportion must have non-zero denominators.
-     * B and D are the denominators in A/B = C/D.
-     */
-
-
-    let finalValues = {
-
-        A: values.A,
-        B: values.B,
-        C: values.C,
-        D: values.D
-
+    const finalValues = {
+        A: A,
+        B: B,
+        C: C,
+        D: D
     };
-
 
     finalValues[missing] = answer;
 
-
-    if (
-        finalValues.B === 0 ||
-        finalValues.D === 0
-    ) {
-
-        showError(
-            "The resulting proportion would contain division by zero. Please use different values."
-        );
-
+    // A/B = C/D requires non-zero denominators B and D.
+    if (finalValues.B === 0 || finalValues.D === 0) {
+        showError("This would create division by zero. The proportion is not valid.");
         return;
     }
 
+    const left = finalValues.A / finalValues.B;
+    const right = finalValues.C / finalValues.D;
+
+    const difference = Math.abs(left - right);
+    const tolerance = 1e-10 * Math.max(1, Math.abs(left), Math.abs(right));
+
+    if (difference > tolerance) {
+        showError("The values could not produce a consistent proportion. Please check your inputs.");
+        return;
+    }
 
     document.getElementById("proportionDisplay").textContent =
-
-        formatNumber(finalValues.A) +
-        " ÷ " +
-        formatNumber(finalValues.B) +
-        " = " +
-        formatNumber(finalValues.C) +
-        " ÷ " +
+        formatNumber(finalValues.A) + " / " +
+        formatNumber(finalValues.B) + " = " +
+        formatNumber(finalValues.C) + " / " +
         formatNumber(finalValues.D);
-
 
     document.getElementById("missingLabel").textContent =
         "Value " + missing;
 
-
     document.getElementById("answer").textContent =
-        formatNumber(answer);
+        missing + " = " + formatNumber(answer);
 
+    const stepsContent = document.getElementById("stepsContent");
+    stepsContent.replaceChildren();
+
+    steps.forEach(function(step) {
+        const paragraph = document.createElement("p");
+        paragraph.textContent = step;
+        stepsContent.appendChild(paragraph);
+    });
 
     results.style.display = "block";
 
-
     if (window.innerWidth <= 700) {
-
         results.scrollIntoView({
             behavior: "smooth",
             block: "start"
         });
-
     }
-
 }
-
 
 function resetCalculator() {
-
-    document.getElementById("a").value = "";
-    document.getElementById("b").value = "";
-    document.getElementById("c").value = "";
-    document.getElementById("d").value = "";
-
-    document.getElementById("error").style.display = "none";
-    document.getElementById("results").style.display = "none";
-
-}
-
-
-document.querySelectorAll("input").forEach(function(input) {
-
-    input.addEventListener("keydown", function(event) {
-
-        if (event.key === "Enter") {
-
-            event.preventDefault();
-
-            calculateProportion();
-
-        }
-
+    inputIds.forEach(function(id) {
+        document.getElementById(id).value = "";
     });
 
+    document.getElementById("error").textContent = "";
+    document.getElementById("error").style.display = "none";
+    document.getElementById("results").style.display = "none";
+    document.getElementById("stepsContent").replaceChildren();
+
+    document.getElementById("a").focus();
+}
+
+document.getElementById("calculateBtn").addEventListener(
+    "click",
+    calculateProportion
+);
+
+document.getElementById("resetBtn").addEventListener(
+    "click",
+    resetCalculator
+);
+
+document.querySelectorAll(".example-btn").forEach(function(button) {
+    button.addEventListener("click", function() {
+        const values = button.dataset.values.split(",");
+
+        inputIds.forEach(function(id, index) {
+            document.getElementById(id).value = values[index];
+        });
+
+        calculateProportion();
+    });
 });
 
+document.querySelectorAll(".calculator-box input").forEach(function(input) {
+    input.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            calculateProportion();
+        }
+    });
+});
 </script>
 
 </body>
