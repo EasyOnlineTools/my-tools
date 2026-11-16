@@ -2,27 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Number Calculator – Basic Number Operations | Easy Online Tool</title>
-
-    <meta name="description" content="Use this free Number Calculator to perform addition, subtraction, multiplication, division, percentages and other basic number calculations quickly and easily.">
-
-    <meta name="keywords" content="number calculator, number calculator online, basic calculator, simple number calculator, addition calculator, subtraction calculator, multiplication calculator, division calculator, free online calculator">
-
+    <meta name="description" content="Use this free Number Calculator for addition, subtraction, multiplication, division and percentage calculations. Get quick results with formulas and worked examples.">
+    <meta name="keywords" content="number calculator, basic calculator, addition calculator, subtraction calculator, multiplication calculator, division calculator, percentage calculator, free online calculator">
     <meta name="robots" content="index, follow">
-
     <link rel="canonical" href="https://easyonlinetools.online/number-calculator.html">
 
-    <!-- Open Graph -->
     <meta property="og:title" content="Number Calculator – Basic Number Operations | Easy Online Tool">
-    <meta property="og:description" content="Free online Number Calculator for addition, subtraction, multiplication, division and other basic number calculations.">
+    <meta property="og:description" content="Perform addition, subtraction, multiplication, division and percentage calculations with this free online calculator.">
     <meta property="og:url" content="https://easyonlinetools.online/number-calculator.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Easy Online Tool">
 
-    <!-- WebApplication Schema -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -31,7 +24,7 @@
         "url": "https://easyonlinetools.online/number-calculator.html",
         "applicationCategory": "CalculatorApplication",
         "operatingSystem": "All",
-        "description": "A free online Number Calculator for performing basic mathematical operations including addition, subtraction, multiplication, division and percentage calculations.",
+        "description": "A free online calculator for addition, subtraction, multiplication, division and percentage calculations.",
         "browserRequirements": "Requires a modern web browser",
         "offers": {
             "@type": "Offer",
@@ -46,57 +39,76 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --text: #172033;
+            --muted: #64748b;
+            --border: #e2e8f0;
+            --background: #f4f7fc;
+            --soft-blue: #eff6ff;
+        }
+
         html {
             scroll-behavior: smooth;
         }
 
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f5f7fa;
-            color: #222;
-            line-height: 1.6;
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.7;
         }
 
         header {
-            background: #ffffff;
-            border-bottom: 1px solid #ddd;
+            background: #fff;
+            border-bottom: 1px solid var(--border);
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 100;
         }
 
         .header-container {
-            max-width: 1100px;
+            max-width: 1150px;
             margin: auto;
-            padding: 15px 20px;
+            padding: 17px 22px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 22px;
         }
 
         .logo {
-            font-size: 22px;
-            font-weight: bold;
-            color: #222;
+            font-size: 23px;
+            font-weight: 800;
+            color: var(--primary);
             text-decoration: none;
+            white-space: nowrap;
+            letter-spacing: -0.5px;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
         nav a {
-            margin-left: 18px;
+            color: #334155;
             text-decoration: none;
-            color: #333;
-            font-weight: 500;
+            font-size: 14px;
+            font-weight: 600;
         }
 
         nav a:hover {
-            color: #007bff;
+            color: var(--primary);
         }
 
         .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
+            max-width: 1000px;
+            margin: auto;
+            padding: 42px 20px 55px;
         }
 
         .hero {
@@ -104,23 +116,61 @@
             margin-bottom: 30px;
         }
 
+        .eyebrow {
+            display: inline-block;
+            padding: 5px 13px;
+            border-radius: 30px;
+            background: #dbeafe;
+            color: var(--primary-dark);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+        }
+
         .hero h1 {
-            font-size: 34px;
-            margin-bottom: 10px;
+            font-size: clamp(29px, 5vw, 42px);
+            line-height: 1.2;
+            margin: 15px 0 12px;
+            letter-spacing: -1px;
         }
 
         .hero p {
-            color: #666;
-            font-size: 17px;
+            max-width: 700px;
+            margin: auto;
+            color: var(--muted);
+            font-size: 16px;
         }
 
         .calculator {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
-            max-width: 600px;
+            max-width: 720px;
             margin: auto;
+            padding: 30px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            box-shadow: 0 12px 35px rgba(15, 23, 42, .07);
+        }
+
+        .calculator-heading {
+            margin-bottom: 24px;
+        }
+
+        .calculator-heading h2 {
+            margin: 0 0 5px;
+            font-size: 23px;
+        }
+
+        .calculator-heading p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .input-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
         }
 
         .input-group {
@@ -129,143 +179,317 @@
 
         label {
             display: block;
-            font-weight: bold;
-            margin-bottom: 7px;
+            margin-bottom: 8px;
+            font-weight: 700;
+            font-size: 14px;
         }
 
         input,
         select {
+            display: block;
             width: 100%;
-            padding: 13px;
-            border: 1px solid #ccc;
-            border-radius: 7px;
+            padding: 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 9px;
+            background: #fff;
+            color: var(--text);
+            font-family: inherit;
             font-size: 16px;
         }
 
         input:focus,
         select:focus {
             outline: none;
-            border-color: #007bff;
-            box-shadow: 0 0 0 2px rgba(0,123,255,0.1);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, .13);
         }
 
         .operation-help {
             display: block;
-            margin-top: 6px;
-            color: #666;
+            margin-top: 7px;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .quick-examples {
+            margin: 8px 0 22px;
+        }
+
+        .quick-examples p {
+            margin: 0 0 10px;
             font-size: 14px;
+            font-weight: 700;
+        }
+
+        .example-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+        .example-btn {
+            width: auto;
+            margin: 0;
+            padding: 8px 13px;
+            border: 1px solid #bfdbfe;
+            border-radius: 7px;
+            background: #eff6ff;
+            color: #1d4ed8;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .example-btn:hover {
+            background: #dbeafe;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 12px;
         }
 
         button {
-            width: 100%;
-            padding: 14px;
-            border: none;
-            border-radius: 7px;
-            background: #007bff;
-            color: white;
-            font-size: 17px;
-            cursor: pointer;
-            margin-top: 8px;
+            font-family: inherit;
         }
 
-        button:hover {
-            background: #0056b3;
+        .calculate-btn,
+        .clear-btn {
+            padding: 14px 22px;
+            border: none;
+            border-radius: 9px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background .2s, transform .2s;
+        }
+
+        .calculate-btn {
+            flex: 1;
+            background: var(--primary);
+            color: white;
+        }
+
+        .calculate-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
         }
 
         .clear-btn {
-            background: #6c757d;
+            background: #e2e8f0;
+            color: #334155;
         }
 
         .clear-btn:hover {
-            background: #545b62;
+            background: #cbd5e1;
+        }
+
+        button:focus-visible,
+        a:focus-visible {
+            outline: 3px solid #93c5fd;
+            outline-offset: 3px;
+        }
+
+        .error {
+            display: none;
+            margin-top: 20px;
+            padding: 13px 15px;
+            border: 1px solid #fecaca;
+            border-radius: 9px;
+            background: #fef2f2;
+            color: #b91c1c;
+            font-size: 14px;
         }
 
         .result {
             display: none;
-            margin-top: 25px;
-            padding: 20px;
-            background: #f1f8ff;
-            border: 1px solid #cfe5ff;
-            border-radius: 8px;
-            text-align: center;
+            margin-top: 24px;
+            padding: 23px;
+            border: 1px solid #bbf7d0;
+            border-radius: 12px;
+            background: #f0fdf4;
         }
 
         .result h2 {
-            margin-top: 0;
-            font-size: 20px;
+            margin: 0 0 15px;
+            color: #166534;
+            font-size: 19px;
+        }
+
+        .result-main {
+            padding: 18px;
+            margin-bottom: 16px;
+            border: 1px solid #dcfce7;
+            border-radius: 10px;
+            background: #fff;
+            text-align: center;
+        }
+
+        .result-main span {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--muted);
+            font-size: 13px;
         }
 
         .result-value {
-            font-size: 30px;
-            font-weight: bold;
-            color: #007bff;
-            word-break: break-word;
+            display: block;
+            color: #15803d;
+            font-size: clamp(26px, 5vw, 35px);
+            font-weight: 800;
+            overflow-wrap: anywhere;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 10px 0;
+            border-bottom: 1px solid #dcfce7;
+            font-size: 14px;
+        }
+
+        .result-row:last-of-type {
+            border-bottom: none;
+        }
+
+        .result-row strong {
+            text-align: right;
+            overflow-wrap: anywhere;
+        }
+
+        .result-note {
+            margin: 14px 0 0;
+            color: #166534;
+            font-size: 14px;
         }
 
         .content-section {
-            background: #ffffff;
-            padding: 30px;
-            margin-top: 35px;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 28px;
+            margin-top: 25px;
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            background: #fff;
+            box-shadow: 0 5px 20px rgba(15, 23, 42, .035);
         }
 
         .content-section h2 {
-            margin-top: 0;
+            margin: 0 0 13px;
+            font-size: 23px;
+            line-height: 1.35;
         }
 
         .content-section h3 {
-            margin-top: 28px;
+            margin: 24px 0 8px;
+            font-size: 18px;
         }
 
-        .content-section p,
+        .content-section p {
+            margin: 10px 0;
+            color: #475569;
+        }
+
         .content-section li {
-            line-height: 1.7;
+            margin-bottom: 7px;
+            color: #475569;
         }
 
         .formula {
-            background: #f1f5f9;
-            padding: 15px;
-            border-radius: 7px;
+            padding: 16px;
+            margin: 16px 0;
+            border: 1px solid #dbeafe;
+            border-radius: 9px;
+            background: var(--soft-blue);
+            color: #1d4ed8;
             text-align: center;
+            font-size: 20px;
+            font-weight: 700;
+            overflow-wrap: anywhere;
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .example-card {
+            padding: 15px;
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            background: #f8fafc;
+        }
+
+        .example-card strong {
+            display: block;
+            margin-bottom: 4px;
+            color: #1d4ed8;
             font-size: 18px;
-            font-weight: bold;
-            margin: 15px 0;
+        }
+
+        .example-card span {
+            color: var(--muted);
+            font-size: 13px;
         }
 
         .related-tools {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
             margin-top: 20px;
         }
 
         .tool-link {
             display: block;
-            padding: 15px;
-            background: #f7f9fc;
-            border: 1px solid #e1e5ea;
-            border-radius: 8px;
-            text-decoration: none;
-            color: #222;
+            padding: 14px 12px;
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            background: #f8fafc;
+            color: #1d4ed8;
             text-align: center;
-            font-weight: 600;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            transition: background .2s, border-color .2s;
         }
 
         .tool-link:hover {
-            background: #eef5ff;
-            color: #007bff;
+            background: #eff6ff;
+            border-color: #bfdbfe;
+        }
+
+        .faq-item {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .faq-item:last-child {
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .faq-item h3 {
+            margin: 0 0 6px;
+            font-size: 17px;
+        }
+
+        .faq-item p {
+            margin: 0;
         }
 
         .internal-nav {
+            margin: 30px 0 10px;
             text-align: center;
-            margin: 30px 0;
+            font-size: 14px;
         }
 
         .internal-nav a {
-            color: #007bff;
+            color: var(--primary);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .internal-nav a:hover {
@@ -273,53 +497,88 @@
         }
 
         footer {
-            background: #222;
-            color: #ddd;
-            margin-top: 50px;
-            padding: 30px 20px;
+            margin-top: 35px;
+            padding: 28px 20px;
+            border-top: 1px solid var(--border);
+            background: #fff;
+            color: #64748b;
             text-align: center;
+            font-size: 14px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px 17px;
+            margin-top: 12px;
         }
 
         footer a {
-            color: #ddd;
+            color: var(--primary);
             text-decoration: none;
-            margin: 0 8px;
         }
 
         footer a:hover {
-            color: #fff;
+            text-decoration: underline;
         }
 
         @media (max-width: 700px) {
-
             .header-container {
                 flex-direction: column;
-                gap: 12px;
+                padding: 16px;
             }
 
             nav {
-                text-align: center;
+                justify-content: center;
+                gap: 12px 16px;
             }
 
-            nav a {
-                display: inline-block;
-                margin: 5px 7px;
+            .container {
+                padding: 30px 15px 40px;
             }
 
-            .hero h1 {
-                font-size: 28px;
-            }
-
-            .calculator {
-                padding: 22px;
-            }
-
+            .calculator,
             .content-section {
-                padding: 22px;
+                padding: 21px;
             }
 
-            .result-value {
-                font-size: 26px;
+            .input-grid {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .calculate-btn,
+            .clear-btn {
+                width: 100%;
+            }
+
+            .related-tools {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .result-row {
+                flex-direction: column;
+                gap: 3px;
+            }
+
+            .result-row strong {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .example-grid,
+            .related-tools {
+                grid-template-columns: 1fr;
+            }
+
+            .hero p {
+                font-size: 14px;
             }
         }
     </style>
@@ -329,589 +588,596 @@
 
 <header>
     <div class="header-container">
+        <a href="index.html" class="logo">Easy Online Tool</a>
 
-        <a href="index.html" class="logo">
-            Easy Online Tool
-        </a>
-
-        <nav>
+        <nav aria-label="Main navigation">
             <a href="index.html">Home</a>
             <a href="tools.html">Tools</a>
             <a href="index.html#categories">Categories</a>
             <a href="index.html#about">About</a>
             <a href="index.html#faq">FAQ</a>
         </nav>
-
     </div>
 </header>
-
 
 <main class="container">
 
     <section class="hero">
-
+        <span class="eyebrow">Free Math Calculator</span>
         <h1>Number Calculator</h1>
-
         <p>
-            Perform basic number calculations including addition,
-            subtraction, multiplication, division and percentage
-            calculations quickly and easily.
+            Perform addition, subtraction, multiplication, division and
+            percentage calculations quickly. Enter your numbers, choose
+            an operation and view your answer instantly.
         </p>
-
     </section>
 
+    <section class="calculator" aria-labelledby="calculator-title">
 
-    <section class="calculator">
-
-        <div class="input-group">
-
-            <label for="number1">
-                First Number
-            </label>
-
-            <input
-                type="number"
-                id="number1"
-                placeholder="Enter first number"
-                step="any"
-            >
-
+        <div class="calculator-heading">
+            <h2 id="calculator-title">Calculate with Two Numbers</h2>
+            <p>Choose an operation and enter the two values below.</p>
         </div>
 
-
-        <div class="input-group">
-
-            <label for="operation">
-                Operation
-            </label>
-
-            <select id="operation">
-
-                <option value="add">
-                    Addition (+)
-                </option>
-
-                <option value="subtract">
-                    Subtraction (−)
-                </option>
-
-                <option value="multiply">
-                    Multiplication (×)
-                </option>
-
-                <option value="divide">
-                    Division (÷)
-                </option>
-
-                <option value="percent">
-                    Percentage of a Number (%)
-                </option>
-
-            </select>
-
-            <small class="operation-help">
-                For percentage calculations, enter the percentage as the
-                first number and the total as the second number.
-                Example: 25% of 200 = 50.
-            </small>
-
-        </div>
-
-
-        <div class="input-group">
-
-            <label for="number2">
-                Second Number
-            </label>
-
-            <input
-                type="number"
-                id="number2"
-                placeholder="Enter second number"
-                step="any"
-            >
-
-        </div>
-
-
-        <button onclick="calculateNumber()">
-            Calculate
-        </button>
-
-
-        <button
-            class="clear-btn"
-            onclick="clearCalculator()"
-        >
-            Clear
-        </button>
-
-
-        <div class="result" id="result">
-
-            <h2>Result</h2>
-
-            <div
-                class="result-value"
-                id="resultValue"
-            >
-                0
+        <div class="input-grid">
+            <div class="input-group">
+                <label for="number1">First Number</label>
+                <input
+                    type="number"
+                    id="number1"
+                    placeholder="For example, 25"
+                    step="any"
+                    inputmode="decimal"
+                    autocomplete="off"
+                >
             </div>
 
+            <div class="input-group">
+                <label for="number2">Second Number</label>
+                <input
+                    type="number"
+                    id="number2"
+                    placeholder="For example, 15"
+                    step="any"
+                    inputmode="decimal"
+                    autocomplete="off"
+                >
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label for="operation">Select Operation</label>
+
+            <select id="operation">
+                <option value="add">Addition (+)</option>
+                <option value="subtract">Subtraction (−)</option>
+                <option value="multiply">Multiplication (×)</option>
+                <option value="divide">Division (÷)</option>
+                <option value="percent">Percentage of a Number (%)</option>
+            </select>
+
+            <small class="operation-help" id="operationHelp">
+                Add the first number to the second number.
+            </small>
+        </div>
+
+        <div class="quick-examples">
+            <p>Try a quick example:</p>
+
+            <div class="example-buttons">
+                <button type="button" class="example-btn"
+                    data-a="25" data-b="15" data-operation="add">
+                    25 + 15
+                </button>
+
+                <button type="button" class="example-btn"
+                    data-a="50" data-b="20" data-operation="subtract">
+                    50 − 20
+                </button>
+
+                <button type="button" class="example-btn"
+                    data-a="12" data-b="5" data-operation="multiply">
+                    12 × 5
+                </button>
+
+                <button type="button" class="example-btn"
+                    data-a="100" data-b="4" data-operation="divide">
+                    100 ÷ 4
+                </button>
+
+                <button type="button" class="example-btn"
+                    data-a="25" data-b="200" data-operation="percent">
+                    25% of 200
+                </button>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button type="button" class="calculate-btn" id="calculateBtn">
+                Calculate
+            </button>
+
+            <button type="button" class="clear-btn" id="clearBtn">
+                Clear
+            </button>
+        </div>
+
+        <div class="error" id="error" role="alert" aria-live="assertive"></div>
+
+        <div class="result" id="result" aria-live="polite" aria-atomic="true">
+            <h2>Your Calculation Result</h2>
+
+            <div class="result-main">
+                <span>Answer</span>
+                <strong class="result-value" id="resultValue"></strong>
+            </div>
+
+            <div class="result-row">
+                <span>Calculation</span>
+                <strong id="calculation"></strong>
+            </div>
+
+            <div class="result-row">
+                <span>Operation</span>
+                <strong id="operationName"></strong>
+            </div>
+
+            <p class="result-note" id="resultNote"></p>
         </div>
 
     </section>
 
-
     <div class="internal-nav">
-
-        <a href="tools.html">
-            ← All Tools
-        </a>
-
+        <a href="tools.html">← All Tools</a>
         &nbsp; | &nbsp;
-
-        <a href="tools.html#math">
-            Math &amp; Advanced Calculators
-        </a>
-
+        <a href="tools.html#math">Math &amp; Advanced Calculators</a>
     </div>
 
-
     <section class="content-section">
-
         <h2>What Is a Number Calculator?</h2>
 
         <p>
-            A Number Calculator is a simple online tool that helps you
-            perform common mathematical operations quickly. Instead of
-            calculating numbers manually, you can enter your values,
-            select an operation and instantly see the result.
+            A number calculator is an online tool for performing common
+            mathematical operations. It helps you work with numbers
+            without doing every calculation manually.
         </p>
 
         <p>
-            This free calculator supports addition, subtraction,
-            multiplication, division and percentage calculations. It can
-            be useful for students, teachers, professionals and anyone
-            who needs quick everyday calculations.
+            This calculator supports addition, subtraction,
+            multiplication, division and percentage calculations.
+            It is useful for students, teachers, professionals and
+            everyday calculations.
         </p>
-
 
         <h2>How to Use the Number Calculator</h2>
 
         <ol>
-
-            <li>
-                Enter your first number.
-            </li>
-
-            <li>
-                Select the mathematical operation you want to perform.
-            </li>
-
-            <li>
-                Enter the second number.
-            </li>
-
-            <li>
-                Click the <strong>Calculate</strong> button.
-            </li>
-
-            <li>
-                Your answer will appear immediately.
-            </li>
-
+            <li>Enter your first number in the first input box.</li>
+            <li>Enter your second number in the second input box.</li>
+            <li>Select the operation you want to perform.</li>
+            <li>Click the Calculate button to see your answer.</li>
+            <li>Use the Clear button to start a new calculation.</li>
         </ol>
 
+        <p>
+            You can enter positive numbers, negative numbers and decimal
+            values. You can also select one of the quick examples to
+            fill the calculator automatically.
+        </p>
+    </section>
 
+    <section class="content-section">
         <h2>Number Calculator Formulas</h2>
 
         <p>
-            The calculator uses standard mathematical operations for
-            the selected calculation.
+            The calculator uses these standard mathematical formulas.
+            A and B represent the two numbers entered.
         </p>
 
-        <div class="formula">
-            Addition: A + B
-        </div>
+        <h3>1. Addition</h3>
+        <p>Addition combines two or more numbers to find their total.</p>
+        <div class="formula">A + B = Sum</div>
+        <p>Example: 25 + 15 = 40</p>
 
-        <div class="formula">
-            Subtraction: A − B
-        </div>
+        <h3>2. Subtraction</h3>
+        <p>Subtraction finds the difference between two numbers.</p>
+        <div class="formula">A − B = Difference</div>
+        <p>Example: 50 − 20 = 30</p>
 
-        <div class="formula">
-            Multiplication: A × B
-        </div>
+        <h3>3. Multiplication</h3>
+        <p>Multiplication is repeated addition of a number.</p>
+        <div class="formula">A × B = Product</div>
+        <p>Example: 12 × 5 = 60</p>
 
-        <div class="formula">
-            Division: A ÷ B
-        </div>
+        <h3>4. Division</h3>
+        <p>Division splits a number into equal parts or groups.</p>
+        <div class="formula">A ÷ B = Quotient</div>
+        <p>Example: 100 ÷ 4 = 25</p>
 
-        <div class="formula">
-            Percentage: (A ÷ 100) × B
-        </div>
-
-
-        <h2>Examples</h2>
-
+        <h3>5. Percentage of a Number</h3>
         <p>
-            For example, if you enter 25 as the first number,
-            select Addition and enter 15 as the second number,
-            the result will be 40.
+            To calculate a percentage of a number, divide the percentage
+            by 100 and multiply it by the total.
         </p>
-
-        <p>
-            If you select Subtraction and enter 50 and 20,
-            the result will be 30.
-        </p>
-
-        <p>
-            Selecting Multiplication with 12 and 5 will
-            produce a result of 60.
-        </p>
-
-        <p>
-            For division, entering 100 and 4 produces a result of 25.
-        </p>
-
-        <p>
-            For a percentage calculation, entering 25 as the first number
-            and 200 as the second number calculates 25% of 200, which is 50.
-        </p>
-
-
-        <h2>Why Use This Calculator?</h2>
-
-        <ul>
-
-            <li>
-                Free to use
-            </li>
-
-            <li>
-                No registration required
-            </li>
-
-            <li>
-                Works on desktop and mobile devices
-            </li>
-
-            <li>
-                Fast and simple calculations
-            </li>
-
-            <li>
-                Supports decimal numbers
-            </li>
-
-            <li>
-                Useful for everyday mathematical problems
-            </li>
-
-        </ul>
-
-
-        <h2>Important Note</h2>
-
-        <p>
-            This calculator is designed for general mathematical and
-            educational purposes. For important financial, business or
-            other decisions, verify calculations independently when
-            appropriate.
-        </p>
-
+        <div class="formula">(A ÷ 100) × B = Percentage</div>
+        <p>Example: 25% of 200 = (25 ÷ 100) × 200 = 50</p>
     </section>
 
+    <section class="content-section">
+        <h2>Worked Calculation Examples</h2>
+
+        <p>
+            Here are some examples showing how the five calculator
+            operations work.
+        </p>
+
+        <div class="example-grid">
+            <div class="example-card">
+                <strong>25 + 15 = 40</strong>
+                <span>Addition: the total of two numbers.</span>
+            </div>
+
+            <div class="example-card">
+                <strong>50 − 20 = 30</strong>
+                <span>Subtraction: the difference between numbers.</span>
+            </div>
+
+            <div class="example-card">
+                <strong>12 × 5 = 60</strong>
+                <span>Multiplication: the product of two numbers.</span>
+            </div>
+
+            <div class="example-card">
+                <strong>100 ÷ 4 = 25</strong>
+                <span>Division: the quotient of two numbers.</span>
+            </div>
+
+            <div class="example-card">
+                <strong>25% of 200 = 50</strong>
+                <span>Percentage: a part of the total amount.</span>
+            </div>
+
+            <div class="example-card">
+                <strong>7.5 + 2.5 = 10</strong>
+                <span>Decimal calculation: adding decimal values.</span>
+            </div>
+        </div>
+    </section>
 
     <section class="content-section">
+        <h2>Why Use This Online Number Calculator?</h2>
 
+        <ul>
+            <li>Free to use without registration.</li>
+            <li>Supports five common mathematical operations.</li>
+            <li>Accepts whole numbers, decimals and negative numbers.</li>
+            <li>Provides quick results and shows the calculation.</li>
+            <li>Includes examples to help users understand each operation.</li>
+            <li>Works on desktop, tablet and mobile devices.</li>
+            <li>Requires no software installation.</li>
+        </ul>
+
+        <h3>Important Note About Division</h3>
+        <p>
+            Division by zero is undefined in ordinary arithmetic.
+            Therefore, this calculator displays an error if the
+            second number is zero when division is selected.
+        </p>
+    </section>
+
+    <section class="content-section">
         <h2>Related Math Calculators</h2>
 
         <p>
-            Explore other free math and advanced calculators for
-            percentages, averages, fractions, ratios, number properties,
-            proportions, powers and scientific calculations.
+            Explore other free calculators for percentages, averages,
+            fractions, ratios, proportions, powers and scientific
+            calculations.
         </p>
 
         <div class="related-tools">
+            <a class="tool-link" href="percentage-calculator.html">Percentage Calculator</a>
+            <a class="tool-link" href="average-calculator.html">Average Calculator</a>
+            <a class="tool-link" href="fraction-calculator.html">Fraction Calculator</a>
+            <a class="tool-link" href="ratio-calculator.html">Ratio Calculator</a>
+            <a class="tool-link" href="gcd-lcm-calculator.html">GCD &amp; LCM Calculator</a>
+            <a class="tool-link" href="prime-number-checker.html">Prime Number Checker</a>
+            <a class="tool-link" href="percentage-increase-decrease.html">Percentage Increase &amp; Decrease</a>
+            <a class="tool-link" href="number-to-words.html">Number to Words</a>
+            <a class="tool-link" href="proportion-calculator.html">Proportion Calculator</a>
+            <a class="tool-link" href="scientific-calculator.html">Scientific Calculator</a>
+            <a class="tool-link" href="exponent-calculator.html">Exponent Calculator</a>
+            <a class="tool-link" href="square-root-calculator.html">Square Root Calculator</a>
+        </div>
+    </section>
 
-            <a
-                class="tool-link"
-                href="percentage-calculator.html"
-            >
-                Percentage Calculator
-            </a>
+    <section class="content-section">
+        <h2>Frequently Asked Questions</h2>
 
-            <a
-                class="tool-link"
-                href="average-calculator.html"
-            >
-                Average Calculator
-            </a>
-
-            <a
-                class="tool-link"
-                href="fraction-calculator.html"
-            >
-                Fraction Calculator
-            </a>
-
-            <a
-                class="tool-link"
-                href="ratio-calculator.html"
-            >
-                Ratio Calculator
-            </a>
-
-            <a
-                class="tool-link"
-                href="gcd-lcm-calculator.html"
-            >
-                GCD &amp; LCM Calculator
-            </a>
-
-            <a
-                class="tool-link"
-                href="prime-number-checker.html"
-            >
-                Prime Number Checker
-            </a>
-
-            <a
-                class="tool-link"
-                href="percentage-increase-decrease.html"
-            >
-                Percentage Increase &amp; Decrease
-            </a>
-
-            <a
-                class="tool-link"
-                href="number-to-words.html"
-            >
-                Number to Words
-            </a>
-
-            <a
-                class="tool-link"
-                href="proportion-calculator.html"
-            >
-                Proportion Calculator
-            </a>
-
-            <a
-                class="tool-link"
-                href="scientific-calculator.html"
-            >
-                Scientific Calculator
-            </a>
-
-            <a
-                class="tool-link"
-                href="exponent-calculator.html"
-            >
-                Exponent Calculator
-            </a>
-
-            <a
-                class="tool-link"
-                href="square-root-calculator.html"
-            >
-                Square Root Calculator
-            </a>
-
+        <div class="faq-item">
+            <h3>1. What operations does this number calculator support?</h3>
+            <p>
+                It supports addition, subtraction, multiplication,
+                division and percentage calculations.
+            </p>
         </div>
 
+        <div class="faq-item">
+            <h3>2. Can I use decimal numbers?</h3>
+            <p>
+                Yes. You can enter decimal numbers such as 12.5,
+                3.75 or 0.25.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>3. Can I calculate negative numbers?</h3>
+            <p>
+                Yes. The calculator supports negative numbers for
+                addition, subtraction, multiplication and division.
+                Percentage calculations also support negative values.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>4. How do I calculate a percentage of a number?</h3>
+            <p>
+                Select Percentage of a Number. Enter the percentage
+                first and the total number second. For example,
+                enter 25 and 200 to calculate 25% of 200, which is 50.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>5. Why can't I divide by zero?</h3>
+            <p>
+                Division by zero is undefined in ordinary arithmetic.
+                The calculator therefore displays an error instead
+                of producing a result.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>6. Is this number calculator free?</h3>
+            <p>
+                Yes. It is free to use and does not require registration
+                or software installation.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>7. Can I use this calculator on my mobile phone?</h3>
+            <p>
+                Yes. The calculator is designed to work on mobile phones,
+                tablets and desktop computers.
+            </p>
+        </div>
     </section>
 
 </main>
 
-
 <footer>
+    <div>© 2026 Easy Online Tool. All rights reserved.</div>
 
-    <p>
-
-        <a href="index.html">
-            Home
-        </a>
-        |
-
-        <a href="tools.html">
-            All Tools
-        </a>
-        |
-
-        <a href="index.html#categories">
-            Categories
-        </a>
-        |
-
-        <a href="index.html#about">
-            About
-        </a>
-        |
-
-        <a href="index.html#faq">
-            FAQ
-        </a>
-        |
-
-        <a href="privacy-policy.html">
-            Privacy
-        </a>
-        |
-
-        <a href="terms.html">
-            Terms
-        </a>
-        |
-
-        <a href="contact.html">
-            Contact
-        </a>
-
-    </p>
-
-    <p>
-        © 2026 Easy Online Tool. All rights reserved.
-    </p>
-
+    <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="tools.html">All Tools</a>
+        <a href="index.html#categories">Categories</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
+    </div>
 </footer>
 
-
 <script>
+(function () {
+    "use strict";
 
-function calculateNumber() {
+    const number1Input = document.getElementById("number1");
+    const number2Input = document.getElementById("number2");
+    const operationInput = document.getElementById("operation");
+    const operationHelp = document.getElementById("operationHelp");
 
-    const number1Input =
-        document.getElementById("number1").value.trim();
+    const calculateBtn = document.getElementById("calculateBtn");
+    const clearBtn = document.getElementById("clearBtn");
 
-    const number2Input =
-        document.getElementById("number2").value.trim();
+    const errorBox = document.getElementById("error");
+    const resultBox = document.getElementById("result");
 
-    const operation =
-        document.getElementById("operation").value;
+    const resultValue = document.getElementById("resultValue");
+    const calculationOutput = document.getElementById("calculation");
+    const operationNameOutput = document.getElementById("operationName");
+    const resultNote = document.getElementById("resultNote");
 
-    const resultBox =
-        document.getElementById("result");
+    const operationDescriptions = {
+        add: "Add the first number to the second number.",
+        subtract: "Subtract the second number from the first number.",
+        multiply: "Multiply the first number by the second number.",
+        divide: "Divide the first number by the second number. The second number cannot be zero.",
+        percent: "Enter the percentage first and the total number second. For example, 25% of 200."
+    };
 
-    const resultValue =
-        document.getElementById("resultValue");
+    const operationNames = {
+        add: "Addition",
+        subtract: "Subtraction",
+        multiply: "Multiplication",
+        divide: "Division",
+        percent: "Percentage of a Number"
+    };
 
+    const symbols = {
+        add: "+",
+        subtract: "−",
+        multiply: "×",
+        divide: "÷",
+        percent: "% of"
+    };
 
-    if (number1Input === "" || number2Input === "") {
+    function formatNumber(value) {
+        if (!Number.isFinite(value)) {
+            return "Not available";
+        }
 
-        alert("Please enter both numbers.");
+        if (Object.is(value, -0)) {
+            value = 0;
+        }
 
-        return;
+        const absoluteValue = Math.abs(value);
+
+        if (value !== 0 &&
+            (absoluteValue >= 1e12 || absoluteValue < 1e-8)) {
+            return value.toExponential(8);
+        }
+
+        return Number(value.toPrecision(12)).toString();
     }
 
-
-    const number1 = Number(number1Input);
-    const number2 = Number(number2Input);
-
-
-    if (!Number.isFinite(number1) || !Number.isFinite(number2)) {
-
-        alert("Please enter valid numbers.");
-
-        return;
+    function showError(message) {
+        errorBox.textContent = message;
+        errorBox.style.display = "block";
+        resultBox.style.display = "none";
     }
 
+    function clearMessages() {
+        errorBox.textContent = "";
+        errorBox.style.display = "none";
+        resultBox.style.display = "none";
+    }
 
-    let result;
+    function calculateNumber() {
+        clearMessages();
 
+        const firstText = number1Input.value.trim();
+        const secondText = number2Input.value.trim();
+        const operation = operationInput.value;
 
-    switch (operation) {
-
-        case "add":
-
-            result = number1 + number2;
-
-            break;
-
-
-        case "subtract":
-
-            result = number1 - number2;
-
-            break;
-
-
-        case "multiply":
-
-            result = number1 * number2;
-
-            break;
-
-
-        case "divide":
-
-            if (number2 === 0) {
-
-                alert("Cannot divide by zero.");
-
-                return;
-            }
-
-            result = number1 / number2;
-
-            break;
-
-
-        case "percent":
-
-            result = (number1 / 100) * number2;
-
-            break;
-
-
-        default:
-
-            alert("Please select an operation.");
-
+        if (firstText === "" || secondText === "") {
+            showError("Please enter both numbers before calculating.");
             return;
+        }
+
+        const number1 = Number(firstText);
+        const number2 = Number(secondText);
+
+        if (!Number.isFinite(number1) || !Number.isFinite(number2)) {
+            showError("Please enter valid, finite numbers.");
+            return;
+        }
+
+        let result;
+        let calculation;
+        let note = "";
+
+        switch (operation) {
+            case "add":
+                result = number1 + number2;
+                calculation = formatNumber(number1) + " + " +
+                    formatNumber(number2);
+                note = "The answer is the sum of the two numbers.";
+                break;
+
+            case "subtract":
+                result = number1 - number2;
+                calculation = formatNumber(number1) + " − " +
+                    formatNumber(number2);
+                note = "The answer is the difference between the two numbers.";
+                break;
+
+            case "multiply":
+                result = number1 * number2;
+                calculation = formatNumber(number1) + " × " +
+                    formatNumber(number2);
+                note = "The answer is the product of the two numbers.";
+                break;
+
+            case "divide":
+                if (number2 === 0) {
+                    showError("Cannot divide by zero. Please enter a non-zero second number.");
+                    return;
+                }
+
+                result = number1 / number2;
+                calculation = formatNumber(number1) + " ÷ " +
+                    formatNumber(number2);
+                note = "The answer is the quotient of the two numbers.";
+                break;
+
+            case "percent":
+                result = (number1 / 100) * number2;
+                calculation = formatNumber(number1) + "% of " +
+                    formatNumber(number2);
+                note = formatNumber(number1) + " divided by 100, then multiplied by " +
+                    formatNumber(number2) + ".";
+                break;
+
+            default:
+                showError("Please select a valid mathematical operation.");
+                return;
+        }
+
+        if (!Number.isFinite(result)) {
+            showError("The result is outside the supported number range. Please try smaller values.");
+            return;
+        }
+
+        resultValue.textContent = formatNumber(result);
+        calculationOutput.textContent = calculation;
+        operationNameOutput.textContent = operationNames[operation];
+        resultNote.textContent = note;
+
+        resultBox.style.display = "block";
+
+        if (window.innerWidth <= 700) {
+            resultBox.scrollIntoView({
+                behavior: "smooth",
+                block: "nearest"
+            });
+        }
     }
 
+    function clearCalculator() {
+        number1Input.value = "";
+        number2Input.value = "";
+        operationInput.value = "add";
 
-    if (!Number.isFinite(result)) {
+        operationHelp.textContent = operationDescriptions.add;
 
-        alert(
-            "The calculation could not be completed. Please try smaller values."
-        );
-
-        return;
+        clearMessages();
+        number1Input.focus();
     }
 
+    operationInput.addEventListener("change", function () {
+        operationHelp.textContent =
+            operationDescriptions[operationInput.value];
 
-    resultValue.textContent =
-        Number(result.toFixed(10)).toLocaleString();
-
-
-    resultBox.style.display = "block";
-
-
-    resultBox.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
+        clearMessages();
     });
 
-}
+    calculateBtn.addEventListener("click", calculateNumber);
+    clearBtn.addEventListener("click", clearCalculator);
 
+    [number1Input, number2Input].forEach(function (input) {
+        input.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                calculateNumber();
+            }
+        });
+    });
 
-function clearCalculator() {
+    document.querySelectorAll(".example-btn").forEach(function (button) {
+        button.addEventListener("click", function () {
+            number1Input.value = button.dataset.a;
+            number2Input.value = button.dataset.b;
+            operationInput.value = button.dataset.operation;
 
-    document.getElementById("number1").value = "";
+            operationHelp.textContent =
+                operationDescriptions[button.dataset.operation];
 
-    document.getElementById("number2").value = "";
-
-    document.getElementById("operation").value = "add";
-
-    document.getElementById("result").style.display = "none";
-
-    document.getElementById("resultValue").textContent = "0";
-
-}
-
+            calculateNumber();
+        });
+    });
+})();
 </script>
 
 </body>
