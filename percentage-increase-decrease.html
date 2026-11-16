@@ -5,23 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Percentage Increase & Decrease Calculator | Easy Online Tool</title>
-
-    <meta name="description" content="Calculate percentage increase or decrease between two numbers with this free online calculator. Quickly find the percentage change.">
-
-    <meta name="keywords" content="percentage increase calculator, percentage decrease calculator, percentage change calculator, percent change calculator, percentage calculator">
-
+    <meta name="description" content="Calculate percentage increase, percentage decrease, and percentage change between two values. See the difference, formula, and step-by-step calculation with this free calculator.">
     <meta name="robots" content="index, follow">
-
     <link rel="canonical" href="https://easyonlinetools.online/percentage-increase-decrease.html">
 
-    <!-- WebApplication Structured Data -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Percentage Increase & Decrease Calculator">
+    <meta property="og:description" content="Find the percentage increase or decrease between two values with a free online calculator.">
+    <meta property="og:url" content="https://easyonlinetools.online/percentage-increase-decrease.html">
+
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebApplication",
         "name": "Percentage Increase & Decrease Calculator",
         "url": "https://easyonlinetools.online/percentage-increase-decrease.html",
-        "description": "Calculate percentage increase or decrease between two values with this free online calculator.",
+        "description": "A free online calculator for finding percentage increase, percentage decrease, and percentage change between two values.",
         "applicationCategory": "CalculatorApplication",
         "operatingSystem": "All",
         "browserRequirements": "Requires a modern web browser",
@@ -29,12 +28,18 @@
             "@type": "Offer",
             "price": "0",
             "priceCurrency": "USD"
-        }
+        },
+        "featureList": [
+            "Calculate percentage increase",
+            "Calculate percentage decrease",
+            "Find percentage change",
+            "Calculate numerical difference",
+            "Show calculation steps"
+        ]
     }
     </script>
 
     <style>
-
         * {
             box-sizing: border-box;
         }
@@ -44,7 +49,7 @@
             font-family: Arial, Helvetica, sans-serif;
             background: #f5f7fb;
             color: #1f2937;
-            line-height: 1.6;
+            line-height: 1.65;
         }
 
         header {
@@ -67,6 +72,7 @@
             font-weight: bold;
             color: #2563eb;
             text-decoration: none;
+            white-space: nowrap;
         }
 
         .nav-links {
@@ -76,13 +82,14 @@
         }
 
         .nav-links a {
-            text-decoration: none;
             color: #374151;
+            text-decoration: none;
             font-size: 15px;
         }
 
-        .nav-links a:hover {
-            color: #2563eb;
+        .nav-links a:hover,
+        a:hover {
+            color: #1d4ed8;
         }
 
         .container {
@@ -93,65 +100,90 @@
 
         .page-title {
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 28px;
         }
 
         .page-title h1 {
-            margin-bottom: 10px;
-            font-size: 32px;
+            margin: 0 0 10px;
             color: #111827;
+            font-size: 34px;
+            line-height: 1.25;
         }
 
         .page-title p {
+            margin: 0;
             color: #6b7280;
-            font-size: 16px;
-            line-height: 1.6;
+            font-size: 17px;
+        }
+
+        .calculator-card,
+        .info-section {
+            background: #ffffff;
+            padding: 28px;
+            border-radius: 14px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
         }
 
         .calculator-card {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 14px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e5e7eb;
+        }
+
+        .calculator-intro {
+            margin: 0 0 22px;
+            color: #4b5563;
+        }
+
+        .input-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
         }
 
         .input-group {
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
-        .input-group label {
+        label {
             display: block;
             margin-bottom: 8px;
-            font-weight: 600;
             color: #374151;
+            font-weight: 600;
         }
 
-        .input-group input {
+        input {
             width: 100%;
-            padding: 13px;
+            padding: 14px;
             border: 1px solid #d1d5db;
             border-radius: 8px;
-            font-size: 16px;
+            font-size: 17px;
+            color: #111827;
         }
 
-        .input-group input:focus {
-            outline: none;
+        input:focus {
+            outline: 2px solid #bfdbfe;
             border-color: #2563eb;
+        }
+
+        .help-text {
+            display: block;
+            margin-top: 6px;
+            color: #6b7280;
+            font-size: 13px;
         }
 
         .button-group {
             display: flex;
             gap: 12px;
-            margin-top: 10px;
+            margin-top: 8px;
         }
 
         button {
             flex: 1;
-            padding: 13px;
+            padding: 14px;
             border: none;
             border-radius: 8px;
             background: #2563eb;
-            color: white;
+            color: #ffffff;
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
@@ -162,115 +194,175 @@
         }
 
         button.reset {
-            background: #6b7280;
+            background: #e5e7eb;
+            color: #374151;
         }
 
         button.reset:hover {
-            background: #4b5563;
-        }
-
-        .result {
-            margin-top: 25px;
-            padding: 20px;
-            background: #f3f4f6;
-            border-radius: 10px;
-            display: none;
-        }
-
-        .result h2 {
-            margin-top: 0;
-            font-size: 21px;
-            color: #111827;
-        }
-
-        .result-item {
-            margin: 10px 0;
-            font-size: 16px;
-        }
-
-        .highlight {
-            font-size: 24px;
-            font-weight: bold;
-            color: #2563eb;
-        }
-
-        .increase {
-            color: #16a34a;
-            font-weight: bold;
-        }
-
-        .decrease {
-            color: #dc2626;
-            font-weight: bold;
+            background: #d1d5db;
         }
 
         .error {
-            margin-top: 15px;
-            color: #dc2626;
-            font-weight: 600;
             display: none;
+            margin-top: 18px;
+            padding: 12px 14px;
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            color: #b91c1c;
+            font-weight: 600;
+        }
+
+        .result {
+            display: none;
+            margin-top: 25px;
+            padding: 22px;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 10px;
+        }
+
+        .result h2 {
+            margin: 0 0 18px;
+            color: #111827;
+            font-size: 22px;
+        }
+
+        .result-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .result-item {
+            padding: 14px;
+            background: #ffffff;
+            border-radius: 8px;
+        }
+
+        .result-label {
+            display: block;
+            color: #6b7280;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        .result-value {
+            display: block;
+            color: #111827;
+            font-size: 19px;
+            font-weight: 700;
+            overflow-wrap: anywhere;
+        }
+
+        .main-result {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .main-result .result-value {
+            font-size: 32px;
+            color: #2563eb;
+        }
+
+        .increase-text {
+            color: #15803d;
+        }
+
+        .decrease-text {
+            color: #dc2626;
+        }
+
+        .unchanged-text {
+            color: #374151;
+        }
+
+        .steps {
+            margin-top: 18px;
+            padding: 16px;
+            background: #ffffff;
+            border-radius: 8px;
+        }
+
+        .steps h3 {
+            margin: 0 0 10px;
+            font-size: 17px;
+        }
+
+        .steps p {
+            margin: 7px 0;
+            color: #4b5563;
+            overflow-wrap: anywhere;
         }
 
         .info-section {
-            max-width: 850px;
-            margin: 30px auto;
-            background: #ffffff;
-            padding: 25px;
-            border-radius: 14px;
-            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+            margin-top: 25px;
         }
 
         .info-section h2 {
-            margin-top: 0;
-            margin-bottom: 10px;
+            margin: 0 0 12px;
             color: #111827;
+            font-size: 23px;
         }
 
         .info-section h3 {
+            margin: 22px 0 8px;
             color: #111827;
-            margin-top: 22px;
-            margin-bottom: 8px;
+            font-size: 18px;
         }
 
         .info-section p {
-            line-height: 1.7;
+            margin: 0 0 14px;
             color: #4b5563;
-            margin-bottom: 14px;
         }
 
-        .info-section a {
+        .formula {
+            margin: 16px 0;
+            padding: 16px;
+            background: #f3f4f6;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 700;
+            color: #111827;
+            overflow-wrap: anywhere;
+        }
+
+        .example-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        .example-table th,
+        .example-table td {
+            padding: 11px;
+            border: 1px solid #e5e7eb;
+            text-align: left;
+        }
+
+        .example-table th {
+            background: #f3f4f6;
+            color: #374151;
+        }
+
+        .info-section a,
+        .internal-nav a,
+        footer a {
             color: #2563eb;
             text-decoration: none;
         }
 
-        .info-section a:hover {
+        .info-section a:hover,
+        .internal-nav a:hover,
+        footer a:hover {
             text-decoration: underline;
-        }
-
-        .formula {
-            background: #f3f4f6;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-            font-weight: 600;
-            text-align: center;
-            overflow-x: auto;
         }
 
         .internal-nav {
             text-align: center;
-            margin-top: 30px;
+            margin: 28px 0;
             font-size: 15px;
-        }
-
-        .internal-nav a {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .internal-nav a:hover {
-            text-decoration: underline;
         }
 
         footer {
@@ -287,584 +379,595 @@
         }
 
         footer a {
-            color: #2563eb;
-            text-decoration: none;
-            margin: 0 8px;
+            margin: 0 7px;
         }
 
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        @media (max-width: 600px) {
-
+        @media (max-width: 650px) {
             .nav {
                 flex-direction: column;
+                gap: 12px;
             }
 
             .nav-links {
                 justify-content: center;
+                gap: 12px;
             }
 
             .container {
                 margin: 25px auto;
+                padding: 0 14px;
             }
 
             .page-title h1 {
-                font-size: 27px;
+                font-size: 28px;
             }
 
-            .calculator-card {
+            .calculator-card,
+            .info-section {
                 padding: 20px;
+            }
+
+            .input-grid,
+            .result-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .main-result {
+                grid-column: auto;
             }
 
             .button-group {
                 flex-direction: column;
             }
 
-            .info-section {
-                margin-left: 20px;
-                margin-right: 20px;
-                padding: 20px;
+            .example-table {
+                font-size: 14px;
             }
-
         }
-
     </style>
 </head>
 
 <body>
 
 <header>
-
     <div class="nav">
+        <a href="index.html" class="logo">Easy Online Tool</a>
 
-        <a href="index.html" class="logo">
-            Easy Online Tool
-        </a>
-
-        <div class="nav-links">
-
+        <nav class="nav-links" aria-label="Main navigation">
             <a href="index.html">Home</a>
-
             <a href="tools.html">Tools</a>
-
             <a href="index.html#categories">Categories</a>
-
             <a href="index.html#about">About</a>
-
             <a href="index.html#faq">FAQ</a>
-
-        </div>
-
+        </nav>
     </div>
-
 </header>
-
 
 <main class="container">
 
-    <div class="page-title">
-
+    <section class="page-title">
         <h1>Percentage Increase &amp; Decrease Calculator</h1>
-
         <p>
-            Calculate the percentage increase or decrease between two numbers
-            quickly and accurately.
+            Find how much a number has increased or decreased as a percentage.
+            Enter the original and new values to calculate the percentage change.
+        </p>
+    </section>
+
+    <section class="calculator-card" aria-label="Percentage change calculator">
+
+        <p class="calculator-intro">
+            Enter the starting value and the new value. The calculator will
+            show the numerical difference, percentage change and calculation steps.
         </p>
 
-    </div>
+        <div class="input-grid">
+            <div class="input-group">
+                <label for="original">Original Value (Starting Value)</label>
+                <input
+                    type="number"
+                    id="original"
+                    step="any"
+                    inputmode="decimal"
+                    placeholder="Example: 100"
+                >
+                <span class="help-text">The value before the change.</span>
+            </div>
 
-
-    <div class="calculator-card">
-
-        <div class="input-group">
-
-            <label for="original">
-                Original Value
-            </label>
-
-            <input
-                type="number"
-                id="original"
-                placeholder="Enter original value"
-            >
-
+            <div class="input-group">
+                <label for="newValue">New Value (Final Value)</label>
+                <input
+                    type="number"
+                    id="newValue"
+                    step="any"
+                    inputmode="decimal"
+                    placeholder="Example: 120"
+                >
+                <span class="help-text">The value after the change.</span>
+            </div>
         </div>
-
-
-        <div class="input-group">
-
-            <label for="newValue">
-                New Value
-            </label>
-
-            <input
-                type="number"
-                id="newValue"
-                placeholder="Enter new value"
-            >
-
-        </div>
-
 
         <div class="button-group">
-
-            <button onclick="calculatePercentage()">
-                Calculate
-            </button>
-
-            <button
-                class="reset"
-                onclick="resetCalculator()"
-            >
-                Reset
-            </button>
-
+            <button type="button" id="calculateButton">Calculate Percentage Change</button>
+            <button type="button" class="reset" id="resetButton">Reset</button>
         </div>
 
+        <div class="error" id="error" role="alert" aria-live="polite"></div>
 
-        <div class="error" id="error">
-            Please enter valid numbers. The original value cannot be zero.
+        <div class="result" id="result" aria-live="polite" aria-atomic="true">
+
+            <h2>Your Result</h2>
+
+            <div class="result-grid">
+
+                <div class="result-item main-result">
+                    <span class="result-label">Percentage Change</span>
+                    <span class="result-value" id="percentage"></span>
+                    <strong id="changeType"></strong>
+                </div>
+
+                <div class="result-item">
+                    <span class="result-label">Original Value</span>
+                    <span class="result-value" id="originalResult"></span>
+                </div>
+
+                <div class="result-item">
+                    <span class="result-label">New Value</span>
+                    <span class="result-value" id="newResult"></span>
+                </div>
+
+                <div class="result-item">
+                    <span class="result-label">Numerical Difference</span>
+                    <span class="result-value" id="difference"></span>
+                </div>
+
+                <div class="result-item">
+                    <span class="result-label">Absolute Percentage Change</span>
+                    <span class="result-value" id="absolutePercentage"></span>
+                </div>
+
+            </div>
+
+            <div class="steps">
+                <h3>Calculation Steps</h3>
+                <p id="stepOne"></p>
+                <p id="stepTwo"></p>
+                <p id="stepThree"></p>
+            </div>
+
         </div>
+    </section>
 
+    <section class="info-section">
 
-        <div class="result" id="result">
-
-            <h2>Result</h2>
-
-            <div class="result-item">
-                Original Value:
-                <strong id="originalResult"></strong>
-            </div>
-
-            <div class="result-item">
-                New Value:
-                <strong id="newResult"></strong>
-            </div>
-
-            <div class="result-item">
-                Difference:
-                <strong id="difference"></strong>
-            </div>
-
-            <div class="result-item">
-                Percentage Change:
-                <span
-                    class="highlight"
-                    id="percentage"
-                ></span>
-            </div>
-
-            <div
-                class="result-item"
-                id="changeType"
-            ></div>
-
-        </div>
-
-    </div>
-
-
-    <!-- How Percentage Change Works -->
-
-    <div class="info-section">
-
-        <h2>
-            How to Calculate Percentage Increase or Decrease
-        </h2>
+        <h2>What Is Percentage Change?</h2>
 
         <p>
-            Percentage change shows how much a value has increased or decreased
-            compared with its original value. It is commonly used to compare
-            prices, salaries, measurements, test scores, business figures and
-            other numerical values.
+            Percentage change measures the relative difference between an
+            original value and a new value. It tells you how much a quantity
+            has increased or decreased compared with where it started.
+        </p>
+
+        <p>
+            It is commonly used to compare changes in product prices, salaries,
+            expenses, sales, population, measurements, marks and business figures.
+        </p>
+
+        <h2>Percentage Increase and Decrease Formula</h2>
+
+        <p>
+            For a positive original value, the standard percentage change formula is:
         </p>
 
         <div class="formula">
-            Percentage Change = ((New Value − Original Value) ÷ |Original Value|) × 100
+            Percentage Change = ((New Value − Original Value) ÷ Original Value) × 100
         </div>
 
         <p>
-            This calculator uses the absolute value of the original value as
-            the reference amount. This allows percentage changes to be
-            calculated consistently when negative values are entered.
+            A positive result indicates an increase, while a negative result
+            indicates a decrease. The absolute value of the result gives the
+            size of the percentage change without its direction.
         </p>
 
-        <p>
-            If the new value is greater than the original value, the result is
-            a <strong>percentage increase</strong>.
-        </p>
+        <h3>How to Calculate Percentage Increase</h3>
 
         <p>
-            If the new value is smaller than the original value, the result is
-            a <strong>percentage decrease</strong>.
-        </p>
-
-
-        <h2>
-            Example of Percentage Increase
-        </h2>
-
-        <p>
-            Suppose the original value is 100 and the new value is 120.
-            The difference is 20.
+            A percentage increase occurs when the new value is greater than
+            the original value. Subtract the original value from the new value,
+            divide the difference by the original value, and multiply by 100.
         </p>
 
         <div class="formula">
-            ((120 − 100) ÷ |100|) × 100 = 20%
+            Percentage Increase = ((New Value − Original Value) ÷ Original Value) × 100
         </div>
 
-        <p>
-            Therefore, the value increased by
-            <strong>20%</strong>.
-        </p>
-
-
-        <h2>
-            Example of Percentage Decrease
-        </h2>
+        <h3>How to Calculate Percentage Decrease</h3>
 
         <p>
-            Suppose the original price is 200 and the new price is 150.
-            The difference is -50.
+            A percentage decrease occurs when the new value is smaller than
+            the original value. Subtract the new value from the original value,
+            divide by the original value, and multiply by 100.
         </p>
 
         <div class="formula">
-            ((150 − 200) ÷ |200|) × 100 = -25%
+            Percentage Decrease = ((Original Value − New Value) ÷ Original Value) × 100
         </div>
 
-        <p>
-            Therefore, the value decreased by
-            <strong>25%</strong>.
-        </p>
+    </section>
 
-    </div>
+    <section class="info-section">
 
-
-    <!-- Related Calculators -->
-
-    <div class="info-section">
-
-        <h2>
-            Related Math Calculators
-        </h2>
+        <h2>Percentage Increase Example</h2>
 
         <p>
-            Explore these other free math and advanced calculators on
-            Easy Online Tool:
-        </p>
-
-        <p>
-
-            <a href="percentage-calculator.html">
-                Percentage Calculator
-            </a>
-            |
-
-            <a href="average-calculator.html">
-                Average Calculator
-            </a>
-            |
-
-            <a href="fraction-calculator.html">
-                Fraction Calculator
-            </a>
-            |
-
-            <a href="ratio-calculator.html">
-                Ratio Calculator
-            </a>
-            |
-
-            <a href="gcd-lcm-calculator.html">
-                GCD &amp; LCM Calculator
-            </a>
-            |
-
-            <a href="prime-number-checker.html">
-                Prime Number Checker
-            </a>
-            |
-
-            <a href="random-number-generator.html">
-                Random Number Generator
-            </a>
-
-        </p>
-
-    </div>
-
-
-    <!-- FAQs -->
-
-    <div class="info-section">
-
-        <h2>
-            Percentage Increase &amp; Decrease FAQs
-        </h2>
-
-
-        <h3>
-            What is percentage increase?
-        </h3>
-
-        <p>
-            Percentage increase measures how much a value has increased
-            compared with its original value. It is expressed as a percentage
-            of the original value.
-        </p>
-
-
-        <h3>
-            What is percentage decrease?
-        </h3>
-
-        <p>
-            Percentage decrease measures how much a value has decreased
-            compared with its original value.
-        </p>
-
-
-        <h3>
-            What is the percentage change formula?
-        </h3>
-
-        <p>
-            This calculator uses the following formula:
+            Suppose a product originally costs 100 and its new price is 120.
+            The price has increased by 20.
         </p>
 
         <div class="formula">
-            Percentage Change = ((New Value − Original Value) ÷ |Original Value|) × 100
+            ((120 − 100) ÷ 100) × 100 = 20%
         </div>
 
-
-        <h3>
-            Can I calculate percentage change between two negative numbers?
-        </h3>
-
         <p>
-            Yes. The calculator accepts negative numerical values. The
-            percentage is calculated using the absolute value of the original
-            number as the reference amount.
+            The product price has increased by <strong>20%</strong>.
         </p>
 
-
-        <h3>
-            Can I use this calculator for price changes?
-        </h3>
+        <h2>Percentage Decrease Example</h2>
 
         <p>
-            Yes. You can use it to calculate changes in product prices,
-            discounts, salaries, expenses, measurements and many other
-            numerical values.
+            Suppose a product originally costs 200 and its new price is 150.
+            The price has decreased by 50.
         </p>
 
-
-        <h3>
-            Can the original value be zero?
-        </h3>
+        <div class="formula">
+            ((150 − 200) ÷ 200) × 100 = -25%
+        </div>
 
         <p>
-            No. Percentage change cannot be calculated using zero as the
-            original value because division by zero is undefined.
+            The negative result indicates a decrease of <strong>25%</strong>.
         </p>
 
-    </div>
+        <h2>More Percentage Change Examples</h2>
 
+        <table class="example-table">
+            <thead>
+                <tr>
+                    <th>Original</th>
+                    <th>New</th>
+                    <th>Change</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>50</td>
+                    <td>75</td>
+                    <td>50% increase</td>
+                </tr>
+                <tr>
+                    <td>80</td>
+                    <td>60</td>
+                    <td>25% decrease</td>
+                </tr>
+                <tr>
+                    <td>100</td>
+                    <td>100</td>
+                    <td>0% change</td>
+                </tr>
+                <tr>
+                    <td>40</td>
+                    <td>50</td>
+                    <td>25% increase</td>
+                </tr>
+            </tbody>
+        </table>
 
-    <!-- Internal Navigation -->
+    </section>
+
+    <section class="info-section">
+
+        <h2>How to Use This Percentage Change Calculator</h2>
+
+        <p>Follow these simple steps to calculate a percentage increase or decrease:</p>
+
+        <ol>
+            <li>Enter the original or starting value.</li>
+            <li>Enter the new or final value.</li>
+            <li>Select <strong>Calculate Percentage Change</strong>.</li>
+            <li>Read the percentage result and whether the value increased, decreased or stayed the same.</li>
+            <li>Review the calculation steps to understand how the result was obtained.</li>
+        </ol>
+
+        <p>
+            You can enter positive numbers, negative numbers and decimal values.
+            The original value must not be zero because division by zero is undefined.
+        </p>
+
+    </section>
+
+    <section class="info-section">
+
+        <h2>Understanding Percentage Change With Negative Values</h2>
+
+        <p>
+            Percentage change is straightforward when the original value is
+            positive. When the original value is negative, interpreting a
+            percentage change can be less intuitive.
+        </p>
+
+        <p>
+            This calculator uses the absolute value of the original number as
+            the reference amount for negative starting values. This is a
+            calculation convention that allows the tool to return a consistent
+            numerical result. For financial or statistical analysis, consider
+            the meaning of the negative starting value before interpreting the result.
+        </p>
+
+        <h2>Percentage Change vs. Percentage Difference</h2>
+
+        <p>
+            Percentage change compares a new value with a specific original
+            value. Percentage difference compares two values without treating
+            either one as the starting point.
+        </p>
+
+        <p>
+            Use this calculator when you know which value came first and which
+            value came later. For a comparison where neither value is the
+            original, use a percentage difference calculation instead.
+        </p>
+
+        <h2>Common Uses of Percentage Increase and Decrease</h2>
+
+        <p>
+            Percentage change is useful in everyday calculations and many
+            professional fields. Common examples include:
+        </p>
+
+        <ul>
+            <li>Comparing old and new product prices.</li>
+            <li>Calculating salary increases or reductions.</li>
+            <li>Measuring changes in monthly expenses.</li>
+            <li>Comparing sales or business performance.</li>
+            <li>Finding increases or decreases in test scores.</li>
+            <li>Tracking changes in measurements and statistics.</li>
+        </ul>
+
+    </section>
+
+    <section class="info-section">
+
+        <h2>Related Math Calculators</h2>
+
+        <p>
+            Explore more free calculators and online math tools:
+        </p>
+
+        <p>
+            <a href="percentage-calculator.html">Percentage Calculator</a> |
+            <a href="average-calculator.html">Average Calculator</a> |
+            <a href="fraction-calculator.html">Fraction Calculator</a> |
+            <a href="ratio-calculator.html">Ratio Calculator</a> |
+            <a href="gcd-lcm-calculator.html">GCD &amp; LCM Calculator</a> |
+            <a href="prime-number-checker.html">Prime Number Checker</a> |
+            <a href="random-number-generator.html">Random Number Generator</a>
+        </p>
+
+    </section>
+
+    <section class="info-section">
+
+        <h2>Percentage Increase &amp; Decrease FAQs</h2>
+
+        <h3>What is the formula for percentage increase?</h3>
+        <p>
+            Subtract the original value from the new value, divide the result
+            by the original value, and multiply by 100. This formula applies
+            when the original value is positive and the new value is greater.
+        </p>
+
+        <h3>What is the formula for percentage decrease?</h3>
+        <p>
+            Subtract the new value from the original value, divide by the
+            original value, and multiply by 100. This gives the percentage
+            decrease when the original value is positive and the new value is smaller.
+        </p>
+
+        <h3>Can percentage change be negative?</h3>
+        <p>
+            Yes. A negative percentage change indicates that the new value is
+            lower than the original value when the original value is positive.
+            It represents a decrease.
+        </p>
+
+        <h3>Can I calculate percentage change if the original value is zero?</h3>
+        <p>
+            No. The standard percentage change formula divides by the original
+            value. When the original value is zero, division by zero is undefined,
+            so the percentage change cannot be calculated.
+        </p>
+
+        <h3>Can I use decimal numbers?</h3>
+        <p>
+            Yes. You can enter whole numbers, decimals and negative values.
+            The calculator displays results rounded to a maximum of six decimal places.
+        </p>
+
+        <h3>What is the difference between percentage change and percentage increase?</h3>
+        <p>
+            Percentage change describes the relative difference between two
+            values and can be positive or negative. Percentage increase refers
+            specifically to a positive change.
+        </p>
+
+        <h3>Can I use this calculator for discounts?</h3>
+        <p>
+            Yes. Enter the original price as the original value and the
+            discounted price as the new value. The calculator will show the
+            percentage decrease.
+        </p>
+
+        <h3>Does this calculator work with negative numbers?</h3>
+        <p>
+            Yes. It accepts negative values and uses the absolute original
+            value as the reference amount. Interpret results involving
+            negative starting values carefully because percentage change
+            can be context-dependent.
+        </p>
+
+    </section>
 
     <div class="internal-nav">
-
-        <a href="tools.html">
-            ← All Tools
-        </a>
-
+        <a href="tools.html">← All Tools</a>
         &nbsp; | &nbsp;
-
-        <a href="tools.html#math">
-            Math &amp; Advanced Calculators
-        </a>
-
+        <a href="tools.html#math">Math &amp; Advanced Calculators</a>
     </div>
 
 </main>
 
-
 <footer>
+    <p>© 2026 Easy Online Tool. All rights reserved.</p>
 
     <p>
-        © 2026 Easy Online Tool. All rights reserved.
+        <a href="index.html">Home</a>
+        <a href="tools.html">All Tools</a>
+        <a href="index.html#categories">Categories</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#faq">FAQ</a>
     </p>
-
 
     <p>
-
-        <a href="index.html">
-            Home
-        </a>
-
-        <a href="tools.html">
-            All Tools
-        </a>
-
-        <a href="index.html#categories">
-            Categories
-        </a>
-
-        <a href="index.html#about">
-            About
-        </a>
-
-        <a href="index.html#faq">
-            FAQ
-        </a>
-
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
     </p>
-
-
-    <p>
-
-        <a href="privacy-policy.html">
-            Privacy Policy
-        </a>
-
-        <a href="terms.html">
-            Terms
-        </a>
-
-        <a href="contact.html">
-            Contact
-        </a>
-
-    </p>
-
 </footer>
 
-
 <script>
+(function () {
+    "use strict";
 
-function calculatePercentage() {
+    const originalInput = document.getElementById("original");
+    const newValueInput = document.getElementById("newValue");
+    const calculateButton = document.getElementById("calculateButton");
+    const resetButton = document.getElementById("resetButton");
+    const error = document.getElementById("error");
+    const result = document.getElementById("result");
 
-    const original =
-        parseFloat(
-            document.getElementById("original").value
-        );
-
-    const newValue =
-        parseFloat(
-            document.getElementById("newValue").value
-        );
-
-    const error =
-        document.getElementById("error");
-
-    const result =
-        document.getElementById("result");
-
-
-    if (
-        isNaN(original) ||
-        isNaN(newValue) ||
-        original === 0
-    ) {
-
-        error.style.display = "block";
-
-        result.style.display = "none";
-
-        return;
-
-    }
-
-
-    error.style.display = "none";
-
-
-    const difference =
-        newValue - original;
-
-
-    const percentageChange =
-        (difference / Math.abs(original)) * 100;
-
-
-    document.getElementById("originalResult").textContent =
-        formatNumber(original);
-
-
-    document.getElementById("newResult").textContent =
-        formatNumber(newValue);
-
-
-    document.getElementById("difference").textContent =
-        formatNumber(difference);
-
-
-    document.getElementById("percentage").textContent =
-        formatNumber(Math.abs(percentageChange)) + "%";
-
-
-    const changeType =
-        document.getElementById("changeType");
-
-
-    if (difference > 0) {
-
-        changeType.innerHTML =
-            '<span class="increase">Percentage Increase: ' +
-            formatNumber(Math.abs(percentageChange)) +
-            '%</span>';
-
-    }
-
-    else if (difference < 0) {
-
-        changeType.innerHTML =
-            '<span class="decrease">Percentage Decrease: ' +
-            formatNumber(Math.abs(percentageChange)) +
-            '%</span>';
-
-    }
-
-    else {
-
-        changeType.innerHTML =
-            '<strong>No percentage change.</strong>';
-
-    }
-
-
-    result.style.display = "block";
-
-}
-
-
-function formatNumber(number) {
-
-    return Number(number).toLocaleString(
-        undefined,
-        {
-            maximumFractionDigits: 6
+    function formatNumber(number) {
+        if (Object.is(number, -0)) {
+            number = 0;
         }
-    );
 
-}
+        return number.toLocaleString(undefined, {
+            maximumFractionDigits: 6
+        });
+    }
 
+    function showError(message) {
+        error.textContent = message;
+        error.style.display = "block";
+        result.style.display = "none";
+    }
 
-function resetCalculator() {
+    function calculatePercentage() {
+        const originalText = originalInput.value.trim();
+        const newText = newValueInput.value.trim();
 
-    document.getElementById("original").value = "";
+        if (originalText === "" || newText === "") {
+            showError("Please enter both the original value and the new value.");
+            return;
+        }
 
-    document.getElementById("newValue").value = "";
+        const original = Number(originalText);
+        const newValue = Number(newText);
 
-    document.getElementById("result").style.display = "none";
+        if (!Number.isFinite(original) || !Number.isFinite(newValue)) {
+            showError("Please enter valid finite numbers in both fields.");
+            return;
+        }
 
-    document.getElementById("error").style.display = "none";
+        if (original === 0) {
+            showError("The original value cannot be zero because percentage change would require division by zero.");
+            return;
+        }
 
-}
+        const difference = newValue - original;
+        const percentageChange = (difference / Math.abs(original)) * 100;
 
+        if (!Number.isFinite(percentageChange)) {
+            showError("The percentage result is outside the supported calculation range. Please use smaller values.");
+            return;
+        }
+
+        error.style.display = "none";
+
+        document.getElementById("originalResult").textContent =
+            formatNumber(original);
+
+        document.getElementById("newResult").textContent =
+            formatNumber(newValue);
+
+        document.getElementById("difference").textContent =
+            formatNumber(difference);
+
+        document.getElementById("percentage").textContent =
+            formatNumber(Math.abs(percentageChange)) + "%";
+
+        document.getElementById("absolutePercentage").textContent =
+            formatNumber(Math.abs(percentageChange)) + "%";
+
+        const changeType = document.getElementById("changeType");
+
+        changeType.className = "";
+
+        if (difference > 0) {
+            changeType.textContent = "Increase";
+            changeType.classList.add("increase-text");
+        } else if (difference < 0) {
+            changeType.textContent = "Decrease";
+            changeType.classList.add("decrease-text");
+        } else {
+            changeType.textContent = "No Change";
+            changeType.classList.add("unchanged-text");
+        }
+
+        document.getElementById("stepOne").textContent =
+            "Step 1: Subtract the original value from the new value: " +
+            formatNumber(newValue) + " − " + formatNumber(original) +
+            " = " + formatNumber(difference) + ".";
+
+        document.getElementById("stepTwo").textContent =
+            "Step 2: Divide the difference by the absolute original value: " +
+            formatNumber(difference) + " ÷ " + formatNumber(Math.abs(original)) +
+            " = " + formatNumber(difference / Math.abs(original)) + ".";
+
+        document.getElementById("stepThree").textContent =
+            "Step 3: Multiply by 100: " +
+            formatNumber(difference / Math.abs(original)) +
+            " × 100 = " + formatNumber(percentageChange) + "%.";
+
+        result.style.display = "block";
+    }
+
+    function resetCalculator() {
+        originalInput.value = "";
+        newValueInput.value = "";
+        error.textContent = "";
+        error.style.display = "none";
+        result.style.display = "none";
+        originalInput.focus();
+    }
+
+    calculateButton.addEventListener("click", calculatePercentage);
+    resetButton.addEventListener("click", resetCalculator);
+
+    [originalInput, newValueInput].forEach(function (input) {
+        input.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                calculatePercentage();
+            }
+        });
+    });
+})();
 </script>
 
 </body>
