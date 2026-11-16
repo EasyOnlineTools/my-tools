@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Square Root Calculator - Calculate Square Roots Online | Easy Online Tool</title>
-
-    <meta name="description" content="Free online Square Root Calculator to calculate square roots quickly and accurately. Find the square root of positive numbers with an easy-to-use calculator.">
-
-    <meta name="keywords" content="square root calculator, square root calculator online, calculate square root, square root, math calculator, free calculator">
-
+    <meta name="description" content="Use our free square root calculator to find the square root of any non-negative number, including decimals. See the result, formula, examples and verification instantly.">
+    <meta name="keywords" content="square root calculator, square root calculator online, calculate square root, square root formula, square root of a number, free math calculator">
     <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://easyonlinetools.online/square-root-calculator.html">
 
-   <link rel="canonical" href="https://easyonlinetools.online/square-root-calculator.html">
+    <meta property="og:title" content="Square Root Calculator - Easy Online Tool">
+    <meta property="og:description" content="Calculate square roots of whole numbers and decimals with our free online calculator.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://easyonlinetools.online/square-root-calculator.html">
 
     <script type="application/ld+json">
     {
@@ -22,7 +23,7 @@
         "url": "https://easyonlinetools.online/square-root-calculator.html",
         "applicationCategory": "CalculatorApplication",
         "operatingSystem": "All",
-        "description": "Free online calculator for calculating square roots.",
+        "description": "A free online calculator for finding the square root of non-negative numbers, including decimals.",
         "offers": {
             "@type": "Offer",
             "price": "0",
@@ -36,35 +37,51 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --text: #172033;
+            --muted: #64748b;
+            --border: #e2e8f0;
+            --surface: #ffffff;
+            --background: #f4f7fc;
+            --soft-blue: #eff6ff;
+        }
+
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f5f7fa;
-            color: #222;
-            line-height: 1.6;
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            color: var(--primary);
         }
 
         header {
             background: #ffffff;
-            border-bottom: 1px solid #e5e7eb;
+            border-bottom: 1px solid var(--border);
         }
 
         .header-container {
-            max-width: 1100px;
+            max-width: 1150px;
             margin: auto;
-            padding: 18px 20px;
+            padding: 17px 22px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 20px;
+            gap: 22px;
         }
 
         .logo {
-            font-size: 22px;
-            font-weight: bold;
-            color: #2563eb;
+            font-size: 23px;
+            font-weight: 800;
+            color: var(--primary);
             text-decoration: none;
             white-space: nowrap;
+            letter-spacing: -0.5px;
         }
 
         nav {
@@ -74,19 +91,20 @@
         }
 
         nav a {
-            color: #333;
+            color: #334155;
             text-decoration: none;
-            font-size: 15px;
+            font-size: 14px;
+            font-weight: 600;
         }
 
         nav a:hover {
-            color: #2563eb;
+            color: var(--primary);
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: auto;
-            padding: 40px 20px;
+            padding: 42px 20px 55px;
         }
 
         .page-title {
@@ -94,22 +112,54 @@
             margin-bottom: 30px;
         }
 
+        .eyebrow {
+            display: inline-block;
+            color: var(--primary);
+            background: #dbeafe;
+            padding: 5px 13px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
         .page-title h1 {
-            margin-bottom: 10px;
-            font-size: 34px;
+            font-size: clamp(29px, 5vw, 42px);
+            line-height: 1.2;
+            margin: 15px 0 12px;
+            letter-spacing: -1px;
         }
 
         .page-title p {
-            color: #666;
-            margin: 0;
+            max-width: 680px;
+            margin: auto;
+            color: var(--muted);
+            font-size: 16px;
         }
 
         .calculator-box {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
-            margin-bottom: 30px;
+            background: var(--surface);
+            padding: 32px;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            box-shadow: 0 12px 35px rgba(15, 23, 42, 0.07);
+            margin-bottom: 28px;
+        }
+
+        .calculator-heading {
+            margin-bottom: 23px;
+        }
+
+        .calculator-heading h2 {
+            margin: 0 0 5px;
+            font-size: 23px;
+        }
+
+        .calculator-heading p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 14px;
         }
 
         .input-group {
@@ -118,79 +168,177 @@
 
         .input-group label {
             display: block;
-            font-weight: bold;
+            font-weight: 700;
             margin-bottom: 8px;
+            font-size: 15px;
         }
 
         .input-group input {
+            display: block;
             width: 100%;
-            padding: 13px;
-            border: 1px solid #d1d5db;
-            border-radius: 7px;
-            font-size: 16px;
+            padding: 15px;
+            border: 1px solid #cbd5e1;
+            border-radius: 9px;
+            background: #fff;
+            color: var(--text);
+            font-size: 17px;
+            transition: border-color 0.2s, box-shadow 0.2s;
         }
 
         .input-group input:focus {
             outline: none;
-            border-color: #2563eb;
-            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.13);
+        }
+
+        .input-group input:disabled {
+            background: #f1f5f9;
+            color: #64748b;
+            cursor: not-allowed;
+        }
+
+        .field-hint {
+            display: block;
+            margin-top: 6px;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .quick-examples {
+            margin: 22px 0;
+        }
+
+        .quick-examples p {
+            margin: 0 0 10px;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .example-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+        .example-btn {
+            background: #eff6ff;
+            color: #1d4ed8;
+            border: 1px solid #bfdbfe;
+            padding: 8px 13px;
+            border-radius: 7px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .example-btn:hover {
+            background: #dbeafe;
         }
 
         .button-group {
             display: flex;
             gap: 12px;
-            margin-top: 25px;
+            margin-top: 26px;
         }
 
         button {
+            font-family: inherit;
+        }
+
+        .calculate-btn,
+        .reset-btn {
             border: none;
-            padding: 13px 22px;
-            border-radius: 7px;
-            font-size: 16px;
+            padding: 14px 24px;
+            border-radius: 9px;
+            font-size: 15px;
+            font-weight: 700;
             cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
         }
 
         .calculate-btn {
-            background: #2563eb;
+            background: var(--primary);
             color: white;
+            flex: 1;
         }
 
         .calculate-btn:hover {
-            background: #1d4ed8;
+            background: var(--primary-dark);
+            transform: translateY(-1px);
         }
 
         .reset-btn {
-            background: #e5e7eb;
-            color: #333;
+            background: #e2e8f0;
+            color: #334155;
         }
 
         .reset-btn:hover {
-            background: #d1d5db;
+            background: #cbd5e1;
+        }
+
+        button:focus-visible,
+        a:focus-visible {
+            outline: 3px solid #93c5fd;
+            outline-offset: 3px;
         }
 
         .error {
             display: none;
-            background: #fee2e2;
+            background: #fef2f2;
+            border: 1px solid #fecaca;
             color: #b91c1c;
-            padding: 12px;
-            border-radius: 7px;
+            padding: 13px 15px;
+            border-radius: 9px;
             margin-top: 20px;
+            font-size: 14px;
         }
 
         .results {
             display: none;
             margin-top: 25px;
-            background: #f8fafc;
-            border-radius: 8px;
-            padding: 20px;
+            padding: 23px;
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: 12px;
+        }
+
+        .result-heading {
+            margin: 0 0 14px;
+            color: #166534;
+            font-size: 18px;
+        }
+
+        .main-result {
+            background: #ffffff;
+            border: 1px solid #dcfce7;
+            border-radius: 10px;
+            padding: 17px;
+            text-align: center;
+            margin-bottom: 17px;
+        }
+
+        .main-result span {
+            display: block;
+            color: var(--muted);
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        .main-result strong {
+            display: block;
+            color: #15803d;
+            font-size: clamp(25px, 5vw, 34px);
+            overflow-wrap: anywhere;
         }
 
         .result-row {
             display: flex;
             justify-content: space-between;
-            gap: 20px;
+            align-items: flex-start;
+            gap: 15px;
             padding: 10px 0;
-            border-bottom: 1px solid #e5e7eb;
+            border-bottom: 1px solid #dcfce7;
+            font-size: 14px;
         }
 
         .result-row:last-child {
@@ -199,105 +347,159 @@
 
         .result-row strong {
             text-align: right;
-            word-break: break-word;
+            overflow-wrap: anywhere;
         }
 
-        .highlight {
-            color: #2563eb;
-            font-size: 20px;
+        .result-explanation {
+            margin: 14px 0 0;
+            color: #166534;
+            font-size: 14px;
         }
 
         .info-section {
-            background: #ffffff;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
-            margin-bottom: 25px;
+            background: var(--surface);
+            padding: 28px;
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(15, 23, 42, 0.035);
+            margin-bottom: 24px;
         }
 
         .info-section h2 {
-            margin-top: 0;
-            font-size: 24px;
+            margin: 0 0 13px;
+            font-size: 23px;
+            line-height: 1.35;
         }
 
         .info-section h3 {
-            margin-top: 22px;
+            margin: 24px 0 8px;
+            font-size: 18px;
+        }
+
+        .info-section p {
+            color: #475569;
+            margin: 10px 0;
         }
 
         .formula {
-            background: #f1f5f9;
-            padding: 15px;
-            border-radius: 7px;
+            background: var(--soft-blue);
+            border: 1px solid #dbeafe;
+            padding: 17px;
+            border-radius: 10px;
             text-align: center;
-            font-size: 19px;
-            font-weight: bold;
-            margin: 15px 0;
+            font-size: 22px;
+            font-weight: 700;
+            color: #1d4ed8;
+            margin: 18px 0;
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            margin-top: 17px;
+        }
+
+        .example-card {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            padding: 15px;
+        }
+
+        .example-card strong {
+            display: block;
+            color: #1d4ed8;
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+
+        .example-card span {
+            color: var(--muted);
+            font-size: 13px;
         }
 
         .related-tools {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
             margin-top: 20px;
         }
 
         .related-tools a {
+            display: block;
             background: #f8fafc;
-            border: 1px solid #e5e7eb;
-            padding: 15px;
-            border-radius: 8px;
+            border: 1px solid var(--border);
+            padding: 14px 12px;
+            border-radius: 9px;
             text-decoration: none;
-            color: #2563eb;
+            color: #1d4ed8;
             text-align: center;
-            font-weight: 600;
+            font-weight: 700;
+            font-size: 14px;
+            transition: background 0.2s, border-color 0.2s;
         }
 
         .related-tools a:hover {
             background: #eff6ff;
+            border-color: #bfdbfe;
+        }
+
+        .faq-item {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .faq-item h3 {
+            font-size: 17px;
+            margin: 0 0 6px;
+        }
+
+        .faq-item p {
+            margin: 0;
         }
 
         .internal-navigation {
             text-align: center;
-            margin: 30px 0;
-            font-size: 15px;
+            margin: 30px 0 10px;
+            font-size: 14px;
         }
 
         .internal-navigation a {
-            color: #2563eb;
+            color: var(--primary);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .internal-navigation a:hover {
             text-decoration: underline;
         }
 
-        .faq-item {
-            margin-bottom: 20px;
-        }
-
-        .faq-item h3 {
-            font-size: 18px;
-            margin-bottom: 7px;
-        }
-
         footer {
             background: #ffffff;
-            border-top: 1px solid #e5e7eb;
+            border-top: 1px solid var(--border);
             text-align: center;
-            padding: 25px 20px;
-            color: #666;
+            padding: 28px 20px;
+            color: #64748b;
             font-size: 14px;
         }
 
         .footer-links {
-            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px 17px;
+            margin-top: 12px;
         }
 
         .footer-links a {
-            color: #2563eb;
+            color: var(--primary);
             text-decoration: none;
-            margin: 0 7px;
         }
 
         .footer-links a:hover {
@@ -305,44 +507,59 @@
         }
 
         @media (max-width: 700px) {
-
             .header-container {
                 flex-direction: column;
+                padding: 16px;
             }
 
             nav {
                 justify-content: center;
-                gap: 14px;
+                gap: 12px 16px;
             }
 
-            .page-title h1 {
-                font-size: 28px;
+            .container {
+                padding: 30px 15px 40px;
             }
 
             .calculator-box,
             .info-section {
-                padding: 20px;
+                padding: 21px;
             }
 
             .button-group {
                 flex-direction: column;
             }
 
-            button {
+            .calculate-btn,
+            .reset-btn {
                 width: 100%;
+            }
+
+            .related-tools {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .result-row {
+                flex-direction: column;
+                gap: 3px;
+            }
+
+            .result-row strong {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .example-grid {
+                grid-template-columns: 1fr;
             }
 
             .related-tools {
                 grid-template-columns: 1fr;
             }
 
-            .result-row {
-                flex-direction: column;
-                gap: 4px;
-            }
-
-            .result-row strong {
-                text-align: left;
+            .page-title p {
+                font-size: 14px;
             }
         }
     </style>
@@ -352,76 +569,92 @@
 
 <header>
     <div class="header-container">
+        <a href="index.html" class="logo">Easy Online Tool</a>
 
-        <a href="index.html" class="logo">
-            Easy Online Tool
-        </a>
-
-        <nav>
+        <nav aria-label="Main navigation">
             <a href="index.html">Home</a>
             <a href="tools.html">Tools</a>
             <a href="index.html#categories">Categories</a>
             <a href="index.html#about">About</a>
             <a href="index.html#faq">FAQ</a>
         </nav>
-
     </div>
 </header>
 
 <main class="container">
 
-    <div class="page-title">
+    <section class="page-title">
+        <span class="eyebrow">Free Math Calculator</span>
         <h1>Square Root Calculator</h1>
-        <p>Calculate the square root of any positive number instantly.</p>
-    </div>
+        <p>
+            Find the square root of any non-negative number in seconds.
+            Enter a whole number or decimal and get your answer with a
+            simple verification.
+        </p>
+    </section>
 
-    <div class="calculator-box">
+    <section class="calculator-box" aria-labelledby="calculator-title">
+
+        <div class="calculator-heading">
+            <h2 id="calculator-title">Calculate a Square Root</h2>
+            <p>Enter a number below and select Calculate to see its square root.</p>
+        </div>
 
         <div class="input-group">
-
-            <label for="number">
-                Enter a Number
-            </label>
-
+            <label for="number">Enter a number</label>
             <input
                 type="number"
                 id="number"
-                placeholder="Enter a number, e.g. 144"
+                placeholder="For example, 144"
                 step="any"
+                inputmode="decimal"
+                autocomplete="off"
+                aria-describedby="number-hint"
             >
+            <span class="field-hint" id="number-hint">
+                Enter zero or a positive number. Decimal values are supported.
+            </span>
+        </div>
 
+        <div class="quick-examples">
+            <p>Try an example:</p>
+            <div class="example-buttons">
+                <button type="button" class="example-btn" data-value="25">25</button>
+                <button type="button" class="example-btn" data-value="100">100</button>
+                <button type="button" class="example-btn" data-value="144">144</button>
+                <button type="button" class="example-btn" data-value="225">225</button>
+                <button type="button" class="example-btn" data-value="10">10</button>
+            </div>
         </div>
 
         <div class="button-group">
-
-            <button
-                class="calculate-btn"
-                onclick="calculateSquareRoot()"
-            >
-                Calculate
+            <button type="button" class="calculate-btn" id="calculateBtn">
+                Calculate Square Root
             </button>
-
-            <button
-                class="reset-btn"
-                onclick="resetCalculator()"
-            >
+            <button type="button" class="reset-btn" id="resetBtn">
                 Reset
             </button>
-
         </div>
 
-        <div id="error" class="error"></div>
+        <div id="error" class="error" role="alert" aria-live="assertive"></div>
 
-        <div id="results" class="results">
+        <div id="results" class="results" aria-live="polite" aria-atomic="true">
+
+            <h3 class="result-heading">Your Calculation Result</h3>
+
+            <div class="main-result">
+                <span>Square Root</span>
+                <strong id="squareRoot"></strong>
+            </div>
 
             <div class="result-row">
-                <span>Number</span>
+                <span>Original number</span>
                 <strong id="resultNumber"></strong>
             </div>
 
             <div class="result-row">
-                <span>Square Root</span>
-                <strong id="squareRoot" class="highlight"></strong>
+                <span>Square root formula</span>
+                <strong id="formulaResult"></strong>
             </div>
 
             <div class="result-row">
@@ -429,17 +662,19 @@
                 <strong id="verification"></strong>
             </div>
 
+            <p class="result-explanation" id="explanation"></p>
+
         </div>
 
-    </div>
+    </section>
 
     <section class="info-section">
-
         <h2>What Is a Square Root?</h2>
 
         <p>
-            A square root is a number that, when multiplied by itself,
-            produces the original number.
+            A square root is a number that produces the original number
+            when multiplied by itself. In other words, it is the reverse
+            operation of squaring a number.
         </p>
 
         <div class="formula">
@@ -447,7 +682,9 @@
         </div>
 
         <p>
-            This means that:
+            In this formula, N is the original number and R is its
+            principal square root. The principal square root is the
+            non-negative value.
         </p>
 
         <div class="formula">
@@ -455,352 +692,377 @@
         </div>
 
         <p>
-            For example, the square root of 144 is 12 because:
+            For example, the square root of 144 is 12 because
+            12 multiplied by 12 equals 144.
         </p>
 
         <div class="formula">
-            12 × 12 = 144
+            √144 = 12 &nbsp; because &nbsp; 12 × 12 = 144
         </div>
-
     </section>
 
     <section class="info-section">
-
         <h2>Square Root Examples</h2>
 
-        <ul>
-            <li>√4 = 2</li>
-            <li>√9 = 3</li>
-            <li>√16 = 4</li>
-            <li>√25 = 5</li>
-            <li>√100 = 10</li>
-            <li>√144 = 12</li>
-            <li>√225 = 15</li>
-        </ul>
-
-        <h3>Square Roots of Non-Perfect Squares</h3>
-
         <p>
-            Not every number has a whole-number square root. For example,
-            √10 is approximately 3.16227766.
+            These examples show the square roots of common perfect
+            squares and a decimal result.
         </p>
 
-        <div class="formula">
-            √10 ≈ 3.16227766
+        <div class="example-grid">
+            <div class="example-card">
+                <strong>√4 = 2</strong>
+                <span>2 × 2 = 4</span>
+            </div>
+
+            <div class="example-card">
+                <strong>√9 = 3</strong>
+                <span>3 × 3 = 9</span>
+            </div>
+
+            <div class="example-card">
+                <strong>√16 = 4</strong>
+                <span>4 × 4 = 16</span>
+            </div>
+
+            <div class="example-card">
+                <strong>√25 = 5</strong>
+                <span>5 × 5 = 25</span>
+            </div>
+
+            <div class="example-card">
+                <strong>√100 = 10</strong>
+                <span>10 × 10 = 100</span>
+            </div>
+
+            <div class="example-card">
+                <strong>√144 = 12</strong>
+                <span>12 × 12 = 144</span>
+            </div>
+
+            <div class="example-card">
+                <strong>√225 = 15</strong>
+                <span>15 × 15 = 225</span>
+            </div>
+
+            <div class="example-card">
+                <strong>√10 ≈ 3.1623</strong>
+                <span>A decimal, non-perfect square</span>
+            </div>
         </div>
+
+        <h3>What Is a Perfect Square?</h3>
+
+        <p>
+            A perfect square is a number that can be written as a whole
+            number multiplied by itself. For example, 36 is a perfect
+            square because 6 × 6 = 36.
+        </p>
+
+        <h3>Square Roots of Decimal Numbers</h3>
+
+        <p>
+            Square roots are not always whole numbers. For example,
+            the square root of 10 is approximately 3.16227766.
+            This calculator supports decimal input as well as whole numbers.
+        </p>
 
         <h3>Square Root of Zero</h3>
 
         <p>
-            The square root of zero is zero.
+            Zero has a square root of zero because zero multiplied by
+            zero is still zero.
         </p>
 
-        <div class="formula">
-            √0 = 0
-        </div>
-
+        <div class="formula">√0 = 0</div>
     </section>
 
     <section class="info-section">
-
-        <h2>How to Use the Square Root Calculator</h2>
+        <h2>How to Use This Square Root Calculator</h2>
 
         <ol>
-            <li>Enter a positive number in the input box.</li>
-            <li>Click the Calculate button.</li>
-            <li>The square root will be displayed instantly.</li>
-            <li>Use the Reset button to perform another calculation.</li>
+            <li>Enter a number in the input field.</li>
+            <li>You can enter a whole number or a decimal number.</li>
+            <li>Click the Calculate Square Root button.</li>
+            <li>View the square root and verification in the result area.</li>
+            <li>Click Reset to clear the calculator and start again.</li>
         </ol>
 
         <p>
-            You can enter whole numbers as well as decimal numbers.
+            You can also select one of the example numbers to fill the
+            input field quickly.
         </p>
-
     </section>
 
- <section class="info-section">
+    <section class="info-section">
+        <h2>Important Facts About Square Roots</h2>
 
-    <h2>Related Math &amp; Advanced Calculators</h2>
+        <h3>Can a Negative Number Have a Real Square Root?</h3>
 
-    <p>
-        Explore other free math calculators for powers, scientific
-        calculations, percentages, fractions, ratios, proportions,
-        number calculations, and more.
-    </p>
+        <p>
+            A negative number does not have a real square root. This is
+            because the product of a real number multiplied by itself
+            cannot be negative. For example, both 5 × 5 and
+            (-5) × (-5) equal positive 25.
+        </p>
 
-    <div class="related-tools">
+        <h3>Why Are There Two Numbers Whose Squares Equal 25?</h3>
 
-        <a href="scientific-calculator.html">
-            Scientific Calculator
-        </a>
+        <p>
+            Both 5 and -5 produce 25 when squared. However, the square
+            root symbol √ represents the principal, non-negative square
+            root. Therefore, √25 = 5.
+        </p>
 
-        <a href="exponent-calculator.html">
-            Exponent Calculator
-        </a>
+        <h3>What Is the Difference Between Squaring and Finding a Square Root?</h3>
 
-        <a href="percentage-calculator.html">
-            Percentage Calculator
-        </a>
-
-        <a href="average-calculator.html">
-            Average Calculator
-        </a>
-
-        <a href="fraction-calculator.html">
-            Fraction Calculator
-        </a>
-
-        <a href="ratio-calculator.html">
-            Ratio Calculator
-        </a>
-
-        <a href="proportion-calculator.html">
-            Proportion Calculator
-        </a>
-
-        <a href="gcd-lcm-calculator.html">
-            GCD &amp; LCM Calculator
-        </a>
-
-        <a href="prime-number-checker.html">
-            Prime Number Checker
-        </a>
-
-        <a href="number-calculator.html">
-            Number Calculator
-        </a>
-
-        <a href="percentage-increase-decrease.html">
-            Percentage Increase &amp; Decrease
-        </a>
-
-        <a href="tools.html#math">
-            More Math &amp; Advanced Calculators
-        </a>
-
-    </div>
-
-</section>
+        <p>
+            Squaring means multiplying a number by itself. Finding a
+            square root is the reverse operation. For example,
+            7² = 49, while √49 = 7.
+        </p>
+    </section>
 
     <section class="info-section">
+        <h2>Related Math &amp; Advanced Calculators</h2>
 
+        <p>
+            Explore more free online calculators for powers, scientific
+            calculations, percentages, fractions, ratios and other
+            mathematical operations.
+        </p>
+
+        <div class="related-tools">
+            <a href="scientific-calculator.html">Scientific Calculator</a>
+            <a href="exponent-calculator.html">Exponent Calculator</a>
+            <a href="percentage-calculator.html">Percentage Calculator</a>
+            <a href="average-calculator.html">Average Calculator</a>
+            <a href="fraction-calculator.html">Fraction Calculator</a>
+            <a href="ratio-calculator.html">Ratio Calculator</a>
+            <a href="proportion-calculator.html">Proportion Calculator</a>
+            <a href="gcd-lcm-calculator.html">GCD &amp; LCM Calculator</a>
+            <a href="prime-number-checker.html">Prime Number Checker</a>
+            <a href="number-calculator.html">Number Calculator</a>
+            <a href="percentage-increase-decrease.html">Percentage Increase &amp; Decrease</a>
+            <a href="tools.html#math">More Math &amp; Advanced Calculators</a>
+        </div>
+    </section>
+
+    <section class="info-section">
         <h2>Frequently Asked Questions</h2>
 
         <div class="faq-item">
-
-            <h3>What is the square root of a number?</h3>
-
+            <h3>1. What is the square root of a number?</h3>
             <p>
-                The square root is a value that produces the original
-                number when multiplied by itself.
+                The square root is a value that, when multiplied by
+                itself, gives the original number.
             </p>
-
         </div>
 
         <div class="faq-item">
-
-            <h3>What is the square root of 144?</h3>
-
+            <h3>2. What is the square root of 144?</h3>
             <p>
                 The square root of 144 is 12 because 12 × 12 = 144.
             </p>
-
         </div>
 
         <div class="faq-item">
-
-            <h3>Can this calculator calculate decimal square roots?</h3>
-
+            <h3>3. Can this calculator calculate decimal square roots?</h3>
             <p>
-                Yes. You can enter decimal numbers and the calculator
-                will provide an accurate square root.
+                Yes. You can enter decimal numbers, such as 2.5 or 10.75,
+                and the calculator will calculate their square roots.
             </p>
-
         </div>
 
         <div class="faq-item">
-
-            <h3>Can I calculate the square root of a negative number?</h3>
-
+            <h3>4. Can I calculate the square root of a negative number?</h3>
             <p>
-                A negative number does not have a real square root.
-                Therefore, this calculator accepts zero and positive
-                numbers only.
+                This calculator works with real numbers, so it accepts
+                zero and positive numbers only. Negative numbers have
+                square roots in complex mathematics, but not in the
+                real-number system.
             </p>
-
         </div>
 
         <div class="faq-item">
-
-            <h3>What is the square root of 0?</h3>
-
+            <h3>5. What is the square root of zero?</h3>
             <p>
-                The square root of 0 is 0.
+                The square root of zero is zero because 0 × 0 = 0.
             </p>
-
         </div>
 
+        <div class="faq-item">
+            <h3>6. What is the square root of 10?</h3>
+            <p>
+                The square root of 10 is approximately 3.1622776602.
+                It is not a whole number.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>7. Is this square root calculator free?</h3>
+            <p>
+                Yes. You can use this online square root calculator
+                for free without installing software.
+            </p>
+        </div>
     </section>
 
     <div class="internal-navigation">
-
-        <a href="tools.html">
-            ← All Tools
-        </a>
-
+        <a href="tools.html">← All Tools</a>
         &nbsp; | &nbsp;
-
-        <a href="tools.html#math">
-            Math &amp; Advanced Calculators
-        </a>
-
+        <a href="tools.html#math">Math &amp; Advanced Calculators</a>
     </div>
 
 </main>
 
 <footer>
-
-    © 2026 Easy Online Tool. All rights reserved.
+    <div>© 2026 Easy Online Tool. All rights reserved.</div>
 
     <div class="footer-links">
-
         <a href="index.html">Home</a>
-
         <a href="tools.html">All Tools</a>
-
         <a href="index.html#categories">Categories</a>
-
         <a href="index.html#about">About</a>
-
         <a href="index.html#faq">FAQ</a>
-
         <a href="privacy-policy.html">Privacy Policy</a>
-
         <a href="terms.html">Terms</a>
-
         <a href="contact.html">Contact</a>
-
     </div>
-
 </footer>
 
 <script>
+(function () {
+    "use strict";
 
-function formatNumber(number) {
+    const numberInput = document.getElementById("number");
+    const calculateBtn = document.getElementById("calculateBtn");
+    const resetBtn = document.getElementById("resetBtn");
+    const errorBox = document.getElementById("error");
+    const resultsBox = document.getElementById("results");
 
-    if (!Number.isFinite(number)) {
-        return "Undefined";
+    const squareRootOutput = document.getElementById("squareRoot");
+    const resultNumberOutput = document.getElementById("resultNumber");
+    const formulaOutput = document.getElementById("formulaResult");
+    const verificationOutput = document.getElementById("verification");
+    const explanationOutput = document.getElementById("explanation");
+
+    function formatNumber(value) {
+        if (!Number.isFinite(value)) {
+            return "Not available";
+        }
+
+        if (Object.is(value, -0)) {
+            value = 0;
+        }
+
+        if (value !== 0 &&
+            (Math.abs(value) >= 1e12 || Math.abs(value) < 1e-8)) {
+            return value.toExponential(8);
+        }
+
+        return Number(value.toPrecision(12)).toString();
     }
 
-    if (
-        Math.abs(number) >= 1e12 ||
-        (Math.abs(number) > 0 && Math.abs(number) < 1e-10)
-    ) {
-        return number.toExponential(10);
+    function showError(message) {
+        errorBox.textContent = message;
+        errorBox.style.display = "block";
+        resultsBox.style.display = "none";
     }
 
-    return Number(number.toPrecision(12)).toString();
-}
-
-
-function calculateSquareRoot() {
-
-    const input =
-        document.getElementById("number").value.trim();
-
-    const error =
-        document.getElementById("error");
-
-    const results =
-        document.getElementById("results");
-
-    error.style.display = "none";
-    results.style.display = "none";
-
-    if (input === "") {
-
-        error.textContent =
-            "Please enter a number.";
-
-        error.style.display = "block";
-
-        return;
+    function clearMessages() {
+        errorBox.textContent = "";
+        errorBox.style.display = "none";
+        resultsBox.style.display = "none";
     }
 
-    const number = Number(input);
+    function calculateSquareRoot() {
+        clearMessages();
 
-    if (!Number.isFinite(number)) {
+        const input = numberInput.value.trim();
 
-        error.textContent =
-            "Please enter a valid number.";
+        if (input === "") {
+            showError("Please enter a number before calculating.");
+            numberInput.focus();
+            return;
+        }
 
-        error.style.display = "block";
+        const number = Number(input);
 
-        return;
+        if (!Number.isFinite(number)) {
+            showError("Please enter a valid, finite number.");
+            numberInput.focus();
+            return;
+        }
+
+        if (number < 0) {
+            showError(
+                "Please enter zero or a positive number. Negative numbers do not have real square roots."
+            );
+            numberInput.focus();
+            return;
+        }
+
+        const result = Math.sqrt(number);
+
+        if (!Number.isFinite(result)) {
+            showError("The result could not be calculated. Please try another number.");
+            return;
+        }
+
+        const formattedNumber = formatNumber(number);
+        const formattedResult = formatNumber(result);
+
+        squareRootOutput.textContent = formattedResult;
+        resultNumberOutput.textContent = formattedNumber;
+        formulaOutput.textContent = "√" + formattedNumber + " = " + formattedResult;
+
+        verificationOutput.textContent =
+            formattedResult + " × " + formattedResult +
+            " ≈ " + formattedNumber;
+
+        if (number === 0) {
+            explanationOutput.textContent =
+                "The square root of zero is zero because 0 multiplied by 0 equals 0.";
+        } else {
+            explanationOutput.textContent =
+                "The principal square root is the non-negative number that, when multiplied by itself, gives the original number.";
+        }
+
+        resultsBox.style.display = "block";
+
+        if (window.innerWidth <= 700) {
+            resultsBox.scrollIntoView({
+                behavior: "smooth",
+                block: "nearest"
+            });
+        }
     }
 
-    if (number < 0) {
-
-        error.textContent =
-            "Please enter zero or a positive number. Negative numbers do not have real square roots.";
-
-        error.style.display = "block";
-
-        return;
+    function resetCalculator() {
+        numberInput.value = "";
+        clearMessages();
+        numberInput.focus();
     }
 
-    const result = Math.sqrt(number);
+    calculateBtn.addEventListener("click", calculateSquareRoot);
+    resetBtn.addEventListener("click", resetCalculator);
 
-    document.getElementById("resultNumber").textContent =
-        formatNumber(number);
-
-    document.getElementById("squareRoot").textContent =
-        formatNumber(result);
-
-    document.getElementById("verification").textContent =
-        formatNumber(result) +
-        " × " +
-        formatNumber(result) +
-        " ≈ " +
-        formatNumber(number);
-
-    results.style.display = "block";
-
-    if (window.innerWidth <= 700) {
-
-        results.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-
-    }
-}
-
-
-function resetCalculator() {
-
-    document.getElementById("number").value = "";
-
-    document.getElementById("error").style.display =
-        "none";
-
-    document.getElementById("results").style.display =
-        "none";
-}
-
-
-document.getElementById("number").addEventListener(
-    "keydown",
-    function(event) {
-
+    numberInput.addEventListener("keydown", function (event) {
         if (event.key === "Enter") {
             calculateSquareRoot();
         }
+    });
 
-    }
-);
-
+    document.querySelectorAll(".example-btn").forEach(function (button) {
+        button.addEventListener("click", function () {
+            numberInput.value = button.dataset.value;
+            calculateSquareRoot();
+        });
+    });
+})();
 </script>
 
 </body>
 </html>
+
