@@ -5,31 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Prime Number Checker – Check If a Number Is Prime | Easy Online Tool</title>
-
-    <meta name="description" content="Check whether a number is prime or not with this free Prime Number Checker. Quickly identify prime numbers and factors.">
-
-    <meta name="keywords" content="prime number checker, prime number calculator, check prime number, prime number test, math calculator">
-
+    <meta name="description" content="Check whether a whole number is prime or composite with our free Prime Number Checker. Find factors, see calculation steps and test large integers online.">
+    <meta name="keywords" content="prime number checker, prime number calculator, prime number test, prime factors, check if a number is prime">
     <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://easyonlinetools.online/prime-number-checker.html">
 
-  <link rel="canonical" href="https://easyonlinetools.online/prime-number-checker.html">
+    <meta property="og:title" content="Prime Number Checker | Easy Online Tool">
+    <meta property="og:description" content="Check whether a number is prime or composite and explore its factors with this free online tool.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://easyonlinetools.online/prime-number-checker.html">
+
     <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Prime Number Checker",
-    "url": "https://easyonlinetools.online/prime-number-checker.html",
-    "description": "Check whether a whole number is prime and view its factors with this free online Prime Number Checker.",
-    "applicationCategory": "CalculatorApplication",
-    "operatingSystem": "All",
-    "browserRequirements": "Requires a modern web browser",
-    "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Prime Number Checker",
+        "url": "https://easyonlinetools.online/prime-number-checker.html",
+        "description": "A free online tool to check whether a whole number is prime or composite, with factor information and calculation steps.",
+        "applicationCategory": "CalculatorApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires a modern browser with JavaScript support",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Check whether a number is prime or composite",
+            "Identify factors for smaller numbers",
+            "Explain prime number results",
+            "Support large integers up to 64 bits"
+        ]
     }
-}
-</script>
+    </script>
 
     <style>
         * {
@@ -41,8 +49,8 @@
         body {
             font-family: Arial, Helvetica, sans-serif;
             background: #f5f7fb;
-            color: #222;
-            line-height: 1.6;
+            color: #1f2937;
+            line-height: 1.65;
         }
 
         header {
@@ -57,6 +65,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 15px;
         }
 
         .logo {
@@ -64,17 +73,20 @@
             font-weight: bold;
             color: #2563eb;
             text-decoration: none;
+            white-space: nowrap;
         }
 
         nav {
             display: flex;
+            flex-wrap: wrap;
             gap: 20px;
         }
 
         nav a {
             text-decoration: none;
-            color: #333;
+            color: #374151;
             font-weight: 500;
+            font-size: 15px;
         }
 
         nav a:hover {
@@ -82,20 +94,21 @@
         }
 
         .container {
-            max-width: 850px;
-            margin: 45px auto;
+            max-width: 900px;
+            margin: 40px auto;
             padding: 0 20px;
         }
 
         .tool-header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .tool-header h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
+            font-size: 35px;
+            line-height: 1.25;
             color: #111827;
+            margin-bottom: 12px;
         }
 
         .tool-header p {
@@ -106,14 +119,27 @@
         .calculator {
             background: #ffffff;
             padding: 30px;
+            border: 1px solid #e5e7eb;
             border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+        }
+
+        .calculator h2 {
+            font-size: 23px;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+
+        .calculator-intro {
+            color: #6b7280;
+            margin-bottom: 22px;
+            font-size: 15px;
         }
 
         label {
             display: block;
-            font-weight: bold;
-            margin-bottom: 10px;
+            font-weight: 600;
+            margin-bottom: 8px;
             color: #374151;
         }
 
@@ -123,31 +149,57 @@
             border: 1px solid #d1d5db;
             border-radius: 7px;
             font-size: 18px;
-            text-align: center;
+            color: #111827;
+            background: #ffffff;
         }
 
         input:focus {
-            outline: none;
+            outline: 3px solid rgba(37, 99, 235, 0.13);
             border-color: #2563eb;
         }
 
         .hint {
-            margin-top: 8px;
+            margin-top: 7px;
+            color: #6b7280;
+            font-size: 13px;
+        }
+
+        .examples {
+            margin: 18px 0 20px;
             color: #6b7280;
             font-size: 14px;
         }
 
-        .calculate-btn {
-            width: 100%;
-            margin-top: 22px;
-            padding: 14px;
+        .examples button {
             border: none;
-            border-radius: 7px;
-            background: #2563eb;
-            color: white;
-            font-size: 17px;
-            font-weight: bold;
+            background: transparent;
+            color: #2563eb;
+            text-decoration: underline;
             cursor: pointer;
+            font-size: 14px;
+            margin: 4px 5px 0 0;
+        }
+
+        .button-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .calculate-btn,
+        .clear-btn {
+            padding: 14px 20px;
+            border-radius: 7px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .calculate-btn {
+            flex: 1;
+            border: none;
+            background: #2563eb;
+            color: #ffffff;
         }
 
         .calculate-btn:hover {
@@ -155,89 +207,172 @@
         }
 
         .clear-btn {
-            width: 100%;
-            margin-top: 10px;
-            padding: 12px;
             border: 1px solid #d1d5db;
-            border-radius: 7px;
             background: #ffffff;
             color: #374151;
-            font-size: 16px;
-            cursor: pointer;
         }
 
         .clear-btn:hover {
             background: #f3f4f6;
         }
 
+        .message {
+            display: none;
+            margin-top: 18px;
+            padding: 12px 15px;
+            border-radius: 7px;
+            font-size: 14px;
+        }
+
+        .message.error {
+            display: block;
+            background: #fef2f2;
+            color: #b91c1c;
+            border: 1px solid #fecaca;
+        }
+
         .result {
             display: none;
             margin-top: 25px;
-            padding: 25px;
+            padding: 24px;
             background: #f0f7ff;
-            border-radius: 8px;
+            border: 1px solid #dbeafe;
+            border-radius: 10px;
             text-align: center;
         }
 
         .result h2 {
-            margin-bottom: 12px;
             color: #111827;
+            margin-bottom: 15px;
         }
 
         .result-status {
-            font-size: 30px;
+            font-size: 28px;
             font-weight: bold;
-            color: #2563eb;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
+            overflow-wrap: anywhere;
         }
 
-        .result p {
+        .result-status.prime {
+            color: #15803d;
+        }
+
+        .result-status.composite {
+            color: #b45309;
+        }
+
+        .result-status.neither {
+            color: #6b7280;
+        }
+
+        .result-explanation {
             color: #4b5563;
             margin-top: 8px;
         }
 
-        .factors {
-            margin-top: 15px;
-            padding: 12px;
+        .result-card {
+            margin-top: 17px;
+            padding: 15px;
             background: #ffffff;
-            border-radius: 7px;
-            word-break: break-word;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            text-align: left;
         }
 
-        .info {
-            background: white;
-            margin-top: 30px;
-            padding: 25px;
+        .result-card h3 {
+            font-size: 16px;
+            color: #111827;
+            margin-bottom: 7px;
+        }
+
+        .result-card p {
+            color: #4b5563;
+            overflow-wrap: anywhere;
+        }
+
+        .steps {
+            display: none;
+            margin-top: 17px;
+            padding: 17px;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .steps h3 {
+            color: #111827;
+            margin-bottom: 10px;
+            font-size: 17px;
+        }
+
+        .step-line {
+            padding: 9px 12px;
+            margin-bottom: 7px;
+            background: #f9fafb;
+            border-radius: 6px;
+            color: #4b5563;
+            font-size: 14px;
+            overflow-wrap: anywhere;
+        }
+
+        .info-section {
+            margin: 28px 0;
+            padding: 28px;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
             border-radius: 10px;
         }
 
-        .info h2 {
-            margin-bottom: 10px;
+        .info-section h2 {
+            font-size: 23px;
             color: #111827;
+            margin-bottom: 12px;
         }
 
-        .info h3 {
+        .info-section h3 {
+            font-size: 18px;
+            color: #111827;
             margin-top: 20px;
-            margin-bottom: 8px;
-            color: #111827;
+            margin-bottom: 7px;
         }
 
-        .info p {
+        .info-section p {
+            color: #4b5563;
             margin-bottom: 14px;
+        }
+
+        .info-section ul {
+            padding-left: 22px;
+            margin-bottom: 15px;
             color: #4b5563;
         }
 
-        .info a {
+        .info-section li {
+            margin-bottom: 7px;
+        }
+
+        .formula {
+            background: #f0f7ff;
+            padding: 14px;
+            margin: 15px 0;
+            border-radius: 7px;
+            text-align: center;
+            color: #1d4ed8;
+            font-weight: bold;
+        }
+
+        .info-section a {
             color: #2563eb;
             text-decoration: none;
         }
 
-        .info a:hover {
+        .info-section a:hover {
             text-decoration: underline;
         }
 
         .internal-nav {
-            max-width: 850px;
+            max-width: 900px;
             margin: 25px auto;
             padding: 0 20px;
             text-align: center;
@@ -249,12 +384,8 @@
             font-weight: 500;
         }
 
-        .internal-nav a:hover {
-            text-decoration: underline;
-        }
-
         footer {
-            margin-top: 50px;
+            margin-top: 45px;
             padding: 25px 20px;
             text-align: center;
             background: #ffffff;
@@ -276,28 +407,41 @@
         }
 
         @media (max-width: 650px) {
-
             .nav-container {
                 flex-direction: column;
                 gap: 12px;
             }
 
             nav {
-                gap: 12px;
-                flex-wrap: wrap;
                 justify-content: center;
+                gap: 12px 16px;
+            }
+
+            .container {
+                margin: 28px auto;
             }
 
             .tool-header h1 {
                 font-size: 28px;
             }
 
-            .calculator {
+            .calculator,
+            .info-section {
                 padding: 20px;
             }
 
             .result-status {
-                font-size: 25px;
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .button-row {
+                flex-direction: column;
+            }
+
+            .clear-btn {
+                width: 100%;
             }
         }
     </style>
@@ -306,219 +450,224 @@
 <body>
 
 <header>
-
     <div class="nav-container">
+        <a href="index.html" class="logo">Easy Online Tool</a>
 
-        <a href="index.html" class="logo">
-            Easy Online Tool
-        </a>
-
-        <nav>
+        <nav aria-label="Main navigation">
             <a href="index.html">Home</a>
             <a href="tools.html">Tools</a>
             <a href="index.html#categories">Categories</a>
             <a href="index.html#about">About</a>
             <a href="index.html#faq">FAQ</a>
         </nav>
-
     </div>
-
 </header>
-
 
 <main class="container">
 
     <div class="tool-header">
-
         <h1>Prime Number Checker</h1>
-
-        <p>
-            Check instantly whether a number is prime or not.
-        </p>
-
+        <p>Check whether a whole number is prime or composite and explore its factors.</p>
     </div>
 
+    <section class="calculator" aria-labelledby="calculator-heading">
 
-    <div class="calculator">
+        <h2 id="calculator-heading">Check a Number</h2>
 
-        <label for="number">
-            Enter a whole number
-        </label>
+        <p class="calculator-intro">
+            Enter a whole number to find out whether it is prime, composite or neither.
+        </p>
 
-        <input
-            type="number"
-            id="number"
-            placeholder="Example: 29"
-            min="0"
-            step="1"
-        >
+        <form id="primeForm" novalidate>
 
-        <div class="hint">
-            Enter a positive whole number to check whether it is prime.
-        </div>
+            <label for="number">Enter a whole number</label>
 
+            <input
+                type="text"
+                id="number"
+                inputmode="numeric"
+                autocomplete="off"
+                placeholder="Example: 29"
+                aria-describedby="numberHint"
+            >
 
-        <button
-            class="calculate-btn"
-            onclick="checkPrime()"
-        >
-            Check Number
-        </button>
+            <p class="hint" id="numberHint">
+                Enter a non-negative whole number. The maximum supported value is 18,446,744,073,709,551,615 (2⁶⁴ − 1).
+            </p>
 
+            <div class="examples">
+                Try an example:
+                <button type="button" data-example="29">29</button>
+                <button type="button" data-example="30">30</button>
+                <button type="button" data-example="97">97</button>
+                <button type="button" data-example="100">100</button>
+            </div>
 
-        <button
-            class="clear-btn"
-            onclick="clearCalculator()"
-        >
-            Clear
-        </button>
+            <div class="button-row">
+                <button type="submit" class="calculate-btn">Check Number</button>
+                <button type="button" class="clear-btn" id="clearButton">Clear</button>
+            </div>
 
+        </form>
 
-        <div class="result" id="result">
+        <div class="message" id="message" role="alert" aria-live="polite"></div>
+
+        <div class="result" id="result" aria-live="polite">
 
             <h2>Result</h2>
 
             <div class="result-status" id="resultStatus"></div>
 
-            <p id="resultExplanation"></p>
+            <p class="result-explanation" id="resultExplanation"></p>
 
-            <div class="factors" id="factors"></div>
+            <div class="result-card">
+                <h3>Factors</h3>
+                <p id="factors"></p>
+            </div>
+
+            <div class="steps" id="steps">
+                <h3>How the Number Was Checked</h3>
+                <div id="stepContent"></div>
+            </div>
 
         </div>
 
-    </div>
+    </section>
 
+    <section class="info-section">
 
-    <div class="info">
-
-        <h2>What is a Prime Number?</h2>
+        <h2>What Is a Prime Number?</h2>
 
         <p>
-            A prime number is a whole number greater than 1 that has
-            exactly two positive factors: 1 and itself.
+            A prime number is a whole number greater than 1 that has exactly
+            two positive factors: 1 and itself. This means it can only be
+            divided evenly by 1 and the number itself.
         </p>
 
         <p>
-            Examples of prime numbers include 2, 3, 5, 7, 11, 13,
-            17, 19 and 23.
+            Examples of prime numbers include 2, 3, 5, 7, 11, 13, 17, 19,
+            23 and 29.
         </p>
 
-
-        <h2>What is a Composite Number?</h2>
+        <h2>What Is a Composite Number?</h2>
 
         <p>
-            A composite number is a whole number greater than 1 that
-            has more than two factors. For example, 12 has factors
-            1, 2, 3, 4, 6 and 12.
+            A composite number is a whole number greater than 1 that has more
+            than two positive factors. For example, 12 is composite because
+            its factors are 1, 2, 3, 4, 6 and 12.
         </p>
 
-
-        <h2>How to Use the Prime Number Checker</h2>
+        <h2>Prime Number Formula and Checking Method</h2>
 
         <p>
-            Enter a whole number and click "Check Number". The
-            calculator will tell you whether the number is prime
-            or not and will display its factors when applicable.
+            A number greater than 1 is prime if it has no positive divisor
+            other than 1 and itself.
         </p>
 
-    </div>
-<div class="info">
+        <div class="formula">
+            A prime number has exactly two positive factors.
+        </div>
 
-    <h2>How Prime Numbers Are Checked</h2>
+        <p>
+            To check whether a number is prime, it is sufficient to test
+            possible divisors up to the square root of the number. If no
+            divisor is found, the number is prime.
+        </p>
 
-    <p>
-        A number greater than 1 is prime if it cannot be divided evenly by
-        any whole number other than 1 and itself. The calculator checks
-        possible divisors up to the square root of the number, which avoids
-        unnecessary calculations while determining whether the number is prime.
-    </p>
+        <h2>Examples of Prime and Composite Numbers</h2>
 
-    <h2>Prime Number Example</h2>
+        <ul>
+            <li><strong>2:</strong> Prime — factors are 1 and 2.</li>
+            <li><strong>7:</strong> Prime — factors are 1 and 7.</li>
+            <li><strong>12:</strong> Composite — factors include 1, 2, 3, 4, 6 and 12.</li>
+            <li><strong>15:</strong> Composite — factors are 1, 3, 5 and 15.</li>
+            <li><strong>29:</strong> Prime — factors are 1 and 29.</li>
+        </ul>
 
-    <p>
-        For example, 29 is a prime number because it has only two positive
-        factors: 1 and 29. In contrast, 30 is not prime because it can be
-        divided evenly by numbers such as 2, 3, 5 and 6.
-    </p>
+        <h2>Special Cases: 0 and 1</h2>
 
-</div>
+        <p>
+            Zero and one are neither prime nor composite. Zero has infinitely
+            many integer divisors, while one has only one positive factor.
+            A prime number must have exactly two distinct positive factors.
+        </p>
 
-    <div class="info">
+        <h2>Why Is 2 the Only Even Prime Number?</h2>
+
+        <p>
+            Every even whole number greater than 2 can be divided evenly by
+            2. It therefore has at least three positive factors: 1, 2 and
+            itself. The number 2 has exactly two factors, so it is the only
+            even prime number.
+        </p>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>What is a prime number?</h3>
+        <p>
+            A prime number is a whole number greater than 1 that has exactly
+            two positive factors: 1 and itself.
+        </p>
+
+        <h3>Is 1 a prime number?</h3>
+        <p>
+            No. The number 1 is neither prime nor composite because it has
+            only one positive factor.
+        </p>
+
+        <h3>Is 2 a prime number?</h3>
+        <p>
+            Yes. 2 is the smallest prime number and the only even prime number.
+        </p>
+
+        <h3>Is 0 a prime number?</h3>
+        <p>
+            No. Zero is neither prime nor composite.
+        </p>
+
+        <h3>How can I check whether a large number is prime?</h3>
+        <p>
+            Enter the number into the calculator above. It uses an efficient
+            modular arithmetic test to check integers up to 64 bits.
+        </p>
+
+        <h3>Can negative numbers be prime?</h3>
+        <p>
+            In the standard definition used by this calculator, prime numbers
+            are positive whole numbers greater than 1. Negative numbers are
+            not treated as prime.
+        </p>
+
+    </section>
+
+    <section class="info-section">
 
         <h2>Related Math Calculators</h2>
 
-        <p>
-            Explore more free math tools from Easy Online Tool:
-        </p>
+        <p>Explore more free math tools from Easy Online Tool:</p>
 
         <p>
             <a href="percentage-calculator.html">Percentage Calculator</a> |
             <a href="average-calculator.html">Average Calculator</a> |
             <a href="fraction-calculator.html">Fraction Calculator</a> |
             <a href="ratio-calculator.html">Ratio Calculator</a> |
-            <a href="gcd-lcm-calculator.html">GCD & LCM Calculator</a> |
+            <a href="gcd-lcm-calculator.html">GCD &amp; LCM Calculator</a> |
             <a href="random-number-generator.html">Random Number Generator</a>
         </p>
 
-    </div>
-
-
-    <div class="info">
-
-        <h2>Prime Number Checker FAQs</h2>
-
-        <h3>What is a prime number?</h3>
-
-        <p>
-            A prime number is a whole number greater than 1 that has
-            exactly two positive factors: 1 and the number itself.
-        </p>
-
-        <h3>Is 1 a prime number?</h3>
-
-        <p>
-            No. The number 1 is neither prime nor composite because it
-            has only one positive factor.
-        </p>
-
-        <h3>Is 2 a prime number?</h3>
-
-        <p>
-            Yes. 2 is the smallest prime number and the only even prime number.
-        </p>
-
-        <h3>Is 0 a prime number?</h3>
-
-        <p>
-            No. Zero is neither prime nor composite.
-        </p>
-
-        <h3>How can I check if a large number is prime?</h3>
-
-        <p>
-            Enter the whole number into the calculator above. The tool checks
-            whether the number has any divisor other than 1 and itself.
-        </p>
-
-    </div>
+    </section>
 
 </main>
 
-
 <div class="internal-nav">
-
     <a href="tools.html">← All Tools</a>
     |
-    <a href="tools.html#math">Math & Advanced Calculators</a>
-
+    <a href="tools.html#math">Math &amp; Advanced Calculators</a>
 </div>
-
 
 <footer>
 
-    <p>
-        © 2026 Easy Online Tool. All rights reserved.
-    </p>
+    <p>© 2026 Easy Online Tool. All rights reserved.</p>
 
     <p>
         <a href="index.html">Home</a> |
@@ -536,144 +685,286 @@
 
 </footer>
 
-
 <script>
+(function () {
+    "use strict";
 
-function checkPrime() {
-
-    const input = document.getElementById("number").value;
-
-    if (input === "") {
-
-        alert("Please enter a number.");
-
-        return;
-    }
-
-
-    const number = Number(input);
-
-
-    if (!Number.isInteger(number)) {
-
-        alert("Please enter a whole number.");
-
-        return;
-    }
-
-
-    if (number < 0) {
-
-        alert("Please enter a positive whole number.");
-
-        return;
-    }
-
-
+    const form = document.getElementById("primeForm");
+    const numberInput = document.getElementById("number");
     const result = document.getElementById("result");
+    const resultStatus = document.getElementById("resultStatus");
+    const resultExplanation = document.getElementById("resultExplanation");
+    const factors = document.getElementById("factors");
+    const steps = document.getElementById("steps");
+    const stepContent = document.getElementById("stepContent");
+    const message = document.getElementById("message");
 
-    const status = document.getElementById("resultStatus");
+    const MAX_VALUE = (1n << 64n) - 1n;
 
-    const explanation =
-        document.getElementById("resultExplanation");
+    const SMALL_PRIMES = [
+        2n, 3n, 5n, 7n, 11n, 13n, 17n, 19n, 23n, 29n, 31n, 37n
+    ];
 
-    const factors =
-        document.getElementById("factors");
+    // Deterministic Miller-Rabin bases for unsigned 64-bit integers.
+    const TEST_BASES = [
+        2n, 325n, 9375n, 28178n,
+        450775n, 9780504n, 1795265022n
+    ];
 
-
-    result.style.display = "block";
-
-
-    if (number === 0 || number === 1) {
-
-        status.textContent =
-            number + " is NOT a prime number.";
-
-        explanation.textContent =
-            "Prime numbers must be greater than 1.";
-
-        factors.textContent =
-            "0 and 1 are neither prime nor composite.";
-
-        return;
+    function showError(text) {
+        message.textContent = text;
+        message.className = "message error";
+        result.style.display = "none";
     }
 
+    function clearMessage() {
+        message.textContent = "";
+        message.className = "message";
+    }
 
-    let isPrime = true;
+    function parseInput(value) {
+        const cleaned = value.trim();
 
-    let factorList = [];
+        if (!/^[0-9]+$/.test(cleaned)) {
+            return null;
+        }
 
+        try {
+            const number = BigInt(cleaned);
 
-    for (let i = 1; i <= Math.sqrt(number); i++) {
-
-        if (number % i === 0) {
-
-            factorList.push(i);
-
-            if (i !== number / i) {
-
-                factorList.push(number / i);
-
+            if (number > MAX_VALUE) {
+                return null;
             }
 
+            return number;
+        } catch (error) {
+            return null;
         }
-
     }
 
+    function modularPower(base, exponent, modulus) {
+        let result = 1n;
+        base %= modulus;
 
-    factorList.sort(function(a, b) {
-        return a - b;
+        while (exponent > 0n) {
+            if (exponent % 2n === 1n) {
+                result = (result * base) % modulus;
+            }
+
+            exponent /= 2n;
+            base = (base * base) % modulus;
+        }
+
+        return result;
+    }
+
+    function isPrime64(n) {
+        if (n < 2n) {
+            return false;
+        }
+
+        for (const prime of SMALL_PRIMES) {
+            if (n === prime) {
+                return true;
+            }
+
+            if (n % prime === 0n) {
+                return false;
+            }
+        }
+
+        let d = n - 1n;
+        let s = 0;
+
+        while (d % 2n === 0n) {
+            d /= 2n;
+            s++;
+        }
+
+        for (const base of TEST_BASES) {
+            const a = base % n;
+
+            if (a === 0n) {
+                continue;
+            }
+
+            let x = modularPower(a, d, n);
+
+            if (x === 1n || x === n - 1n) {
+                continue;
+            }
+
+            let passed = false;
+
+            for (let r = 1; r < s; r++) {
+                x = (x * x) % n;
+
+                if (x === n - 1n) {
+                    passed = true;
+                    break;
+                }
+            }
+
+            if (!passed) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    function findFactors(n) {
+        const found = [];
+
+        for (let divisor = 1n; divisor * divisor <= n; divisor++) {
+            if (n % divisor === 0n) {
+                found.push(divisor);
+
+                const pairedFactor = n / divisor;
+
+                if (pairedFactor !== divisor) {
+                    found.push(pairedFactor);
+                }
+            }
+        }
+
+        found.sort(function (a, b) {
+            return a < b ? -1 : a > b ? 1 : 0;
+        });
+
+        return found;
+    }
+
+    function addStep(text) {
+        const line = document.createElement("div");
+        line.className = "step-line";
+        line.textContent = text;
+        stepContent.appendChild(line);
+    }
+
+    function showResult(n) {
+        clearMessage();
+
+        result.style.display = "block";
+        stepContent.innerHTML = "";
+        steps.style.display = "block";
+
+        resultStatus.className = "result-status";
+        factors.textContent = "";
+        resultExplanation.textContent = "";
+
+        if (n === 0n || n === 1n) {
+            resultStatus.textContent = n.toString() + " is neither prime nor composite.";
+            resultStatus.classList.add("neither");
+
+            resultExplanation.textContent =
+                n === 0n
+                    ? "Zero is neither prime nor composite."
+                    : "One has only one positive factor, so it is neither prime nor composite.";
+
+            factors.textContent =
+                n === 0n
+                    ? "Zero does not have a finite list of positive factors."
+                    : "Positive factors: 1";
+
+            addStep("Prime numbers must be greater than 1.");
+            addStep("The number " + n.toString() + " does not meet the definition of a prime or composite number.");
+
+            return;
+        }
+
+        const prime = isPrime64(n);
+
+        if (prime) {
+            resultStatus.textContent = n.toString() + " is a PRIME number.";
+            resultStatus.classList.add("prime");
+
+            resultExplanation.textContent =
+                "This number has exactly two positive factors: 1 and itself.";
+
+            factors.textContent = "Factors: 1 and " + n.toString();
+
+            addStep("The number is greater than 1.");
+            addStep("The number is not divisible by any prime number up to its square root.");
+            addStep("Therefore, it has exactly two positive factors: 1 and " + n.toString() + ".");
+            addStep("Conclusion: " + n.toString() + " is prime.");
+
+        } else {
+            resultStatus.textContent = n.toString() + " is a COMPOSITE number.";
+            resultStatus.classList.add("composite");
+
+            resultExplanation.textContent =
+                "This number has more than two positive factors.";
+
+            addStep("The number is greater than 1.");
+            addStep("The primality test found that the number is composite.");
+            addStep("Conclusion: " + n.toString() + " is not prime.");
+
+            if (n <= 1000000000000n) {
+                const factorList = findFactors(n);
+
+                factors.textContent =
+                    "Factors: " + factorList.map(function (factor) {
+                        return factor.toString();
+                    }).join(", ");
+
+                addStep("The factors are listed above.");
+            } else {
+                factors.textContent =
+                    "The number is composite. A complete factor list is not generated for very large numbers to avoid lengthy calculations.";
+            }
+        }
+    }
+
+    function calculate() {
+        clearMessage();
+
+        const rawValue = numberInput.value;
+
+        if (!rawValue.trim()) {
+            showError("Please enter a whole number.");
+            return;
+        }
+
+        const number = parseInput(rawValue);
+
+        if (number === null) {
+            showError("Please enter a non-negative whole number with no decimal places. The maximum supported value is 2⁶⁴ − 1.");
+            return;
+        }
+
+        showResult(number);
+
+        result.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest"
+        });
+    }
+
+    function clearCalculator() {
+        form.reset();
+        clearMessage();
+        result.style.display = "none";
+        steps.style.display = "none";
+        stepContent.innerHTML = "";
+        numberInput.focus();
+    }
+
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        calculate();
     });
 
+    document.getElementById("clearButton").addEventListener("click", clearCalculator);
 
-    for (let i = 2; i <= Math.sqrt(number); i++) {
+    document.querySelectorAll("[data-example]").forEach(function (button) {
+        button.addEventListener("click", function () {
+            numberInput.value = button.dataset.example;
+            calculate();
+        });
+    });
 
-        if (number % i === 0) {
-
-            isPrime = false;
-
-            break;
-
-        }
-
-    }
-
-
-    if (isPrime) {
-
-        status.textContent =
-            number + " is a PRIME number.";
-
-        explanation.textContent =
-            number + " has exactly two factors: 1 and " + number + ".";
-
-        factors.textContent =
-            "Factors: 1 and " + number;
-
-    } else {
-
-        status.textContent =
-            number + " is NOT a prime number.";
-
-        explanation.textContent =
-            number + " has more than two factors.";
-
-        factors.textContent =
-            "Factors: " + factorList.join(", ");
-
-    }
-
-}
-
-
-function clearCalculator() {
-
-    document.getElementById("number").value = "";
-
-    document.getElementById("result").style.display = "none";
-
-}
-
+})();
 </script>
 
 </body>
