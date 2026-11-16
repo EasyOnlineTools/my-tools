@@ -1,320 +1,414 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Random Number Generator – Generate Random Numbers | Easy Online Tool</title>
+<title>Random Number Generator – Integers & Decimals | Easy Online Tool</title>
+<meta name="description" content="Generate random integers or decimals online. Choose a number range, quantity, decimal precision, duplicates, and sorting. Free random number generator.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://easyonlinetools.online/random-number-generator.html">
 
-  <meta name="description" content="Generate random whole numbers within a selected range with this free Random Number Generator. Create multiple random numbers with or without repeats.">
+<meta property="og:title" content="Random Number Generator | Easy Online Tool">
+<meta property="og:description" content="Generate random integers and decimals. Customize your range, quantity, precision, duplicates and result order.">
+<meta property="og:url" content="https://easyonlinetools.online/random-number-generator.html">
+<meta property="og:type" content="website">
 
-    <meta name="keywords" content="random number generator, random number calculator, generate random numbers, random numbers online, random number picker">
-
-    <meta name="robots" content="index, follow">
-
-    <link rel="canonical" href="https://easyonlinetools.online/random-number-generator.html">
-    <script type="application/ld+json">
+<script type="application/ld+json">
 {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Random Number Generator",
-    "url": "https://easyonlinetools.online/random-number-generator.html",
-    "description": "Generate random numbers within a selected range with options for multiple numbers and unique or repeated results.",
-    "applicationCategory": "CalculatorApplication",
-    "operatingSystem": "All",
-    "browserRequirements": "Requires a modern web browser",
-    "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-    }
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Random Number Generator",
+  "url": "https://easyonlinetools.online/random-number-generator.html",
+  "description": "A free online random number generator for integers and decimals with customizable ranges, quantity, precision, duplicate and sorting options.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires a modern web browser",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": [
+    "Generate random integers",
+    "Generate random decimal numbers",
+    "Generate multiple numbers",
+    "Choose decimal precision",
+    "Allow or prevent duplicate results",
+    "Sort results in ascending or descending order",
+    "Generate very large integers",
+    "Copy generated results"
+  ]
 }
 </script>
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f5f7fb;
-            color: #222;
-            line-height: 1.6;
-        }
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fb;
+    color: #222;
+    line-height: 1.65;
+}
 
-        header {
-            background: #ffffff;
-            border-bottom: 1px solid #e5e7eb;
-            padding: 15px 20px;
-        }
+header {
+    background: #fff;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 15px 20px;
+}
 
-        .nav-container {
-            max-width: 1100px;
-            margin: auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+.nav-container {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
 
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #2563eb;
-            text-decoration: none;
-        }
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2563eb;
+    text-decoration: none;
+}
 
-        nav {
-            display: flex;
-            gap: 20px;
-        }
+nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
 
-        nav a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-        }
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
 
-        nav a:hover {
-            color: #2563eb;
-        }
+nav a:hover {
+    color: #2563eb;
+}
 
-        .container {
-            max-width: 850px;
-            margin: 45px auto;
-            padding: 0 20px;
-        }
+.container {
+    max-width: 900px;
+    margin: 45px auto;
+    padding: 0 20px;
+}
 
-        .tool-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+.tool-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
 
-        .tool-header h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
-            color: #111827;
-        }
+.tool-header h1 {
+    font-size: 36px;
+    line-height: 1.25;
+    margin-bottom: 12px;
+    color: #111827;
+}
 
-        .tool-header p {
-            color: #6b7280;
-            font-size: 17px;
-        }
+.tool-header p {
+    color: #6b7280;
+    font-size: 17px;
+}
 
-        .calculator {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-        }
+.calculator {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
 
-        .input-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 18px;
-        }
+.calculator h2 {
+    color: #111827;
+    font-size: 22px;
+    margin-bottom: 18px;
+}
 
-        .input-group {
-            margin-bottom: 5px;
-        }
+.input-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
 
-        label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 8px;
-            color: #374151;
-        }
+.input-group {
+    margin-bottom: 5px;
+}
 
-        input,
-        select {
-            width: 100%;
-            padding: 14px;
-            border: 1px solid #d1d5db;
-            border-radius: 7px;
-            font-size: 17px;
-        }
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #374151;
+}
 
-        input:focus,
-        select:focus {
-            outline: none;
-            border-color: #2563eb;
-        }
+input,
+select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    font-size: 16px;
+    font-family: inherit;
+    background: #fff;
+    color: #222;
+}
 
-        .generate-btn {
-            width: 100%;
-            margin-top: 22px;
-            padding: 14px;
-            border: none;
-            border-radius: 7px;
-            background: #2563eb;
-            color: white;
-            font-size: 17px;
-            font-weight: bold;
-            cursor: pointer;
-        }
+input:focus,
+select:focus {
+    outline: 2px solid #93c5fd;
+    border-color: #2563eb;
+}
 
-        .generate-btn:hover {
-            background: #1d4ed8;
-        }
+.hint {
+    display: block;
+    color: #6b7280;
+    font-size: 13px;
+    margin-top: 5px;
+}
 
-        .clear-btn {
-            width: 100%;
-            margin-top: 10px;
-            padding: 12px;
-            border: 1px solid #d1d5db;
-            border-radius: 7px;
-            background: #ffffff;
-            color: #374151;
-            font-size: 16px;
-            cursor: pointer;
-        }
+.options-heading {
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 19px;
+    color: #111827;
+}
 
-        .clear-btn:hover {
-            background: #f3f4f6;
-        }
+.generate-btn {
+    width: 100%;
+    margin-top: 23px;
+    padding: 15px;
+    border: none;
+    border-radius: 7px;
+    background: #2563eb;
+    color: #fff;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
 
-        .result {
-            display: none;
-            margin-top: 25px;
-            padding: 25px;
-            background: #f0f7ff;
-            border-radius: 8px;
-        }
+.generate-btn:hover {
+    background: #1d4ed8;
+}
 
-        .result h2 {
-            text-align: center;
-            margin-bottom: 18px;
-            color: #111827;
-        }
+.secondary-btn {
+    padding: 11px 17px;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    background: #fff;
+    color: #374151;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
 
-        .numbers {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-        }
+.secondary-btn:hover {
+    background: #f3f4f6;
+}
 
-        .number-box {
-            min-width: 70px;
-            padding: 12px 15px;
-            background: #ffffff;
-            border-radius: 7px;
-            text-align: center;
-            font-size: 20px;
-            font-weight: bold;
-            color: #2563eb;
-        }
+.message {
+    display: none;
+    margin-top: 18px;
+    padding: 12px 15px;
+    border-radius: 7px;
+    font-size: 14px;
+}
 
-        .info {
-            background: white;
-            margin-top: 30px;
-            padding: 25px;
-            border-radius: 10px;
-        }
+.message.error {
+    display: block;
+    background: #fef2f2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+}
 
-        .info h2 {
-            margin-bottom: 10px;
-            color: #111827;
-        }
+.message.success {
+    display: block;
+    background: #ecfdf5;
+    color: #047857;
+    border: 1px solid #a7f3d0;
+}
 
-        .info h3 {
-            margin-top: 20px;
-            margin-bottom: 8px;
-            color: #111827;
-        }
+.result {
+    display: none;
+    margin-top: 25px;
+    padding: 25px;
+    background: #f0f7ff;
+    border-radius: 9px;
+}
 
-        .info p {
-            margin-bottom: 14px;
-            color: #4b5563;
-        }
+.result h2 {
+    text-align: center;
+    margin-bottom: 8px;
+}
 
-        .info a {
-            color: #2563eb;
-            text-decoration: none;
-        }
+.result-summary {
+    text-align: center;
+    color: #6b7280;
+    font-size: 14px;
+    margin-bottom: 18px;
+}
 
-        .info a:hover {
-            text-decoration: underline;
-        }
+.numbers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 10px;
+}
 
-        .internal-nav {
-            max-width: 850px;
-            margin: 25px auto;
-            padding: 0 20px;
-            text-align: center;
-        }
+.number-box {
+    min-width: 0;
+    padding: 12px 8px;
+    background: #fff;
+    border: 1px solid #dbeafe;
+    border-radius: 7px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #2563eb;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
 
-        .internal-nav a {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: 500;
-        }
+.result-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
 
-        .internal-nav a:hover {
-            text-decoration: underline;
-        }
+.info {
+    background: #fff;
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 10px;
+}
 
-        footer {
-            margin-top: 50px;
-            padding: 25px 20px;
-            text-align: center;
-            background: #ffffff;
-            border-top: 1px solid #e5e7eb;
-            color: #6b7280;
-        }
+.info h2 {
+    margin-bottom: 12px;
+    color: #111827;
+    font-size: 23px;
+}
 
-        footer p {
-            margin-bottom: 8px;
-        }
+.info h3 {
+    margin-top: 21px;
+    margin-bottom: 7px;
+    color: #111827;
+    font-size: 18px;
+}
 
-        footer a {
-            color: #2563eb;
-            text-decoration: none;
-        }
+.info p {
+    margin-bottom: 14px;
+    color: #4b5563;
+}
 
-        footer a:hover {
-            text-decoration: underline;
-        }
+.info ul,
+.info ol {
+    padding-left: 23px;
+    margin-bottom: 15px;
+    color: #4b5563;
+}
 
-        @media (max-width: 650px) {
+.info li {
+    margin-bottom: 8px;
+}
 
-            .nav-container {
-                flex-direction: column;
-                gap: 12px;
-            }
+.info a {
+    color: #2563eb;
+    text-decoration: none;
+}
 
-            nav {
-                gap: 12px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
+.info a:hover {
+    text-decoration: underline;
+}
 
-            .tool-header h1 {
-                font-size: 28px;
-            }
+.formula {
+    background: #f3f6fb;
+    padding: 13px 16px;
+    border-radius: 7px;
+    margin: 12px 0 18px;
+    color: #1f2937;
+    overflow-wrap: anywhere;
+}
 
-            .calculator {
-                padding: 20px;
-            }
+.internal-nav {
+    max-width: 900px;
+    margin: 25px auto;
+    padding: 0 20px;
+    text-align: center;
+}
 
-            .input-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+.internal-nav a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+footer {
+    margin-top: 50px;
+    padding: 25px 20px;
+    text-align: center;
+    background: #fff;
+    border-top: 1px solid #e5e7eb;
+    color: #6b7280;
+}
+
+footer p {
+    margin-bottom: 8px;
+}
+
+footer a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+@media (max-width: 650px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav {
+        gap: 12px;
+        justify-content: center;
+    }
+
+    .tool-header h1 {
+        font-size: 29px;
+    }
+
+    .calculator {
+        padding: 20px;
+    }
+
+    .input-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .result {
+        padding: 17px;
+    }
+
+    .numbers {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .number-box {
+        font-size: 16px;
+    }
+}
+</style>
 </head>
 
 <body>
 
 <header>
-
     <div class="nav-container">
-
-        <a href="index.html" class="logo">
-            Easy Online Tool
-        </a>
+        <a href="index.html" class="logo">Easy Online Tool</a>
 
         <nav>
             <a href="index.html">Home</a>
@@ -323,67 +417,54 @@
             <a href="index.html#about">About</a>
             <a href="index.html#faq">FAQ</a>
         </nav>
-
     </div>
-
 </header>
-
 
 <main class="container">
 
     <div class="tool-header">
-
         <h1>Random Number Generator</h1>
-
-       <p>
-    Generate random whole numbers between your chosen minimum and maximum values.
-</p>
-
+        <p>
+            Generate random integers or decimal numbers within your chosen
+            range. Customize the quantity, precision, duplicates and order
+            of your results.
+        </p>
     </div>
 
+    <section class="calculator" aria-label="Random number generator">
 
-    <div class="calculator">
+        <h2>Generate Random Numbers</h2>
 
         <div class="input-grid">
 
             <div class="input-group">
-
-                <label for="minimum">
-                    Minimum Number
-                </label>
-
+                <label for="minimum">Lower Limit</label>
                 <input
-                    type="number"
+                    type="text"
                     id="minimum"
                     value="1"
+                    inputmode="decimal"
+                    autocomplete="off"
                     placeholder="Example: 1"
                 >
-
+                <span class="hint">The smallest possible result.</span>
             </div>
 
-
             <div class="input-group">
-
-                <label for="maximum">
-                    Maximum Number
-                </label>
-
+                <label for="maximum">Upper Limit</label>
                 <input
-                    type="number"
+                    type="text"
                     id="maximum"
                     value="100"
+                    inputmode="decimal"
+                    autocomplete="off"
                     placeholder="Example: 100"
                 >
-
+                <span class="hint">The largest possible result.</span>
             </div>
 
-
             <div class="input-group">
-
-                <label for="quantity">
-                    How Many Numbers?
-                </label>
-
+                <label for="quantity">Generate How Many Numbers?</label>
                 <input
                     type="number"
                     id="quantity"
@@ -392,87 +473,466 @@
                     max="100"
                     step="1"
                 >
-
+                <span class="hint">Choose between 1 and 100 results.</span>
             </div>
 
-
             <div class="input-group">
-
-                <label for="unique">
-                    Number Selection
-                </label>
-
-                <select id="unique">
-
-                    <option value="no">
-                        Allow Repeats
-                    </option>
-
-                    <option value="yes">
-                        Unique Numbers Only
-                    </option>
-
+                <label for="numberType">Type of Result</label>
+                <select id="numberType">
+                    <option value="integer">Integer (Whole Number)</option>
+                    <option value="decimal">Decimal Number</option>
                 </select>
+            </div>
 
+            <div class="input-group" id="precisionGroup" hidden>
+                <label for="precision">Decimal Precision</label>
+                <select id="precision">
+                    <option value="1">1 decimal place</option>
+                    <option value="2" selected>2 decimal places</option>
+                    <option value="3">3 decimal places</option>
+                    <option value="4">4 decimal places</option>
+                    <option value="5">5 decimal places</option>
+                    <option value="6">6 decimal places</option>
+                    <option value="7">7 decimal places</option>
+                    <option value="8">8 decimal places</option>
+                    <option value="9">9 decimal places</option>
+                    <option value="10">10 decimal places</option>
+                    <option value="11">11 decimal places</option>
+                    <option value="12">12 decimal places</option>
+                </select>
+                <span class="hint">Number of digits after the decimal point.</span>
             </div>
 
         </div>
 
+        <h3 class="options-heading">Additional Options</h3>
 
-        <button
-            class="generate-btn"
-            onclick="generateNumbers()"
-        >
+        <div class="input-grid">
+
+            <div class="input-group">
+                <label for="duplicates">Allow Duplication in Results?</label>
+                <select id="duplicates">
+                    <option value="yes">Yes – Allow Repeats</option>
+                    <option value="no">No – Unique Numbers Only</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="sortOrder">Sort the Results</label>
+                <select id="sortOrder">
+                    <option value="none">No Sorting</option>
+                    <option value="asc">Ascending (Smallest First)</option>
+                    <option value="desc">Descending (Largest First)</option>
+                </select>
+            </div>
+
+        </div>
+
+        <button type="button" class="generate-btn" id="generateBtn">
             Generate Random Numbers
         </button>
 
+        <div
+            id="message"
+            class="message"
+            role="alert"
+            aria-live="polite"
+        ></div>
 
-        <button
-            class="clear-btn"
-            onclick="clearCalculator()"
-        >
-            Clear
-        </button>
+        <div class="result" id="result" aria-live="polite">
 
+            <h2>Your Random Numbers</h2>
 
-        <div class="result" id="result">
-
-            <h2>Random Numbers</h2>
+            <p class="result-summary" id="resultSummary"></p>
 
             <div class="numbers" id="numbers"></div>
 
+            <div class="result-actions">
+                <button type="button" class="secondary-btn" id="copyBtn">
+                    Copy Results
+                </button>
+
+                <button type="button" class="secondary-btn" id="againBtn">
+                    Generate Again
+                </button>
+
+                <button type="button" class="secondary-btn" id="clearBtn">
+                    Clear
+                </button>
+            </div>
+
         </div>
 
-    </div>
+    </section>
 
+    <section class="info">
 
-    <div class="info">
-
-        <h2>What is a Random Number Generator?</h2>
+        <h2>What Is a Random Number Generator?</h2>
 
         <p>
-            A random number generator creates numbers randomly within a
-            range that you choose. You can specify a minimum number,
-            maximum number and how many random numbers you want.
+            A random number generator is a tool that produces numbers
+            selected from a defined range. It can generate one number
+            or a collection of numbers according to the settings chosen
+            by the user.
         </p>
 
+        <p>
+            Random number generation is useful in mathematics, education,
+            computer programming, games, simulations, experiments and
+            everyday selection tasks. A random number may be an integer
+            (a whole number) or a decimal value.
+        </p>
+
+        <p>
+            This free online random number generator allows you to set
+            lower and upper limits, choose the number of results, control
+            duplicates, select decimal precision and sort the output.
+        </p>
+
+    </section>
+
+    <section class="info">
 
         <h2>How to Use the Random Number Generator</h2>
 
+        <ol>
+            <li>
+                <strong>Enter the lower limit:</strong>
+                Set the smallest value that can be generated.
+            </li>
+            <li>
+                <strong>Enter the upper limit:</strong>
+                Set the largest value that can be generated.
+            </li>
+            <li>
+                <strong>Choose the quantity:</strong>
+                Select how many random numbers you need, up to 100.
+            </li>
+            <li>
+                <strong>Select the number type:</strong>
+                Choose integers or decimal numbers.
+            </li>
+            <li>
+                <strong>Set decimal precision:</strong>
+                If you choose decimals, select the number of digits
+                after the decimal point.
+            </li>
+            <li>
+                <strong>Choose duplication:</strong>
+                Allow repeated values or require unique results.
+            </li>
+            <li>
+                <strong>Choose sorting:</strong>
+                Display results in ascending, descending or original
+                generated order.
+            </li>
+            <li>
+                Click Generate Random Numbers to see your results.
+            </li>
+        </ol>
+
         <p>
-            Enter your minimum and maximum values, choose how many
-            numbers you want, and click "Generate Random Numbers".
+            You can copy the generated numbers or select Generate Again
+            to create another set using the same settings.
+        </p>
+
+    </section>
+
+    <section class="info">
+
+        <h2>Integer vs. Decimal Random Numbers</h2>
+
+        <h3>What Is a Random Integer?</h3>
+
+        <p>
+            An integer is a whole number without a fractional or decimal
+            part. Examples include -10, -2, 0, 1, 25 and 100.
+            Select Integer when you need whole-number results.
+        </p>
+
+        <h3>What Is a Random Decimal?</h3>
+
+        <p>
+            A decimal number contains a fractional part separated by
+            a decimal point. Examples include 2.45, 7.18 and 0.625.
+            Select Decimal when you need values with a specified
+            number of decimal places.
+        </p>
+
+        <h3>What Does Decimal Precision Mean?</h3>
+
+        <p>
+            Decimal precision determines how many digits appear after
+            the decimal point. For example, with two decimal places,
+            a generated result could be 4.27. With four decimal places,
+            it could be 4.2731.
         </p>
 
         <p>
-            You can also choose whether repeated numbers are allowed
-            or whether every generated number must be unique.
+            This calculator generates decimal results using the
+            selected precision. Both limits are included when they
+            fall on the selected precision scale.
         </p>
 
-    </div>
+    </section>
 
+    <section class="info">
 
-    <div class="info">
+        <h2>Allow Repeated Numbers or Generate Unique Numbers</h2>
+
+        <h3>Allow Repeats</h3>
+
+        <p>
+            When duplication is allowed, the same number can appear
+            more than once in the generated results. Each selection
+            is made independently, so a previous result does not
+            prevent that value from appearing again.
+        </p>
+
+        <h3>Unique Numbers Only</h3>
+
+        <p>
+            When unique results are selected, each generated value
+            must be different. The calculator checks the selected
+            range and prevents duplicate results.
+        </p>
+
+        <p>
+            For example, a range from 1 to 10 contains ten possible
+            integers. You can generate up to ten unique integer results
+            from that range, but you cannot generate eleven.
+        </p>
+
+        <p>
+            For decimal generation, uniqueness is based on the selected
+            decimal precision. For example, with two decimal places,
+            1.25 and 1.26 are different possible values.
+        </p>
+
+    </section>
+
+    <section class="info">
+
+        <h2>Ascending and Descending Number Sorting</h2>
+
+        <p>
+            Sorting controls the order in which generated numbers
+            are displayed. It does not change the selected range
+            or the number of results.
+        </p>
+
+        <ul>
+            <li>
+                <strong>Ascending:</strong>
+                Displays numbers from smallest to largest.
+            </li>
+            <li>
+                <strong>Descending:</strong>
+                Displays numbers from largest to smallest.
+            </li>
+            <li>
+                <strong>No Sorting:</strong>
+                Keeps the original generated order.
+            </li>
+        </ul>
+
+    </section>
+
+    <section class="info">
+
+        <h2>Examples of Random Number Generation</h2>
+
+        <h3>Example 1: Generate a Number Between 1 and 100</h3>
+
+        <p>
+            Enter 1 as the lower limit and 100 as the upper limit.
+            Choose one integer result. The calculator selects one
+            whole number from the inclusive range 1 through 100.
+        </p>
+
+        <h3>Example 2: Generate Ten Unique Numbers</h3>
+
+        <p>
+            Enter 1 and 50 as the limits, choose ten results, and
+            select No – Unique Numbers Only. The calculator generates
+            ten different whole numbers between 1 and 50.
+        </p>
+
+        <h3>Example 3: Generate Decimal Numbers</h3>
+
+        <p>
+            Enter 1.00 and 10.00 as the limits, choose Decimal Number,
+            and set precision to two decimal places. The results
+            will have two digits after the decimal point.
+        </p>
+
+        <h3>Example 4: Generate Negative and Positive Numbers</h3>
+
+        <p>
+            Enter -20 as the lower limit and 20 as the upper limit.
+            The calculator can select negative numbers, zero or
+            positive numbers within the range.
+        </p>
+
+    </section>
+
+    <section class="info">
+
+        <h2>How Does a Computer Generate Random Numbers?</h2>
+
+        <p>
+            Computers generally use algorithms to produce
+            pseudorandom numbers. These algorithms create sequences
+            that behave like random values for many ordinary
+            applications.
+        </p>
+
+        <p>
+            A pseudorandom number generator uses an internal
+            mathematical process to produce values. A cryptographically
+            secure random number generator is designed to provide
+            stronger unpredictability and is suitable for security
+            applications when used correctly.
+        </p>
+
+        <p>
+            This calculator uses the browser's Web Crypto random
+            number facility when available. It uses rejection
+            sampling to avoid uneven distribution when mapping
+            random values to a selected range. If the browser does
+            not support that facility, it falls back to JavaScript's
+            Math.random().
+        </p>
+
+        <p>
+            The calculator is intended for general-purpose selection,
+            education, games and testing. For security-sensitive
+            applications, use a properly reviewed cryptographic
+            implementation and an appropriate security design.
+        </p>
+
+    </section>
+
+    <section class="info">
+
+        <h2>Common Uses of Random Numbers</h2>
+
+        <ul>
+            <li>
+                <strong>Education:</strong>
+                Creating random questions, exercises and classroom
+                activities.
+            </li>
+            <li>
+                <strong>Games:</strong>
+                Selecting numbers, game values and casual challenges.
+            </li>
+            <li>
+                <strong>Contests:</strong>
+                Making casual random selections from a list of entries.
+            </li>
+            <li>
+                <strong>Programming:</strong>
+                Creating test values and sample data.
+            </li>
+            <li>
+                <strong>Research:</strong>
+                Supporting simulations and simple sampling activities.
+            </li>
+            <li>
+                <strong>Everyday tasks:</strong>
+                Making random selections when several options are available.
+            </li>
+        </ul>
+
+    </section>
+
+    <section class="info">
+
+        <h2>Random Number Generator FAQs</h2>
+
+        <h3>1. Is this random number generator free?</h3>
+        <p>
+            Yes. This tool is free to use online. You do not need to
+            install software or create an account.
+        </p>
+
+        <h3>2. Can I generate more than one random number?</h3>
+        <p>
+            Yes. You can generate up to 100 numbers in one request.
+        </p>
+
+        <h3>3. Can I generate very large integers?</h3>
+        <p>
+            Yes. The calculator supports large whole-number limits
+            using JavaScript BigInt arithmetic, subject to practical
+            browser input and processing limits.
+        </p>
+
+        <h3>4. Can I generate random decimal numbers?</h3>
+        <p>
+            Yes. Select Decimal Number and choose a precision from
+            one to twelve decimal places.
+        </p>
+
+        <h3>5. Are the lower and upper limits included?</h3>
+        <p>
+            Yes. The calculator includes both limits when generating
+            possible results. For decimal numbers, the limits must
+            be compatible with the selected precision.
+        </p>
+
+        <h3>6. Can I generate unique random numbers?</h3>
+        <p>
+            Yes. Select No – Unique Numbers Only. Each generated
+            result will be different. The requested quantity cannot
+            exceed the number of available values in the selected range.
+        </p>
+
+        <h3>7. What happens if I request more unique numbers than the range allows?</h3>
+        <p>
+            The calculator displays a validation message. For example,
+            a range from 1 to 5 contains only five possible unique
+            integer results.
+        </p>
+
+        <h3>8. Can I generate negative numbers?</h3>
+        <p>
+            Yes. Enter a negative lower limit, a positive upper limit
+            or two negative limits to generate numbers in that range.
+        </p>
+
+        <h3>9. What is decimal precision?</h3>
+        <p>
+            Decimal precision is the number of digits displayed
+            after the decimal point. For example, 3.1416 has
+            four decimal places.
+        </p>
+
+        <h3>10. Can I sort the generated results?</h3>
+        <p>
+            Yes. You can display the results in ascending order,
+            descending order or the original generated order.
+        </p>
+
+        <h3>11. Can I copy my random numbers?</h3>
+        <p>
+            Yes. Click Copy Results to copy the generated numbers
+            to your clipboard.
+        </p>
+
+        <h3>12. Are computer-generated random numbers truly random?</h3>
+        <p>
+            Computer algorithms generally produce pseudorandom
+            values. This calculator uses the browser's secure
+            random facility when available, but it is designed
+            for general-purpose use rather than as a guaranteed
+            security system.
+        </p>
+
+    </section>
+
+    <section class="info">
 
         <h2>Related Math Calculators</h2>
 
@@ -482,132 +942,25 @@
 
         <p>
             <a href="prime-number-checker.html">Prime Number Checker</a> |
-            <a href="gcd-lcm-calculator.html">GCD & LCM Calculator</a> |
+            <a href="gcd-lcm-calculator.html">GCD &amp; LCM Calculator</a> |
             <a href="fraction-calculator.html">Fraction Calculator</a> |
             <a href="percentage-calculator.html">Percentage Calculator</a> |
             <a href="average-calculator.html">Average Calculator</a>
         </p>
 
-    </div>
-
-
-    <div class="info">
-
-        <h2>Common Uses of Random Number Generators</h2>
-
-        <p>
-            Random number generators can be useful for games, classroom
-            activities, contests, simulations, testing, selecting random
-            items and other everyday tasks.
-        </p>
-
-        <h2>Generate Random Numbers With or Without Repeats</h2>
-
-        <p>
-            This calculator allows you to generate multiple numbers and
-            choose whether repeated numbers are allowed. Select
-            "Unique Numbers Only" when every generated number needs to
-            be different.
-        </p>
-
-        <h2>Why Use an Online Random Number Generator?</h2>
-
-        <p>
-            Generating random numbers manually can be inconvenient,
-            especially when you need several numbers or a specific range.
-            This free online tool provides quick results directly in your
-            browser.
-        </p>
-
-    </div>
-<div class="info">
-
-    <h2>How Random Number Generation Works</h2>
-
-    <p>
-        The calculator uses JavaScript's built-in random number function to
-        select values within the minimum and maximum range you provide. The
-        minimum and maximum values are included in the possible results.
-    </p>
-
-    <h2>Example of Random Number Generation</h2>
-
-    <p>
-        For example, if you enter a minimum of 1 and a maximum of 10, the
-        calculator can generate any whole number from 1 through 10. If you
-        request multiple numbers, you can choose whether repeated values are
-        allowed or whether every result must be unique.
-    </p>
-
-    <p>
-        This tool is intended for general-purpose random selection, games,
-        classroom activities, testing and similar everyday uses. It should
-        not be used for security-sensitive applications that require
-        cryptographically secure random numbers.
-    </p>
-
-</div>
-
-    <div class="info">
-
-        <h2>Random Number Generator FAQs</h2>
-
-        <h3>What is a random number generator?</h3>
-
-        <p>
-            A random number generator is a tool that produces numbers
-            within a specified range using a random selection process.
-        </p>
-
-        <h3>Can I generate multiple random numbers?</h3>
-
-        <p>
-            Yes. You can generate up to 100 random numbers at once using
-            this calculator.
-        </p>
-
-        <h3>Can random numbers repeat?</h3>
-
-        <p>
-            Yes. Select "Allow Repeats" if repeated numbers are permitted.
-            Select "Unique Numbers Only" when duplicate numbers should not
-            appear.
-        </p>
-
-        <h3>Can I generate random numbers between negative values?</h3>
-
-        <p>
-            Yes. You can enter negative or positive whole numbers as the
-            minimum and maximum values, provided the minimum is not greater
-            than the maximum.
-        </p>
-
-        <h3>What can random numbers be used for?</h3>
-
-        <p>
-            Random numbers can be useful for games, classroom exercises,
-            contests, simulations, testing and randomly selecting items.
-        </p>
-
-    </div>
+    </section>
 
 </main>
 
-
 <div class="internal-nav">
-
     <a href="tools.html">← All Tools</a>
     |
-    <a href="tools.html#math">Math & Advanced Calculators</a>
-
+    <a href="tools.html#math">Math &amp; Advanced Calculators</a>
 </div>
-
 
 <footer>
 
-    <p>
-        © 2026 Easy Online Tool. All rights reserved.
-    </p>
+    <p>© 2026 Easy Online Tool. All rights reserved.</p>
 
     <p>
         <a href="index.html">Home</a> |
@@ -625,182 +978,439 @@
 
 </footer>
 
-
 <script>
+"use strict";
+
+const minimumInput = document.getElementById("minimum");
+const maximumInput = document.getElementById("maximum");
+const quantityInput = document.getElementById("quantity");
+const numberTypeInput = document.getElementById("numberType");
+const precisionInput = document.getElementById("precision");
+const precisionGroup = document.getElementById("precisionGroup");
+const duplicatesInput = document.getElementById("duplicates");
+const sortOrderInput = document.getElementById("sortOrder");
+
+const generateBtn = document.getElementById("generateBtn");
+const copyBtn = document.getElementById("copyBtn");
+const againBtn = document.getElementById("againBtn");
+const clearBtn = document.getElementById("clearBtn");
+
+const message = document.getElementById("message");
+const result = document.getElementById("result");
+const numbersContainer = document.getElementById("numbers");
+const resultSummary = document.getElementById("resultSummary");
+
+let lastGenerated = [];
+let lastSettings = null;
+
+const MAX_BOUND_DIGITS = 1000;
+const MAX_QUANTITY = 100;
+
+function showMessage(text, type = "error") {
+    message.textContent = text;
+    message.className = "message " + type;
+}
+
+function clearMessage() {
+    message.textContent = "";
+    message.className = "message";
+}
+
+function updateNumberType() {
+    precisionGroup.hidden = numberTypeInput.value !== "decimal";
+}
+
+numberTypeInput.addEventListener("change", updateNumberType);
+updateNumberType();
+
+/*
+ * Parse a decimal string exactly into a scaled BigInt.
+ * No floating-point rounding is used.
+ */
+function parseScaledDecimal(value, precision) {
+
+    const text = value.trim();
+
+    if (!text) {
+        throw new Error("Please enter both lower and upper limits.");
+    }
+
+    if (text.length > MAX_BOUND_DIGITS + 15) {
+        throw new Error("Please enter a shorter number.");
+    }
+
+    const pattern = /^([+-]?)(\d+)(?:\.(\d+))?$/;
+    const match = text.match(pattern);
+
+    if (!match) {
+        throw new Error(
+            "Enter a valid number without commas, spaces or other symbols."
+        );
+    }
+
+    const sign = match[1] === "-" ? -1n : 1n;
+    const whole = match[2];
+    const fraction = match[3] || "";
+
+    if (whole.length + fraction.length > MAX_BOUND_DIGITS) {
+        throw new Error(
+            "The entered number is too long. Please use up to 1000 digits."
+        );
+    }
+
+    if (fraction.length > precision) {
+        throw new Error(
+            "Your entered limit has more decimal places than the selected precision."
+        );
+    }
+
+    const scale = 10n ** BigInt(precision);
+    const paddedFraction = fraction.padEnd(precision, "0");
+
+    const wholePart = BigInt(whole) * scale;
+    const fractionalPart = precision
+        ? BigInt(paddedFraction || "0")
+        : 0n;
+
+    return sign * (wholePart + fractionalPart);
+}
+
+function formatScaledDecimal(value, precision) {
+
+    if (precision === 0) {
+        return value.toString();
+    }
+
+    const negative = value < 0n;
+    const absolute = negative ? -value : value;
+
+    const scale = 10n ** BigInt(precision);
+
+    const whole = absolute / scale;
+    const fraction = (absolute % scale)
+        .toString()
+        .padStart(precision, "0");
+
+    return (negative ? "-" : "") + whole.toString() + "." + fraction;
+}
+
+/*
+ * Generate a uniformly distributed BigInt in the interval
+ * [0, maxExclusive - 1] using rejection sampling.
+ */
+function randomBelow(maxExclusive) {
+
+    if (maxExclusive <= 0n) {
+        throw new Error("The selected range is invalid.");
+    }
+
+    if (!window.crypto ||
+        typeof window.crypto.getRandomValues !== "function") {
+        throw new Error(
+            "Secure random generation is unavailable in this browser. Please use a modern browser in a secure connection."
+        );
+    }
+
+    if (maxExclusive === 1n) {
+        return 0n;
+    }
+
+    const maxValue = maxExclusive - 1n;
+    const bitLength = maxValue.toString(2).length;
+    const byteLength = Math.ceil(bitLength / 8);
+
+    const excessBits = byteLength * 8 - bitLength;
+    const bytes = new Uint8Array(byteLength);
+
+    while (true) {
+
+        window.crypto.getRandomValues(bytes);
+
+        if (excessBits > 0) {
+            bytes[0] &= (255 >>> excessBits);
+        }
+
+        let randomValue = 0n;
+
+        for (let i = 0; i < bytes.length; i++) {
+            randomValue =
+                (randomValue << 8n) + BigInt(bytes[i]);
+        }
+
+        if (randomValue < maxExclusive) {
+            return randomValue;
+        }
+    }
+}
+
+function randomBetween(minimum, maximum) {
+    return minimum + randomBelow(maximum - minimum + 1n);
+}
+
+function validateInputs() {
+
+    const quantityText = quantityInput.value.trim();
+
+    if (!quantityText) {
+        throw new Error("Please enter how many numbers you want to generate.");
+    }
+
+    const quantity = Number(quantityText);
+
+    if (
+        !Number.isInteger(quantity) ||
+        quantity < 1 ||
+        quantity > MAX_QUANTITY
+    ) {
+        throw new Error("Please choose a quantity between 1 and 100.");
+    }
+
+    const type = numberTypeInput.value;
+    const precision = type === "decimal"
+        ? Number(precisionInput.value)
+        : 0;
+
+    const minimum = parseScaledDecimal(
+        minimumInput.value,
+        precision
+    );
+
+    const maximum = parseScaledDecimal(
+        maximumInput.value,
+        precision
+    );
+
+    if (minimum > maximum) {
+        throw new Error(
+            "The lower limit cannot be greater than the upper limit."
+        );
+    }
+
+    const range = maximum - minimum + 1n;
+
+    const unique = duplicatesInput.value === "no";
+
+    if (unique && BigInt(quantity) > range) {
+        throw new Error(
+            "There are not enough different values in this range. Increase the range or reduce the quantity."
+        );
+    }
+
+    return {
+        minimum,
+        maximum,
+        range,
+        quantity,
+        type,
+        precision,
+        unique,
+        sort: sortOrderInput.value
+    };
+}
+
+function generateValues(settings) {
+
+    const values = [];
+    const used = new Set();
+
+    while (values.length < settings.quantity) {
+
+        const value = randomBetween(
+            settings.minimum,
+            settings.maximum
+        );
+
+        if (settings.unique) {
+
+            const key = value.toString();
+
+            if (used.has(key)) {
+                continue;
+            }
+
+            used.add(key);
+        }
+
+        values.push(value);
+    }
+
+    if (settings.sort === "asc") {
+        values.sort((a, b) => a < b ? -1 : a > b ? 1 : 0);
+    }
+
+    if (settings.sort === "desc") {
+        values.sort((a, b) => a > b ? -1 : a < b ? 1 : 0);
+    }
+
+    return values;
+}
+
+function formatValue(value, settings) {
+
+    if (settings.type === "decimal") {
+        return formatScaledDecimal(value, settings.precision);
+    }
+
+    return value.toString();
+}
+
+function displayResults(values, settings) {
+
+    numbersContainer.replaceChildren();
+
+    values.forEach(function(value) {
+
+        const box = document.createElement("div");
+
+        box.className = "number-box";
+        box.textContent = formatValue(value, settings);
+
+        numbersContainer.appendChild(box);
+    });
+
+    const typeName = settings.type === "integer"
+        ? "integer"
+        : "decimal number";
+
+    const duplicateText = settings.unique
+        ? "No duplicate results"
+        : "Duplicates allowed";
+
+    const sortText = {
+        none: "Original order",
+        asc: "Ascending order",
+        desc: "Descending order"
+    }[settings.sort];
+
+    resultSummary.textContent =
+        settings.quantity + " " + typeName +
+        "(s) generated. " +
+        duplicateText + ". " +
+        sortText + ".";
+
+    result.style.display = "block";
+}
 
 function generateNumbers() {
 
-    const minimumInput =
-        document.getElementById("minimum").value;
+    clearMessage();
 
-    const maximumInput =
-        document.getElementById("maximum").value;
+    try {
 
-    const quantityInput =
-        document.getElementById("quantity").value;
+        const settings = validateInputs();
 
-    const unique =
-        document.getElementById("unique").value;
+        const generated = generateValues(settings);
 
+        lastGenerated = generated;
+        lastSettings = settings;
 
-    if (
-        minimumInput === "" ||
-        maximumInput === "" ||
-        quantityInput === ""
-    ) {
+        displayResults(generated, settings);
 
-        alert("Please enter all required values.");
+    } catch (error) {
 
+        result.style.display = "none";
+
+        showMessage(error.message);
+    }
+}
+
+async function copyResults() {
+
+    if (!lastGenerated.length || !lastSettings) {
+        showMessage("Generate numbers before copying results.");
         return;
     }
 
+    const textToCopy = lastGenerated
+        .map(value => formatValue(value, lastSettings))
+        .join(", ");
 
-    const minimum = Number(minimumInput);
-    const maximum = Number(maximumInput);
-    const quantity = Number(quantityInput);
+    try {
 
+        if (navigator.clipboard && window.isSecureContext) {
 
-    if (!Number.isInteger(minimum) ||
-        !Number.isInteger(maximum)) {
+            await navigator.clipboard.writeText(textToCopy);
 
-        alert("Please enter whole numbers for the minimum and maximum.");
+        } else {
 
-        return;
-    }
+            const temporary = document.createElement("textarea");
 
+            temporary.value = textToCopy;
+            temporary.style.position = "fixed";
+            temporary.style.opacity = "0";
 
-    if (minimum > maximum) {
+            document.body.appendChild(temporary);
+            temporary.select();
 
-        alert("Minimum number cannot be greater than maximum number.");
+            const copied = document.execCommand("copy");
 
-        return;
-    }
+            temporary.remove();
 
-
-    if (!Number.isInteger(quantity) || quantity < 1) {
-
-        alert("Please enter a valid quantity.");
-
-        return;
-    }
-
-
-    if (quantity > 100) {
-
-        alert("You can generate a maximum of 100 numbers at once.");
-
-        return;
-    }
-
-
-    const availableNumbers =
-        maximum - minimum + 1;
-
-
-    if (
-        unique === "yes" &&
-        quantity > availableNumbers
-    ) {
-
-        alert(
-            "There are not enough numbers in this range for " +
-            quantity +
-            " unique numbers."
-        );
-
-        return;
-    }
-
-
-    const generated = [];
-
-
-    if (unique === "yes") {
-
-        while (generated.length < quantity) {
-
-            const randomNumber =
-                Math.floor(
-                    Math.random() *
-                    (maximum - minimum + 1)
-                ) + minimum;
-
-
-            if (!generated.includes(randomNumber)) {
-
-                generated.push(randomNumber);
-
+            if (!copied) {
+                throw new Error("Copy operation failed.");
             }
-
         }
 
-    } else {
+        showMessage("Results copied successfully.", "success");
 
-        for (let i = 0; i < quantity; i++) {
+    } catch (error) {
 
-            const randomNumber =
-                Math.floor(
-                    Math.random() *
-                    (maximum - minimum + 1)
-                ) + minimum;
-
-            generated.push(randomNumber);
-        }
-
+        showMessage(
+            "Unable to copy automatically. Please select and copy the results manually."
+        );
     }
-
-
-    displayNumbers(generated);
-
 }
-
-
-function displayNumbers(numbers) {
-
-    const container =
-        document.getElementById("numbers");
-
-    container.innerHTML = "";
-
-
-    numbers.forEach(function(number) {
-
-        const box =
-            document.createElement("div");
-
-        box.className = "number-box";
-
-        box.textContent = number;
-
-        container.appendChild(box);
-
-    });
-
-
-    document.getElementById("result").style.display =
-        "block";
-
-}
-
 
 function clearCalculator() {
 
-    document.getElementById("minimum").value = "1";
+    minimumInput.value = "1";
+    maximumInput.value = "100";
+    quantityInput.value = "1";
 
-    document.getElementById("maximum").value = "100";
+    numberTypeInput.value = "integer";
+    precisionInput.value = "2";
 
-    document.getElementById("quantity").value = "1";
+    duplicatesInput.value = "yes";
+    sortOrderInput.value = "none";
 
-    document.getElementById("unique").value = "no";
+    updateNumberType();
 
-    document.getElementById("numbers").innerHTML = "";
+    numbersContainer.replaceChildren();
+    resultSummary.textContent = "";
 
-    document.getElementById("result").style.display =
-        "none";
+    result.style.display = "none";
 
+    lastGenerated = [];
+    lastSettings = null;
+
+    clearMessage();
 }
+
+generateBtn.addEventListener("click", generateNumbers);
+
+copyBtn.addEventListener("click", copyResults);
+
+againBtn.addEventListener("click", generateNumbers);
+
+clearBtn.addEventListener("click", clearCalculator);
+
+[
+    minimumInput,
+    maximumInput,
+    quantityInput,
+    numberTypeInput,
+    precisionInput,
+    duplicatesInput,
+    sortOrderInput
+].forEach(function(input) {
+
+    input.addEventListener("input", clearMessage);
+    input.addEventListener("change", clearMessage);
+});
 
 </script>
 
 </body>
 </html>
+
+
