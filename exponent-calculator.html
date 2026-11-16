@@ -4,25 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Exponent Calculator - Calculate Powers Online | Easy Online Tool</title>
-
-    <meta name="description" content="Free online Exponent Calculator to calculate powers of numbers quickly and accurately. Calculate positive, negative, zero, and decimal exponents.">
-
-    <meta name="keywords" content="exponent calculator, power calculator, calculate exponents, calculate powers, exponent calculator online, math calculator">
-
+    <title>Exponent Calculator - Solve Powers Online | Easy Online Tool</title>
+    <meta name="description" content="Calculate powers and exponents online. Enter any two values to solve for the base, exponent, or result. Supports negative, zero and decimal exponents.">
+    <meta name="keywords" content="exponent calculator, power calculator, calculate powers, solve exponents, base calculator, negative exponents, decimal exponents">
     <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://easyonlinetools.online/exponent-calculator.html">
 
-   <link rel="canonical" href="https://easyonlinetools.online/exponent-calculator.html">
+    <meta property="og:title" content="Exponent Calculator - Easy Online Tool">
+    <meta property="og:description" content="Calculate powers and solve for a missing base, exponent, or result.">
+    <meta property="og:url" content="https://easyonlinetools.online/exponent-calculator.html">
+    <meta property="og:type" content="website">
 
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebApplication",
         "name": "Exponent Calculator",
-      "url": "https://easyonlinetools.online/exponent-calculator.html",
+        "url": "https://easyonlinetools.online/exponent-calculator.html",
         "applicationCategory": "CalculatorApplication",
         "operatingSystem": "All",
-        "description": "Free online calculator for calculating powers and exponents.",
+        "description": "Free online exponent calculator that solves for a missing base, exponent, or result using the other two values.",
         "offers": {
             "@type": "Offer",
             "price": "0",
@@ -36,23 +37,34 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --text: #172033;
+            --muted: #64748b;
+            --border: #e2e8f0;
+            --surface: #ffffff;
+            --background: #f4f7fc;
+            --soft-blue: #eff6ff;
+        }
+
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #f5f7fa;
-            color: #222;
-            line-height: 1.6;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.7;
         }
 
         header {
             background: #ffffff;
-            border-bottom: 1px solid #e5e7eb;
+            border-bottom: 1px solid var(--border);
         }
 
         .header-container {
-            max-width: 1100px;
+            max-width: 1120px;
             margin: auto;
-            padding: 18px 20px;
+            padding: 17px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -60,9 +72,9 @@
         }
 
         .logo {
-            font-size: 22px;
-            font-weight: bold;
-            color: #2563eb;
+            font-size: 23px;
+            font-weight: 800;
+            color: var(--primary);
             text-decoration: none;
             white-space: nowrap;
         }
@@ -74,19 +86,19 @@
         }
 
         nav a {
-            color: #333;
+            color: #334155;
             text-decoration: none;
             font-size: 15px;
         }
 
         nav a:hover {
-            color: #2563eb;
+            color: var(--primary);
         }
 
         .container {
-            max-width: 900px;
+            max-width: 960px;
             margin: auto;
-            padding: 40px 20px;
+            padding: 42px 20px;
         }
 
         .page-title {
@@ -94,103 +106,259 @@
             margin-bottom: 30px;
         }
 
-        .page-title h1 {
+        .eyebrow {
+            display: inline-block;
+            color: var(--primary);
+            background: #dbeafe;
+            padding: 5px 13px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
             margin-bottom: 10px;
-            font-size: 34px;
+        }
+
+        .page-title h1 {
+            font-size: clamp(28px, 5vw, 38px);
+            line-height: 1.2;
+            margin: 5px 0 12px;
         }
 
         .page-title p {
-            color: #666;
-            margin: 0;
-        }
-
-        .calculator-box {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
-            margin-bottom: 30px;
-        }
-
-        .input-group {
-            margin-bottom: 20px;
-        }
-
-        .input-group label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 13px;
-            border: 1px solid #d1d5db;
-            border-radius: 7px;
+            max-width: 690px;
+            margin: auto;
+            color: var(--muted);
             font-size: 16px;
         }
 
-        .input-group input:focus {
+        .calculator-box {
+            background: var(--surface);
+            padding: 30px;
+            border-radius: 18px;
+            border: 1px solid var(--border);
+            box-shadow: 0 12px 35px rgba(15, 23, 42, 0.06);
+            margin-bottom: 28px;
+        }
+
+        .calculator-heading {
+            margin-bottom: 22px;
+        }
+
+        .calculator-heading h2 {
+            margin: 0 0 5px;
+            font-size: 22px;
+        }
+
+        .calculator-heading p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .equation-label {
+            text-align: center;
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .equation {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr auto 1fr;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 22px;
+        }
+
+        .value-field label {
+            display: block;
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .value-field input {
+            width: 100%;
+            min-width: 0;
+            padding: 14px 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            font-size: 18px;
+            text-align: center;
+            color: var(--text);
+            background: #ffffff;
+        }
+
+        .value-field input:focus {
             outline: none;
-            border-color: #2563eb;
-            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+        }
+
+        .value-field input:disabled {
+            background: #f1f5f9;
+            color: #64748b;
+        }
+
+        .equation-symbol {
+            font-size: 25px;
+            font-weight: 700;
+            color: #475569;
+            padding-top: 25px;
+        }
+
+        .field-hint {
+            display: block;
+            color: var(--muted);
+            font-size: 12px;
+            margin-top: 6px;
+        }
+
+        .option-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 18px 0;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .checkbox-label input {
+            width: 17px;
+            height: 17px;
+            accent-color: var(--primary);
+        }
+
+        .quick-example-label {
+            font-size: 13px;
+            font-weight: 700;
+            color: #475569;
+        }
+
+        .examples {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .example-btn {
+            background: #f1f5f9;
+            color: #334155;
+            border: 1px solid var(--border);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .example-btn:hover {
+            background: var(--soft-blue);
+            border-color: #93c5fd;
+            color: var(--primary);
         }
 
         .button-group {
             display: flex;
             gap: 12px;
-            margin-top: 25px;
+            margin-top: 24px;
         }
 
         button {
+            font-family: inherit;
+        }
+
+        .calculate-btn,
+        .reset-btn {
             border: none;
+            border-radius: 9px;
             padding: 13px 22px;
-            border-radius: 7px;
-            font-size: 16px;
+            font-size: 15px;
+            font-weight: 700;
             cursor: pointer;
         }
 
         .calculate-btn {
-            background: #2563eb;
-            color: white;
+            flex: 1;
+            color: #ffffff;
+            background: var(--primary);
         }
 
         .calculate-btn:hover {
-            background: #1d4ed8;
+            background: var(--primary-dark);
         }
 
         .reset-btn {
-            background: #e5e7eb;
-            color: #333;
+            background: #e2e8f0;
+            color: #334155;
         }
 
         .reset-btn:hover {
-            background: #d1d5db;
+            background: #cbd5e1;
         }
 
         .error {
             display: none;
-            background: #fee2e2;
-            color: #b91c1c;
-            padding: 12px;
-            border-radius: 7px;
             margin-top: 20px;
+            padding: 13px 15px;
+            border-radius: 9px;
+            color: #991b1b;
+            background: #fee2e2;
+            border: 1px solid #fecaca;
+            font-size: 14px;
         }
 
         .results {
             display: none;
             margin-top: 25px;
-            background: #f8fafc;
-            border-radius: 8px;
-            padding: 20px;
+            padding: 22px;
+            border: 1px solid #bfdbfe;
+            border-radius: 12px;
+            background: #f8fbff;
+        }
+
+        .results h2 {
+            margin: 0 0 15px;
+            font-size: 20px;
+        }
+
+        .main-result {
+            background: #eaf2ff;
+            border-radius: 10px;
+            padding: 17px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .main-result span {
+            display: block;
+            color: #475569;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .main-result strong {
+            display: block;
+            color: var(--primary-dark);
+            font-size: clamp(24px, 5vw, 32px);
+            overflow-wrap: anywhere;
         }
 
         .result-row {
             display: flex;
             justify-content: space-between;
-            gap: 20px;
+            gap: 18px;
             padding: 10px 0;
-            border-bottom: 1px solid #e5e7eb;
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
         }
 
         .result-row:last-child {
@@ -199,94 +367,169 @@
 
         .result-row strong {
             text-align: right;
-            word-break: break-word;
+            overflow-wrap: anywhere;
         }
 
-        .highlight {
-            color: #2563eb;
-            font-size: 20px;
+        .steps {
+            margin-top: 16px;
+            padding: 15px;
+            border-radius: 9px;
+            background: #ffffff;
+            border: 1px solid var(--border);
+        }
+
+        .steps h3 {
+            margin: 0 0 8px;
+            font-size: 16px;
+        }
+
+        .steps p {
+            margin: 6px 0;
+            color: #475569;
+            font-size: 14px;
+            overflow-wrap: anywhere;
         }
 
         .info-section {
             background: #ffffff;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+            padding: 27px;
+            border-radius: 15px;
+            border: 1px solid var(--border);
+            box-shadow: 0 5px 20px rgba(15, 23, 42, 0.035);
             margin-bottom: 25px;
         }
 
         .info-section h2 {
-            margin-top: 0;
+            margin: 0 0 13px;
             font-size: 24px;
+            line-height: 1.3;
         }
 
         .info-section h3 {
-            margin-top: 22px;
+            margin: 23px 0 8px;
+            font-size: 18px;
+        }
+
+        .info-section p {
+            color: #475569;
+            margin: 10px 0;
         }
 
         .formula {
-            background: #f1f5f9;
-            padding: 15px;
-            border-radius: 7px;
+            background: #eff6ff;
+            border: 1px solid #dbeafe;
+            padding: 17px;
+            border-radius: 10px;
             text-align: center;
-            font-size: 19px;
-            font-weight: bold;
+            font-size: 20px;
+            font-weight: 700;
+            color: #1e40af;
+            margin: 16px 0;
+            overflow-x: auto;
+        }
+
+        .rule-card {
+            padding: 16px;
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            margin: 14px 0;
+        }
+
+        .rule-card h3 {
+            margin: 0 0 7px;
+            font-size: 16px;
+        }
+
+        .rule-card p {
+            margin: 5px 0;
+        }
+
+        .example-table {
+            width: 100%;
+            border-collapse: collapse;
             margin: 15px 0;
+        }
+
+        .example-table th,
+        .example-table td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .example-table th {
+            background: #f1f5f9;
+            color: #334155;
         }
 
         .related-tools {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-top: 20px;
+            gap: 12px;
+            margin-top: 18px;
         }
 
         .related-tools a {
+            display: block;
             background: #f8fafc;
-            border: 1px solid #e5e7eb;
-            padding: 15px;
-            border-radius: 8px;
+            border: 1px solid var(--border);
+            padding: 14px 10px;
+            border-radius: 9px;
             text-decoration: none;
-            color: #2563eb;
+            color: #1d4ed8;
             text-align: center;
-            font-weight: 600;
+            font-size: 14px;
+            font-weight: 700;
+            transition: 0.2s;
         }
 
         .related-tools a:hover {
             background: #eff6ff;
+            border-color: #93c5fd;
+        }
+
+        .faq-item {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .faq-item h3 {
+            margin: 0 0 6px;
+            font-size: 17px;
+        }
+
+        .faq-item p {
+            margin: 0;
         }
 
         .internal-navigation {
             text-align: center;
-            margin: 30px 0;
-            font-size: 15px;
+            margin: 28px 0;
+            font-size: 14px;
         }
 
         .internal-navigation a {
-            color: #2563eb;
+            color: var(--primary);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .internal-navigation a:hover {
             text-decoration: underline;
         }
 
-        .faq-item {
-            margin-bottom: 20px;
-        }
-
-        .faq-item h3 {
-            font-size: 18px;
-            margin-bottom: 7px;
-        }
-
         footer {
             background: #ffffff;
-            border-top: 1px solid #e5e7eb;
+            border-top: 1px solid var(--border);
             text-align: center;
             padding: 25px 20px;
-            color: #666;
+            color: var(--muted);
             font-size: 14px;
         }
 
@@ -295,13 +538,13 @@
         }
 
         .footer-links a {
-            color: #2563eb;
+            color: #475569;
             text-decoration: none;
             margin: 0 7px;
         }
 
         .footer-links a:hover {
-            text-decoration: underline;
+            color: var(--primary);
         }
 
         @media (max-width: 700px) {
@@ -311,11 +554,11 @@
 
             nav {
                 justify-content: center;
-                gap: 14px;
+                gap: 12px 17px;
             }
 
-            .page-title h1 {
-                font-size: 28px;
+            .container {
+                padding: 30px 15px;
             }
 
             .calculator-box,
@@ -323,16 +566,32 @@
                 padding: 20px;
             }
 
+            .equation {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .equation-symbol {
+                padding: 0;
+                text-align: center;
+                font-size: 20px;
+            }
+
+            .value-field input {
+                text-align: left;
+            }
+
             .button-group {
                 flex-direction: column;
             }
 
-            button {
+            .calculate-btn,
+            .reset-btn {
                 width: 100%;
             }
 
             .related-tools {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .result-row {
@@ -344,6 +603,17 @@
                 text-align: left;
             }
         }
+
+        @media (max-width: 380px) {
+            .related-tools {
+                grid-template-columns: 1fr;
+            }
+
+            .calculator-box,
+            .info-section {
+                padding: 16px;
+            }
+        }
     </style>
 </head>
 
@@ -351,10 +621,7 @@
 
 <header>
     <div class="header-container">
-
-        <a href="index.html" class="logo">
-            Easy Online Tool
-        </a>
+        <a href="index.html" class="logo">Easy Online Tool</a>
 
         <nav>
             <a href="index.html">Home</a>
@@ -363,54 +630,86 @@
             <a href="index.html#about">About</a>
             <a href="index.html#faq">FAQ</a>
         </nav>
-
     </div>
 </header>
 
 <main class="container">
 
-    <div class="page-title">
+    <section class="page-title">
+        <span class="eyebrow">Free Math Calculator</span>
         <h1>Exponent Calculator</h1>
-        <p>Calculate powers and exponents quickly and accurately.</p>
-    </div>
+        <p>
+            Calculate powers or find a missing base, exponent, or result.
+            Enter any two values in the equation and leave the third blank.
+        </p>
+    </section>
 
-    <div class="calculator-box">
+    <section class="calculator-box">
 
-        <div class="input-group">
-            <label for="base">Base</label>
-            <input
-                type="number"
-                id="base"
-                placeholder="Enter base, e.g. 2"
-                step="any"
-            >
+        <div class="calculator-heading">
+            <h2>Calculate an Exponent</h2>
+            <p>Use the equation: base raised to the exponent equals result.</p>
         </div>
 
-        <div class="input-group">
-            <label for="exponent">Exponent</label>
-            <input
-                type="number"
-                id="exponent"
-                placeholder="Enter exponent, e.g. 3"
-                step="any"
-            >
+        <div class="equation-label">
+            Enter any two values and leave one field empty.
+        </div>
+
+        <div class="equation">
+
+            <div class="value-field">
+                <label for="base">Base (a)</label>
+                <input type="number" id="base" step="any" placeholder="e.g. 2">
+                <span class="field-hint">The number being raised to a power</span>
+            </div>
+
+            <div class="equation-symbol">^</div>
+
+            <div class="value-field">
+                <label for="exponent">Exponent (n)</label>
+                <input type="number" id="exponent" step="any" placeholder="e.g. 3">
+                <span class="field-hint">The power applied to the base</span>
+            </div>
+
+            <div class="equation-symbol">=</div>
+
+            <div class="value-field">
+                <label for="resultInput">Result (x)</label>
+                <input type="number" id="resultInput" step="any" placeholder="e.g. 8">
+                <span class="field-hint">The answer of the calculation</span>
+            </div>
+
+        </div>
+
+        <div class="option-row">
+            <label class="checkbox-label">
+                <input type="checkbox" id="useE">
+                Use e (Euler's number) as the base
+            </label>
+            <span class="quick-example-label">Try an example</span>
+        </div>
+
+        <div class="examples">
+            <button type="button" class="example-btn" onclick="loadExample('2','','8')">Find exponent: 2ⁿ = 8</button>
+            <button type="button" class="example-btn" onclick="loadExample('','','16')">Find base: a⁴ = 16</button>
+            <button type="button" class="example-btn" onclick="loadExample('5','3','')">Find result: 5³</button>
+            <button type="button" class="example-btn" onclick="loadExample('2','-3','')">Negative exponent</button>
         </div>
 
         <div class="button-group">
-
-            <button class="calculate-btn" onclick="calculateExponent()">
-                Calculate
-            </button>
-
-            <button class="reset-btn" onclick="resetCalculator()">
-                Reset
-            </button>
-
+            <button type="button" class="calculate-btn" id="calculateBtn">Calculate</button>
+            <button type="button" class="reset-btn" id="resetBtn">Reset</button>
         </div>
 
-        <div id="error" class="error"></div>
+        <div id="error" class="error" role="alert"></div>
 
-        <div id="results" class="results">
+        <div id="results" class="results" aria-live="polite">
+            <h2>Calculation Result</h2>
+
+            <div class="main-result">
+                <span>Answer</span>
+                <strong id="mainAnswer"></strong>
+            </div>
 
             <div class="result-row">
                 <span>Base</span>
@@ -429,203 +728,270 @@
 
             <div class="result-row">
                 <span>Result</span>
-                <strong id="result" class="highlight"></strong>
+                <strong id="resultValue"></strong>
             </div>
 
+            <div class="steps">
+                <h3>Calculation Steps</h3>
+                <div id="calculationSteps"></div>
+            </div>
         </div>
 
-    </div>
+    </section>
 
     <section class="info-section">
-
         <h2>What Is an Exponent?</h2>
 
         <p>
-            An exponent shows how many times a number, called the base, is
-            multiplied by itself. For example, 2³ means 2 multiplied by
-            itself three times.
+            An exponent is a number that tells you how many times a base is
+            used as a factor in repeated multiplication. In the expression
+            a<sup>n</sup>, the number a is the base and n is the exponent.
         </p>
 
         <div class="formula">
-            Result = Base<sup>Exponent</sup>
+            a<sup>n</sup> = a × a × ... × a
         </div>
 
         <p>
-            For example:
+            For example, 2<sup>3</sup> means 2 × 2 × 2, which equals 8.
+            Exponents are also called powers or indices.
         </p>
 
-        <ul>
-            <li>2³ = 8</li>
-            <li>10² = 100</li>
-            <li>5⁴ = 625</li>
-            <li>9⁰·⁵ = 3</li>
-        </ul>
-
         <h3>How to Use This Exponent Calculator</h3>
-
         <ol>
-            <li>Enter the base number.</li>
-            <li>Enter the exponent.</li>
-            <li>Click the Calculate button.</li>
-            <li>The calculator will display the result.</li>
+            <li>Choose which value you want to find: base, exponent, or result.</li>
+            <li>Enter the other two known values.</li>
+            <li>Leave the value you want to calculate blank.</li>
+            <li>Click Calculate to see the answer and calculation steps.</li>
         </ol>
 
         <p>
-            This calculator supports positive, negative, zero, and decimal
-            exponents.
+            You can enter positive or negative bases, whole-number or decimal
+            exponents, and zero values where mathematically valid. Some
+            combinations do not have a real-number answer.
         </p>
-
     </section>
 
     <section class="info-section">
+        <h2>Basic Exponent Rules and Laws</h2>
 
+        <p>
+            These rules help simplify expressions and solve problems involving
+            powers. They apply under the usual mathematical conditions shown
+            in each rule.
+        </p>
+
+        <div class="rule-card">
+            <h3>1. Multiplication Rule</h3>
+            <p>When multiplying powers with the same non-zero base, add the exponents.</p>
+            <div class="formula">a<sup>m</sup> × a<sup>n</sup> = a<sup>m+n</sup></div>
+            <p>Example: 2² × 2³ = 2⁵ = 32</p>
+        </div>
+
+        <div class="rule-card">
+            <h3>2. Division Rule</h3>
+            <p>When dividing powers with the same non-zero base, subtract the exponents.</p>
+            <div class="formula">a<sup>m</sup> ÷ a<sup>n</sup> = a<sup>m-n</sup></div>
+            <p>Example: 2⁵ ÷ 2² = 2³ = 8</p>
+        </div>
+
+        <div class="rule-card">
+            <h3>3. Power of a Power</h3>
+            <p>When a power is raised to another power, multiply the exponents.</p>
+            <div class="formula">(a<sup>m</sup>)<sup>n</sup> = a<sup>m×n</sup></div>
+            <p>Example: (2²)³ = 2⁶ = 64</p>
+        </div>
+
+        <div class="rule-card">
+            <h3>4. Zero Exponent</h3>
+            <p>Any non-zero number raised to the power of zero equals 1.</p>
+            <div class="formula">a<sup>0</sup> = 1, when a ≠ 0</div>
+            <p>Example: 10⁰ = 1</p>
+        </div>
+
+        <div class="rule-card">
+            <h3>5. Negative Exponent</h3>
+            <p>A negative exponent means taking the reciprocal of the corresponding positive power.</p>
+            <div class="formula">a<sup>-n</sup> = 1 ÷ a<sup>n</sup>, when a ≠ 0</div>
+            <p>Example: 2⁻³ = 1 ÷ 2³ = 1/8 = 0.125</p>
+        </div>
+
+        <div class="rule-card">
+            <h3>6. Exponent of One</h3>
+            <p>A number raised to the power of one remains unchanged.</p>
+            <div class="formula">a<sup>1</sup> = a</div>
+            <p>Example: 7¹ = 7</p>
+        </div>
+
+        <div class="rule-card">
+            <h3>7. Fractional Exponent</h3>
+            <p>A fractional exponent can represent a root of a number.</p>
+            <div class="formula">a<sup>1/2</sup> = √a</div>
+            <p>Example: 9⁰·⁵ = √9 = 3</p>
+        </div>
+    </section>
+
+    <section class="info-section">
         <h2>Examples of Exponents</h2>
 
-        <h3>Positive Exponent</h3>
+        <p>Here are common examples of powers and their results.</p>
 
+        <table class="example-table">
+            <thead>
+                <tr>
+                    <th>Expression</th>
+                    <th>Meaning</th>
+                    <th>Answer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2³</td>
+                    <td>2 × 2 × 2</td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td>5²</td>
+                    <td>5 × 5</td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>10⁰</td>
+                    <td>Zero exponent</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>2⁻³</td>
+                    <td>1 ÷ 2³</td>
+                    <td>0.125</td>
+                </tr>
+                <tr>
+                    <td>9⁰·⁵</td>
+                    <td>Square root of 9</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>(−2)³</td>
+                    <td>(−2) × (−2) × (−2)</td>
+                    <td>−8</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Positive and Negative Bases</h3>
         <p>
-            If the base is 2 and the exponent is 4:
+            A negative base raised to a positive whole-number exponent can
+            produce either a positive or negative result. An even exponent
+            produces a positive result, while an odd exponent produces a
+            negative result.
         </p>
 
         <div class="formula">
-            2<sup>4</sup> = 16
+            (−2)² = 4 &nbsp; | &nbsp; (−2)³ = −8
         </div>
 
-        <h3>Zero Exponent</h3>
-
+        <h3>Fractional Powers of Negative Numbers</h3>
         <p>
-            Any non-zero number raised to the power of zero equals 1.
+            Some fractional powers of negative numbers do not have real-number
+            answers. For example, the square root of −9 is not a real number.
+            This calculator reports an error when a calculation requires a
+            complex or imaginary result.
         </p>
 
-        <div class="formula">
-            10<sup>0</sup> = 1
-        </div>
-
-        <h3>Negative Exponent</h3>
-
+        <h3>What Is Euler's Number (e)?</h3>
         <p>
-            A negative exponent represents the reciprocal of the positive
-            power.
+            Euler's number is an important mathematical constant approximately
+            equal to 2.718281828. It is used in exponential growth, compound
+            interest, science, and many areas of mathematics. Select the
+            "Use e as the base" option to calculate powers of e.
         </p>
-
-        <div class="formula">
-            2<sup>-3</sup> = 1 / 2<sup>3</sup> = 0.125
-        </div>
-
-        <h3>Decimal Exponent</h3>
-
-        <p>
-            Decimal exponents can represent roots. For example:
-        </p>
-
-        <div class="formula">
-            9<sup>0.5</sup> = √9 = 3
-        </div>
-
     </section>
 
-   <section class="info-section">
+    <section class="info-section">
+        <h2>Related Math &amp; Advanced Calculators</h2>
 
-    <h2>Related Math &amp; Advanced Calculators</h2>
+        <p>
+            Explore more free calculators for powers, roots, fractions,
+            percentages, ratios, and other mathematical operations.
+        </p>
 
-    <p>
-        Explore other free math and advanced calculators for powers,
-        square roots, percentages, fractions, ratios, number calculations,
-        and other mathematical operations.
-    </p>
-
-    <div class="related-tools">
-
-        <a href="scientific-calculator.html">
-            Scientific Calculator
-        </a>
-
-        <a href="square-root-calculator.html">
-            Square Root Calculator
-        </a>
-
-        <a href="percentage-calculator.html">
-            Percentage Calculator
-        </a>
-
-        <a href="percentage-increase-decrease.html">
-            Percentage Increase &amp; Decrease
-        </a>
-
-        <a href="fraction-calculator.html">
-            Fraction Calculator
-        </a>
-
-        <a href="ratio-calculator.html">
-            Ratio Calculator
-        </a>
-
-        <a href="proportion-calculator.html">
-            Proportion Calculator
-        </a>
-
-        <a href="gcd-lcm-calculator.html">
-            GCD &amp; LCM Calculator
-        </a>
-
-        <a href="prime-number-checker.html">
-            Prime Number Checker
-        </a>
-
-        <a href="number-calculator.html">
-            Number Calculator
-        </a>
-
-        <a href="tools.html#math">
-            More Math &amp; Advanced Calculators
-        </a>
-
-    </div>
-
-</section>
+        <div class="related-tools">
+            <a href="scientific-calculator.html">Scientific Calculator</a>
+            <a href="square-root-calculator.html">Square Root Calculator</a>
+            <a href="percentage-calculator.html">Percentage Calculator</a>
+            <a href="percentage-increase-decrease.html">Percentage Increase &amp; Decrease</a>
+            <a href="fraction-calculator.html">Fraction Calculator</a>
+            <a href="ratio-calculator.html">Ratio Calculator</a>
+            <a href="proportion-calculator.html">Proportion Calculator</a>
+            <a href="gcd-lcm-calculator.html">GCD &amp; LCM Calculator</a>
+            <a href="prime-number-checker.html">Prime Number Checker</a>
+            <a href="number-to-words.html">Number to Words</a>
+            <a href="average-calculator.html">Average Calculator</a>
+            <a href="tools.html#math">More Math &amp; Advanced Calculators</a>
+        </div>
+    </section>
 
     <section class="info-section">
-
         <h2>Frequently Asked Questions</h2>
 
         <div class="faq-item">
-            <h3>What is an exponent?</h3>
+            <h3>What does an exponent tell us?</h3>
             <p>
-                An exponent tells you how many times a base number is
-                multiplied by itself.
+                An exponent tells us the power to which a base is raised.
+                For a positive whole-number exponent, it represents how many
+                times the base is multiplied by itself.
             </p>
         </div>
 
         <div class="faq-item">
-            <h3>What is 2 raised to the power of 3?</h3>
+            <h3>Can this calculator find a missing base or exponent?</h3>
             <p>
-                2³ = 8.
+                Yes. Enter any two known values in the equation and leave the
+                third field empty. The calculator will try to find the missing
+                value.
             </p>
         </div>
 
         <div class="faq-item">
-            <h3>Can I calculate negative exponents?</h3>
+            <h3>How do I calculate a negative exponent?</h3>
             <p>
-                Yes. This calculator supports negative exponents such as
-                2⁻³.
-            </p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Can I use decimal exponents?</h3>
-            <p>
-                Yes. Decimal exponents can be used to calculate roots and
-                other fractional powers.
+                A negative exponent means taking the reciprocal of the positive
+                power. For example, 2⁻³ = 1/8 = 0.125.
             </p>
         </div>
 
         <div class="faq-item">
             <h3>What happens when the exponent is zero?</h3>
             <p>
-                Any non-zero number raised to the power of zero equals 1.
+                Any non-zero base raised to the power of zero equals 1.
+                The expression 0⁰ is treated as undefined by this calculator.
             </p>
         </div>
 
+        <div class="faq-item">
+            <h3>Can I use decimal exponents?</h3>
+            <p>
+                Yes. Decimal exponents can represent roots and other
+                fractional powers. For example, 9⁰·⁵ = 3.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Can I calculate powers of negative numbers?</h3>
+            <p>
+                Yes, when the result is a real number. Some fractional powers
+                of negative bases require imaginary numbers and are not
+                calculated by this real-number calculator.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Is this exponent calculator free?</h3>
+            <p>
+                Yes. Easy Online Tool provides this exponent calculator free
+                to use in your web browser without installing software.
+            </p>
+        </div>
     </section>
 
     <div class="internal-navigation">
@@ -637,7 +1003,6 @@
 </main>
 
 <footer>
-
     © 2026 Easy Online Tool. All rights reserved.
 
     <div class="footer-links">
@@ -650,146 +1015,310 @@
         <a href="terms.html">Terms</a>
         <a href="contact.html">Contact</a>
     </div>
-
 </footer>
 
 <script>
+const baseInput = document.getElementById("base");
+const exponentInput = document.getElementById("exponent");
+const resultInput = document.getElementById("resultInput");
+const useE = document.getElementById("useE");
 
-function formatNumber(number) {
+const errorBox = document.getElementById("error");
+const resultsBox = document.getElementById("results");
 
-    if (!Number.isFinite(number)) {
+function formatNumber(value) {
+    if (!Number.isFinite(value)) {
         return "Undefined";
     }
 
-    if (
-        Math.abs(number) >= 1e12 ||
-        (Math.abs(number) > 0 && Math.abs(number) < 1e-10)
-    ) {
-        return number.toExponential(10);
+    if (Object.is(value, -0) || Math.abs(value) < 1e-14) {
+        value = 0;
     }
 
-    return Number(number.toPrecision(12)).toString();
+    if (Math.abs(value) >= 1e12 ||
+        (Math.abs(value) > 0 && Math.abs(value) < 1e-9)) {
+        return value.toExponential(8);
+    }
+
+    return Number(value.toPrecision(12)).toString();
 }
 
+function showError(message) {
+    errorBox.textContent = message;
+    errorBox.style.display = "block";
+    resultsBox.style.display = "none";
+}
+
+function clearMessages() {
+    errorBox.textContent = "";
+    errorBox.style.display = "none";
+    resultsBox.style.display = "none";
+}
+
+function loadExample(base, exponent, result) {
+    useE.checked = false;
+    baseInput.disabled = false;
+
+    baseInput.value = base;
+    exponentInput.value = exponent;
+    resultInput.value = result;
+
+    clearMessages();
+}
+
+function calculateMissingBase(exponent, result) {
+    if (exponent === 0) {
+        throw new Error(
+            "An exponent of zero always gives 1 for a non-zero base. The missing base cannot be determined uniquely."
+        );
+    }
+
+    if (result === 0 && exponent < 0) {
+        throw new Error(
+            "A zero result cannot be produced by a negative exponent."
+        );
+    }
+
+    if (result < 0) {
+        if (!Number.isInteger(exponent)) {
+            throw new Error(
+                "A negative result requires an odd whole-number exponent to have a real base."
+            );
+        }
+
+        if (Math.abs(exponent % 2) !== 1) {
+            throw new Error(
+                "A negative result cannot come from an even whole-number exponent with a real base."
+            );
+        }
+
+        return -Math.pow(Math.abs(result), 1 / exponent);
+    }
+
+    return Math.pow(result, 1 / exponent);
+}
+
+function calculateMissingExponent(base, result) {
+    if (base < 0) {
+        throw new Error(
+            "Finding an exponent for a negative base can have multiple or non-real solutions. This calculator supports this inverse calculation only for positive bases."
+        );
+    }
+
+    if (base === 0) {
+        throw new Error(
+            "A zero base does not give a unique exponent for a zero result. A positive exponent gives zero."
+        );
+    }
+
+    if (result <= 0) {
+        throw new Error(
+            "For a positive base, the result must be positive to calculate a real exponent."
+        );
+    }
+
+    if (base === 1) {
+        throw new Error(
+            "1 raised to any exponent is 1, so the exponent cannot be determined uniquely."
+        );
+    }
+
+    return Math.log(result) / Math.log(base);
+}
 
 function calculateExponent() {
+    clearMessages();
 
-    const baseInput = document.getElementById("base").value.trim();
-    const exponentInput = document.getElementById("exponent").value.trim();
+    const baseText = baseInput.value.trim();
+    const exponentText = exponentInput.value.trim();
+    const resultText = resultInput.value.trim();
 
-    const error = document.getElementById("error");
-    const results = document.getElementById("results");
+    let base = baseText === "" ? null : Number(baseText);
+    let exponent = exponentText === "" ? null : Number(exponentText);
+    let result = resultText === "" ? null : Number(resultText);
 
-    error.style.display = "none";
-    results.style.display = "none";
+    if (useE.checked) {
+        if (baseText !== "") {
+            showError(
+                "Clear the base field before selecting the e option."
+            );
+            return;
+        }
+        base = Math.E;
+    }
 
-    if (baseInput === "" || exponentInput === "") {
+    const missingCount = [base, exponent, result]
+        .filter(value => value === null).length;
 
-        error.textContent =
-            "Please enter both the base and exponent.";
-
-        error.style.display = "block";
-
+    if (missingCount !== 1) {
+        showError(
+            "Enter exactly two known values and leave one field empty."
+        );
         return;
     }
 
-    const base = Number(baseInput);
-    const exponent = Number(exponentInput);
+    for (const value of [base, exponent, result]) {
+        if (value !== null && !Number.isFinite(value)) {
+            showError("Please enter valid finite numbers.");
+            return;
+        }
+    }
 
-    if (!Number.isFinite(base) || !Number.isFinite(exponent)) {
+    if (base === null) {
+        try {
+            base = calculateMissingBase(exponent, result);
+        } catch (error) {
+            showError(error.message);
+            return;
+        }
+    } else if (exponent === null) {
+        try {
+            exponent = calculateMissingExponent(base, result);
+        } catch (error) {
+            showError(error.message);
+            return;
+        }
+    } else {
+        result = Math.pow(base, exponent);
+    }
 
-        error.textContent =
-            "Please enter valid numbers.";
-
-        error.style.display = "block";
-
+    if (!Number.isFinite(base) ||
+        !Number.isFinite(exponent) ||
+        !Number.isFinite(result)) {
+        showError(
+            "The calculation is outside the supported numerical range. Try smaller values."
+        );
         return;
     }
 
     if (base === 0 && exponent < 0) {
-
-        error.textContent =
-            "A zero base cannot be raised to a negative exponent.";
-
-        error.style.display = "block";
-
+        showError(
+            "Zero cannot be raised to a negative exponent because that would require division by zero."
+        );
         return;
     }
 
-    const result = Math.pow(base, exponent);
-
-    if (!Number.isFinite(result)) {
-
-        error.textContent =
-            "The result is too large or undefined. Please try smaller values.";
-
-        error.style.display = "block";
-
+    if (base === 0 && exponent === 0) {
+        showError(
+            "Zero raised to the power of zero is undefined in this calculator."
+        );
         return;
     }
+
+    if (base < 0 && !Number.isInteger(exponent)) {
+        showError(
+            "This combination requires a non-real or complex result. Try a whole-number exponent or a positive base."
+        );
+        return;
+    }
+
+    const checkedResult = Math.pow(base, exponent);
+
+    if (!Number.isFinite(checkedResult)) {
+        showError(
+            "The result is too large or undefined. Please try smaller values."
+        );
+        return;
+    }
+
+    if (result === null || !Number.isFinite(result)) {
+        result = checkedResult;
+    }
+
+    const calculatedDisplay = formatNumber(checkedResult);
+    const baseDisplay = formatNumber(base);
+    const exponentDisplay = formatNumber(exponent);
+
+    document.getElementById("mainAnswer").textContent =
+        calculatedDisplay;
 
     document.getElementById("resultBase").textContent =
-        formatNumber(base);
+        baseDisplay;
 
     document.getElementById("resultExponent").textContent =
-        formatNumber(exponent);
+        exponentDisplay;
 
-    document.getElementById("calculation").innerHTML =
-        formatNumber(base) +
-        "<sup>" +
-        formatNumber(exponent) +
-        "</sup>";
+    document.getElementById("calculation").textContent =
+        baseDisplay + " ^ " + exponentDisplay;
 
-    document.getElementById("result").textContent =
-        formatNumber(result);
+    document.getElementById("resultValue").textContent =
+        calculatedDisplay;
 
-    results.style.display = "block";
+    let steps = "";
+
+    if (baseInput.value.trim() === "" && !useE.checked) {
+        steps =
+            "<p>Step 1: Start with aⁿ = x.</p>" +
+            "<p>Step 2: Take the " + exponentDisplay +
+            "th root of " + formatNumber(result) + ".</p>" +
+            "<p>Step 3: The calculated base is " +
+            baseDisplay + ".</p>";
+    } else if (exponentInput.value.trim() === "") {
+        steps =
+            "<p>Step 1: Start with " + baseDisplay +
+            "ⁿ = " + formatNumber(result) + ".</p>" +
+            "<p>Step 2: Take logarithms on both sides.</p>" +
+            "<p>Step 3: n = log(result) ÷ log(base).</p>" +
+            "<p>Step 4: n = " + exponentDisplay + ".</p>";
+    } else {
+        steps =
+            "<p>Step 1: Identify the base: " + baseDisplay + ".</p>" +
+            "<p>Step 2: Identify the exponent: " + exponentDisplay + ".</p>" +
+            "<p>Step 3: Calculate " + baseDisplay + " raised to " +
+            exponentDisplay + ".</p>" +
+            "<p>Step 4: The result is " + calculatedDisplay + ".</p>";
+    }
+
+    document.getElementById("calculationSteps").innerHTML = steps;
+
+    resultsBox.style.display = "block";
 
     if (window.innerWidth <= 700) {
-
-        results.scrollIntoView({
+        resultsBox.scrollIntoView({
             behavior: "smooth",
             block: "start"
         });
-
     }
 }
-
 
 function resetCalculator() {
+    baseInput.value = "";
+    exponentInput.value = "";
+    resultInput.value = "";
 
-    document.getElementById("base").value = "";
-    document.getElementById("exponent").value = "";
+    useE.checked = false;
+    baseInput.disabled = false;
 
-    document.getElementById("error").style.display = "none";
-    document.getElementById("results").style.display = "none";
-
+    clearMessages();
+    baseInput.focus();
 }
 
+useE.addEventListener("change", function() {
+    clearMessages();
 
-document.getElementById("base").addEventListener(
-    "keydown",
-    function(event) {
+    if (useE.checked) {
+        baseInput.value = "";
+        baseInput.disabled = true;
+    } else {
+        baseInput.disabled = false;
+    }
+});
 
+document.getElementById("calculateBtn")
+    .addEventListener("click", calculateExponent);
+
+document.getElementById("resetBtn")
+    .addEventListener("click", resetCalculator);
+
+[baseInput, exponentInput, resultInput].forEach(input => {
+    input.addEventListener("keydown", function(event) {
         if (event.key === "Enter") {
             calculateExponent();
         }
+    });
 
-    }
-);
-
-
-document.getElementById("exponent").addEventListener(
-    "keydown",
-    function(event) {
-
-        if (event.key === "Enter") {
-            calculateExponent();
-        }
-
-    }
-);
-
+    input.addEventListener("input", clearMessages);
+});
 </script>
 
 </body>
