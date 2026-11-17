@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Remove Extra Spaces Online – Free Text Cleaner | Easy Online Tool</title>
+  <meta name="description" content="Remove extra spaces, tabs, and blank lines from text online for free. Clean and format your text instantly in your browser.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://easyonlinetools.online/remove-extra-spaces.html">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Remove Extra Spaces",
+    "url": "https://easyonlinetools.online/remove-extra-spaces.html",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "description": "A free online tool to remove extra spaces, tabs, and blank lines from text."
+  }
+  </script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #ffffff;
+      padding: 18px 7%;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .logo {
+      color: #2563eb;
+      font-size: 25px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    main {
+      max-width: 950px;
+      margin: 35px auto;
+      padding: 0 20px;
+    }
+
+    .tool-card, .content-card {
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    }
+
+    h1, h2, h3 {
+      color: #111827;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-top: 0;
+    }
+
+    .intro {
+      color: #4b5563;
+      margin-bottom: 22px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 210px;
+      padding: 15px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      resize: vertical;
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    textarea:focus {
+      outline: 2px solid #93c5fd;
+      border-color: #2563eb;
+    }
+
+    .output-area {
+      background: #f9fafb;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 12px;
+      margin: 18px 0;
+    }
+
+    .stat {
+      background: #eff6ff;
+      padding: 14px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      color: #2563eb;
+      font-size: 23px;
+    }
+
+    .stat span {
+      font-size: 13px;
+      color: #4b5563;
+    }
+
+    .options {
+      display: grid;
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .option {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-weight: normal;
+      cursor: pointer;
+    }
+
+    .option input {
+      margin-top: 5px;
+      accent-color: #2563eb;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 18px 0;
+    }
+
+    button {
+      padding: 12px 19px;
+      border: none;
+      border-radius: 8px;
+      background: #2563eb;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    .secondary {
+      background: #4b5563;
+    }
+
+    .secondary:hover {
+      background: #374151;
+    }
+
+    .success-message {
+      color: #15803d;
+      min-height: 22px;
+      font-size: 14px;
+    }
+
+    .content-card h2 {
+      margin-top: 0;
+    }
+
+    .content-card li {
+      margin-bottom: 8px;
+    }
+
+    .related-links a {
+      color: #2563eb;
+      text-decoration: none;
+      display: inline-block;
+      margin: 6px 12px 6px 0;
+    }
+
+    .related-links a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #ffffff;
+      color: #6b7280;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 16px 20px;
+      }
+
+      h1 {
+        font-size: 27px;
+      }
+
+      .tool-card, .content-card {
+        padding: 18px;
+      }
+
+      .buttons button {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html" class="logo">Easy Online Tool</a>
+</header>
+
+<main>
+
+  <section class="tool-card">
+    <h1>Remove Extra Spaces Online</h1>
+
+    <p class="intro">
+      Clean your text by removing unnecessary spaces, tabs, and blank lines.
+      This free tool works directly in your browser.
+    </p>
+
+    <label for="inputText">Enter or paste your text:</label>
+    <textarea id="inputText" placeholder="Paste your text here..."></textarea>
+
+    <div class="stats">
+      <div class="stat">
+        <strong id="beforeChars">0</strong>
+        <span>Original Characters</span>
+      </div>
+      <div class="stat">
+        <strong id="beforeWords">0</strong>
+        <span>Original Words</span>
+      </div>
+    </div>
+
+    <h3>Cleaning Options</h3>
+
+    <div class="options">
+      <label class="option">
+        <input type="checkbox" id="trimLines" checked>
+        Remove spaces at the beginning and end of each line
+      </label>
+
+      <label class="option">
+        <input type="checkbox" id="collapseSpaces" checked>
+        Replace repeated spaces and tabs with one space
+      </label>
+
+      <label class="option">
+        <input type="checkbox" id="removeBlankLines">
+        Remove extra blank lines (keep one line break)
+      </label>
+
+      <label class="option">
+        <input type="checkbox" id="singleLine">
+        Convert all line breaks and whitespace into single spaces
+      </label>
+    </div>
+
+    <div class="buttons">
+      <button type="button" id="cleanBtn">Clean Text</button>
+      <button type="button" class="secondary" id="copyBtn">Copy Result</button>
+      <button type="button" class="secondary" id="downloadBtn">Download Text</button>
+      <button type="button" class="secondary" id="clearBtn">Clear All</button>
+    </div>
+
+    <p id="message" class="success-message" role="status" aria-live="polite"></p>
+
+    <label for="outputText">Cleaned text:</label>
+    <textarea id="outputText" class="output-area" placeholder="Your cleaned text will appear here..." readonly></textarea>
+
+    <div class="stats">
+      <div class="stat">
+        <strong id="afterChars">0</strong>
+        <span>Cleaned Characters</span>
+      </div>
+      <div class="stat">
+        <strong id="afterWords">0</strong>
+        <span>Cleaned Words</span>
+      </div>
+      <div class="stat">
+        <strong id="savedChars">0</strong>
+        <span>Characters Removed</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-card">
+    <h2>How to Remove Extra Spaces from Text</h2>
+    <ol>
+      <li>Paste or type your text in the input box.</li>
+      <li>Select the cleaning options you need.</li>
+      <li>Click the Clean Text button.</li>
+      <li>Review your cleaned text in the result box.</li>
+      <li>Copy the result or download it as a text file.</li>
+    </ol>
+  </section>
+
+  <section class="content-card">
+    <h2>Why Remove Extra Spaces?</h2>
+    <p>
+      Extra spaces and unnecessary blank lines can make documents difficult
+      to read and format. Cleaning text helps improve readability and makes
+      content easier to reuse in emails, documents, reports, and web pages.
+    </p>
+    <p>
+      This tool processes your text locally in your browser. Your text is not
+      uploaded to a server by this tool.
+    </p>
+  </section>
+
+  <section class="content-card">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>Is this Remove Extra Spaces tool free?</h3>
+    <p>Yes. You can use this tool for free without creating an account.</p>
+
+    <h3>Can I remove extra blank lines?</h3>
+    <p>
+      Yes. Select the extra blank lines option to reduce repeated blank lines
+      while keeping normal paragraph breaks.
+    </p>
+
+    <h3>Can I remove all line breaks?</h3>
+    <p>
+      Yes. Select the option to convert all whitespace into single spaces.
+      This combines your text into one continuous line.
+    </p>
+
+    <h3>Is my text uploaded or stored?</h3>
+    <p>
+      No. Text cleaning happens directly in your browser. This page does not
+      send your text to a server.
+    </p>
+  </section>
+
+  <section class="content-card related-links">
+    <h2>Related Text Tools</h2>
+    <a href="word-counter.html">Word Counter</a>
+    <a href="case-converter.html">Case Converter</a>
+    <a href="tools.html">Explore All Tools</a>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 Easy Online Tool. All rights reserved.</p>
+</footer>
+
+<script>
+  const inputText = document.getElementById("inputText");
+  const outputText = document.getElementById("outputText");
+  const message = document.getElementById("message");
+
+  const trimLines = document.getElementById("trimLines");
+  const collapseSpaces = document.getElementById("collapseSpaces");
+  const removeBlankLines = document.getElementById("removeBlankLines");
+  const singleLine = document.getElementById("singleLine");
+
+  function countWords(text) {
+    const trimmed = text.trim();
+    return trimmed ? trimmed.split(/\s+/u).length : 0;
+  }
+
+  function updateStats() {
+    const original = inputText.value;
+    const cleaned = outputText.value;
+
+    document.getElementById("beforeChars").textContent =
+      original.length;
+
+    document.getElementById("beforeWords").textContent =
+      countWords(original);
+
+    document.getElementById("afterChars").textContent =
+      cleaned.length;
+
+    document.getElementById("afterWords").textContent =
+      countWords(cleaned);
+
+    document.getElementById("savedChars").textContent =
+      Math.max(0, original.length - cleaned.length);
+  }
+
+  function cleanText() {
+    let text = inputText.value;
+
+    if (singleLine.checked) {
+      text = text.replace(/\s+/gu, " ").trim();
+    } else {
+      if (trimLines.checked) {
+        text = text
+          .split(/\r\n|\r|\n/)
+          .map(line => line.trim())
+          .join("\n");
+      }
+
+      if (collapseSpaces.checked) {
+        text = text.replace(/[ \t]{2,}/gu, " ");
+      }
+
+      if (removeBlankLines.checked) {
+        text = text.replace(/\n(?:[ \t]*\n)+/gu, "\n\n");
+      }
+    }
+
+    outputText.value = text;
+    updateStats();
+    message.textContent = "Text cleaned successfully.";
+  }
+
+  async function copyResult() {
+    if (!outputText.value) {
+      message.textContent = "Please clean some text first.";
+      return;
+    }
+
+    try {
+      await navigator.clipboard.writeText(outputText.value);
+      message.textContent = "Cleaned text copied successfully.";
+    } catch (error) {
+      outputText.focus();
+      outputText.select();
+      const copied = document.execCommand("copy");
+      message.textContent = copied
+        ? "Cleaned text copied successfully."
+        : "Copy was blocked. Please select and copy the text manually.";
+    }
+  }
+
+  function downloadResult() {
+    if (!outputText.value) {
+      message.textContent = "Please clean some text first.";
+      return;
+    }
+
+    const blob = new Blob([outputText.value], {
+      type: "text/plain;charset=utf-8"
+    });
+
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = "cleaned-text.txt";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    URL.revokeObjectURL(url);
+    message.textContent = "Text downloaded successfully.";
+  }
+
+  function clearAll() {
+    inputText.value = "";
+    outputText.value = "";
+    message.textContent = "";
+    updateStats();
+  }
+
+  inputText.addEventListener("input", updateStats);
+
+  document.getElementById("cleanBtn").addEventListener("click", cleanText);
+  document.getElementById("copyBtn").addEventListener("click", copyResult);
+  document.getElementById("downloadBtn").addEventListener("click", downloadResult);
+  document.getElementById("clearBtn").addEventListener("click", clearAll);
+
+  updateStats();
+</script>
+
+</body>
+</html>
