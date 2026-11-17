@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Free Online Case Converter – Uppercase, Lowercase & More | Easy Online Tool</title>
+    <meta name="description" content="Convert text to uppercase, lowercase, title case, sentence case and more with this free online case converter. Copy or download your converted text instantly.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#2563eb">
+
+    <link rel="canonical" href="https://easyonlinetools.online/case-converter.html">
+
+    <meta property="og:title" content="Free Online Case Converter | Easy Online Tool">
+    <meta property="og:description" content="Easily convert text to uppercase, lowercase, title case, sentence case and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://easyonlinetools.online/case-converter.html">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Free Online Case Converter",
+      "url": "https://easyonlinetools.online/case-converter.html",
+      "description": "A free browser-based text case converter for uppercase, lowercase, title case and sentence case.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e3a8a;
+            --text: #222;
+            --muted: #5b6472;
+            --background: #f5f7fb;
+            --border: #d8dee8;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            color: var(--primary-dark);
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        textarea:focus-visible {
+            outline: 3px solid #f59e0b;
+            outline-offset: 3px;
+        }
+
+        header {
+            background: var(--primary);
+            color: #fff;
+            padding: 18px 20px;
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .logo {
+            color: #fff;
+            font-size: 23px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            width: min(900px, 100%);
+            margin: 35px auto;
+            padding: 0 18px;
+        }
+
+        .tool-box,
+        .content-section {
+            background: #fff;
+            padding: 28px;
+            border-radius: 14px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            color: var(--primary-dark);
+            text-align: center;
+            line-height: 1.3;
+            margin-bottom: 10px;
+            font-size: clamp(26px, 4vw, 34px);
+        }
+
+        .intro {
+            color: var(--muted);
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .field-label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        textarea {
+            display: block;
+            width: 100%;
+            min-height: 220px;
+            padding: 16px;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            resize: vertical;
+            font: inherit;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text);
+            background: #fff;
+        }
+
+        textarea:focus {
+            border-color: var(--primary);
+        }
+
+        .helper-text {
+            color: var(--muted);
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        .conversion-options {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        button {
+            min-height: 44px;
+            border: none;
+            padding: 11px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        button:hover {
+            filter: brightness(0.94);
+        }
+
+        button:focus-visible {
+            outline: 3px solid #f59e0b;
+            outline-offset: 3px;
+        }
+
+        button:disabled {
+            opacity: 0.55;
+            cursor: not-allowed;
+        }
+
+        .convert-btn {
+            background: #eaf1ff;
+            color: var(--primary-dark);
+            border: 1px solid #cbdafc;
+        }
+
+        .convert-btn.active {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+
+        .action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .copy-btn,
+        .download-btn {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .clear-btn {
+            background: #dc2626;
+            color: #fff;
+        }
+
+        .results {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+            margin-top: 22px;
+        }
+
+        .result-card {
+            background: #f1f5f9;
+            padding: 13px 8px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .result-card strong {
+            display: block;
+            font-size: 23px;
+            color: var(--primary-dark);
+            overflow-wrap: anywhere;
+        }
+
+        .result-card span {
+            display: block;
+            color: #4b5563;
+            font-size: 13px;
+        }
+
+        .status {
+            min-height: 28px;
+            margin-top: 12px;
+            color: #166534;
+            font-size: 14px;
+        }
+
+        .content-section {
+            margin-top: 24px;
+        }
+
+        .content-section h2 {
+            color: var(--primary-dark);
+            font-size: 22px;
+            line-height: 1.4;
+            margin: 22px 0 8px;
+        }
+
+        .content-section h2:first-child {
+            margin-top: 0;
+        }
+
+        .content-section h3 {
+            font-size: 17px;
+            margin: 16px 0 6px;
+        }
+
+        .content-section p {
+            margin-bottom: 12px;
+            color: #4b5563;
+        }
+
+        .content-section ul,
+        .content-section ol {
+            margin: 8px 0 14px 22px;
+            color: #4b5563;
+        }
+
+        .related-tools {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .related-tools a {
+            display: block;
+            padding: 12px 14px;
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            text-decoration: none;
+            overflow-wrap: anywhere;
+        }
+
+        .related-tools a:hover {
+            background: #e8efff;
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #111827;
+            color: #fff;
+            text-align: center;
+            padding: 25px 15px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 6px 0;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 650px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            .container {
+                margin: 22px auto;
+                padding: 0 12px;
+            }
+
+            .tool-box,
+            .content-section {
+                padding: 19px;
+            }
+
+            .conversion-options {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .results {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 360px) {
+            .related-tools {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                gap: 9px;
+            }
+
+            nav a {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <a class="logo" href="index.html">Easy Online Tool</a>
+
+        <nav aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="tools.html">Tools</a>
+            <a href="categories.html">Categories</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+
+    <section class="tool-box" aria-labelledby="page-title">
+
+        <h1 id="page-title">Free Online Case Converter</h1>
+
+        <p class="intro">
+            Quickly convert your text into uppercase, lowercase,
+            title case, sentence case and more.
+        </p>
+
+        <label class="field-label" for="inputText">
+            Enter or paste your text
+        </label>
+
+        <textarea
+            id="inputText"
+            placeholder="Type or paste your text here..."
+            spellcheck="true"
+        ></textarea>
+
+        <p class="helper-text">
+            Choose a conversion style below. Your converted text
+            will appear automatically.
+        </p>
+
+        <div class="conversion-options" aria-label="Text conversion options">
+
+            <button type="button" class="convert-btn active"
+                data-case="upper" aria-pressed="true">
+                UPPERCASE
+            </button>
+
+            <button type="button" class="convert-btn"
+                data-case="lower" aria-pressed="false">
+                lowercase
+            </button>
+
+            <button type="button" class="convert-btn"
+                data-case="title" aria-pressed="false">
+                Title Case
+            </button>
+
+            <button type="button" class="convert-btn"
+                data-case="sentence" aria-pressed="false">
+                Sentence case
+            </button>
+
+            <button type="button" class="convert-btn"
+                data-case="capitalize" aria-pressed="false">
+                Capitalize Each Word
+            </button>
+
+            <button type="button" class="convert-btn"
+                data-case="inverse" aria-pressed="false">
+                InVeRsE CaSe
+            </button>
+
+        </div>
+
+        <label class="field-label" for="outputText" style="margin-top:22px;">
+            Converted text
+        </label>
+
+        <textarea
+            id="outputText"
+            placeholder="Your converted text will appear here..."
+            readonly
+            aria-label="Converted text output"
+        ></textarea>
+
+        <div class="action-buttons">
+            <button type="button" class="copy-btn" id="copyButton">
+                Copy Converted Text
+            </button>
+
+            <button type="button" class="download-btn" id="downloadButton">
+                Download Text
+            </button>
+
+            <button type="button" class="clear-btn" id="clearButton">
+                Clear Text
+            </button>
+        </div>
+
+        <div class="results" aria-label="Text statistics" aria-live="polite">
+
+            <div class="result-card">
+                <strong id="wordCount">0</strong>
+                <span>Words</span>
+            </div>
+
+            <div class="result-card">
+                <strong id="characterCount">0</strong>
+                <span>Characters</span>
+            </div>
+
+            <div class="result-card">
+                <strong id="lineCount">0</strong>
+                <span>Lines</span>
+            </div>
+
+        </div>
+
+        <p class="status" id="statusMessage" role="status" aria-live="polite"></p>
+
+    </section>
+
+    <section class="content-section" aria-labelledby="about-title">
+
+        <h2 id="about-title">What Is a Case Converter?</h2>
+
+        <p>
+            A case converter is an online text formatting tool that changes
+            the capitalization of letters in your text. It can convert text
+            into uppercase, lowercase, title case and other common styles.
+        </p>
+
+        <p>
+            This free online case converter is useful for students, teachers,
+            writers, bloggers, office workers and anyone who needs to format
+            text quickly.
+        </p>
+
+        <h2>Available Text Conversion Options</h2>
+
+        <h3>1. Uppercase</h3>
+        <p>
+            Converts all letters into capital letters.
+            Example: hello world becomes HELLO WORLD.
+        </p>
+
+        <h3>2. Lowercase</h3>
+        <p>
+            Converts all letters into small letters.
+            Example: HELLO WORLD becomes hello world.
+        </p>
+
+        <h3>3. Title Case</h3>
+        <p>
+            Capitalizes the first letter of each word while converting
+            the remaining letters to lowercase.
+            Example: welcome to my website becomes Welcome To My Website.
+        </p>
+
+        <h3>4. Sentence Case</h3>
+        <p>
+            Capitalizes the first letter of each sentence and converts
+            the remaining letters to lowercase.
+        </p>
+
+        <h3>5. Capitalize Each Word</h3>
+        <p>
+            Capitalizes the first letter of each word while preserving
+            the remaining letters as they are.
+        </p>
+
+        <h3>6. Inverse Case</h3>
+        <p>
+            Changes uppercase letters to lowercase and lowercase letters
+            to uppercase.
+        </p>
+
+        <h2>How to Use This Case Converter</h2>
+
+        <ol>
+            <li>Type or paste your text into the input box.</li>
+            <li>Select the conversion style you want.</li>
+            <li>View the converted text in the output box.</li>
+            <li>Copy your converted text or download it as a text file.</li>
+            <li>Use Clear Text to start again.</li>
+        </ol>
+
+        <h2>Why Use an Online Case Converter?</h2>
+
+        <ul>
+            <li>Format text without manually changing every letter.</li>
+            <li>Convert large amounts of text quickly.</li>
+            <li>Prepare headings and titles for articles.</li>
+            <li>Format assignments, notes and documents.</li>
+            <li>Copy or download converted text easily.</li>
+            <li>Use the tool for free without creating an account.</li>
+        </ul>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>Is this case converter free?</h3>
+        <p>
+            Yes. This online case converter is free to use and does not
+            require registration.
+        </p>
+
+        <h3>Can I convert an entire paragraph?</h3>
+        <p>
+            Yes. You can paste a single sentence, multiple paragraphs
+            or a large amount of text into the input box.
+        </p>
+
+        <h3>Does sentence case work automatically?</h3>
+        <p>
+            Yes. Sentence case uses punctuation to identify sentence
+            beginnings and capitalize their first letters. Abbreviations
+            and unusual punctuation may affect the result.
+        </p>
+
+        <h3>Can I download converted text?</h3>
+        <p>
+            Yes. Select Download Text to save the converted result
+            as a plain text file.
+        </p>
+
+        <h3>Is my text uploaded to a server?</h3>
+        <p>
+            No. The conversion JavaScript processes your text locally
+            in your browser. The tool does not submit your text to a server.
+        </p>
+
+    </section>
+
+    <section class="content-section" aria-labelledby="related-title">
+
+        <h2 id="related-title">Related Online Tools</h2>
+
+        <p>
+            Explore more free tools for writing, text and everyday calculations.
+        </p>
+
+        <div class="related-tools">
+            <a href="word-counter.html">Word Counter</a>
+            <a href="password-generator.html">Password Generator</a>
+            <a href="number-to-words.html">Number to Words</a>
+            <a href="random-number-generator.html">Random Number Generator</a>
+            <a href="percentage-calculator.html">Percentage Calculator</a>
+            <a href="tools.html">Explore All Tools</a>
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2026 Easy Online Tool. All rights reserved.</p>
+
+    <p>
+        <a href="index.html">Home</a> |
+        <a href="about.html">About</a> |
+        <a href="privacy-policy.html">Privacy Policy</a> |
+        <a href="terms.html">Terms</a> |
+        <a href="disclaimer.html">Disclaimer</a> |
+        <a href="contact.html">Contact</a>
+    </p>
+</footer>
+
+<script>
+(function () {
+    "use strict";
+
+    const inputText = document.getElementById("inputText");
+    const outputText = document.getElementById("outputText");
+
+    const conversionButtons =
+        document.querySelectorAll(".convert-btn");
+
+    const copyButton = document.getElementById("copyButton");
+    const downloadButton = document.getElementById("downloadButton");
+    const clearButton = document.getElementById("clearButton");
+
+    const wordCount = document.getElementById("wordCount");
+    const characterCount = document.getElementById("characterCount");
+    const lineCount = document.getElementById("lineCount");
+
+    const statusMessage = document.getElementById("statusMessage");
+
+    let selectedCase = "upper";
+
+    function toTitleCase(text) {
+        return text.toLowerCase().replace(
+            /(^|[^\p{L}\p{N}])(\p{L})/gu,
+            function (match, separator, letter) {
+                return separator + letter.toLocaleUpperCase();
+            }
+        );
+    }
+
+    function toSentenceCase(text) {
+        let capitalizeNext = true;
+
+        return text.toLowerCase().replace(
+            /[\p{L}\p{N}]+|[.!?]+/gu,
+            function (match) {
+                if (/^[.!?]+$/u.test(match)) {
+                    capitalizeNext = true;
+                    return match;
+                }
+
+                if (capitalizeNext) {
+                    capitalizeNext = false;
+                    return match.charAt(0).toLocaleUpperCase() +
+                        match.slice(1);
+                }
+
+                return match;
+            }
+        );
+    }
+
+    function capitalizeEachWord(text) {
+        return text.replace(
+            /(^|[^\p{L}\p{N}])(\p{L})/gu,
+            function (match, separator, letter) {
+                return separator + letter.toLocaleUpperCase();
+            }
+        );
+    }
+
+    function toInverseCase(text) {
+        return Array.from(text).map(function (character) {
+            const upper = character.toLocaleUpperCase();
+            const lower = character.toLocaleLowerCase();
+
+            if (character === upper && character !== lower) {
+                return lower;
+            }
+
+            if (character === lower && character !== upper) {
+                return upper;
+            }
+
+            return character;
+        }).join("");
+    }
+
+    function convertText(text, caseType) {
+        switch (caseType) {
+            case "upper":
+                return text.toLocaleUpperCase();
+
+            case "lower":
+                return text.toLocaleLowerCase();
+
+            case "title":
+                return toTitleCase(text);
+
+            case "sentence":
+                return toSentenceCase(text);
+
+            case "capitalize":
+                return capitalizeEachWord(text);
+
+            case "inverse":
+                return toInverseCase(text);
+
+            default:
+                return text;
+        }
+    }
+
+    function updateStatistics(text) {
+        const trimmed = text.trim();
+
+        const words = trimmed
+            ? (trimmed.match(/\S+/gu) || []).length
+            : 0;
+
+        const characters = Array.from(text).length;
+
+        const lines = text.length === 0
+            ? 0
+            : text.split(/\r\n|\r|\n/u).length;
+
+        wordCount.textContent = words.toLocaleString();
+        characterCount.textContent = characters.toLocaleString();
+        lineCount.textContent = lines.toLocaleString();
+    }
+
+    function updateOutput() {
+        const result = convertText(inputText.value, selectedCase);
+
+        outputText.value = result;
+
+        updateStatistics(inputText.value);
+        statusMessage.textContent = "";
+    }
+
+    function selectCase(caseType) {
+        selectedCase = caseType;
+
+        conversionButtons.forEach(function (button) {
+            const active = button.dataset.case === caseType;
+
+            button.classList.toggle("active", active);
+            button.setAttribute("aria-pressed", String(active));
+        });
+
+        updateOutput();
+    }
+
+    function showStatus(message, isError) {
+        statusMessage.textContent = message;
+        statusMessage.style.color = isError
+            ? "#b91c1c"
+            : "#166534";
+    }
+
+    async function copyConvertedText() {
+        if (!outputText.value) {
+            showStatus("There is no converted text to copy.", true);
+            return;
+        }
+
+        try {
+            if (navigator.clipboard && window.isSecureContext) {
+                await navigator.clipboard.writeText(outputText.value);
+            } else {
+                outputText.focus();
+                outputText.select();
+
+                const copied = document.execCommand("copy");
+
+                if (!copied) {
+                    throw new Error("Copy command failed.");
+                }
+            }
+
+            showStatus("Converted text copied successfully.", false);
+        } catch (error) {
+            showStatus(
+                "Automatic copying failed. Please select and copy the text manually.",
+                true
+            );
+
+            outputText.focus();
+            outputText.select();
+        }
+    }
+
+    function downloadConvertedText() {
+        if (!outputText.value) {
+            showStatus("There is no converted text to download.", true);
+            return;
+        }
+
+        try {
+            const blob = new Blob(
+                ["\uFEFF", outputText.value],
+                { type: "text/plain;charset=utf-8" }
+            );
+
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+
+            link.href = url;
+            link.download = "converted-text.txt";
+
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+
+            setTimeout(function () {
+                URL.revokeObjectURL(url);
+            }, 1000);
+
+            showStatus("Converted text downloaded successfully.", false);
+        } catch (error) {
+            showStatus("Unable to download the text file.", true);
+        }
+    }
+
+    function clearText() {
+        inputText.value = "";
+        outputText.value = "";
+
+        updateStatistics("");
+
+        showStatus("Text cleared.", false);
+        inputText.focus();
+    }
+
+    conversionButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+            selectCase(button.dataset.case);
+        });
+    });
+
+    inputText.addEventListener("input", updateOutput);
+
+    copyButton.addEventListener("click", copyConvertedText);
+    downloadButton.addEventListener("click", downloadConvertedText);
+    clearButton.addEventListener("click", clearText);
+
+    selectCase("upper");
+})();
+</script>
+
+</body>
+</html>
