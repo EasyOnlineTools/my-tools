@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Free Word Counter – Words, Characters & Sentences | Easy Online Tool</title>
-    <meta name="description" content="Use our free online word counter to count words, characters, sentences and paragraphs instantly. Check essays, articles and other text in your browser.">
+    <title>Free Word Counter – Words, Characters & Reading Time | Easy Online Tool</title>
+    <meta name="description" content="Count words, characters with and without spaces, sentences and paragraphs instantly. Check reading time and download your text with this free online word counter.">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#2563eb">
 
     <link rel="canonical" href="https://easyonlinetools.online/word-counter.html">
 
     <meta property="og:title" content="Free Online Word Counter | Easy Online Tool">
-    <meta property="og:description" content="Count words, characters, sentences and paragraphs with our free online word counter.">
+    <meta property="og:description" content="Count words, characters, sentences, paragraphs and reading time with our free online word counter.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://easyonlinetools.online/word-counter.html">
 
@@ -20,9 +20,9 @@
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "Word Counter",
+      "name": "Free Online Word Counter",
       "url": "https://easyonlinetools.online/word-counter.html",
-      "description": "A free online tool for counting words, characters, sentences and paragraphs.",
+      "description": "A free online tool for counting words, characters, sentences, paragraphs and estimating reading time.",
       "applicationCategory": "UtilitiesApplication",
       "operatingSystem": "Any",
       "offers": {
@@ -186,7 +186,13 @@
             filter: brightness(0.94);
         }
 
-        .copy-btn {
+        button:disabled {
+            opacity: 0.55;
+            cursor: not-allowed;
+        }
+
+        .copy-btn,
+        .download-btn {
             background: var(--primary);
             color: #fff;
         }
@@ -198,7 +204,7 @@
 
         .results {
             display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 12px;
             margin-top: 24px;
         }
@@ -213,7 +219,7 @@
 
         .result-card strong {
             display: block;
-            font-size: clamp(23px, 3vw, 30px);
+            font-size: clamp(22px, 3vw, 29px);
             color: var(--primary-dark);
             overflow-wrap: anywhere;
         }
@@ -256,7 +262,8 @@
             color: #4b5563;
         }
 
-        .content-section ul {
+        .content-section ul,
+        .content-section ol {
             margin: 8px 0 14px 22px;
             color: #4b5563;
         }
@@ -372,8 +379,8 @@
         <h1 id="page-title">Free Online Word Counter</h1>
 
         <p class="intro">
-            Count words, characters, sentences and paragraphs instantly
-            while you write or edit your text.
+            Count words, characters, sentences and paragraphs instantly.
+            Estimate reading and speaking time while you write.
         </p>
 
         <label class="field-label" for="textInput">Enter or paste your text</label>
@@ -386,22 +393,27 @@
         ></textarea>
 
         <p class="helper-text" id="inputHelp">
-            Your text is analyzed in this browser. This page's counting
-            code does not send your text to a server.
+            Your text is processed in your browser by this tool.
+            It is not sent to a server for counting.
         </p>
 
         <div class="buttons">
             <button class="copy-btn" id="copyButton" type="button">
                 Copy Text
             </button>
+
+            <button class="download-btn" id="downloadButton" type="button">
+                Download Text
+            </button>
+
             <button class="clear-btn" id="clearButton" type="button">
                 Clear Text
             </button>
         </div>
 
-        <div class="results" aria-label="Text statistics">
+        <div class="results" aria-label="Text statistics" aria-live="polite">
             <div class="result-card">
-                <strong id="wordCount" aria-live="polite">0</strong>
+                <strong id="wordCount">0</strong>
                 <span>Words</span>
             </div>
 
@@ -411,15 +423,35 @@
             </div>
 
             <div class="result-card">
+                <strong id="charNoSpacesCount">0</strong>
+                <span>Characters (no spaces)</span>
+            </div>
+
+            <div class="result-card">
                 <strong id="sentenceCount">0</strong>
-                <span>Sentences</span>
+                <span>Sentences (estimated)</span>
             </div>
 
             <div class="result-card">
                 <strong id="paragraphCount">0</strong>
                 <span>Paragraphs</span>
             </div>
+
+            <div class="result-card">
+                <strong id="readingTime">0 min</strong>
+                <span>Reading time</span>
+            </div>
+
+            <div class="result-card">
+                <strong id="speakingTime">0 min</strong>
+                <span>Speaking time</span>
+            </div>
         </div>
+
+        <p class="helper-text">
+            Reading time is estimated at 200 words per minute.
+            Speaking time is estimated at 130 words per minute.
+        </p>
 
         <p class="status" id="statusMessage" role="status" aria-live="polite"></p>
     </section>
@@ -429,7 +461,7 @@
 
         <p>
             A word counter is an online writing tool that measures the length
-            of a piece of text. It can help you check word totals, character
+            of a piece of text. It helps you check word totals, character
             totals, sentences and paragraphs without manually counting them.
         </p>
 
@@ -444,37 +476,52 @@
         <ol>
             <li>Type your text or paste it into the text box.</li>
             <li>View the word, character, sentence and paragraph totals.</li>
-            <li>Edit your text and watch the totals update automatically.</li>
-            <li>Choose <strong>Copy Text</strong> to copy your text, or
-                <strong>Clear Text</strong> to start again.</li>
+            <li>Check the estimated reading and speaking times.</li>
+            <li>Choose <strong>Copy Text</strong> to copy your text.</li>
+            <li>Choose <strong>Download Text</strong> to save it as a text file.</li>
+            <li>Choose <strong>Clear Text</strong> to start again.</li>
         </ol>
 
         <h2>How Are Words and Characters Counted?</h2>
 
         <p>
-            <strong>Words:</strong> The tool treats groups of non-whitespace
-            characters as words. A group separated by spaces or line breaks
-            is counted as a separate word.
+            <strong>Words:</strong> Groups of non-whitespace characters are
+            counted as words. Groups separated by spaces or line breaks
+            are counted separately.
         </p>
 
         <p>
             <strong>Characters:</strong> The character total includes spaces,
-            punctuation and line breaks. Unicode characters represented by
-            multiple UTF-16 code units may count as more than one character
-            in this total.
+            punctuation and line breaks. Unicode grapheme clusters are counted
+            so that many emoji and accented characters are treated as one
+            visible character.
         </p>
 
         <p>
-            <strong>Sentences:</strong> Sentence totals are estimated using
-            common sentence-ending punctuation marks such as periods,
-            question marks and exclamation marks. Abbreviations and unusual
-            punctuation can affect the estimate.
+            <strong>Characters without spaces:</strong> This count excludes
+            whitespace, including spaces, tabs and line breaks.
+        </p>
+
+        <p>
+            <strong>Sentences:</strong> Sentence totals are estimates based
+            on sentence-ending punctuation and browser sentence segmentation
+            where available. Abbreviations and unusual punctuation can affect
+            the result.
         </p>
 
         <p>
             <strong>Paragraphs:</strong> A paragraph is counted as a
-            non-empty block of text separated from another block by one or
-            more blank lines.
+            non-empty block of text separated from another block by one
+            or more blank lines.
+        </p>
+
+        <h2>Reading Time and Speaking Time</h2>
+
+        <p>
+            Reading time is estimated using an average reading speed of
+            200 words per minute. Speaking time uses an average of
+            130 words per minute. Actual times vary depending on the reader,
+            language, content and speaking speed.
         </p>
 
         <h2>Why Use an Online Word Counter?</h2>
@@ -483,8 +530,9 @@
             <li>Check essay and assignment word limits.</li>
             <li>Measure the length of blog posts and articles.</li>
             <li>Review text before publishing or sharing it.</li>
-            <li>Count characters, including spaces and punctuation.</li>
-            <li>Copy or clear your text using simple controls.</li>
+            <li>Count characters with and without whitespace.</li>
+            <li>Estimate reading and speaking time.</li>
+            <li>Copy or download your text easily.</li>
         </ul>
 
         <h2>Frequently Asked Questions</h2>
@@ -502,24 +550,28 @@
 
         <h3>Are spaces included in the character count?</h3>
         <p>
-            Yes. Spaces, punctuation and line breaks are included in the
-            character total.
+            Yes. The main character total includes spaces, punctuation
+            and line breaks. A separate result shows characters without
+            whitespace.
         </p>
 
-        <h3>Can I use this tool for essays and blog posts?</h3>
+        <h3>How is reading time calculated?</h3>
         <p>
-            Yes. It is useful for essays, assignments, articles, blog posts
-            and many other kinds of writing. If a school, publisher or
-            platform uses a specific counting method, compare its result
-            with that requirement.
+            Reading time is estimated at 200 words per minute. It is a
+            general estimate, not a measurement of your actual reading speed.
+        </p>
+
+        <h3>Can I download my text?</h3>
+        <p>
+            Yes. Select Download Text to save the text you entered as a
+            plain text file on your device.
         </p>
 
         <h3>Is my text uploaded when I count words?</h3>
         <p>
-            The word-counting JavaScript on this page processes your text
-            locally in your browser and does not submit it to a server.
-            Avoid entering sensitive information on shared or untrusted
-            devices.
+            The counting JavaScript on this page processes your text locally
+            in your browser and does not submit it to a server. Avoid entering
+            sensitive information on shared or untrusted devices.
         </p>
     </section>
 
@@ -563,44 +615,113 @@
     const textInput = document.getElementById("textInput");
     const wordCount = document.getElementById("wordCount");
     const charCount = document.getElementById("charCount");
+    const charNoSpacesCount = document.getElementById("charNoSpacesCount");
     const sentenceCount = document.getElementById("sentenceCount");
     const paragraphCount = document.getElementById("paragraphCount");
+    const readingTime = document.getElementById("readingTime");
+    const speakingTime = document.getElementById("speakingTime");
     const statusMessage = document.getElementById("statusMessage");
+
     const copyButton = document.getElementById("copyButton");
+    const downloadButton = document.getElementById("downloadButton");
     const clearButton = document.getElementById("clearButton");
+
+    function formatTime(minutes) {
+        if (minutes === 0) {
+            return "0 min";
+        }
+
+        if (minutes < 1) {
+            return "<1 min";
+        }
+
+        return Math.ceil(minutes).toLocaleString() + " min";
+    }
+
+    function countSentences(text) {
+        if (!text.trim()) {
+            return 0;
+        }
+
+        // Use browser sentence segmentation when available.
+        if (typeof Intl !== "undefined" && Intl.Segmenter) {
+            try {
+                const segmenter = new Intl.Segmenter(undefined, {
+                    granularity: "sentence"
+                });
+
+                let count = 0;
+
+                for (const segment of segmenter.segment(text)) {
+                    if (segment.segment.trim()) {
+                        count++;
+                    }
+                }
+
+                return count;
+            } catch (error) {
+                // Use the fallback below if segmentation fails.
+            }
+        }
+
+        // Fallback estimate for browsers without Intl.Segmenter.
+        const matches = text.match(/[^.!?]+(?:[.!?]+|$)/gu) || [];
+
+        return matches.filter(function (sentence) {
+            return sentence.trim().length > 0;
+        }).length;
+    }
 
     function countText() {
         const text = textInput.value;
-
-        // Count non-whitespace groups as words.
         const trimmed = text.trim();
-        const words = trimmed === ""
-            ? 0
-            : (trimmed.match(/\S+/gu) || []).length;
 
-        // JavaScript string length counts UTF-16 code units.
-        const characters = text.length;
+        // Count groups of non-whitespace characters.
+        const words = trimmed
+            ? (trimmed.match(/\S+/gu) || []).length
+            : 0;
 
-        // Estimate sentences from common sentence-ending punctuation.
-        const sentences = trimmed === ""
-            ? 0
-            : (trimmed.match(/[^.!?]+(?:[.!?]+|$)/gu) || [])
-                .filter(function (sentence) {
-                    return sentence.trim().length > 0;
-                }).length;
+        // Count visible Unicode grapheme clusters where supported.
+        let characters;
 
-        // Count non-empty blocks separated by one or more blank lines.
-        const paragraphs = trimmed === ""
-            ? 0
-            : trimmed.split(/\n(?:[ \t]*\n)+/u)
+        if (typeof Intl !== "undefined" && Intl.Segmenter) {
+            try {
+                const segmenter = new Intl.Segmenter(undefined, {
+                    granularity: "grapheme"
+                });
+
+                characters = Array.from(segmenter.segment(text)).length;
+            } catch (error) {
+                characters = Array.from(text).length;
+            }
+        } else {
+            characters = Array.from(text).length;
+        }
+
+        // Exclude all whitespace for this separate count.
+        const charactersWithoutSpaces = Array.from(
+            text.replace(/\s/gu, "")
+        ).length;
+
+        const sentences = countSentences(text);
+
+        // Paragraphs are non-empty blocks separated by blank lines.
+        const paragraphs = trimmed
+            ? trimmed.split(/\n\s*\n+/u)
                 .filter(function (paragraph) {
                     return paragraph.trim().length > 0;
-                }).length;
+                }).length
+            : 0;
 
         wordCount.textContent = words.toLocaleString();
         charCount.textContent = characters.toLocaleString();
+        charNoSpacesCount.textContent =
+            charactersWithoutSpaces.toLocaleString();
         sentenceCount.textContent = sentences.toLocaleString();
         paragraphCount.textContent = paragraphs.toLocaleString();
+
+        readingTime.textContent = formatTime(words / 200);
+        speakingTime.textContent = formatTime(words / 130);
     }
 
     function showStatus(message, isError) {
@@ -618,7 +739,6 @@
             if (navigator.clipboard && window.isSecureContext) {
                 await navigator.clipboard.writeText(textInput.value);
             } else {
-                // Fallback for browsers without Clipboard API support.
                 textInput.focus();
                 textInput.select();
 
@@ -640,8 +760,39 @@
                 "Automatic copying was unavailable. Select the text and copy it manually.",
                 true
             );
+
             textInput.focus();
             textInput.select();
+        }
+    }
+
+    function downloadText() {
+        if (textInput.value.length === 0) {
+            showStatus("There is no text to download.", true);
+            return;
+        }
+
+        try {
+            const blob = new Blob(
+                ["\uFEFF", textInput.value],
+                { type: "text/plain;charset=utf-8" }
+            );
+
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+
+            link.href = url;
+            link.download = "my-text.txt";
+
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+
+            URL.revokeObjectURL(url);
+
+            showStatus("Your text file has been downloaded.", false);
+        } catch (error) {
+            showStatus("Unable to download the text file.", true);
         }
     }
 
@@ -658,6 +809,7 @@
     });
 
     copyButton.addEventListener("click", copyText);
+    downloadButton.addEventListener("click", downloadText);
     clearButton.addEventListener("click", clearText);
 
     countText();
