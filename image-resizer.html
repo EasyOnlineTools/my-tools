@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Free Image Resizer Online – Resize Images Easily | Easy Online Tool</title>
+  <meta name="description" content="Resize JPG, PNG and WebP images online for free. Set custom dimensions, maintain aspect ratio, preview your image and download the resized result.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://easyonlinetools.online/image-resizer.html">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Image Resizer",
+    "url": "https://easyonlinetools.online/image-resizer.html",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Any",
+    "description": "A free browser-based tool to resize JPG, PNG and WebP images."
+  }
+  </script>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #fff;
+      padding: 18px 7%;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .logo {
+      color: #2563eb;
+      font-size: 25px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    main {
+      max-width: 950px;
+      margin: 35px auto;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.04);
+    }
+
+    h1, h2, h3 { color: #111827; }
+
+    h1 {
+      font-size: 32px;
+      margin-top: 0;
+    }
+
+    .intro { color: #4b5563; }
+
+    .upload-box {
+      display: block;
+      border: 2px dashed #93c5fd;
+      background: #f8fbff;
+      border-radius: 10px;
+      padding: 30px 15px;
+      text-align: center;
+      cursor: pointer;
+      margin: 20px 0;
+    }
+
+    .upload-box:hover { background: #eff6ff; }
+
+    .upload-box strong {
+      display: block;
+      font-size: 18px;
+      color: #2563eb;
+    }
+
+    .upload-box span {
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    input[type="file"] { display: none; }
+
+    .preview {
+      display: none;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .preview img {
+      max-width: 100%;
+      max-height: 350px;
+      object-fit: contain;
+      border-radius: 8px;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+    }
+
+    .file-info {
+      background: #eff6ff;
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 12px;
+      font-size: 14px;
+      overflow-wrap: anywhere;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .field label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 7px;
+    }
+
+    .field input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin: 15px 0;
+      cursor: pointer;
+    }
+
+    .option input { accent-color: #2563eb; }
+
+    button {
+      padding: 12px 19px;
+      border: none;
+      border-radius: 8px;
+      background: #2563eb;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    button:hover { background: #1d4ed8; }
+
+    button:disabled {
+      background: #9ca3af;
+      cursor: not-allowed;
+    }
+
+    .secondary { background: #4b5563; }
+    .secondary:hover { background: #374151; }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .result {
+      display: none;
+      margin-top: 25px;
+      padding-top: 20px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .result img {
+      display: block;
+      max-width: 100%;
+      max-height: 350px;
+      margin: 15px auto;
+      object-fit: contain;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+    }
+
+    .message {
+      min-height: 24px;
+      color: #15803d;
+      font-size: 14px;
+    }
+
+    .error { color: #dc2626; }
+
+    .related-links a {
+      color: #2563eb;
+      text-decoration: none;
+      margin-right: 12px;
+    }
+
+    .related-links a:hover { text-decoration: underline; }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #fff;
+      color: #6b7280;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 16px 20px; }
+      h1 { font-size: 27px; }
+      .card { padding: 18px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .buttons button { flex: 1 1 100%; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html" class="logo">Easy Online Tool</a>
+</header>
+
+<main>
+
+  <section class="card">
+    <h1>Free Image Resizer Online</h1>
+
+    <p class="intro">
+      Resize your images to custom dimensions in pixels. Upload a JPG,
+      PNG or WebP image, choose the width and height, and download
+      your resized image.
+    </p>
+
+    <label class="upload-box" for="imageInput">
+      <strong>Choose an Image</strong>
+      <span>Click here to upload JPG, PNG or WebP (maximum 10 MB)</span>
+    </label>
+
+    <input
+      type="file"
+      id="imageInput"
+      accept="image/jpeg,image/png,image/webp"
+    >
+
+    <div class="preview" id="preview">
+      <h3>Original Image</h3>
+      <img id="originalPreview" alt="Original uploaded image">
+      <div class="file-info" id="originalInfo"></div>
+    </div>
+
+    <h3>Resize Dimensions</h3>
+
+    <div class="form-grid">
+      <div class="field">
+        <label for="widthInput">Width (pixels)</label>
+        <input type="number" id="widthInput" min="1" max="10000" placeholder="Enter width">
+      </div>
+
+      <div class="field">
+        <label for="heightInput">Height (pixels)</label>
+        <input type="number" id="heightInput" min="1" max="10000" placeholder="Enter height">
+      </div>
+    </div>
+
+    <label class="option">
+      <input type="checkbox" id="aspectRatio" checked>
+      Maintain aspect ratio
+    </label>
+
+    <div class="field">
+      <label for="formatInput">Output Format</label>
+      <select id="formatInput" style="width:100%;padding:12px;border:1px solid #d1d5db;border-radius:8px;font-size:16px;">
+        <option value="image/png">PNG</option>
+        <option value="image/jpeg">JPG</option>
+        <option value="image/webp">WebP</option>
+      </select>
+    </div>
+
+    <div class="buttons">
+      <button type="button" id="resizeBtn" disabled>Resize Image</button>
+      <button type="button" class="secondary" id="resetBtn">Reset</button>
+    </div>
+
+    <p class="message" id="message" role="status" aria-live="polite"></p>
+
+    <div class="result" id="result">
+      <h2>Resized Image</h2>
+      <img id="resizedPreview" alt="Resized image preview">
+      <div class="file-info" id="resultInfo"></div>
+
+      <div class="buttons">
+        <button type="button" id="downloadBtn">Download Resized Image</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>How to Resize an Image</h2>
+    <ol>
+      <li>Click Choose an Image and select a JPG, PNG or WebP file.</li>
+      <li>Enter your required width and height in pixels.</li>
+      <li>Keep Maintain Aspect Ratio selected to preserve image proportions.</li>
+      <li>Choose your preferred output format.</li>
+      <li>Click Resize Image and download the result.</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h2>Why Use Our Image Resizer?</h2>
+    <ul>
+      <li>Resize images to custom pixel dimensions.</li>
+      <li>Maintain the original image proportions.</li>
+      <li>Choose PNG, JPG or WebP output.</li>
+      <li>Preview the resized image before downloading.</li>
+      <li>Process images directly in your browser.</li>
+    </ul>
+    <p>
+      Your selected image is processed locally in your browser.
+      This tool does not upload your image to our server.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>Is this image resizer free?</h3>
+    <p>Yes. You can resize images for free without creating an account.</p>
+
+    <h3>Which image formats are supported?</h3>
+    <p>You can upload JPG, PNG and WebP images and choose one of these formats for the output.</p>
+
+    <h3>Will resizing change the image quality?</h3>
+    <p>
+      Resizing changes the image dimensions. Enlarging a small image can
+      reduce its apparent sharpness. JPG and WebP output may also use
+      lossy compression.
+    </p>
+
+    <h3>What does Maintain Aspect Ratio mean?</h3>
+    <p>
+      It keeps the original width-to-height proportions so the image
+      does not look stretched or distorted.
+    </p>
+
+    <h3>Are my images uploaded to a server?</h3>
+    <p>No. Image processing happens directly in your browser.</p>
+  </section>
+
+  <section class="card related-links">
+    <h2>Explore More Tools</h2>
+    <a href="word-counter.html">Word Counter</a>
+    <a href="case-converter.html">Case Converter</a>
+    <a href="remove-extra-spaces.html">Remove Extra Spaces</a>
+    <a href="tools.html">All Tools</a>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 Easy Online Tool. All rights reserved.</p>
+</footer>
+
+<script>
+  const imageInput = document.getElementById("imageInput");
+  const widthInput = document.getElementById("widthInput");
+  const heightInput = document.getElementById("heightInput");
+  const aspectRatio = document.getElementById("aspectRatio");
+  const formatInput = document.getElementById("formatInput");
+  const resizeBtn = document.getElementById("resizeBtn");
+  const message = document.getElementById("message");
+
+  let originalImage = null;
+  let originalWidth = 0;
+  let originalHeight = 0;
+  let originalURL = null;
+  let resizedURL = null;
+  let resizedBlob = null;
+
+  function showMessage(text, isError = false) {
+    message.textContent = text;
+    message.className = isError ? "message error" : "message";
+  }
+
+  function formatBytes(bytes) {
+    if (bytes < 1024) return bytes + " bytes";
+    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
+    return (bytes / (1024 * 1024)).toFixed(2) + " MB";
+  }
+
+  function clearResult() {
+    if (resizedURL) {
+      URL.revokeObjectURL(resizedURL);
+    }
+
+    resizedURL = null;
+    resizedBlob = null;
+
+    document.getElementById("result").style.display = "none";
+  }
+
+  imageInput.addEventListener("change", function () {
+    const file = this.files[0];
+
+    clearResult();
+    showMessage("");
+
+    if (!file) return;
+
+    const allowedTypes = ["image/jpeg", "image/png", "image/webp"];
+
+    if (!allowedTypes.includes(file.type)) {
+      showMessage("Please select a JPG, PNG or WebP image.", true);
+      this.value = "";
+      return;
+    }
+
+    if (file.size > 10 * 1024 * 1024) {
+      showMessage("Image size must be 10 MB or less.", true);
+      this.value = "";
+      return;
+    }
+
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+
+    img.onload = function () {
+      if (originalURL) URL.revokeObjectURL(originalURL);
+
+      originalURL = url;
+      originalImage = img;
+      originalWidth = img.naturalWidth;
+      originalHeight = img.naturalHeight;
+
+      widthInput.value = originalWidth;
+      heightInput.value = originalHeight;
+
+      document.getElementById("originalPreview").src = originalURL;
+      document.getElementById("originalInfo").textContent =
+        "Dimensions: " + originalWidth + " × " + originalHeight +
+        " pixels | File size: " + formatBytes(file.size);
+
+      document.getElementById("preview").style.display = "block";
+      resizeBtn.disabled = false;
+
+      if (originalWidth > 10000 || originalHeight > 10000) {
+        showMessage("This image exceeds the maximum supported dimension of 10,000 pixels.", true);
+        resizeBtn.disabled = true;
+      } else {
+        showMessage("Image loaded successfully.");
+      }
+    };
+
+    img.onerror = function () {
+      URL.revokeObjectURL(url);
+      showMessage("Unable to load this image. Please try another file.", true);
+      imageInput.value = "";
+    };
+
+    img.src = url;
+  });
+
+  widthInput.addEventListener("input", function () {
+    clearResult();
+
+    if (aspectRatio.checked && originalImage) {
+      const width = Number(this.value);
+
+      if (width > 0) {
+        heightInput.value = Math.max(
+          1,
+          Math.round(width * originalHeight / originalWidth)
+        );
+      }
+    }
+  });
+
+  heightInput.addEventListener("input", function () {
+    clearResult();
+
+    if (aspectRatio.checked && originalImage) {
+      const height = Number(this.value);
+
+      if (height > 0) {
+        widthInput.value = Math.max(
+          1,
+          Math.round(height * originalWidth / originalHeight)
+        );
+      }
+    }
+  });
+
+  aspectRatio.addEventListener("change", function () {
+    if (this.checked && originalImage) {
+      const width = Number(widthInput.value);
+
+      if (width > 0) {
+        heightInput.value = Math.max(
+          1,
+          Math.round(width * originalHeight / originalWidth)
+        );
+      }
+    }
+  });
+
+  resizeBtn.addEventListener("click", function () {
+    if (!originalImage) {
+      showMessage("Please upload an image first.", true);
+      return;
+    }
+
+    const width = Number(widthInput.value);
+    const height = Number(heightInput.value);
+
+    if (
+      !Number.isInteger(width) ||
+      !Number.isInteger(height) ||
+      width < 1 ||
+      height < 1 ||
+      width > 10000 ||
+      height > 10000
+    ) {
+      showMessage("Enter valid width and height values between 1 and 10,000.", true);
+      return;
+    }
+
+    clearResult();
+    showMessage("Resizing image...");
+
+    const canvas = document.createElement("canvas");
+    canvas.width = width;
+    canvas.height = height;
+
+    const context = canvas.getContext("2d");
+
+    if (!context) {
+      showMessage("Your browser could not process this image.", true);
+      return;
+    }
+
+    if (formatInput.value === "image/jpeg") {
+      context.fillStyle = "#ffffff";
+      context.fillRect(0, 0, width, height);
+    }
+
+    context.imageSmoothingEnabled = true;
+    context.imageSmoothingQuality = "high";
+    context.drawImage(originalImage, 0, 0, width, height);
+
+    canvas.toBlob(function (blob) {
+      if (!blob) {
+        showMessage("Unable to create the resized image. Try another format.", true);
+        return;
+      }
+
+      resizedBlob = blob;
+      resizedURL = URL.createObjectURL(blob);
+
+      document.getElementById("resizedPreview").src = resizedURL;
+      document.getElementById("resultInfo").textContent =
+        "Dimensions: " + width + " × " + height +
+        " pixels | File size: " + formatBytes(blob.size);
+
+      document.getElementById("result").style.display = "block";
+      showMessage("Image resized successfully.");
+    }, formatInput.value, 0.92);
+  });
+
+  document.getElementById("downloadBtn").addEventListener("click", function () {
+    if (!resizedBlob || !resizedURL) {
+      showMessage("Please resize an image first.", true);
+      return;
+    }
+
+    const extension = {
+      "image/png": "png",
+      "image/jpeg": "jpg",
+      "image/webp": "webp"
+    }[formatInput.value];
+
+    const link = document.createElement("a");
+    link.href = resizedURL;
+    link.download = "resized-image." + extension;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    showMessage("Resized image downloaded successfully.");
+  });
+
+  document.getElementById("resetBtn").addEventListener("click", function () {
+    if (originalURL) URL.revokeObjectURL(originalURL);
+    if (resizedURL) URL.revokeObjectURL(resizedURL);
+
+    originalImage = null;
+    originalURL = null;
+    resizedURL = null;
+    resizedBlob = null;
+
+    imageInput.value = "";
+    widthInput.value = "";
+    heightInput.value = "";
+
+    document.getElementById("preview").style.display = "none";
+    document.getElementById("result").style.display = "none";
+
+    resizeBtn.disabled = true;
+    showMessage("Reset complete. Select another image.");
+  });
+</script>
+
+</body>
+</html>
