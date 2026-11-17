@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Free Image Compressor Online – Reduce Image Size | Easy Online Tool</title>
+<meta name="description" content="Compress JPG, PNG and WebP images online for free. Reduce image file size, adjust quality, compare results and download compressed images directly in your browser.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://easyonlinetools.online/image-compressor.html">
+
+<meta property="og:title" content="Free Image Compressor Online">
+<meta property="og:description" content="Compress multiple images online and reduce file size without uploading them to a server.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://easyonlinetools.online/image-compressor.html">
+
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#1f2937;line-height:1.6}
+header{background:#fff;padding:18px 7%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #e5e7eb}
+.logo{font-size:25px;font-weight:bold;color:#2563eb;text-decoration:none}
+nav a{color:#374151;text-decoration:none;margin-left:18px;font-size:14px}
+.hero{text-align:center;padding:45px 20px 30px;background:#eaf1ff}
+.hero h1{font-size:clamp(28px,4vw,40px);margin:0 0 10px}
+.hero p{color:#4b5563;max-width:700px;margin:auto}
+main{max-width:1050px;margin:35px auto;padding:0 18px}
+.panel{background:#fff;padding:25px;border-radius:14px;box-shadow:0 2px 12px #00000008;margin-bottom:22px}
+h2{margin-top:0;font-size:22px}
+.upload-area{border:2px dashed #93b4f5;background:#f8faff;border-radius:12px;padding:40px 15px;text-align:center;cursor:pointer;transition:.2s}
+.upload-area.dragover{background:#eaf1ff;border-color:#2563eb}
+.upload-icon{font-size:42px}
+.upload-area h3{margin:8px 0}
+.upload-area p{color:#6b7280;font-size:14px}
+button,.button{background:#2563eb;color:#fff;border:0;border-radius:8px;padding:12px 19px;cursor:pointer;font-size:14px;font-weight:600;text-decoration:none;display:inline-block}
+button:hover,.button:hover{background:#1d4ed8}
+button:disabled{opacity:.5;cursor:not-allowed}
+.secondary{background:#e5e7eb;color:#1f2937}
+.secondary:hover{background:#d1d5db}
+.danger{background:#fee2e2;color:#991b1b}
+.danger:hover{background:#fecaca}
+input,select{font:inherit}
+input[type=file]{display:none}
+.settings-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px}
+.field label{display:block;font-weight:bold;margin-bottom:7px;font-size:14px}
+.field select{width:100%;padding:11px;border:1px solid #d1d5db;border-radius:8px;background:#fff}
+.field input[type=range]{width:100%;accent-color:#2563eb}
+.field small{color:#6b7280}
+.preset-row{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
+.preset{background:#eef2ff;color:#374151;border:1px solid #dbe3f5;padding:9px 13px}
+.preset.active{background:#2563eb;color:#fff}
+.quality-value{font-weight:bold;color:#2563eb}
+.image-list{display:grid;gap:16px}
+.image-card{border:1px solid #e5e7eb;border-radius:12px;padding:16px}
+.image-card-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.image-name{font-weight:bold;overflow-wrap:anywhere}
+.image-meta{font-size:13px;color:#6b7280}
+.preview-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:14px}
+.preview-box{background:#f8fafc;border:1px solid #e5e7eb;border-radius:9px;padding:10px;text-align:center;min-width:0}
+.preview-box img{width:100%;height:180px;object-fit:contain;background:#fff;border-radius:6px}
+.preview-box strong{display:block;font-size:13px;margin-bottom:7px}
+.preview-box small{display:block;color:#6b7280;margin-top:6px;overflow-wrap:anywhere}
+.saving{font-weight:bold;color:#15803d}
+.status{font-size:13px;color:#6b7280;margin-top:8px}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}
+.progress{height:8px;background:#e5e7eb;border-radius:20px;overflow:hidden;margin-top:12px;display:none}
+.progress-bar{height:100%;width:0;background:#2563eb;transition:width .2s}
+.summary{background:#eff6ff;border-radius:10px;padding:15px;margin-top:15px;display:none}
+.summary strong{color:#1d4ed8}
+.note{font-size:13px;color:#6b7280}
+.content h2{margin-top:24px}
+.content p,.content li{color:#4b5563}
+.faq{border-bottom:1px solid #e5e7eb;padding:12px 0}
+.faq h3{font-size:16px;margin:0 0 5px}
+.faq p{margin:0;color:#6b7280}
+footer{text-align:center;padding:25px;background:#fff;color:#6b7280;margin-top:50px}
+footer a{color:#2563eb;text-decoration:none}
+@media(max-width:600px){
+header{padding:15px;flex-wrap:wrap;gap:10px}
+nav a{margin-left:8px}
+.panel{padding:17px}
+.preview-grid{grid-template-columns:1fr}
+.preview-box img{height:160px}
+.upload-area{padding:28px 12px}
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Free Image Compressor",
+  "url":"https://easyonlinetools.online/image-compressor.html",
+  "applicationCategory":"MultimediaApplication",
+  "operatingSystem":"Any",
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+  "description":"Compress JPG, PNG and WebP images online for free in your browser."
+}
+</script>
+</head>
+
+<body>
+
+<header>
+<a class="logo" href="index.html">Easy Online Tool</a>
+<nav>
+<a href="index.html">Home</a>
+<a href="tools.html">Tools</a>
+<a href="categories.html">Categories</a>
+</nav>
+</header>
+
+<section class="hero">
+<h1>Free Image Compressor Online</h1>
+<p>Reduce image file size while keeping good image quality. Compress multiple JPG, PNG and WebP images directly in your browser.</p>
+</section>
+
+<main>
+
+<section class="panel">
+<h2>Upload Your Images</h2>
+
+<div class="upload-area" id="dropArea" tabindex="0" role="button" aria-label="Choose images to compress">
+<div class="upload-icon">🖼️</div>
+<h3>Drag and drop your images here</h3>
+<p>or click below to browse your device</p>
+<button type="button" id="chooseBtn">Choose Images</button>
+<p class="note">JPG, JPEG, PNG and WebP supported. Maximum 10 MB per image.</p>
+</div>
+
+<input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" multiple>
+
+<div class="actions">
+<button type="button" class="secondary" id="addMoreBtn">+ Add More Images</button>
+<button type="button" class="danger" id="clearAllBtn">Clear All</button>
+</div>
+
+<p class="status" id="fileCount">No images selected.</p>
+</section>
+
+<section class="panel">
+<h2>Compression Settings</h2>
+
+<div class="settings-grid">
+
+<div class="field">
+<label for="outputFormat">Output Format</label>
+<select id="outputFormat">
+<option value="original">Keep Original Format</option>
+<option value="image/jpeg">JPG</option>
+<option value="image/png">PNG</option>
+<option value="image/webp">WebP</option>
+</select>
+<small>PNG does not support the same quality control as JPG and WebP.</small>
+</div>
+
+<div class="field">
+<label for="quality">Compression Quality: <span class="quality-value" id="qualityValue">75%</span></label>
+<input type="range" id="quality" min="10" max="100" value="75">
+<small>Lower quality usually creates smaller JPG and WebP files.</small>
+</div>
+
+</div>
+
+<div class="field" style="margin-top:20px">
+<label>Quick Presets</label>
+<div class="preset-row">
+<button type="button" class="preset" data-quality="45">High Compression</button>
+<button type="button" class="preset active" data-quality="75">Balanced</button>
+<button type="button" class="preset" data-quality="90">High Quality</button>
+</div>
+</div>
+
+<p class="note">The quality slider affects JPG and WebP output. PNG output is exported using the browser's PNG encoder and may not become smaller.</p>
+</section>
+
+<section class="panel">
+<div class="image-card-head">
+<h2 style="margin:0">Your Images</h2>
+<button type="button" id="compressBtn" disabled>Compress Images</button>
+</div>
+
+<div class="progress" id="progress">
+<div class="progress-bar" id="progressBar"></div>
+</div>
+
+<p class="status" id="mainStatus">Select images to get started.</p>
+
+<div class="summary" id="summary">
+<strong>Compression Summary</strong>
+<p id="summaryText"></p>
+</div>
+
+<div class="actions" id="downloadAllArea" style="display:none">
+<button type="button" id="downloadZipBtn">Download All (ZIP)</button>
+</div>
+
+<div class="image-list" id="imageList" style="margin-top:18px"></div>
+</section>
+
+<section class="panel content">
+<h2>How to Compress Images Online</h2>
+<ol>
+<li>Click Choose Images or drag and drop your images into the upload area.</li>
+<li>Select your preferred output format.</li>
+<li>Choose a compression preset or adjust the quality slider.</li>
+<li>Click Compress Images to process your selected files.</li>
+<li>Compare the original and compressed images.</li>
+<li>Download individual images or download all results as a ZIP file.</li>
+</ol>
+
+<h2>Why Compress Images?</h2>
+<p>Large image files take longer to upload, share and load on websites. Image compression can reduce file size, helping improve website loading speed and making images easier to store and share.</p>
+
+<h2>Supported Image Formats</h2>
+<ul>
+<li><strong>JPG/JPEG:</strong> Suitable for photographs and everyday images. Adjustable quality is available.</li>
+<li><strong>PNG:</strong> Useful for graphics and transparent images. Browser PNG export does not provide a standard quality slider.</li>
+<li><strong>WebP:</strong> A modern image format that supports efficient lossy compression and transparency.</li>
+</ul>
+
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq">
+<h3>Is this image compressor free?</h3>
+<p>Yes. You can use this image compressor for free without creating an account.</p>
+</div>
+
+<div class="faq">
+<h3>Are my images uploaded to a server?</h3>
+<p>No. Image processing takes place in your browser. Your selected images are not sent to our server.</p>
+</div>
+
+<div class="faq">
+<h3>Can I compress multiple images?</h3>
+<p>Yes. You can select multiple images, add more images and process them together.</p>
+</div>
+
+<div class="faq">
+<h3>Can I control image quality?</h3>
+<p>Yes. You can adjust the quality for JPG and WebP output. PNG compression uses a different browser encoding method.</p>
+</div>
+
+<div class="faq">
+<h3>Will compression always reduce file size?</h3>
+<p>No. Some images may remain the same size or become larger, especially when converting formats or using high quality settings.</p>
+</div>
+
+<div class="faq">
+<h3>Can I download all compressed images together?</h3>
+<p>Yes. Use the Download All option to download the processed images in one ZIP file.</p>
+</div>
+
+<div class="faq">
+<h3>Does this tool support animated GIFs?</h3>
+<p>No. This version supports JPG, JPEG, PNG and WebP images. Animated GIFs are not supported.</p>
+</div>
+
+<h2>Related Free Tools</h2>
+<ul>
+<li><a href="image-resizer.html">Image Resizer</a></li>
+<li><a href="word-counter.html">Word Counter</a></li>
+<li><a href="case-converter.html">Case Converter</a></li>
+</ul>
+</section>
+
+</main>
+
+<footer>
+<p>Easy Online Tool — Free online tools for everyday tasks.</p>
+<p><a href="about.html">About</a> | <a href="contact.html">Contact</a> | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
+</footer>
+
+<script>
+const fileInput = document.getElementById("fileInput");
+const dropArea = document.getElementById("dropArea");
+const chooseBtn = document.getElementById("chooseBtn");
+const addMoreBtn = document.getElementById("addMoreBtn");
+const clearAllBtn = document.getElementById("clearAllBtn");
+const compressBtn = document.getElementById("compressBtn");
+const quality = document.getElementById("quality");
+const qualityValue = document.getElementById("qualityValue");
+const outputFormat = document.getElementById("outputFormat");
+const imageList = document.getElementById("imageList");
+const fileCount = document.getElementById("fileCount");
+const mainStatus = document.getElementById("mainStatus");
+const progress = document.getElementById("progress");
+const progressBar = document.getElementById("progressBar");
+const summary = document.getElementById("summary");
+const summaryText = document.getElementById("summaryText");
+const downloadAllArea = document.getElementById("downloadAllArea");
+const downloadZipBtn = document.getElementById("downloadZipBtn");
+
+let images = [];
+let compressedResults = [];
+let processing = false;
+
+const MAX_FILE_SIZE = 10 * 1024 * 1024;
+
+function formatBytes(bytes) {
+    if (!Number.isFinite(bytes)) return "Unknown size";
+    if (bytes < 1024) return bytes + " B";
+    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
+    return (bytes / (1024 * 1024)).toFixed(2) + " MB";
+}
+
+function safeName(name) {
+    return name.replace(/[<>:"/\\|?*\x00-\x1F]/g, "_");
+}
+
+function extensionFor(type) {
+    if (type === "image/jpeg") return "jpg";
+    if (type === "image/png") return "png";
+    if (type === "image/webp") return "webp";
+    return "img";
+}
+
+function updateCount() {
+    fileCount.textContent = images.length
+        ? images.length + " image(s) selected."
+        : "No images selected.";
+
+    compressBtn.disabled = images.length === 0 || processing;
+}
+
+function clearResults() {
+    compressedResults.forEach(item => {
+        if (item.url) URL.revokeObjectURL(item.url);
+    });
+    compressedResults = [];
+    summary.style.display = "none";
+    downloadAllArea.style.display = "none";
+}
+
+function renderImages() {
+    imageList.innerHTML = "";
+
+    images.forEach((item, index) => {
+        const card = document.createElement("div");
+        card.className = "image-card";
+
+        const head = document.createElement("div");
+        head.className = "image-card-head";
+
+        const details = document.createElement("div");
+
+        const name = document.createElement("div");
+        name.className = "image-name";
+        name.textContent = item.file.name;
+
+        const meta = document.createElement("div");
+        meta.className = "image-meta";
+        meta.textContent = formatBytes(item.file.size) + " · " + item.file.type;
+
+        details.append(name, meta);
+
+        const remove = document.createElement("button");
+        remove.className = "danger";
+        remove.type = "button";
+        remove.textContent = "Remove";
+        remove.addEventListener("click", () => removeImage(index));
+
+        head.append(details, remove);
+        card.append(head);
+
+        if (item.result) {
+            const grid = document.createElement("div");
+            grid.className = "preview-grid";
+
+            const originalBox = document.createElement("div");
+            originalBox.className = "preview-box";
+
+            const originalTitle = document.createElement("strong");
+            originalTitle.textContent = "Original";
+
+            const originalImg = document.createElement("img");
+            originalImg.src = item.originalURL;
+            originalImg.alt = "Original " + item.file.name;
+
+            const originalSize = document.createElement("small");
+            originalSize.textContent = formatBytes(item.file.size);
+
+            originalBox.append(originalTitle, originalImg, originalSize);
+
+            const resultBox = document.createElement("div");
+            resultBox.className = "preview-box";
+
+            const resultTitle = document.createElement("strong");
+            resultTitle.textContent = "Compressed";
+
+            const resultImg = document.createElement("img");
+            resultImg.src = item.result.url;
+            resultImg.alt = "Compressed " + item.file.name;
+
+            const resultSize = document.createElement("small");
+            resultSize.textContent = formatBytes(item.result.blob.size);
+
+            const saving = document.createElement("div");
+            saving.className = "saving";
+
+            const percentage = ((item.file.size - item.result.blob.size) / item.file.size) * 100;
+
+            if (percentage > 0) {
+                saving.textContent = percentage.toFixed(1) + "% smaller";
+            } else if (percentage < 0) {
+                saving.textContent = Math.abs(percentage).toFixed(1) + "% larger";
+            } else {
+                saving.textContent = "No size change";
+            }
+
+            resultBox.append(resultTitle, resultImg, resultSize, saving);
+
+            const download = document.createElement("button");
+            download.type = "button";
+            download.textContent = "Download";
+            download.style.marginTop = "10px";
+            download.addEventListener("click", () => {
+                downloadBlob(item.result.blob, item.result.name);
+            });
+
+            resultBox.append(download);
+            grid.append(originalBox, resultBox);
+            card.append(grid);
+        }
+
+        imageList.append(card);
+    });
+
+    updateCount();
+}
+
+function addFiles(fileList) {
+    clearResults();
+
+    let added = 0;
+    let rejected = [];
+
+    Array.from(fileList).forEach(file => {
+        if (!["image/jpeg", "image/png", "image/webp"].includes(file.type)) {
+            rejected.push(file.name + " (unsupported format)");
+            return;
+        }
+
+        if (file.size > MAX_FILE_SIZE) {
+            rejected.push(file.name + " (over 10 MB)");
+            return;
+        }
+
+        const duplicate = images.some(item =>
+            item.file.name === file.name &&
+            item.file.size === file.size &&
+            item.file.lastModified === file.lastModified
+        );
+
+        if (duplicate) return;
+
+        images.push({
+            file,
+            originalURL: URL.createObjectURL(file),
+            result: null
+        });
+        added++;
+    });
+
+    renderImages();
+
+    if (rejected.length) {
+        mainStatus.textContent = "Some files were skipped: " + rejected.join(", ");
+    } else if (added) {
+        mainStatus.textContent = added + " image(s) added. Ready to compress.";
+    } else {
+        mainStatus.textContent = "No new valid images were added.";
+    }
+}
+
+function removeImage(index) {
+    const item = images[index];
+    if (item) URL.revokeObjectURL(item.originalURL);
+
+    images.splice(index, 1);
+    clearResults();
+    renderImages();
+    mainStatus.textContent = "Image removed.";
+}
+
+function clearEverything() {
+    images.forEach(item => URL.revokeObjectURL(item.originalURL));
+    images = [];
+    clearResults();
+    renderImages();
+    mainStatus.textContent = "All images cleared.";
+}
+
+function loadImage(file) {
+    return new Promise((resolve, reject) => {
+        const url = URL.createObjectURL(file);
+        const img = new Image();
+
+        img.onload = () => {
+            URL.revokeObjectURL(url);
+            resolve(img);
+        };
+
+        img.onerror = () => {
+            URL.revokeObjectURL(url);
+            reject(new Error("Could not read " + file.name));
+        };
+
+        img.src = url;
+    });
+}
+
+function canvasToBlob(canvas, type, q) {
+    return new Promise((resolve, reject) => {
+        canvas.toBlob(blob => {
+            if (blob) resolve(blob);
+            else reject(new Error("Image export failed."));
+        }, type, q);
+    });
+}
+
+function outputTypeFor(file) {
+    if (outputFormat.value !== "original") {
+        return outputFormat.value;
+    }
+    return file.type;
+}
+
+function outputFileName(originalName, type) {
+    const base = originalName.replace(/\.[^.]+$/, "");
+    return safeName(base) + "-compressed." + extensionFor(type);
+}
+
+async function compressOne(item) {
+    const img = await loadImage(item.file);
+
+    const canvas = document.createElement("canvas");
+    canvas.width = img.naturalWidth;
+    canvas.height = img.naturalHeight;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) throw new Error("Canvas is not available.");
+
+    const type = outputTypeFor(item.file);
+    const q = Number(quality.value) / 100;
+
+    if (type === "image/jpeg") {
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+
+    ctx.drawImage(img, 0, 0);
+
+    const blob = await canvasToBlob(canvas, type, q);
+
+    return {
+        blob,
+        name: outputFileName(item.file.name, type),
+        url: URL.createObjectURL(blob),
+        type
+    };
+}
+
+async function compressAll() {
+    if (processing || images.length === 0) return;
+
+    processing = true;
+    clearResults();
+    compressBtn.disabled = true;
+    progress.style.display = "block";
+    progressBar.style.width = "0%";
+
+    let totalOriginal = 0;
+    let totalCompressed = 0;
+    let completed = 0;
+    let errors = [];
+
+    mainStatus.textContent = "Compressing images...";
+
+    for (const item of images) {
+        totalOriginal += item.file.size;
+
+        try {
+            item.result = await compressOne(item);
+            totalCompressed += item.result.blob.size;
+        } catch (error) {
+            item.result = null;
+            errors.push(item.file.name + ": " + error.message);
+        }
+
+        completed++;
+        progressBar.style.width = (completed / images.length * 100) + "%";
+        mainStatus.textContent = "Processed " + completed + " of " + images.length + " images.";
+
+        renderImages();
+    }
+
+    processing = false;
+    compressBtn.disabled = images.length === 0;
+
+    const saved = totalOriginal - totalCompressed;
+    const percent = totalOriginal ? (saved / totalOriginal * 100) : 0;
+
+    summary.style.display = "block";
+
+    if (completed > errors.length) {
+        summaryText.textContent =
+            "Original total: " + formatBytes(totalOriginal) +
+            " | Compressed total: " + formatBytes(totalCompressed) +
+            " | " + (saved >= 0 ? "Saved " : "Increased by ") +
+            formatBytes(Math.abs(saved)) + " (" + Math.abs(percent).toFixed(1) + "%).";
+    } else {
+        summaryText.textContent = "No images were successfully compressed.";
+    }
+
+    const successful = images.filter(item => item.result).length;
+
+    downloadAllArea.style.display = successful ? "flex" : "none";
+
+    if (errors.length) {
+        mainStatus.textContent = successful + " image(s) compressed. " + errors.length + " failed: " + errors.join(" | ");
+    } else {
+        mainStatus.textContent = "Compression complete. " + successful + " image(s) ready to download.";
+    }
+
+    updateCount();
+}
+
+function downloadBlob(blob, name) {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = name;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+async function downloadAllZip() {
+    const results = images.filter(item => item.result);
+
+    if (!results.length) return;
+
+    if (!window.JSZip) {
+        mainStatus.textContent = "ZIP library could not load. Please download images individually.";
+        return;
+    }
+
+    downloadZipBtn.disabled = true;
+    downloadZipBtn.textContent = "Creating ZIP...";
+
+    try {
+        const zip = new JSZip();
+
+        results.forEach(item => {
+            zip.file(item.result.name, item.result.blob);
+        });
+
+        const zipBlob = await zip.generateAsync({type:"blob"});
+        downloadBlob(zipBlob, "compressed-images.zip");
+
+        mainStatus.textContent = "ZIP download created successfully.";
+    } catch (error) {
+        mainStatus.textContent = "Could not create ZIP. Please download images individually.";
+    }
+
+    downloadZipBtn.disabled = false;
+    downloadZipBtn.textContent = "Download All (ZIP)";
+}
+
+chooseBtn.addEventListener("click", () => fileInput.click());
+addMoreBtn.addEventListener("click", () => fileInput.click());
+
+fileInput.addEventListener("change", event => {
+    addFiles(event.target.files);
+    fileInput.value = "";
+});
+
+dropArea.addEventListener("click", event => {
+    if (event.target !== chooseBtn) fileInput.click();
+});
+
+dropArea.addEventListener("keydown", event => {
+    if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        fileInput.click();
+    }
+});
+
+["dragenter", "dragover"].forEach(eventName => {
+    dropArea.addEventListener(eventName, event => {
+        event.preventDefault();
+        dropArea.classList.add("dragover");
+    });
+});
+
+["dragleave", "drop"].forEach(eventName => {
+    dropArea.addEventListener(eventName, event => {
+        event.preventDefault();
+        dropArea.classList.remove("dragover");
+    });
+});
+
+dropArea.addEventListener("drop", event => {
+    addFiles(event.dataTransfer.files);
+});
+
+quality.addEventListener("input", () => {
+    qualityValue.textContent = quality.value + "%";
+    document.querySelectorAll(".preset").forEach(btn => btn.classList.remove("active"));
+});
+
+document.querySelectorAll(".preset").forEach(btn => {
+    btn.addEventListener("click", () => {
+        quality.value = btn.dataset.quality;
+        qualityValue.textContent = quality.value + "%";
+
+        document.querySelectorAll(".preset").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+    });
+});
+
+compressBtn.addEventListener("click", compressAll);
+clearAllBtn.addEventListener("click", clearEverything);
+downloadZipBtn.addEventListener("click", downloadAllZip);
+
+window.addEventListener("beforeunload", () => {
+    images.forEach(item => URL.revokeObjectURL(item.originalURL));
+    compressedResults.forEach(item => {
+        if (item.url) URL.revokeObjectURL(item.url);
+    });
+});
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+</body>
+</html>
