@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Free Online Image Cropper | Easy Online Tool</title>
+  <meta name="description" content="Crop images online for free. Upload a photo, select the area you want, choose an aspect ratio and download your cropped image.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://easyonlinetools.online/image-cropper.html">
+
+  <meta property="og:title" content="Free Online Image Cropper">
+  <meta property="og:description" content="Crop photos online with free aspect ratio presets and download your cropped image.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://easyonlinetools.online/image-cropper.html">
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #fff;
+      padding: 16px 7%;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .header-inner {
+      max-width: 1150px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo {
+      color: #2563eb;
+      font-size: 23px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    nav a {
+      color: #374151;
+      text-decoration: none;
+      margin-left: 18px;
+      font-size: 14px;
+    }
+
+    nav a:hover { color: #2563eb; }
+
+    .hero {
+      text-align: center;
+      padding: 45px 18px 30px;
+      background: #eaf1ff;
+    }
+
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 40px);
+      margin: 0 0 10px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+      color: #4b5563;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 18px;
+    }
+
+    .tool-box, .content-box {
+      background: #fff;
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 25px;
+      box-shadow: 0 2px 10px #00000008;
+    }
+
+    .upload-area {
+      border: 2px dashed #93b4f5;
+      border-radius: 12px;
+      padding: 35px 15px;
+      text-align: center;
+      background: #f8faff;
+      cursor: pointer;
+    }
+
+    .upload-area.dragover {
+      background: #eaf1ff;
+      border-color: #2563eb;
+    }
+
+    .upload-icon { font-size: 42px; }
+
+    .upload-area h2 {
+      font-size: 21px;
+      margin: 5px 0;
+    }
+
+    .upload-area p {
+      color: #6b7280;
+      margin: 5px 0 15px;
+    }
+
+    input[type="file"] { display: none; }
+
+    button {
+      border: 0;
+      border-radius: 7px;
+      padding: 11px 17px;
+      background: #2563eb;
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    button:hover { background: #1d4ed8; }
+    button:disabled { opacity: .5; cursor: not-allowed; }
+
+    .secondary-btn { background: #64748b; }
+    .secondary-btn:hover { background: #475569; }
+
+    .green-btn { background: #15803d; }
+    .green-btn:hover { background: #166534; }
+
+    .settings {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 16px;
+    }
+
+    .setting-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 7px;
+    }
+
+    select {
+      width: 100%;
+      padding: 11px;
+      border: 1px solid #cbd5e1;
+      border-radius: 7px;
+      background: #fff;
+      font-size: 14px;
+    }
+
+    .editor {
+      margin-top: 22px;
+    }
+
+    .editor h2 {
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    .editor-help {
+      color: #64748b;
+      font-size: 14px;
+      margin-top: 0;
+    }
+
+    .canvas-wrap {
+      width: 100%;
+      overflow: hidden;
+      background: #e5e7eb;
+      border-radius: 9px;
+      padding: 10px;
+      text-align: center;
+      touch-action: none;
+    }
+
+    #editorCanvas {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: auto;
+      cursor: crosshair;
+      touch-action: none;
+    }
+
+    .editor-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .preview-section {
+      margin-top: 25px;
+      border-top: 1px solid #e5e7eb;
+      padding-top: 20px;
+    }
+
+    #resultCanvas {
+      display: block;
+      max-width: 100%;
+      max-height: 400px;
+      width: auto;
+      height: auto;
+      margin: 12px auto;
+      background: #f3f4f6;
+      border: 1px solid #e5e7eb;
+      border-radius: 7px;
+    }
+
+    .preview-placeholder {
+      background: #f8fafc;
+      border: 1px dashed #cbd5e1;
+      padding: 30px 15px;
+      text-align: center;
+      color: #64748b;
+      border-radius: 8px;
+    }
+
+    .status {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #475569;
+    }
+
+    .success { color: #15803d; }
+    .error { color: #dc2626; }
+
+    .hidden { display: none !important; }
+
+    .content-box h2 {
+      margin-top: 0;
+    }
+
+    .content-box h3 { margin-top: 22px; }
+    .content-box li { margin-bottom: 8px; }
+
+    footer {
+      background: #fff;
+      border-top: 1px solid #e5e7eb;
+      text-align: center;
+      padding: 25px 15px;
+      color: #64748b;
+      margin-top: 50px;
+    }
+
+    footer a {
+      color: #2563eb;
+      text-decoration: none;
+      margin: 0 7px;
+    }
+
+    @media (max-width: 650px) {
+      header { padding: 14px 16px; }
+
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav a { margin: 0 12px 0 0; }
+
+      .tool-box, .content-box { padding: 18px; }
+
+      .editor-actions button {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Online Image Cropper",
+    "url": "https://easyonlinetools.online/image-cropper.html",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Free browser-based image cropper with aspect ratio presets."
+  }
+  </script>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="index.html">Easy Online Tool</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="tools.html">Tools</a>
+      <a href="categories.html">Categories</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Free Online Image Cropper</h1>
+  <p>Crop your photos easily. Select the area you want to keep, choose an aspect ratio and download your cropped image.</p>
+</section>
+
+<main>
+
+  <section class="tool-box">
+
+    <div class="upload-area" id="uploadArea" tabindex="0" role="button" aria-label="Choose an image">
+      <div class="upload-icon">✂️</div>
+      <h2>Upload Your Image</h2>
+      <p>Drag and drop an image here, or select one from your device.</p>
+      <button type="button" id="browseBtn">Choose Image</button>
+      <p style="font-size:13px;">JPG, JPEG, PNG and WebP supported · Maximum 10 MB</p>
+    </div>
+
+    <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp">
+
+    <div id="editor" class="editor hidden">
+
+      <h2>Crop Your Image</h2>
+      <p class="editor-help">Drag across the image to select the area you want to keep. You can change the selection as needed.</p>
+
+      <div class="settings">
+        <div class="setting-group">
+          <label for="aspectRatio">Aspect Ratio</label>
+          <select id="aspectRatio">
+            <option value="free">Free Crop</option>
+            <option value="1:1">Square (1:1)</option>
+            <option value="4:3">Landscape (4:3)</option>
+            <option value="3:4">Portrait (3:4)</option>
+            <option value="16:9">Widescreen (16:9)</option>
+            <option value="9:16">Vertical (9:16)</option>
+          </select>
+        </div>
+
+        <div class="setting-group">
+          <label for="outputFormat">Output Format</label>
+          <select id="outputFormat">
+            <option value="image/png">PNG</option>
+            <option value="image/jpeg">JPG</option>
+            <option value="image/webp">WebP</option>
+          </select>
+        </div>
+
+        <div class="setting-group">
+          <label for="outputQuality">Output Quality: <span id="qualityValue">90%</span></label>
+          <input id="outputQuality" type="range" min="10" max="100" value="90" style="width:100%;accent-color:#2563eb;">
+        </div>
+      </div>
+
+      <div class="canvas-wrap" style="margin-top:20px;">
+        <canvas id="editorCanvas"></canvas>
+      </div>
+
+      <div class="editor-actions">
+        <button type="button" id="cropBtn">Crop Image</button>
+        <button type="button" id="resetBtn" class="secondary-btn">Reset Selection</button>
+        <button type="button" id="newImageBtn" class="secondary-btn">Choose Another Image</button>
+      </div>
+
+      <div id="status" class="status" role="status" aria-live="polite"></div>
+
+      <div id="previewSection" class="preview-section hidden">
+        <h2>Cropped Image Preview</h2>
+        <p id="resultInfo" class="editor-help"></p>
+        <canvas id="resultCanvas"></canvas>
+        <div class="editor-actions">
+          <button type="button" id="downloadBtn" class="green-btn">Download Cropped Image</button>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="content-box">
+    <h2>How to Crop an Image Online</h2>
+    <ol>
+      <li>Click Choose Image or drag an image into the upload area.</li>
+      <li>Select an aspect ratio or keep Free Crop.</li>
+      <li>Drag your mouse or finger over the image to select the area you want to keep.</li>
+      <li>Click Crop Image to create the cropped preview.</li>
+      <li>Choose your output format and quality.</li>
+      <li>Click Download Cropped Image to save your result.</li>
+    </ol>
+
+    <h2>Why Use an Image Cropper?</h2>
+    <p>An image cropper helps remove unwanted areas from photographs and pictures. You can focus attention on the main subject, prepare images for social media, create profile pictures or adjust photos for websites.</p>
+
+    <h3>What Is an Aspect Ratio?</h3>
+    <p>An aspect ratio describes the proportional relationship between an image's width and height. For example, a 1:1 ratio produces a square image, while 16:9 creates a widescreen shape.</p>
+
+    <h3>Is This Image Cropper Private?</h3>
+    <p>Yes. Image processing happens directly in your browser. Your selected images are not uploaded to our server by this tool.</p>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>1. Is this image cropper free?</h3>
+    <p>Yes. You can crop images online for free without creating an account.</p>
+
+    <h3>2. Which image formats are supported?</h3>
+    <p>You can upload JPG, JPEG, PNG and WebP images.</p>
+
+    <h3>3. Can I crop a square profile picture?</h3>
+    <p>Yes. Select the Square (1:1) aspect ratio and choose the area you want to keep.</p>
+
+    <h3>4. Can I crop images on my mobile phone?</h3>
+    <p>Yes. The cropper supports touch selection on mobile devices.</p>
+
+    <h3>5. Can I download my cropped image as PNG or JPG?</h3>
+    <p>Yes. You can select PNG, JPG or WebP as the output format.</p>
+
+    <h3>6. Does cropping reduce image quality?</h3>
+    <p>Cropping removes pixels outside the selected area. PNG can preserve the cropped pixels without lossy compression, while JPG and WebP quality settings may affect the output.</p>
+
+    <h3>7. What is the maximum upload size?</h3>
+    <p>This tool accepts images up to 10 MB.</p>
+  </section>
+
+</main>
+
+<footer>
+  <p>© <span id="year"></span> Easy Online Tool. All rights reserved.</p>
+  <p>
+    <a href="about.html">About</a> |
+    <a href="privacy-policy.html">Privacy Policy</a> |
+    <a href="terms.html">Terms</a> |
+    <a href="contact.html">Contact</a>
+  </p>
+</footer>
+
+<script>
+  const fileInput = document.getElementById("fileInput");
+  const uploadArea = document.getElementById("uploadArea");
+  const browseBtn = document.getElementById("browseBtn");
+  const editor = document.getElementById("editor");
+
+  const editorCanvas = document.getElementById("editorCanvas");
+  const ctx = editorCanvas.getContext("2d");
+
+  const resultCanvas = document.getElementById("resultCanvas");
+  const resultCtx = resultCanvas.getContext("2d");
+
+  const aspectRatio = document.getElementById("aspectRatio");
+  const outputFormat = document.getElementById("outputFormat");
+  const outputQuality = document.getElementById("outputQuality");
+  const qualityValue = document.getElementById("qualityValue");
+
+  const cropBtn = document.getElementById("cropBtn");
+  const resetBtn = document.getElementById("resetBtn");
+  const newImageBtn = document.getElementById("newImageBtn");
+  const downloadBtn = document.getElementById("downloadBtn");
+
+  const previewSection = document.getElementById("previewSection");
+  const resultInfo = document.getElementById("resultInfo");
+  const statusBox = document.getElementById("status");
+
+  const MAX_SIZE = 10 * 1024 * 1024;
+
+  let sourceImage = null;
+  let sourceUrl = null;
+  let sourceName = "cropped-image";
+  let selection = null;
+  let startPoint = null;
+  let isSelecting = false;
+  let croppedBlob = null;
+  let displayScale = 1;
+  let canvasRect = null;
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  function showStatus(message, type = "") {
+    statusBox.textContent = message;
+    statusBox.className = "status " + type;
+  }
+
+  function getRatio() {
+    const value = aspectRatio.value;
+
+    if (value === "free") return null;
+
+    const parts = value.split(":").map(Number);
+    return parts[0] / parts[1];
+  }
+
+  function getCanvasPoint(event) {
+    const rect = editorCanvas.getBoundingClientRect();
+
+    const x = (event.clientX - rect.left) * editorCanvas.width / rect.width;
+    const y = (event.clientY - rect.top) * editorCanvas.height / rect.height;
+
+    return {
+      x: Math.max(0, Math.min(editorCanvas.width, x)),
+      y: Math.max(0, Math.min(editorCanvas.height, y))
+    };
+  }
+
+  function drawEditor() {
+    if (!sourceImage) return;
+
+    ctx.clearRect(0, 0, editorCanvas.width, editorCanvas.height);
+    ctx.drawImage(sourceImage, 0, 0, editorCanvas.width, editorCanvas.height);
+
+    if (selection) {
+      const { x, y, width, height } = selection;
+
+      // Darken the outside area.
+      ctx.fillStyle = "rgba(0, 0, 0, 0.48)";
+      ctx.fillRect(0, 0, editorCanvas.width, editorCanvas.height);
+
+      // Show the selected area clearly.
+      ctx.clearRect(x, y, width, height);
+      ctx.drawImage(
+        sourceImage,
+        x, y, width, height,
+        x, y, width, height
+      );
+
+      ctx.strokeStyle = "#ffffff";
+      ctx.lineWidth = Math.max(2, editorCanvas.width / 400);
+      ctx.strokeRect(x, y, width, height);
+
+      // Selection corner markers.
+      const marker = Math.max(5, editorCanvas.width / 100);
+      ctx.fillStyle = "#2563eb";
+
+      [
+        [x, y],
+        [x + width, y],
+        [x, y + height],
+        [x + width, y + height]
+      ].forEach(([px, py]) => {
+        ctx.fillRect(px - marker / 2, py - marker / 2, marker, marker);
+      });
+    }
+  }
+
+  function updateSelection(point) {
+    const x1 = startPoint.x;
+    const y1 = startPoint.y;
+    const dx = point.x - x1;
+    const dy = point.y - y1;
+
+    const ratio = getRatio();
+
+    let width = Math.abs(dx);
+    let height = Math.abs(dy);
+
+    if (ratio) {
+      if (width / Math.max(height, 0.001) > ratio) {
+        height = width / ratio;
+      } else {
+        width = height * ratio;
+      }
+    }
+
+    // Keep the selection inside the canvas.
+    const directionX = dx >= 0 ? 1 : -1;
+    const directionY = dy >= 0 ? 1 : -1;
+
+    if (x1 + directionX * width < 0 || x1 + directionX * width > editorCanvas.width) {
+      width = directionX > 0 ? editorCanvas.width - x1 : x1;
+      if (ratio) height = width / ratio;
+    }
+
+    if (y1 + directionY * height < 0 || y1 + directionY * height > editorCanvas.height) {
+      height = directionY > 0 ? editorCanvas.height - y1 : y1;
+      if (ratio) width = height * ratio;
+    }
+
+    // A final boundary adjustment for fixed ratios.
+    if (ratio) {
+      const maxWidth = directionX > 0
+        ? editorCanvas.width - x1
+        : x1;
+
+      const maxHeight = directionY > 0
+        ? editorCanvas.height - y1
+        : y1;
+
+      const scale = Math.min(
+        1,
+        maxWidth / Math.max(width, 0.001),
+        maxHeight / Math.max(height, 0.001)
+      );
+
+      width *= scale;
+      height *= scale;
+    }
+
+    selection = {
+      x: directionX > 0 ? x1 : x1 - width,
+      y: directionY > 0 ? y1 : y1 - height,
+      width,
+      height
+    };
+
+    drawEditor();
+  }
+
+  function startSelection(event) {
+    if (!sourceImage) return;
+
+    event.preventDefault();
+
+    editorCanvas.setPointerCapture(event.pointerId);
+
+    startPoint = getCanvasPoint(event);
+    isSelecting = true;
+
+    selection = {
+      x: startPoint.x,
+      y: startPoint.y,
+      width: 0,
+      height: 0
+    };
+
+    previewSection.classList.add("hidden");
+    croppedBlob = null;
+
+    drawEditor();
+  }
+
+  function moveSelection(event) {
+    if (!isSelecting || !startPoint) return;
+
+    event.preventDefault();
+    updateSelection(getCanvasPoint(event));
+  }
+
+  function endSelection(event) {
+    if (!isSelecting) return;
+
+    if (event) event.preventDefault();
+
+    isSelecting = false;
+    startPoint = null;
+
+    if (!selection || selection.width < 2 || selection.height < 2) {
+      selection = null;
+      drawEditor();
+      showStatus("Please drag over the image to select a larger crop area.", "error");
+      return;
+    }
+
+    showStatus(
+      "Selected area: " +
+      Math.round(selection.width) + " × " +
+      Math.round(selection.height) + " pixels."
+    );
+  }
+
+  function displayImage(image) {
+    const maxWidth = 850;
+    const maxHeight = 600;
+
+    displayScale = Math.min(
+      1,
+      maxWidth / image.naturalWidth,
+      maxHeight / image.naturalHeight
+    );
+
+    editorCanvas.width = Math.max(1, Math.round(image.naturalWidth * displayScale));
+    editorCanvas.height = Math.max(1, Math.round(image.naturalHeight * displayScale));
+
+    ctx.drawImage(sourceImage, 0, 0, editorCanvas.width, editorCanvas.height);
+
+    selection = null;
+    croppedBlob = null;
+
+    previewSection.classList.add("hidden");
+    editor.classList.remove("hidden");
+
+    showStatus(
+      "Image loaded: " +
+      image.naturalWidth + " × " + image.naturalHeight + " pixels.",
+      "success"
+    );
+  }
+
+  function loadFile(file) {
+    if (!file) return;
+
+    if (!["image/jpeg", "image/png", "image/webp"].includes(file.type)) {
+      showStatus("Please select a JPG, PNG or WebP image.", "error");
+      return;
+    }
+
+    if (file.size > MAX_SIZE) {
+      showStatus("The image is larger than the 10 MB upload limit.", "error");
+      return;
+    }
+
+    if (file.size === 0) {
+      showStatus("The selected file is empty.", "error");
+      return;
+    }
+
+    if (sourceUrl) URL.revokeObjectURL(sourceUrl);
+
+    sourceUrl = URL.createObjectURL(file);
+    sourceName = file.name.replace(/\.[^.]+$/, "") || "cropped-image";
+
+    const image = new Image();
+
+    image.onload = () => {
+      sourceImage = image;
+      displayImage(image);
+      URL.revokeObjectURL(sourceUrl);
+      sourceUrl = null;
+    };
+
+    image.onerror = () => {
+      showStatus("Could not open this image. Please try another file.", "error");
+      URL.revokeObjectURL(sourceUrl);
+      sourceUrl = null;
+    };
+
+    image.src = sourceUrl;
+    fileInput.value = "";
+  }
+
+  function cropImage() {
+    if (!sourceImage || !selection) {
+      showStatus("Please select an area of the image first.", "error");
+      return;
+    }
+
+    const x = Math.max(0, Math.floor(selection.x / displayScale));
+    const y = Math.max(0, Math.floor(selection.y / displayScale));
+
+    const width = Math.min(
+      sourceImage.naturalWidth - x,
+      Math.ceil(selection.width / displayScale)
+    );
+
+    const height = Math.min(
+      sourceImage.naturalHeight - y,
+      Math.ceil(selection.height / displayScale)
+    );
+
+    if (width < 1 || height < 1) {
+      showStatus("The selected crop area is too small.", "error");
+      return;
+    }
+
+    resultCanvas.width = width;
+    resultCanvas.height = height;
+
+    resultCtx.clearRect(0, 0, width, height);
+    resultCtx.drawImage(
+      sourceImage,
+      x, y, width, height,
+      0, 0, width, height
+    );
+
+    const format = outputFormat.value;
+    const quality = Number(outputQuality.value) / 100;
+
+    resultCanvas.toBlob(blob => {
+      if (!blob) {
+        showStatus("Could not create the cropped image. Please try again.", "error");
+        return;
+      }
+
+      croppedBlob = blob;
+
+      const formatName = format === "image/jpeg"
+        ? "JPG"
+        : format === "image/webp" ? "WebP" : "PNG";
+
+      resultInfo.textContent =
+        "Cropped dimensions: " + width + " × " + height +
+        " pixels · Format: " + formatName +
+        " · File size: " + formatSize(blob.size);
+
+      previewSection.classList.remove("hidden");
+
+      showStatus("Image cropped successfully. Your preview is ready.", "success");
+    }, format, quality);
+  }
+
+  function formatSize(bytes) {
+    if (bytes < 1024) return bytes + " B";
+    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
+    return (bytes / (1024 * 1024)).toFixed(2) + " MB";
+  }
+
+  function downloadImage() {
+    if (!croppedBlob) {
+      showStatus("Please crop the image first.", "error");
+      return;
+    }
+
+    const extension = outputFormat.value === "image/jpeg"
+      ? "jpg"
+      : outputFormat.value === "image/webp" ? "webp" : "png";
+
+    const url = URL.createObjectURL(croppedBlob);
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = sourceName + "-cropped." + extension;
+
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+
+    showStatus("Your cropped image download has started.", "success");
+  }
+
+  function resetSelection() {
+    if (!sourceImage) return;
+
+    selection = null;
+    croppedBlob = null;
+
+    previewSection.classList.add("hidden");
+    drawEditor();
+
+    showStatus("Crop selection reset. Drag again to select an area.");
+  }
+
+  function resetForNewImage() {
+    if (sourceUrl) URL.revokeObjectURL(sourceUrl);
+
+    sourceImage = null;
+    sourceUrl = null;
+    selection = null;
+    croppedBlob = null;
+
+    editor.classList.add("hidden");
+    previewSection.classList.add("hidden");
+
+    fileInput.click();
+  }
+
+  browseBtn.addEventListener("click", event => {
+    event.stopPropagation();
+    fileInput.click();
+  });
+
+  uploadArea.addEventListener("click", event => {
+    if (event.target !== browseBtn) fileInput.click();
+  });
+
+  uploadArea.addEventListener("keydown", event => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      fileInput.click();
+    }
+  });
+
+  fileInput.addEventListener("change", event => {
+    loadFile(event.target.files[0]);
+  });
+
+  ["dragenter", "dragover"].forEach(name => {
+    uploadArea.addEventListener(name, event => {
+      event.preventDefault();
+      uploadArea.classList.add("dragover");
+    });
+  });
+
+  ["dragleave", "drop"].forEach(name => {
+    uploadArea.addEventListener(name, event => {
+      event.preventDefault();
+      uploadArea.classList.remove("dragover");
+    });
+  });
+
+  uploadArea.addEventListener("drop", event => {
+    loadFile(event.dataTransfer.files[0]);
+  });
+
+  editorCanvas.addEventListener("pointerdown", startSelection);
+  editorCanvas.addEventListener("pointermove", moveSelection);
+  editorCanvas.addEventListener("pointerup", endSelection);
+  editorCanvas.addEventListener("pointercancel", endSelection);
+
+  aspectRatio.addEventListener("change", () => {
+    if (sourceImage) {
+      selection = null;
+      croppedBlob = null;
+      previewSection.classList.add("hidden");
+      drawEditor();
+      showStatus("Aspect ratio changed. Select a new crop area.");
+    }
+  });
+
+  outputFormat.addEventListener("change", () => {
+    if (croppedBlob) {
+      showStatus("Output format changed. Click Crop Image again to update your preview.");
+    }
+  });
+
+  outputQuality.addEventListener("input", () => {
+    qualityValue.textContent = outputQuality.value + "%";
+
+    if (croppedBlob) {
+      showStatus("Quality changed. Click Crop Image again to apply the new setting.");
+    }
+  });
+
+  cropBtn.addEventListener("click", cropImage);
+  resetBtn.addEventListener("click", resetSelection);
+  newImageBtn.addEventListener("click", resetForNewImage);
+  downloadBtn.addEventListener("click", downloadImage);
+
+  function formatCleanup() {
+    if (sourceUrl) URL.revokeObjectURL(sourceUrl);
+  }
+
+  window.addEventListener("beforeunload", formatCleanup);
+</script>
+
+</body>
+</html>
