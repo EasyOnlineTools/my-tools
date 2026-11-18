@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Free QR Code Generator – Create and Download QR Codes | Easy Online Tool</title>
+  <meta name="description" content="Create free QR codes for websites, text, email, phone numbers and WhatsApp. Customize colors and download your QR code as a PNG image.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://easyonlinetools.online/qr-code-generator.html">
+
+  <meta property="og:title" content="Free QR Code Generator – Easy Online Tool">
+  <meta property="og:description" content="Create customized QR codes for URLs, text, email, phone and WhatsApp.">
+  <meta property="og:type" content="website">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "QR Code Generator",
+    "url": "https://easyonlinetools.online/qr-code-generator.html",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "description": "A free online QR code generator for creating and downloading customized QR codes."
+  }
+  </script>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 17px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo {
+      color: #2563eb;
+      font-size: 23px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    header a.back {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 48px 18px 35px;
+      background: #eaf1ff;
+    }
+
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 40px);
+      margin: 0 0 10px;
+    }
+
+    .hero p {
+      color: #4b5563;
+      max-width: 680px;
+      margin: auto;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 18px;
+    }
+
+    .panel, .content-section {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 22px;
+      box-shadow: 0 3px 12px #00000008;
+    }
+
+    h2 { margin-top: 0; font-size: 22px; }
+    h3 { font-size: 18px; }
+
+    .field { margin-bottom: 18px; }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 7px;
+    }
+
+    input[type="text"],
+    input[type="url"],
+    input[type="email"],
+    input[type="tel"],
+    textarea,
+    select {
+      width: 100%;
+      min-height: 44px;
+      padding: 11px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 15px;
+      font-family: inherit;
+      background: #fff;
+    }
+
+    textarea {
+      min-height: 115px;
+      resize: vertical;
+    }
+
+    input[type="color"] {
+      width: 100%;
+      height: 44px;
+      padding: 4px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      background: #fff;
+      cursor: pointer;
+    }
+
+    input[type="range"] { width: 100%; }
+
+    button {
+      border: 0;
+      border-radius: 8px;
+      padding: 12px 18px;
+      background: #2563eb;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    button:hover { background: #1d4ed8; }
+    button:disabled { opacity: .5; cursor: not-allowed; }
+
+    .secondary {
+      background: #e5e7eb;
+      color: #1f2937;
+    }
+
+    .secondary:hover { background: #d1d5db; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 18px;
+    }
+
+    .preview-area {
+      min-height: 280px;
+      background: #f8fafc;
+      border: 1px dashed #cbd5e1;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      margin-top: 15px;
+    }
+
+    #qrCanvas {
+      max-width: 100%;
+      height: auto;
+      background: #fff;
+      display: none;
+      image-rendering: pixelated;
+    }
+
+    .placeholder {
+      color: #64748b;
+      text-align: center;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .message {
+      display: none;
+      margin-top: 14px;
+      padding: 12px;
+      border-radius: 8px;
+      background: #ecfdf5;
+      color: #166534;
+    }
+
+    .hint {
+      color: #64748b;
+      font-size: 14px;
+      margin-top: 6px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #e5e7eb;
+      padding: 12px 0;
+    }
+
+    .faq-item:last-child { border-bottom: 0; }
+
+    footer {
+      background: #fff;
+      border-top: 1px solid #e5e7eb;
+      padding: 25px 15px;
+      text-align: center;
+      color: #64748b;
+      margin-top: 45px;
+    }
+
+    @media(max-width: 550px) {
+      header { padding: 15px; }
+      .logo { font-size: 19px; }
+      .panel, .content-section { padding: 17px; }
+      .hero { padding: 38px 15px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a class="logo" href="index.html">Easy Online Tool</a>
+  <a class="back" href="tools.html">← All Tools</a>
+</header>
+
+<section class="hero">
+  <h1>Free QR Code Generator</h1>
+  <p>Create customized QR codes for websites, text messages, email addresses, phone numbers and WhatsApp. Preview and download your QR code for free.</p>
+</section>
+
+<main>
+
+  <section class="panel">
+    <h2>1. Choose QR Code Type</h2>
+
+    <div class="field">
+      <label for="qrType">QR Code Type</label>
+      <select id="qrType">
+        <option value="url">Website URL</option>
+        <option value="text">Plain Text</option>
+        <option value="email">Email Address</option>
+        <option value="phone">Phone Number</option>
+        <option value="whatsapp">WhatsApp Message</option>
+      </select>
+    </div>
+
+    <div id="inputFields">
+      <div class="field" id="urlField">
+        <label for="urlInput">Website URL</label>
+        <input type="url" id="urlInput" placeholder="https://example.com">
+      </div>
+
+      <div class="field" id="textField" hidden>
+        <label for="textInput">Your Text</label>
+        <textarea id="textInput" placeholder="Enter your text here..."></textarea>
+      </div>
+
+      <div class="field" id="emailField" hidden>
+        <label for="emailInput">Email Address</label>
+        <input type="email" id="emailInput" placeholder="example@email.com">
+        <label for="emailSubject" style="margin-top:12px;">Email Subject (Optional)</label>
+        <input type="text" id="emailSubject" placeholder="Enter email subject">
+        <label for="emailBody" style="margin-top:12px;">Email Message (Optional)</label>
+        <textarea id="emailBody" placeholder="Enter your message"></textarea>
+      </div>
+
+      <div class="field" id="phoneField" hidden>
+        <label for="phoneInput">Phone Number</label>
+        <input type="tel" id="phoneInput" placeholder="+1234567890">
+        <div class="hint">Include your country code, for example +92.</div>
+      </div>
+
+      <div class="field" id="whatsappField" hidden>
+        <label for="whatsappInput">WhatsApp Number</label>
+        <input type="tel" id="whatsappInput" placeholder="923001234567">
+        <div class="hint">Enter country code and number without spaces or the plus sign.</div>
+
+        <label for="whatsappMessage" style="margin-top:12px;">Pre-filled Message (Optional)</label>
+        <textarea id="whatsappMessage" placeholder="Hello! I would like more information."></textarea>
+      </div>
+    </div>
+
+    <h2>2. Customize Your QR Code</h2>
+
+    <div class="grid">
+      <div class="field">
+        <label for="sizeSelect">QR Code Size</label>
+        <select id="sizeSelect">
+          <option value="200">200 × 200 px</option>
+          <option value="300" selected>300 × 300 px</option>
+          <option value="500">500 × 500 px</option>
+          <option value="800">800 × 800 px</option>
+          <option value="1000">1000 × 1000 px</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="errorLevel">Error Correction</label>
+        <select id="errorLevel">
+          <option value="L">Low (7%)</option>
+          <option value="M" selected>Medium (15%)</option>
+          <option value="Q">Quartile (25%)</option>
+          <option value="H">High (30%)</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="darkColor">QR Code Color</label>
+        <input type="color" id="darkColor" value="#000000">
+      </div>
+
+      <div class="field">
+        <label for="lightColor">Background Color</label>
+        <input type="color" id="lightColor" value="#ffffff">
+      </div>
+    </div>
+
+    <div class="actions">
+      <button type="button" id="generateBtn">Generate QR Code</button>
+      <button type="button" class="secondary" id="resetBtn">Reset</button>
+    </div>
+
+    <div class="message" id="message" role="status" aria-live="polite"></div>
+  </section>
+
+  <section class="panel">
+    <h2>3. QR Code Preview</h2>
+
+    <div class="preview-area">
+      <div class="placeholder" id="placeholder">
+        Your QR code will appear here after generation.
+      </div>
+      <canvas id="qrCanvas"></canvas>
+    </div>
+
+    <div class="actions">
+      <button type="button" id="downloadBtn" disabled>Download QR Code (PNG)</button>
+    </div>
+
+    <p class="hint">For best scanning results, use dark QR code modules on a light background and test your downloaded image with a phone before printing.</p>
+  </section>
+
+  <section class="content-section">
+    <h2>How to Use the QR Code Generator</h2>
+    <ol>
+      <li>Select the type of QR code you want to create.</li>
+      <li>Enter your website URL, text, email, phone number or WhatsApp details.</li>
+      <li>Choose the QR code size and customize its colors.</li>
+      <li>Select the error correction level.</li>
+      <li>Click Generate QR Code to see the preview.</li>
+      <li>Click Download QR Code to save your PNG image.</li>
+    </ol>
+  </section>
+
+  <section class="content-section">
+    <h2>What Is a QR Code?</h2>
+    <p>A QR code (Quick Response code) is a two-dimensional barcode that stores information. A smartphone camera or QR scanner can read it to open a website, display text, prepare an email or perform other supported actions.</p>
+
+    <h2>Where Can You Use QR Codes?</h2>
+    <ul>
+      <li>Website links and business pages.</li>
+      <li>Business cards and contact materials.</li>
+      <li>Restaurant menus and product information.</li>
+      <li>Posters, brochures and advertisements.</li>
+      <li>WhatsApp contact and message links.</li>
+      <li>Educational resources and classroom materials.</li>
+    </ul>
+  </section>
+
+  <section class="content-section">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <h3>1. Is this QR code generator free?</h3>
+      <p>Yes. You can create and download QR codes without paying or registering.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>2. Do QR codes expire?</h3>
+      <p>QR codes generated by this tool are static. They do not have an automatic expiry date. However, a website or other destination encoded in a QR code may become unavailable.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>3. Can I create a QR code for WhatsApp?</h3>
+      <p>Yes. Enter a WhatsApp number with its country code and optionally add a pre-filled message.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>4. Can I change QR code colors?</h3>
+      <p>Yes. You can select a foreground color and background color before generating the QR code. Keep enough contrast for reliable scanning.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>5. Are my details uploaded to a server?</h3>
+      <p>This tool generates QR codes in your browser. The QR code content is processed locally, although the QR generation library is loaded from an external content delivery network.</p>
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 Easy Online Tool. Free online tools for everyone.</p>
+</footer>
+
+<!-- QRCode.js library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+
+  const type = $("qrType");
+  const qrCanvas = $("qrCanvas");
+  const placeholder = $("placeholder");
+  const downloadBtn = $("downloadBtn");
+
+  let qrInstance = null;
+  let generatedData = "";
+
+  const fieldIds = [
+    "urlField",
+    "textField",
+    "emailField",
+    "phoneField",
+    "whatsappField"
+  ];
+
+  function showMessage(text) {
+    $("message").textContent = text;
+    $("message").style.display = "block";
+  }
+
+  function hideMessage() {
+    $("message").style.display = "none";
+  }
+
+  function updateFields() {
+    fieldIds.forEach(id => $(id).hidden = true);
+    $(type.value + "Field").hidden = false;
+    clearResult();
+    hideMessage();
+  }
+
+  function clearResult() {
+    qrCanvas.style.display = "none";
+    placeholder.style.display = "block";
+    qrCanvas.width = 300;
+    qrCanvas.height = 300;
+    qrCanvas.getContext("2d").clearRect(0, 0, 300, 300);
+    downloadBtn.disabled = true;
+    generatedData = "";
+  }
+
+  function getQRContent() {
+    const selected = type.value;
+
+    if (selected === "url") {
+      const value = $("urlInput").value.trim();
+      if (!value) throw new Error("Please enter a website URL.");
+
+      let parsed;
+      try {
+        parsed = new URL(value);
+      } catch {
+        throw new Error("Please enter a valid URL, including https:// or http://.");
+      }
+
+      if (!["http:", "https:"].includes(parsed.protocol)) {
+        throw new Error("Only HTTP and HTTPS website URLs are supported.");
+      }
+
+      return parsed.href;
+    }
+
+    if (selected === "text") {
+      const value = $("textInput").value.trim();
+      if (!value) throw new Error("Please enter some text.");
+      return value;
+    }
+
+    if (selected === "email") {
+      const address = $("emailInput").value.trim();
+      if (!address || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(address)) {
+        throw new Error("Please enter a valid email address.");
+      }
+
+      const subject = $("emailSubject").value.trim();
+      const body = $("emailBody").value.trim();
+
+      return "mailto:" + address +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
+    }
+
+    if (selected === "phone") {
+      const number = $("phoneInput").value.trim();
+      if (!number || !/^\+?[0-9\s().-]{7,20}$/.test(number)) {
+        throw new Error("Please enter a valid phone number.");
+      }
+
+      return "tel:" + number.replace(/[\s().-]/g, "");
+    }
+
+    if (selected === "whatsapp") {
+      const number = $("whatsappInput").value.trim();
+      const cleanNumber = number.replace(/\D/g, "");
+
+      if (!/^[1-9]\d{7,14}$/.test(cleanNumber)) {
+        throw new Error("Enter a valid WhatsApp number with country code, without + or spaces.");
+      }
+
+      const message = $("whatsappMessage").value.trim();
+      return "https://wa.me/" + cleanNumber +
+        (message ? "?text=" + encodeURIComponent(message) : "");
+    }
+
+    throw new Error("Please select a QR code type.");
+  }
+
+  function renderToCanvas(sourceCanvas) {
+    const size = Number($("sizeSelect").value);
+    const output = qrCanvas;
+    const ctx = output.getContext("2d");
+
+    output.width = size;
+    output.height = size;
+
+    ctx.fillStyle = $("lightColor").value;
+    ctx.fillRect(0, 0, size, size);
+
+    ctx.imageSmoothingEnabled = false;
+    ctx.drawImage(sourceCanvas, 0, 0, size, size);
+
+    output.style.display = "block";
+    placeholder.style.display = "none";
+    downloadBtn.disabled = false;
+  }
+
+  function generateQR() {
+    hideMessage();
+    clearResult();
+
+    let content;
+
+    try {
+      content = getQRContent();
+    } catch (error) {
+      showMessage(error.message);
+      return;
+    }
+
+    if (typeof QRCode === "undefined") {
+      showMessage("QR code library could not load. Please check your internet connection and reload the page.");
+      return;
+    }
+
+    const temporary = document.createElement("div");
+
+    const size = Number($("sizeSelect").value);
+    const level = $("errorLevel").value;
+
+    const correctionLevels = {
+      L: QRCode.CorrectLevel.L,
+      M: QRCode.CorrectLevel.M,
+      Q: QRCode.CorrectLevel.Q,
+      H: QRCode.CorrectLevel.H
+    };
+
+    try {
+      qrInstance = new QRCode(temporary, {
+        text: content,
+        width: size,
+        height: size,
+        colorDark: $("darkColor").value,
+        colorLight: $("lightColor").value,
+        correctLevel: correctionLevels[level]
+      });
+
+      generatedData = content;
+
+      setTimeout(() => {
+        const source = temporary.querySelector("canvas") ||
+          temporary.querySelector("img");
+
+        if (!source) {
+          showMessage("Could not generate this QR code. Try shorter text or a smaller amount of data.");
+          return;
+        }
+
+        if (source.tagName === "CANVAS") {
+          renderToCanvas(source);
+        } else {
+          const image = new Image();
+          image.onload = () => renderToCanvas(image);
+          image.onerror = () => showMessage("Could not prepare the QR code preview.");
+          image.src = source.src;
+        }
+
+        showMessage("QR code generated successfully!");
+      }, 100);
+
+    } catch (error) {
+      showMessage("Could not generate this QR code. Try shorter text or a different error correction level.");
+    }
+  }
+
+  type.addEventListener("change", updateFields);
+
+  $("generateBtn").addEventListener("click", generateQR);
+
+  downloadBtn.addEventListener("click", () => {
+    if (!generatedData || qrCanvas.style.display === "none") return;
+
+    qrCanvas.toBlob(blob => {
+      if (!blob) {
+        showMessage("Could not download the QR code. Please generate it again.");
+        return;
+      }
+
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "qr-code.png";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+
+      setTimeout(() => URL.revokeObjectURL(url), 1500);
+    }, "image/png");
+  });
+
+  $("resetBtn").addEventListener("click", () => {
+    $("qrType").value = "url";
+    $("urlInput").value = "";
+    $("textInput").value = "";
+    $("emailInput").value = "";
+    $("emailSubject").value = "";
+    $("emailBody").value = "";
+    $("phoneInput").value = "";
+    $("whatsappInput").value = "";
+    $("whatsappMessage").value = "";
+    $("sizeSelect").value = "300";
+    $("errorLevel").value = "M";
+    $("darkColor").value = "#000000";
+    $("lightColor").value = "#ffffff";
+
+    updateFields();
+    clearResult();
+    showMessage("QR code generator has been reset.");
+  });
+
+  updateFields();
+})();
+</script>
+
+</body>
+</html>
