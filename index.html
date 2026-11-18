@@ -12,7 +12,7 @@
     <title>Easy Online Tool – Free Online Calculators, Text, Image & Graphic Tools</title>
     <meta name="description" content="Use free online calculators, text tools, image tools and graphic utilities for everyday tasks. Explore simple browser-based tools at Easy Online Tool.">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#101d38">
 
     <link rel="canonical" href="https://easyonlinetools.online/">
 
@@ -54,6 +54,7 @@
             --background: #f8fafc;
             --white: #ffffff;
             --radius: 14px;
+            --header-bg: #101d38;
         }
 
         * {
@@ -62,7 +63,7 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 90px;
+            scroll-padding-top: 100px;
         }
 
         body {
@@ -94,18 +95,19 @@
             margin: 0 auto;
         }
 
-        /* HEADER */
+        /* PREMIUM HEADER */
 
         header {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(255,255,255,.97);
-            border-bottom: 1px solid var(--border);
+            background: var(--header-bg);
+            border-bottom: 1px solid rgba(255,255,255,.10);
+            box-shadow: 0 5px 22px rgba(15,23,42,.12);
         }
 
         .header-inner {
-            min-height: 72px;
+            min-height: 82px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -113,56 +115,137 @@
         }
 
         .logo {
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 10px;
-            color: var(--text);
+            gap: 13px;
+            color: white;
             text-decoration: none;
-            font-size: 21px;
-            font-weight: 800;
-            white-space: nowrap;
+            min-width: 0;
         }
 
         .logo-mark {
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 11px;
-            background: var(--primary);
+            flex: 0 0 49px;
+            width: 49px;
+            height: 49px;
+            border: 1px solid rgba(255,255,255,.35);
+            border-radius: 14px;
+            background: linear-gradient(145deg, #60a5fa, #2563eb 60%, #1d4ed8);
             color: white;
-            font-size: 16px;
-            letter-spacing: -1px;
+            font-size: 20px;
+            font-weight: 900;
+            letter-spacing: -1.8px;
+            box-shadow: 0 5px 16px rgba(37,99,235,.35);
+        }
+
+        .logo-mark::after {
+            content: "";
+            position: absolute;
+            right: 5px;
+            bottom: 5px;
+            width: 7px;
+            height: 7px;
+            border: 2px solid #101d38;
+            border-radius: 50%;
+            background: #bfdbfe;
+        }
+
+        .logo-copy {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            line-height: 1.2;
+        }
+
+        .logo-title {
+            color: #ffffff;
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: -.55px;
+            white-space: nowrap;
+        }
+
+        .logo-tagline {
+            margin-top: 5px;
+            color: #a9c4ed;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.05px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 22px;
         }
 
         nav {
             display: flex;
             align-items: center;
-            gap: 25px;
+            gap: 24px;
         }
 
         nav a {
-            color: #475569;
+            position: relative;
+            color: #d7e2f2;
             font-size: 14px;
             font-weight: 700;
             text-decoration: none;
+            transition: color .2s ease;
         }
 
-        nav a:hover {
-            color: var(--primary);
+        nav a:not(.nav-button)::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 0;
+            height: 2px;
+            border-radius: 2px;
+            background: #60a5fa;
+            transition: width .2s ease;
+        }
+
+        nav a:not(.nav-button):hover {
+            color: white;
+        }
+
+        nav a:not(.nav-button):hover::after {
+            width: 100%;
         }
 
         .nav-button {
-            padding: 9px 16px;
-            border-radius: 8px;
-            background: var(--primary);
+            padding: 10px 17px;
+            border: 1px solid #60a5fa;
+            border-radius: 9px;
+            background: #2563eb;
             color: white;
+            box-shadow: 0 4px 12px rgba(37,99,235,.22);
         }
 
         .nav-button:hover {
-            background: var(--primary-dark);
+            border-color: #93c5fd;
+            background: #1d4ed8;
             color: white;
+        }
+
+        .menu-toggle {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 43px;
+            height: 43px;
+            border: 1px solid rgba(255,255,255,.22);
+            border-radius: 10px;
+            background: rgba(255,255,255,.08);
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
         }
 
         /* HERO */
@@ -776,24 +859,91 @@
             .footer-grid {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
-        }
 
-        @media (max-width: 620px) {
             .header-inner {
-                flex-direction: column;
-                justify-content: center;
-                gap: 10px;
-                padding: 12px 0;
+                gap: 15px;
             }
 
             nav {
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 10px 17px;
+                gap: 15px;
             }
 
             nav a {
                 font-size: 13px;
+            }
+        }
+
+        @media (max-width: 620px) {
+            .header-inner {
+                min-height: 75px;
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 10px;
+                padding: 10px 0;
+            }
+
+            .logo {
+                gap: 10px;
+            }
+
+            .logo-mark {
+                flex-basis: 43px;
+                width: 43px;
+                height: 43px;
+                border-radius: 12px;
+                font-size: 18px;
+            }
+
+            .logo-title {
+                font-size: 17px;
+            }
+
+            .logo-tagline {
+                font-size: 9px;
+                letter-spacing: .8px;
+            }
+
+            .menu-toggle {
+                display: inline-flex;
+            }
+
+            .header-right {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                display: none;
+                padding: 12px 4%;
+                border-top: 1px solid rgba(255,255,255,.10);
+                background: #101d38;
+                box-shadow: 0 12px 18px rgba(15,23,42,.16);
+            }
+
+            .header-right.open {
+                display: block;
+            }
+
+            nav {
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+            }
+
+            nav a {
+                display: block;
+                padding: 12px 10px;
+                border-bottom: 1px solid rgba(255,255,255,.09);
+                font-size: 14px;
+            }
+
+            nav a:not(.nav-button)::after {
+                display: none;
+            }
+
+            .nav-button {
+                margin-top: 10px;
+                text-align: center;
             }
 
             .hero {
@@ -866,18 +1016,33 @@
     <div class="container header-inner">
 
         <a href="/" class="logo" aria-label="Easy Online Tool homepage">
-            <span class="logo-mark">EO</span>
-            <span>Easy Online Tool</span>
+            <span class="logo-mark" aria-hidden="true">EO</span>
+            <span class="logo-copy">
+                <span class="logo-title">Easy Online Tool</span>
+                <span class="logo-tagline">Simple Tools. Smarter Solutions.</span>
+            </span>
         </a>
 
-        <nav aria-label="Main navigation">
-            <a href="/">Home</a>
-            <a href="/tools.html">All Tools</a>
-            <a href="#categories">Categories</a>
-            <a href="#about">About</a>
-            <a href="#faq">FAQ</a>
-            <a href="/contact.html" class="nav-button">Contact</a>
-        </nav>
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="headerNavigation">
+            ☰
+        </button>
+
+        <div class="header-right" id="headerNavigation">
+            <nav aria-label="Main navigation">
+                <a href="/">Home</a>
+                <a href="/tools.html">All Tools</a>
+                <a href="#categories">Categories</a>
+                <a href="#about">About</a>
+                <a href="#faq">FAQ</a>
+                <a href="/contact.html" class="nav-button">Contact Us</a>
+            </nav>
+        </div>
 
     </div>
 </header>
@@ -1453,6 +1618,55 @@
 
     </div>
 </footer>
+
+<!-- MOBILE NAVIGATION -->
+
+<script>
+(function () {
+    "use strict";
+
+    const menuButton = document.getElementById("menuToggle");
+    const navigation = document.getElementById("headerNavigation");
+
+    if (!menuButton || !navigation) {
+        return;
+    }
+
+    function closeMenu() {
+        navigation.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute("aria-label", "Open navigation menu");
+        menuButton.textContent = "☰";
+    }
+
+    menuButton.addEventListener("click", function () {
+        const isOpen = navigation.classList.toggle("open");
+
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+        menuButton.setAttribute(
+            "aria-label",
+            isOpen ? "Close navigation menu" : "Open navigation menu"
+        );
+        menuButton.textContent = isOpen ? "✕" : "☰";
+    });
+
+    navigation.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+            closeMenu();
+        }
+    });
+
+    window.addEventListener("resize", function () {
+        if (window.innerWidth > 620) {
+            closeMenu();
+        }
+    });
+})();
+</script>
 
 <!-- HOMEPAGE SEARCH -->
 
