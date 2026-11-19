@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>FAQ - Frequently Asked Questions | Easy Online Tool</title>
-
     <meta name="description" content="Find answers to frequently asked questions about Easy Online Tool and its free online calculators and tools.">
 
     <style>
@@ -23,41 +22,106 @@
         }
 
         header {
-            background: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid #e5e7eb;
-            padding: 18px 20px;
+            box-shadow: 0 2px 12px rgba(15, 23, 42, 0.04);
+            padding: 12px 20px;
         }
 
         .header-inner {
-            max-width: 1100px;
+            max-width: 1150px;
             margin: auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 20px;
+            gap: 24px;
         }
 
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #2563eb;
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .brand-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 13px;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.25;
+        }
+
+        .brand-name {
+            color: #111827;
+            font-size: 19px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .brand-tagline {
+            color: #6b7280;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-top: 3px;
         }
 
         nav {
             display: flex;
-            gap: 20px;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 7px;
             flex-wrap: wrap;
         }
 
         nav a {
             color: #374151;
             text-decoration: none;
-            font-weight: 500;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 9px 12px;
+            border-radius: 8px;
+            transition: background 0.2s, color 0.2s;
         }
 
         nav a:hover {
             color: #2563eb;
+            background: #eff6ff;
+        }
+
+        nav a.active {
+            color: #2563eb;
+            background: #eff6ff;
+        }
+
+        nav a.contact-link {
+            color: #ffffff;
+            background: #2563eb;
+            padding: 9px 16px;
+        }
+
+        nav a.contact-link:hover {
+            background: #1d4ed8;
+            color: #ffffff;
         }
 
         .container {
@@ -117,13 +181,37 @@
             margin-top: 40px;
         }
 
-        @media (max-width: 700px) {
+        @media (max-width: 800px) {
             .header-inner {
                 flex-direction: column;
+                gap: 12px;
             }
 
             nav {
                 justify-content: center;
+            }
+        }
+
+        @media (max-width: 620px) {
+            header {
+                padding: 12px 14px;
+            }
+
+            nav {
+                gap: 4px;
+            }
+
+            nav a {
+                font-size: 13px;
+                padding: 8px 9px;
+            }
+
+            nav a.contact-link {
+                padding: 8px 12px;
+            }
+
+            .container {
+                margin: 30px auto;
             }
 
             .page-title h1 {
@@ -133,9 +221,12 @@
             .faq-card {
                 padding: 20px;
             }
+
+            summary {
+                font-size: 16px;
+            }
         }
     </style>
- 
 </head>
 
 <body>
@@ -143,16 +234,21 @@
 <header>
     <div class="header-inner">
 
-        <a href="index.html" class="logo">
-            Easy Online Tool
+        <a href="index.html" class="brand" aria-label="Easy Online Tool Home">
+            <span class="brand-icon">EO</span>
+            <span class="brand-text">
+                <span class="brand-name">Easy Online Tool</span>
+                <span class="brand-tagline">CALCULATORS • TOOLS</span>
+            </span>
         </a>
 
-        <nav>
+        <nav aria-label="Main navigation">
             <a href="index.html">Home</a>
-            <a href="tools.html">Tools</a>
+            <a href="tools.html">All Tools</a>
             <a href="index.html#categories">Categories</a>
             <a href="about.html">About</a>
-            <a href="faq.html">FAQ</a>
+            <a href="faq.html" class="active" aria-current="page">FAQ</a>
+            <a href="contact.html" class="contact-link">Contact</a>
         </nav>
 
     </div>
@@ -193,10 +289,10 @@
 
         <details>
             <summary>What types of calculators are available?</summary>
-          <p>
-    We provide tools for math and advanced calculations, finance, health and
-    fitness, date and time, conversions and other everyday calculations.
-</p>
+            <p>
+                We provide tools for math and advanced calculations, finance, health and
+                fitness, date and time, conversions and other everyday calculations.
+            </p>
         </details>
 
         <details>
@@ -208,17 +304,19 @@
                 decisions should be verified with a qualified professional.
             </p>
         </details>
-<details>
-    <summary>How do the calculators provide their results?</summary>
-    <p>
-        Each calculator uses the mathematical formulas or calculation methods
-        described on its individual tool page. You enter the required
-        information, and the calculator processes it directly in your browser
-        to provide the result. Where appropriate, the tool may also explain
-        the calculation or show related information to help you understand
-        the result.
-    </p>
-</details>
+
+        <details>
+            <summary>How do the calculators provide their results?</summary>
+            <p>
+                Each calculator uses the mathematical formulas or calculation methods
+                described on its individual tool page. You enter the required
+                information, and the calculator processes it directly in your browser
+                to provide the result. Where appropriate, the tool may also explain
+                the calculation or show related information to help you understand
+                the result.
+            </p>
+        </details>
+
         <details>
             <summary>Will you add more tools?</summary>
             <p>
