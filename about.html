@@ -15,6 +15,10 @@
             padding: 0;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: Arial, sans-serif;
             background: #f5f7fb;
@@ -22,42 +26,110 @@
             line-height: 1.7;
         }
 
+        /* BRANDED HEADER */
+
         header {
-            background: #ffffff;
-            border-bottom: 1px solid #e5e7eb;
-            padding: 18px 20px;
+            background: rgba(255, 255, 255, 0.97);
+            border-bottom: 1px solid #e5eaf2;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 18px rgba(15, 23, 42, 0.045);
         }
 
         .header-inner {
-            max-width: 1100px;
+            max-width: 1150px;
+            min-height: 78px;
             margin: auto;
+            padding: 12px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 20px;
+            gap: 25px;
         }
 
         .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #2563eb;
+            display: flex;
+            align-items: center;
+            gap: 12px;
             text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .logo-mark {
+            width: 46px;
+            height: 46px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 13px;
+            background: linear-gradient(135deg, #1e40af, #2563eb 60%, #38bdf8);
+            color: #ffffff;
+            font-size: 19px;
+            font-weight: 900;
+            letter-spacing: -1.5px;
+            box-shadow: 0 5px 12px rgba(37, 99, 235, 0.22);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .logo-title {
+            color: #111827;
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: -0.6px;
+        }
+
+        .logo-tagline {
+            margin-top: 4px;
+            color: #64748b;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
         }
 
         nav {
             display: flex;
-            gap: 20px;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 7px;
             flex-wrap: wrap;
         }
 
         nav a {
-            color: #374151;
+            color: #475569;
             text-decoration: none;
-            font-weight: 500;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 9px 13px;
+            border-radius: 8px;
+            transition: background 0.2s ease, color 0.2s ease;
         }
 
         nav a:hover {
-            color: #2563eb;
+            color: #1d4ed8;
+            background: #eff6ff;
+        }
+
+        nav a.active {
+            color: #1d4ed8;
+            background: #eff6ff;
+        }
+
+        nav a.nav-contact {
+            color: #ffffff;
+            background: #2563eb;
+            padding: 10px 17px;
+            box-shadow: 0 3px 9px rgba(37, 99, 235, 0.18);
+        }
+
+        nav a.nav-contact:hover {
+            background: #1d4ed8;
+            color: #ffffff;
         }
 
         .container {
@@ -126,6 +198,8 @@
             color: #6b7280;
             font-size: 14px;
             margin-top: 40px;
+            background: #ffffff;
+            border-top: 1px solid #e5e7eb;
         }
 
         footer a {
@@ -138,13 +212,46 @@
             color: #2563eb;
         }
 
-        @media (max-width: 700px) {
+        @media (max-width: 800px) {
+            .header-inner {
+                gap: 12px;
+            }
+
+            nav {
+                gap: 3px;
+            }
+
+            nav a {
+                padding: 8px 9px;
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 620px) {
             .header-inner {
                 flex-direction: column;
+                justify-content: center;
+                gap: 12px;
+                padding: 13px 15px;
+            }
+
+            .logo {
+                justify-content: center;
             }
 
             nav {
                 justify-content: center;
+                width: 100%;
+                gap: 5px;
+            }
+
+            nav a {
+                font-size: 13px;
+                padding: 7px 9px;
+            }
+
+            nav a.nav-contact {
+                padding: 7px 11px;
             }
 
             .page-title h1 {
@@ -153,6 +260,10 @@
 
             .about-card {
                 padding: 22px;
+            }
+
+            .container {
+                margin-top: 30px;
             }
         }
     </style>
@@ -163,16 +274,21 @@
 <header>
     <div class="header-inner">
 
-        <a href="index.html" class="logo">
-            Easy Online Tool
+        <a href="index.html" class="logo" aria-label="Easy Online Tool home">
+            <span class="logo-mark">EO</span>
+            <span class="logo-text">
+                <span class="logo-title">Easy Online Tool</span>
+                <span class="logo-tagline">CALCULATORS • TOOLS</span>
+            </span>
         </a>
 
-        <nav>
+        <nav aria-label="Main navigation">
             <a href="index.html">Home</a>
-            <a href="tools.html">Tools</a>
+            <a href="tools.html">All Tools</a>
             <a href="index.html#categories">Categories</a>
-            <a href="about.html">About</a>
+            <a href="about.html" class="active" aria-current="page">About</a>
             <a href="faq.html">FAQ</a>
+            <a href="contact.html" class="nav-contact">Contact</a>
         </nav>
 
     </div>
@@ -201,20 +317,21 @@
             in their web browser without downloading or installing additional
             software.
         </p>
-<h2>About the Website</h2>
 
-<p>
-    Easy Online Tool is an independently developed online tools website
-    focused on providing practical calculators and utilities that are simple
-    to use and easy to understand.
-</p>
+        <h2>About the Website</h2>
 
-<p>
-    The website is maintained and updated to improve the accuracy, usability
-    and overall experience of its calculators and tools. We aim to provide
-    clear explanations alongside our tools so visitors can better understand
-    how calculations are performed and how results should be interpreted.
-</p>
+        <p>
+            Easy Online Tool is an independently developed online tools website
+            focused on providing practical calculators and utilities that are simple
+            to use and easy to understand.
+        </p>
+
+        <p>
+            The website is maintained and updated to improve the accuracy, usability
+            and overall experience of its calculators and tools. We aim to provide
+            clear explanations alongside our tools so visitors can better understand
+            how calculations are performed and how results should be interpreted.
+        </p>
 
         <h2>What You Can Find Here</h2>
 
@@ -237,7 +354,6 @@
             find more useful tools in one convenient place.
         </p>
 
-
         <h2>Our Approach</h2>
 
         <p>
@@ -254,7 +370,6 @@
             financial, health or other professional decisions.
         </p>
 
-
         <div class="highlight">
 
             <h2>Free and Easy to Use</h2>
@@ -268,7 +383,6 @@
 
         </div>
 
-
         <h2>Continuous Improvement</h2>
 
         <p>
@@ -281,7 +395,6 @@
             Feedback and suggestions from visitors help us identify useful new
             tools and improvements.
         </p>
-
 
         <h2>Contact Us</h2>
 
@@ -297,6 +410,9 @@
 
 <footer>
     <div>
+        <a href="index.html">Home</a>
+        <a href="tools.html">All Tools</a>
+        <a href="index.html#categories">Categories</a>
         <a href="about.html">About</a>
         <a href="faq.html">FAQ</a>
         <a href="privacy-policy.html">Privacy Policy</a>
